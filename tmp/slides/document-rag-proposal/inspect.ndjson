@@ -1,0 +1,426 @@
+{"kind":"deck","id":"document-rag-proposal","slideCount":8,"slideSize":{"width":1280,"height":720}}
+{"kind":"slide","slide":1,"id":"lv7708"}
+{"kind":"slide","slide":2,"id":"umg6u0"}
+{"kind":"slide","slide":3,"id":"ycjgcw"}
+{"kind":"slide","slide":4,"id":"nerzto"}
+{"kind":"slide","slide":5,"id":"6wbgh0"}
+{"kind":"slide","slide":6,"id":"6qkvre"}
+{"kind":"slide","slide":7,"id":"mv5og2"}
+{"kind":"slide","slide":8,"id":"g92g4x"}
+{"kind":"shape","slide":1,"id":"2","role":"bg band","shapeType":"rect","bbox":[0,0,1280,88]}
+{"kind":"shape","slide":1,"id":"3","role":"bg accent block","shapeType":"rect","bbox":[1030,0,250,88]}
+{"kind":"shape","slide":1,"id":"4","role":"bg footer block","shapeType":"rect","bbox":[0,614,248,106]}
+{"kind":"shape","slide":1,"id":"5","role":"canvas","shapeType":"roundRect","bbox":[40,40,1200,640]}
+{"kind":"shape","slide":1,"id":"6","role":"canvas spine","shapeType":"rect","bbox":[40,40,10,640]}
+{"kind":"shape","slide":1,"id":"7","role":"cover rule","shapeType":"rect","bbox":[82,118,6,438]}
+{"kind":"shape","slide":1,"id":"8","role":"cover kicker","shapeType":"rect","bbox":[106,116,220,18]}
+{"kind":"textbox","slide":1,"id":"8","role":"cover kicker","text":"课程作业开题答辩","textChars":8,"textLines":1,"bbox":[106,116,220,18]}
+{"kind":"shape","slide":1,"id":"9","role":"cover course label","shapeType":"rect","bbox":[106,148,360,20]}
+{"kind":"textbox","slide":1,"id":"9","role":"cover course label","text":"多模态大模型原理与应用 · 题目 3","textChars":18,"textLines":1,"bbox":[106,148,360,20]}
+{"kind":"shape","slide":1,"id":"10","role":"cover title","shapeType":"rect","bbox":[100,188,670,136]}
+{"kind":"textbox","slide":1,"id":"10","role":"cover title","text":"文档理解与多模态检索问答系统","textChars":14,"textLines":1,"bbox":[100,188,670,136]}
+{"kind":"shape","slide":1,"id":"11","role":"cover subtitle","shapeType":"rect","bbox":[106,338,608,66]}
+{"kind":"textbox","slide":1,"id":"11","role":"cover subtitle","text":"基于 Qwen2.5-VL 与 LangChain 的多模态文档问答设计，以轻量文档图增强作为进阶方向。","textChars":52,"textLines":1,"bbox":[106,338,608,66]}
+{"kind":"shape","slide":1,"id":"12","role":"cover summary panel","shapeType":"roundRect","bbox":[826,130,340,262]}
+{"kind":"shape","slide":1,"id":"13","role":"cover summary panel accent","shapeType":"rect","bbox":[826,130,6,262]}
+{"kind":"shape","slide":1,"id":"14","role":"cover summary label","shapeType":"rect","bbox":[856,156,120,18]}
+{"kind":"textbox","slide":1,"id":"14","role":"cover summary label","text":"答辩重点","textChars":4,"textLines":1,"bbox":[856,156,120,18]}
+{"kind":"shape","slide":1,"id":"15","role":"cover summary list","shapeType":"rect","bbox":[856,194,258,92]}
+{"kind":"textbox","slide":1,"id":"15","role":"cover summary list","text":"• 最低可交付版本明确\n• GraphRAG 只作为增强方向\n• 风险与回退方案可直接答辩","textChars":45,"textLines":3,"bbox":[856,194,258,92]}
+{"kind":"shape","slide":1,"id":"16","role":"cover summary rule","shapeType":"rect","bbox":[856,310,230,2]}
+{"kind":"shape","slide":1,"id":"17","role":"cover summary closing","shapeType":"rect","bbox":[856,332,244,34]}
+{"kind":"textbox","slide":1,"id":"17","role":"cover summary closing","text":"主线优先 · 增强有边界 · 结果可解释","textChars":20,"textLines":1,"bbox":[856,332,244,34]}
+{"kind":"shape","slide":1,"id":"18","role":"tag","shapeType":"roundRect","bbox":[104,440,110,32]}
+{"kind":"shape","slide":1,"id":"19","role":"tag text","shapeType":"rect","bbox":[118,448,82,16]}
+{"kind":"textbox","slide":1,"id":"19","role":"tag text","text":"多模态 RAG","textChars":7,"textLines":1,"bbox":[118,448,82,16]}
+{"kind":"shape","slide":1,"id":"20","role":"tag","shapeType":"roundRect","bbox":[226,440,184,32]}
+{"kind":"shape","slide":1,"id":"21","role":"tag text","shapeType":"rect","bbox":[240,448,156,16]}
+{"kind":"textbox","slide":1,"id":"21","role":"tag text","text":"DocVQA / ChartQA","textChars":16,"textLines":1,"bbox":[240,448,156,16]}
+{"kind":"shape","slide":1,"id":"22","role":"tag","shapeType":"roundRect","bbox":[422,440,165,32]}
+{"kind":"shape","slide":1,"id":"23","role":"tag text","shapeType":"rect","bbox":[436,448,137,16]}
+{"kind":"textbox","slide":1,"id":"23","role":"tag text","text":"轻量 GraphRAG","textChars":11,"textLines":1,"bbox":[436,448,137,16]}
+{"kind":"shape","slide":1,"id":"24","role":"tag","shapeType":"roundRect","bbox":[599,440,120,32]}
+{"kind":"shape","slide":1,"id":"25","role":"tag text","shapeType":"rect","bbox":[613,448,92,16]}
+{"kind":"textbox","slide":1,"id":"25","role":"tag text","text":"课程作业开题展示","textChars":8,"textLines":1,"bbox":[613,448,92,16]}
+{"kind":"shape","slide":1,"id":"26","role":"cover footer card","shapeType":"roundRect","bbox":[104,518,308,90]}
+{"kind":"shape","slide":1,"id":"27","role":"cover footer card accent","shapeType":"rect","bbox":[104,518,6,90]}
+{"kind":"shape","slide":1,"id":"28","role":"cover footer card","shapeType":"roundRect","bbox":[430,518,308,90]}
+{"kind":"shape","slide":1,"id":"29","role":"cover footer card accent","shapeType":"rect","bbox":[430,518,6,90]}
+{"kind":"shape","slide":1,"id":"30","role":"cover footer label","shapeType":"rect","bbox":[128,536,120,18]}
+{"kind":"textbox","slide":1,"id":"30","role":"cover footer label","text":"展示目标","textChars":4,"textLines":1,"bbox":[128,536,120,18]}
+{"kind":"shape","slide":1,"id":"31","role":"cover footer body","shapeType":"rect","bbox":[128,560,248,34]}
+{"kind":"textbox","slide":1,"id":"31","role":"cover footer body","text":"讲清主线交付、增强目标、风险与回退","textChars":17,"textLines":1,"bbox":[128,560,248,34]}
+{"kind":"shape","slide":1,"id":"32","role":"cover footer label","shapeType":"rect","bbox":[454,536,120,18]}
+{"kind":"textbox","slide":1,"id":"32","role":"cover footer label","text":"当前口径","textChars":4,"textLines":1,"bbox":[454,536,120,18]}
+{"kind":"shape","slide":1,"id":"33","role":"cover footer body","shapeType":"rect","bbox":[454,560,248,34]}
+{"kind":"textbox","slide":1,"id":"33","role":"cover footer body","text":"最低可交付版本以多模态 RAG 为主","textChars":18,"textLines":1,"bbox":[454,560,248,34]}
+{"kind":"shape","slide":1,"id":"34","role":"cover lower rule","shapeType":"rect","bbox":[826,414,340,2]}
+{"kind":"shape","slide":1,"id":"35","role":"cover lower label","shapeType":"rect","bbox":[856,434,80,16]}
+{"kind":"textbox","slide":1,"id":"35","role":"cover lower label","text":"答辩口径","textChars":4,"textLines":1,"bbox":[856,434,80,16]}
+{"kind":"shape","slide":1,"id":"36","role":"hero note","shapeType":"rect","bbox":[856,460,270,78]}
+{"kind":"textbox","slide":1,"id":"36","role":"hero note","text":"先证明题目 3 主线跑通，再展示 GraphRAG 的增益空间。","textChars":32,"textLines":1,"bbox":[856,460,270,78]}
+{"kind":"shape","slide":1,"id":"37","role":"hero note caption","shapeType":"rect","bbox":[856,556,264,34]}
+{"kind":"textbox","slide":1,"id":"37","role":"hero note caption","text":"重点不是功能堆叠，而是路线可收敛、结果可解释。","textChars":23,"textLines":1,"bbox":[856,556,264,34]}
+{"kind":"shape","slide":2,"id":"2","role":"bg band","shapeType":"rect","bbox":[0,0,1280,88]}
+{"kind":"shape","slide":2,"id":"3","role":"bg accent block","shapeType":"rect","bbox":[1030,0,250,88]}
+{"kind":"shape","slide":2,"id":"4","role":"bg footer block","shapeType":"rect","bbox":[0,614,248,106]}
+{"kind":"shape","slide":2,"id":"5","role":"canvas","shapeType":"roundRect","bbox":[40,40,1200,640]}
+{"kind":"shape","slide":2,"id":"6","role":"canvas spine","shapeType":"rect","bbox":[40,40,10,640]}
+{"kind":"shape","slide":2,"id":"7","role":"header accent","shapeType":"rect","bbox":[78,57,4,18]}
+{"kind":"shape","slide":2,"id":"8","role":"header kicker","shapeType":"rect","bbox":[92,54,460,22]}
+{"kind":"textbox","slide":2,"id":"8","role":"header kicker","text":"01 · WHY THIS PROBLEM","textChars":21,"textLines":1,"bbox":[92,54,460,22]}
+{"kind":"shape","slide":2,"id":"9","role":"header index pill","shapeType":"roundRect","bbox":[1126,46,82,34]}
+{"kind":"shape","slide":2,"id":"10","role":"header index","shapeType":"rect","bbox":[1140,56,54,14]}
+{"kind":"textbox","slide":2,"id":"10","role":"header index","text":"02 / 08","textChars":7,"textLines":1,"bbox":[1140,56,54,14]}
+{"kind":"shape","slide":2,"id":"11","role":"header line","shapeType":"rect","bbox":[78,94,1130,1.5]}
+{"kind":"shape","slide":2,"id":"12","role":"title","shapeType":"rect","bbox":[74,92,900,112]}
+{"kind":"textbox","slide":2,"id":"12","role":"title","text":"文档问答的难点不只在 OCR，而在证据组织","textChars":21,"textLines":1,"bbox":[74,92,900,112]}
+{"kind":"shape","slide":2,"id":"13","role":"problem card","shapeType":"roundRect","bbox":[76,254,350,250]}
+{"kind":"shape","slide":2,"id":"14","role":"problem card accent","shapeType":"rect","bbox":[76,254,6,250]}
+{"kind":"shape","slide":2,"id":"15","role":"problem index","shapeType":"ellipse","bbox":[100,276,34,34]}
+{"kind":"shape","slide":2,"id":"16","role":"problem index text","shapeType":"rect","bbox":[111,285,12,12]}
+{"kind":"textbox","slide":2,"id":"16","role":"problem index text","text":"A","textChars":1,"textLines":1,"bbox":[111,285,12,12]}
+{"kind":"shape","slide":2,"id":"17","role":"problem title","shapeType":"rect","bbox":[100,326,288,30]}
+{"kind":"textbox","slide":2,"id":"17","role":"problem title","text":"文档天然多模态","textChars":7,"textLines":1,"bbox":[100,326,288,30]}
+{"kind":"shape","slide":2,"id":"18","role":"problem body","shapeType":"rect","bbox":[100,376,298,92]}
+{"kind":"textbox","slide":2,"id":"18","role":"problem body","text":"文本、图表、表格、版面结构混在一起。只看纯文本，很容易丢掉图像与版面中的关键信息。","textChars":41,"textLines":1,"bbox":[100,376,298,92]}
+{"kind":"shape","slide":2,"id":"19","role":"problem card","shapeType":"roundRect","bbox":[450,254,350,250]}
+{"kind":"shape","slide":2,"id":"20","role":"problem card accent","shapeType":"rect","bbox":[450,254,6,250]}
+{"kind":"shape","slide":2,"id":"21","role":"problem index","shapeType":"ellipse","bbox":[474,276,34,34]}
+{"kind":"shape","slide":2,"id":"22","role":"problem index text","shapeType":"rect","bbox":[485,285,12,12]}
+{"kind":"textbox","slide":2,"id":"22","role":"problem index text","text":"B","textChars":1,"textLines":1,"bbox":[485,285,12,12]}
+{"kind":"shape","slide":2,"id":"23","role":"problem title","shapeType":"rect","bbox":[474,326,288,30]}
+{"kind":"textbox","slide":2,"id":"23","role":"problem title","text":"问题常常跨页、跨块","textChars":9,"textLines":1,"bbox":[474,326,288,30]}
+{"kind":"shape","slide":2,"id":"24","role":"problem body","shapeType":"rect","bbox":[474,376,298,92]}
+{"kind":"textbox","slide":2,"id":"24","role":"problem body","text":"“图 3 说明了什么”这类问题并不只依赖单段文字，还可能关联图号、页面、章节结论和上下文引用。","textChars":47,"textLines":1,"bbox":[474,376,298,92]}
+{"kind":"shape","slide":2,"id":"25","role":"problem card","shapeType":"roundRect","bbox":[824,254,350,250]}
+{"kind":"shape","slide":2,"id":"26","role":"problem card accent","shapeType":"rect","bbox":[824,254,6,250]}
+{"kind":"shape","slide":2,"id":"27","role":"problem index","shapeType":"ellipse","bbox":[848,276,34,34]}
+{"kind":"shape","slide":2,"id":"28","role":"problem index text","shapeType":"rect","bbox":[859,285,12,12]}
+{"kind":"textbox","slide":2,"id":"28","role":"problem index text","text":"C","textChars":1,"textLines":1,"bbox":[859,285,12,12]}
+{"kind":"shape","slide":2,"id":"29","role":"problem title","shapeType":"rect","bbox":[848,326,288,30]}
+{"kind":"textbox","slide":2,"id":"29","role":"problem title","text":"仅靠向量相似度不够","textChars":9,"textLines":1,"bbox":[848,326,288,30]}
+{"kind":"shape","slide":2,"id":"30","role":"problem body","shapeType":"rect","bbox":[848,376,298,92]}
+{"kind":"textbox","slide":2,"id":"30","role":"problem body","text":"传统 RAG 能找到“像答案”的片段，但不擅长表达“这个片段为什么和那个图有关”。","textChars":41,"textLines":1,"bbox":[848,376,298,92]}
+{"kind":"shape","slide":2,"id":"31","role":"focus strip","shapeType":"roundRect","bbox":[76,540,1124,104]}
+{"kind":"shape","slide":2,"id":"32","role":"focus label","shapeType":"rect","bbox":[108,560,120,18]}
+{"kind":"textbox","slide":2,"id":"32","role":"focus label","text":"核心研究问题","textChars":6,"textLines":1,"bbox":[108,560,120,18]}
+{"kind":"shape","slide":2,"id":"33","role":"focus body","shapeType":"rect","bbox":[108,590,1040,34]}
+{"kind":"textbox","slide":2,"id":"33","role":"focus body","text":"在先满足课程题目 3 最低要求的前提下，多模态信息能否显著提升文档问答效果；进一步引入轻量图结构后，是否能在多跳推理问题上提供额外收益？","textChars":68,"textLines":1,"bbox":[108,590,1040,34]}
+{"kind":"shape","slide":3,"id":"2","role":"bg band","shapeType":"rect","bbox":[0,0,1280,88]}
+{"kind":"shape","slide":3,"id":"3","role":"bg accent block","shapeType":"rect","bbox":[1030,0,250,88]}
+{"kind":"shape","slide":3,"id":"4","role":"bg footer block","shapeType":"rect","bbox":[0,614,248,106]}
+{"kind":"shape","slide":3,"id":"5","role":"canvas","shapeType":"roundRect","bbox":[40,40,1200,640]}
+{"kind":"shape","slide":3,"id":"6","role":"canvas spine","shapeType":"rect","bbox":[40,40,10,640]}
+{"kind":"shape","slide":3,"id":"7","role":"header accent","shapeType":"rect","bbox":[78,57,4,18]}
+{"kind":"shape","slide":3,"id":"8","role":"header kicker","shapeType":"rect","bbox":[92,54,460,22]}
+{"kind":"textbox","slide":3,"id":"8","role":"header kicker","text":"02 · SCOPE CONTROL","textChars":18,"textLines":1,"bbox":[92,54,460,22]}
+{"kind":"shape","slide":3,"id":"9","role":"header index pill","shapeType":"roundRect","bbox":[1126,46,82,34]}
+{"kind":"shape","slide":3,"id":"10","role":"header index","shapeType":"rect","bbox":[1140,56,54,14]}
+{"kind":"textbox","slide":3,"id":"10","role":"header index","text":"03 / 08","textChars":7,"textLines":1,"bbox":[1140,56,54,14]}
+{"kind":"shape","slide":3,"id":"11","role":"header line","shapeType":"rect","bbox":[78,94,1130,1.5]}
+{"kind":"shape","slide":3,"id":"12","role":"title","shapeType":"rect","bbox":[74,92,900,112]}
+{"kind":"textbox","slide":3,"id":"12","role":"title","text":"课程最低要求与项目目标分层","textChars":13,"textLines":1,"bbox":[74,92,900,112]}
+{"kind":"shape","slide":3,"id":"13","role":"scope left","shapeType":"roundRect","bbox":[76,246,372,392]}
+{"kind":"shape","slide":3,"id":"14","role":"scope left accent","shapeType":"rect","bbox":[76,246,6,392]}
+{"kind":"shape","slide":3,"id":"15","role":"scope left title","shapeType":"rect","bbox":[108,276,220,22]}
+{"kind":"textbox","slide":3,"id":"15","role":"scope left title","text":"课程最低验收","textChars":6,"textLines":1,"bbox":[108,276,220,22]}
+{"kind":"shape","slide":3,"id":"16","role":"scope left list","shapeType":"rect","bbox":[108,320,304,240]}
+{"kind":"textbox","slide":3,"id":"16","role":"scope left list","text":"• 支持上传多页 PDF 或图像\n• 自动分块文本 / 表格 / 图形内容\n• 支持自然语言查询并标注页面或图号引用\n• 至少在一个文档数据集上评测\n• 完成纯文本 RAG 与多模态 RAG 对比","textChars":98,"textLines":5,"bbox":[108,320,304,240]}
+{"kind":"shape","slide":3,"id":"17","role":"scope right block","shapeType":"roundRect","bbox":[478,246,720,178]}
+{"kind":"shape","slide":3,"id":"18","role":"scope right block accent","shapeType":"rect","bbox":[478,246,6,178]}
+{"kind":"shape","slide":3,"id":"19","role":"scope right block","shapeType":"roundRect","bbox":[478,446,720,192]}
+{"kind":"shape","slide":3,"id":"20","role":"scope right block accent","shapeType":"rect","bbox":[478,446,6,192]}
+{"kind":"shape","slide":3,"id":"21","role":"scope block label","shapeType":"rect","bbox":[510,270,140,18]}
+{"kind":"textbox","slide":3,"id":"21","role":"scope block label","text":"最低可交付版本","textChars":7,"textLines":1,"bbox":[510,270,140,18]}
+{"kind":"shape","slide":3,"id":"22","role":"scope block title","shapeType":"rect","bbox":[510,300,336,28]}
+{"kind":"textbox","slide":3,"id":"22","role":"scope block title","text":"先做稳的多模态 RAG 闭环","textChars":14,"textLines":1,"bbox":[510,300,336,28]}
+{"kind":"shape","slide":3,"id":"23","role":"scope block list","shapeType":"rect","bbox":[510,344,628,84]}
+{"kind":"textbox","slide":3,"id":"23","role":"scope block list","text":"• 页面解析 + 结构化分块\n• FAISS 向量检索\n• 多模态问答与页码 / 图号引用\n• 纯文本 vs 多模态两组评测","textChars":62,"textLines":4,"bbox":[510,344,628,84]}
+{"kind":"shape","slide":3,"id":"24","role":"scope block label","shapeType":"rect","bbox":[510,470,140,18]}
+{"kind":"textbox","slide":3,"id":"24","role":"scope block label","text":"增强目标","textChars":4,"textLines":1,"bbox":[510,470,140,18]}
+{"kind":"shape","slide":3,"id":"25","role":"scope block title","shapeType":"rect","bbox":[510,500,368,28]}
+{"kind":"textbox","slide":3,"id":"25","role":"scope block title","text":"加入轻量文档图增强","textChars":9,"textLines":1,"bbox":[510,500,368,28]}
+{"kind":"shape","slide":3,"id":"26","role":"scope block list","shapeType":"rect","bbox":[510,544,628,76]}
+{"kind":"textbox","slide":3,"id":"26","role":"scope block list","text":"• 规则边 + 可选语义边\n• 文本 GraphRAG / 多模态 GraphRAG\n• 多跳推理与关系路径引用探索","textChars":58,"textLines":3,"bbox":[510,544,628,76]}
+{"kind":"shape","slide":4,"id":"2","role":"bg band","shapeType":"rect","bbox":[0,0,1280,88]}
+{"kind":"shape","slide":4,"id":"3","role":"bg accent block","shapeType":"rect","bbox":[1030,0,250,88]}
+{"kind":"shape","slide":4,"id":"4","role":"bg footer block","shapeType":"rect","bbox":[0,614,248,106]}
+{"kind":"shape","slide":4,"id":"5","role":"canvas","shapeType":"roundRect","bbox":[40,40,1200,640]}
+{"kind":"shape","slide":4,"id":"6","role":"canvas spine","shapeType":"rect","bbox":[40,40,10,640]}
+{"kind":"shape","slide":4,"id":"7","role":"header accent","shapeType":"rect","bbox":[78,57,4,18]}
+{"kind":"shape","slide":4,"id":"8","role":"header kicker","shapeType":"rect","bbox":[92,54,460,22]}
+{"kind":"textbox","slide":4,"id":"8","role":"header kicker","text":"03 · MAINLINE PIPELINE","textChars":22,"textLines":1,"bbox":[92,54,460,22]}
+{"kind":"shape","slide":4,"id":"9","role":"header index pill","shapeType":"roundRect","bbox":[1126,46,82,34]}
+{"kind":"shape","slide":4,"id":"10","role":"header index","shapeType":"rect","bbox":[1140,56,54,14]}
+{"kind":"textbox","slide":4,"id":"10","role":"header index","text":"04 / 08","textChars":7,"textLines":1,"bbox":[1140,56,54,14]}
+{"kind":"shape","slide":4,"id":"11","role":"header line","shapeType":"rect","bbox":[78,94,1130,1.5]}
+{"kind":"shape","slide":4,"id":"12","role":"title","shapeType":"rect","bbox":[74,92,900,112]}
+{"kind":"textbox","slide":4,"id":"12","role":"title","text":"先交付课程要求，再谈增强模块","textChars":14,"textLines":1,"bbox":[74,92,900,112]}
+{"kind":"shape","slide":4,"id":"13","role":"pipeline line","shapeType":"rect","bbox":[138,316,1004,6]}
+{"kind":"shape","slide":4,"id":"14","role":"pipeline node","shapeType":"ellipse","bbox":[136,286,64,64]}
+{"kind":"shape","slide":4,"id":"15","role":"pipeline node text","shapeType":"rect","bbox":[160,308,16,18]}
+{"kind":"textbox","slide":4,"id":"15","role":"pipeline node text","text":"1","textChars":1,"textLines":1,"bbox":[160,308,16,18]}
+{"kind":"shape","slide":4,"id":"16","role":"pipeline title","shapeType":"rect","bbox":[116,362,108,24]}
+{"kind":"textbox","slide":4,"id":"16","role":"pipeline title","text":"上传与渲染","textChars":5,"textLines":1,"bbox":[116,362,108,24]}
+{"kind":"shape","slide":4,"id":"17","role":"pipeline body","shapeType":"rect","bbox":[92,394,156,64]}
+{"kind":"textbox","slide":4,"id":"17","role":"pipeline body","text":"PDF / 图像输入，经 PyMuPDF 渲染为页面图像。","textChars":29,"textLines":1,"bbox":[92,394,156,64]}
+{"kind":"shape","slide":4,"id":"18","role":"pipeline node","shapeType":"ellipse","bbox":[384,286,64,64]}
+{"kind":"shape","slide":4,"id":"19","role":"pipeline node text","shapeType":"rect","bbox":[408,308,16,18]}
+{"kind":"textbox","slide":4,"id":"19","role":"pipeline node text","text":"2","textChars":1,"textLines":1,"bbox":[408,308,16,18]}
+{"kind":"shape","slide":4,"id":"20","role":"pipeline title","shapeType":"rect","bbox":[364,362,108,24]}
+{"kind":"textbox","slide":4,"id":"20","role":"pipeline title","text":"结构化抽取","textChars":5,"textLines":1,"bbox":[364,362,108,24]}
+{"kind":"shape","slide":4,"id":"21","role":"pipeline body","shapeType":"rect","bbox":[340,394,156,64]}
+{"kind":"textbox","slide":4,"id":"21","role":"pipeline body","text":"用 Qwen2.5-VL 抽取文本、表格、图表描述与页码元数据。","textChars":32,"textLines":1,"bbox":[340,394,156,64]}
+{"kind":"shape","slide":4,"id":"22","role":"pipeline node","shapeType":"ellipse","bbox":[632,286,64,64]}
+{"kind":"shape","slide":4,"id":"23","role":"pipeline node text","shapeType":"rect","bbox":[656,308,16,18]}
+{"kind":"textbox","slide":4,"id":"23","role":"pipeline node text","text":"3","textChars":1,"textLines":1,"bbox":[656,308,16,18]}
+{"kind":"shape","slide":4,"id":"24","role":"pipeline title","shapeType":"rect","bbox":[612,362,108,24]}
+{"kind":"textbox","slide":4,"id":"24","role":"pipeline title","text":"向量化索引","textChars":5,"textLines":1,"bbox":[612,362,108,24]}
+{"kind":"shape","slide":4,"id":"25","role":"pipeline body","shapeType":"rect","bbox":[588,394,156,64]}
+{"kind":"textbox","slide":4,"id":"25","role":"pipeline body","text":"用 LangChain + FAISS 建立可检索的 Document 索引。","textChars":39,"textLines":1,"bbox":[588,394,156,64]}
+{"kind":"shape","slide":4,"id":"26","role":"pipeline node","shapeType":"ellipse","bbox":[880,286,64,64]}
+{"kind":"shape","slide":4,"id":"27","role":"pipeline node text","shapeType":"rect","bbox":[904,308,16,18]}
+{"kind":"textbox","slide":4,"id":"27","role":"pipeline node text","text":"4","textChars":1,"textLines":1,"bbox":[904,308,16,18]}
+{"kind":"shape","slide":4,"id":"28","role":"pipeline title","shapeType":"rect","bbox":[860,362,108,24]}
+{"kind":"textbox","slide":4,"id":"28","role":"pipeline title","text":"多模态问答","textChars":5,"textLines":1,"bbox":[860,362,108,24]}
+{"kind":"shape","slide":4,"id":"29","role":"pipeline body","shapeType":"rect","bbox":[836,394,156,64]}
+{"kind":"textbox","slide":4,"id":"29","role":"pipeline body","text":"检索文本块与原页面图像，共同送入 VLM 回答问题。","textChars":26,"textLines":1,"bbox":[836,394,156,64]}
+{"kind":"shape","slide":4,"id":"30","role":"pipeline node","shapeType":"ellipse","bbox":[1128,286,64,64]}
+{"kind":"shape","slide":4,"id":"31","role":"pipeline node text","shapeType":"rect","bbox":[1152,308,16,18]}
+{"kind":"textbox","slide":4,"id":"31","role":"pipeline node text","text":"5","textChars":1,"textLines":1,"bbox":[1152,308,16,18]}
+{"kind":"shape","slide":4,"id":"32","role":"pipeline title","shapeType":"rect","bbox":[1108,362,108,24]}
+{"kind":"textbox","slide":4,"id":"32","role":"pipeline title","text":"引用标注","textChars":4,"textLines":1,"bbox":[1108,362,108,24]}
+{"kind":"shape","slide":4,"id":"33","role":"pipeline body","shapeType":"rect","bbox":[1084,394,156,64]}
+{"kind":"textbox","slide":4,"id":"33","role":"pipeline body","text":"输出页码、图号等可追踪引用，满足题目 3 的答题要求。","textChars":27,"textLines":1,"bbox":[1084,394,156,64]}
+{"kind":"shape","slide":4,"id":"34","role":"principle card","shapeType":"roundRect","bbox":[76,532,354,114]}
+{"kind":"shape","slide":4,"id":"35","role":"principle title","shapeType":"rect","bbox":[102,554,160,22]}
+{"kind":"textbox","slide":4,"id":"35","role":"principle title","text":"先闭环","textChars":3,"textLines":1,"bbox":[102,554,160,22]}
+{"kind":"shape","slide":4,"id":"36","role":"principle body","shapeType":"rect","bbox":[102,588,300,36]}
+{"kind":"textbox","slide":4,"id":"36","role":"principle body","text":"先保证上传、问答、引用、评测四件事跑通。","textChars":20,"textLines":1,"bbox":[102,588,300,36]}
+{"kind":"shape","slide":4,"id":"37","role":"principle card","shapeType":"roundRect","bbox":[452,532,354,114]}
+{"kind":"shape","slide":4,"id":"38","role":"principle title","shapeType":"rect","bbox":[478,554,160,22]}
+{"kind":"textbox","slide":4,"id":"38","role":"principle title","text":"再增强","textChars":3,"textLines":1,"bbox":[478,554,160,22]}
+{"kind":"shape","slide":4,"id":"39","role":"principle body","shapeType":"rect","bbox":[478,588,300,36]}
+{"kind":"textbox","slide":4,"id":"39","role":"principle body","text":"GraphRAG 只在主链路稳定之后增加，不抢主线资源。","textChars":28,"textLines":1,"bbox":[478,588,300,36]}
+{"kind":"shape","slide":4,"id":"40","role":"principle card","shapeType":"roundRect","bbox":[828,532,354,114]}
+{"kind":"shape","slide":4,"id":"41","role":"principle title","shapeType":"rect","bbox":[854,554,160,22]}
+{"kind":"textbox","slide":4,"id":"41","role":"principle title","text":"重答辩价值","textChars":5,"textLines":1,"bbox":[854,554,160,22]}
+{"kind":"shape","slide":4,"id":"42","role":"principle body","shapeType":"rect","bbox":[854,588,300,36]}
+{"kind":"textbox","slide":4,"id":"42","role":"principle body","text":"每个模块都要能解释“为什么做”和“如果没做成怎么办”。","textChars":27,"textLines":1,"bbox":[854,588,300,36]}
+{"kind":"shape","slide":5,"id":"2","role":"bg band","shapeType":"rect","bbox":[0,0,1280,88]}
+{"kind":"shape","slide":5,"id":"3","role":"bg accent block","shapeType":"rect","bbox":[1030,0,250,88]}
+{"kind":"shape","slide":5,"id":"4","role":"bg footer block","shapeType":"rect","bbox":[0,614,248,106]}
+{"kind":"shape","slide":5,"id":"5","role":"canvas","shapeType":"roundRect","bbox":[40,40,1200,640]}
+{"kind":"shape","slide":5,"id":"6","role":"canvas spine","shapeType":"rect","bbox":[40,40,10,640]}
+{"kind":"shape","slide":5,"id":"7","role":"header accent","shapeType":"rect","bbox":[78,57,4,18]}
+{"kind":"shape","slide":5,"id":"8","role":"header kicker","shapeType":"rect","bbox":[92,54,460,22]}
+{"kind":"textbox","slide":5,"id":"8","role":"header kicker","text":"04 · GRAPHRAG POSITIONING","textChars":25,"textLines":1,"bbox":[92,54,460,22]}
+{"kind":"shape","slide":5,"id":"9","role":"header index pill","shapeType":"roundRect","bbox":[1126,46,82,34]}
+{"kind":"shape","slide":5,"id":"10","role":"header index","shapeType":"rect","bbox":[1140,56,54,14]}
+{"kind":"textbox","slide":5,"id":"10","role":"header index","text":"05 / 08","textChars":7,"textLines":1,"bbox":[1140,56,54,14]}
+{"kind":"shape","slide":5,"id":"11","role":"header line","shapeType":"rect","bbox":[78,94,1130,1.5]}
+{"kind":"shape","slide":5,"id":"12","role":"title","shapeType":"rect","bbox":[74,90,990,112]}
+{"kind":"textbox","slide":5,"id":"12","role":"title","text":"我们做的是轻量文档图增强，不是微软 GraphRAG 全复现","textChars":30,"textLines":1,"bbox":[74,90,990,112]}
+{"kind":"shape","slide":5,"id":"13","role":"borrow panel","shapeType":"roundRect","bbox":[76,240,324,238]}
+{"kind":"shape","slide":5,"id":"14","role":"borrow panel accent","shapeType":"rect","bbox":[76,240,6,238]}
+{"kind":"shape","slide":5,"id":"15","role":"boundary panel","shapeType":"roundRect","bbox":[424,240,324,238]}
+{"kind":"shape","slide":5,"id":"16","role":"boundary panel accent","shapeType":"rect","bbox":[424,240,6,238]}
+{"kind":"shape","slide":5,"id":"17","role":"borrow title","shapeType":"rect","bbox":[104,268,120,22]}
+{"kind":"textbox","slide":5,"id":"17","role":"borrow title","text":"借鉴什么","textChars":4,"textLines":1,"bbox":[104,268,120,22]}
+{"kind":"shape","slide":5,"id":"18","role":"boundary title","shapeType":"rect","bbox":[452,268,160,22]}
+{"kind":"textbox","slide":5,"id":"18","role":"boundary title","text":"明确不做什么","textChars":6,"textLines":1,"bbox":[452,268,160,22]}
+{"kind":"shape","slide":5,"id":"19","role":"borrow list","shapeType":"rect","bbox":[104,314,260,116]}
+{"kind":"textbox","slide":5,"id":"19","role":"borrow list","text":"• 用图结构增强检索，而不是只靠向量相似度\n• 围绕问题构建局部证据上下文\n• 让多跳关系成为可解释的补充信号","textChars":55,"textLines":3,"bbox":[104,314,260,116]}
+{"kind":"shape","slide":5,"id":"20","role":"boundary list","shapeType":"rect","bbox":[452,314,260,150]}
+{"kind":"textbox","slide":5,"id":"20","role":"boundary list","text":"• 不复现 community-based indexing\n• 不生成 community reports\n• 不做 global search 的全局主题总结\n• 不把轻量文档图表述成严格知识库","textChars":99,"textLines":4,"bbox":[452,314,260,150]}
+{"kind":"shape","slide":5,"id":"21","role":"graph panel","shapeType":"roundRect","bbox":[782,258,394,314]}
+{"kind":"shape","slide":5,"id":"22","role":"graph edge","shapeType":"rect","bbox":[884,372,90,4]}
+{"kind":"shape","slide":5,"id":"23","role":"graph edge","shapeType":"rect","bbox":[974,372,88,4]}
+{"kind":"shape","slide":5,"id":"24","role":"graph edge","shapeType":"rect","bbox":[884,436,38,4]}
+{"kind":"shape","slide":5,"id":"25","role":"graph edge","shapeType":"rect","bbox":[1024,436,38,4]}
+{"kind":"shape","slide":5,"id":"26","role":"graph edge","shapeType":"rect","bbox":[922,522,66,4]}
+{"kind":"shape","slide":5,"id":"27","role":"graph node","shapeType":"ellipse","bbox":[938,302,72,72]}
+{"kind":"shape","slide":5,"id":"28","role":"graph node label","shapeType":"rect","bbox":[950,326,48,18]}
+{"kind":"textbox","slide":5,"id":"28","role":"graph node label","text":"问题","textChars":2,"textLines":1,"bbox":[950,326,48,18]}
+{"kind":"shape","slide":5,"id":"29","role":"graph node","shapeType":"ellipse","bbox":[848,402,72,72]}
+{"kind":"shape","slide":5,"id":"30","role":"graph node label","shapeType":"rect","bbox":[860,426,48,18]}
+{"kind":"textbox","slide":5,"id":"30","role":"graph node label","text":"图表","textChars":2,"textLines":1,"bbox":[860,426,48,18]}
+{"kind":"shape","slide":5,"id":"31","role":"graph node","shapeType":"ellipse","bbox":[1026,402,72,72]}
+{"kind":"shape","slide":5,"id":"32","role":"graph node label","shapeType":"rect","bbox":[1038,426,48,18]}
+{"kind":"textbox","slide":5,"id":"32","role":"graph node label","text":"页码","textChars":2,"textLines":1,"bbox":[1038,426,48,18]}
+{"kind":"shape","slide":5,"id":"33","role":"graph node","shapeType":"ellipse","bbox":[886,486,72,72]}
+{"kind":"shape","slide":5,"id":"34","role":"graph node label","shapeType":"rect","bbox":[898,510,48,18]}
+{"kind":"textbox","slide":5,"id":"34","role":"graph node label","text":"段落","textChars":2,"textLines":1,"bbox":[898,510,48,18]}
+{"kind":"shape","slide":5,"id":"35","role":"graph node","shapeType":"ellipse","bbox":[988,486,72,72]}
+{"kind":"shape","slide":5,"id":"36","role":"graph node label","shapeType":"rect","bbox":[1000,510,48,18]}
+{"kind":"textbox","slide":5,"id":"36","role":"graph node label","text":"章节","textChars":2,"textLines":1,"bbox":[1000,510,48,18]}
+{"kind":"shape","slide":5,"id":"37","role":"graph caption","shapeType":"rect","bbox":[782,586,394,48]}
+{"kind":"textbox","slide":5,"id":"37","role":"graph caption","text":"当前增强部分只面向具体问题的局部图检索：种子节点、邻居扩展、局部证据融合，而不是宏观主题总结。","textChars":47,"textLines":1,"bbox":[782,586,394,48]}
+{"kind":"shape","slide":6,"id":"2","role":"bg band","shapeType":"rect","bbox":[0,0,1280,88]}
+{"kind":"shape","slide":6,"id":"3","role":"bg accent block","shapeType":"rect","bbox":[1030,0,250,88]}
+{"kind":"shape","slide":6,"id":"4","role":"bg footer block","shapeType":"rect","bbox":[0,614,248,106]}
+{"kind":"shape","slide":6,"id":"5","role":"canvas","shapeType":"roundRect","bbox":[40,40,1200,640]}
+{"kind":"shape","slide":6,"id":"6","role":"canvas spine","shapeType":"rect","bbox":[40,40,10,640]}
+{"kind":"shape","slide":6,"id":"7","role":"header accent","shapeType":"rect","bbox":[78,57,4,18]}
+{"kind":"shape","slide":6,"id":"8","role":"header kicker","shapeType":"rect","bbox":[92,54,460,22]}
+{"kind":"textbox","slide":6,"id":"8","role":"header kicker","text":"05 · DATASETS & EVALUATION","textChars":26,"textLines":1,"bbox":[92,54,460,22]}
+{"kind":"shape","slide":6,"id":"9","role":"header index pill","shapeType":"roundRect","bbox":[1126,46,82,34]}
+{"kind":"shape","slide":6,"id":"10","role":"header index","shapeType":"rect","bbox":[1140,56,54,14]}
+{"kind":"textbox","slide":6,"id":"10","role":"header index","text":"06 / 08","textChars":7,"textLines":1,"bbox":[1140,56,54,14]}
+{"kind":"shape","slide":6,"id":"11","role":"header line","shapeType":"rect","bbox":[78,94,1130,1.5]}
+{"kind":"shape","slide":6,"id":"12","role":"title","shapeType":"rect","bbox":[74,92,900,112]}
+{"kind":"textbox","slide":6,"id":"12","role":"title","text":"实验分成必做对比与增强探索两层","textChars":15,"textLines":1,"bbox":[74,92,900,112]}
+{"kind":"shape","slide":6,"id":"13","role":"dataset card","shapeType":"roundRect","bbox":[76,246,350,146]}
+{"kind":"shape","slide":6,"id":"14","role":"dataset tag","shapeType":"rect","bbox":[100,268,86,16]}
+{"kind":"textbox","slide":6,"id":"14","role":"dataset tag","text":"数据集 A","textChars":5,"textLines":1,"bbox":[100,268,86,16]}
+{"kind":"shape","slide":6,"id":"15","role":"dataset title","shapeType":"rect","bbox":[100,294,230,24]}
+{"kind":"textbox","slide":6,"id":"15","role":"dataset title","text":"学术论文 PDF","textChars":8,"textLines":1,"bbox":[100,294,230,24]}
+{"kind":"shape","slide":6,"id":"16","role":"dataset body","shapeType":"rect","bbox":[100,332,292,42]}
+{"kind":"textbox","slide":6,"id":"16","role":"dataset body","text":"3 份含图表、表格和跨节引用关系的论文，用于构建自建测试集。","textChars":30,"textLines":1,"bbox":[100,332,292,42]}
+{"kind":"shape","slide":6,"id":"17","role":"dataset card","shapeType":"roundRect","bbox":[448,246,350,146]}
+{"kind":"shape","slide":6,"id":"18","role":"dataset tag","shapeType":"rect","bbox":[472,268,86,16]}
+{"kind":"textbox","slide":6,"id":"18","role":"dataset tag","text":"数据集 B","textChars":5,"textLines":1,"bbox":[472,268,86,16]}
+{"kind":"shape","slide":6,"id":"19","role":"dataset title","shapeType":"rect","bbox":[472,294,230,24]}
+{"kind":"textbox","slide":6,"id":"19","role":"dataset title","text":"ChartQA 子集","textChars":10,"textLines":1,"bbox":[472,294,230,24]}
+{"kind":"shape","slide":6,"id":"20","role":"dataset body","shapeType":"rect","bbox":[472,332,292,42]}
+{"kind":"textbox","slide":6,"id":"20","role":"dataset body","text":"重点验证图表理解能力，检查视觉信息是否真正带来收益。","textChars":26,"textLines":1,"bbox":[472,332,292,42]}
+{"kind":"shape","slide":6,"id":"21","role":"dataset card","shapeType":"roundRect","bbox":[820,246,350,146]}
+{"kind":"shape","slide":6,"id":"22","role":"dataset tag","shapeType":"rect","bbox":[844,268,86,16]}
+{"kind":"textbox","slide":6,"id":"22","role":"dataset tag","text":"数据集 C","textChars":5,"textLines":1,"bbox":[844,268,86,16]}
+{"kind":"shape","slide":6,"id":"23","role":"dataset title","shapeType":"rect","bbox":[844,294,230,24]}
+{"kind":"textbox","slide":6,"id":"23","role":"dataset title","text":"DocVQA 子集","textChars":9,"textLines":1,"bbox":[844,294,230,24]}
+{"kind":"shape","slide":6,"id":"24","role":"dataset body","shapeType":"rect","bbox":[844,332,292,42]}
+{"kind":"textbox","slide":6,"id":"24","role":"dataset body","text":"作为结构化文档问答补充，增强评测的可比性与覆盖面。","textChars":25,"textLines":1,"bbox":[844,332,292,42]}
+{"kind":"shape","slide":6,"id":"25","role":"experiment panel","shapeType":"roundRect","bbox":[76,430,542,190]}
+{"kind":"shape","slide":6,"id":"26","role":"experiment panel accent","shapeType":"rect","bbox":[76,430,6,190]}
+{"kind":"shape","slide":6,"id":"27","role":"experiment label","shapeType":"rect","bbox":[104,454,120,16]}
+{"kind":"textbox","slide":6,"id":"27","role":"experiment label","text":"必做实验","textChars":4,"textLines":1,"bbox":[104,454,120,16]}
+{"kind":"shape","slide":6,"id":"28","role":"experiment title","shapeType":"rect","bbox":[104,480,340,52]}
+{"kind":"textbox","slide":6,"id":"28","role":"experiment title","text":"纯文本 RAG vs 多模态 RAG","textChars":18,"textLines":1,"bbox":[104,480,340,52]}
+{"kind":"shape","slide":6,"id":"29","role":"experiment list","shapeType":"rect","bbox":[104,546,470,72]}
+{"kind":"textbox","slide":6,"id":"29","role":"experiment list","text":"• 重点看图表题、表格题是否提升\n• 重点检查引用页码 / 图号是否稳定\n• 对应课程题目 3 的最低验收要求","textChars":55,"textLines":3,"bbox":[104,546,470,72]}
+{"kind":"shape","slide":6,"id":"30","role":"experiment panel","shapeType":"roundRect","bbox":[638,430,542,190]}
+{"kind":"shape","slide":6,"id":"31","role":"experiment panel accent","shapeType":"rect","bbox":[638,430,6,190]}
+{"kind":"shape","slide":6,"id":"32","role":"experiment label","shapeType":"rect","bbox":[666,454,120,16]}
+{"kind":"textbox","slide":6,"id":"32","role":"experiment label","text":"增强实验","textChars":4,"textLines":1,"bbox":[666,454,120,16]}
+{"kind":"shape","slide":6,"id":"33","role":"experiment title","shapeType":"rect","bbox":[666,480,340,52]}
+{"kind":"textbox","slide":6,"id":"33","role":"experiment title","text":"文本 GraphRAG / 多模态 GraphRAG","textChars":26,"textLines":1,"bbox":[666,480,340,52]}
+{"kind":"shape","slide":6,"id":"34","role":"experiment list","shapeType":"rect","bbox":[666,546,470,72]}
+{"kind":"textbox","slide":6,"id":"34","role":"experiment list","text":"• 重点看多跳推理题是否受益\n• 重点分析关系路径是否更清晰\n• 若收益不足，可保留为探索性结果","textChars":48,"textLines":3,"bbox":[666,546,470,72]}
+{"kind":"shape","slide":7,"id":"2","role":"bg band","shapeType":"rect","bbox":[0,0,1280,88]}
+{"kind":"shape","slide":7,"id":"3","role":"bg accent block","shapeType":"rect","bbox":[1030,0,250,88]}
+{"kind":"shape","slide":7,"id":"4","role":"bg footer block","shapeType":"rect","bbox":[0,614,248,106]}
+{"kind":"shape","slide":7,"id":"5","role":"canvas","shapeType":"roundRect","bbox":[40,40,1200,640]}
+{"kind":"shape","slide":7,"id":"6","role":"canvas spine","shapeType":"rect","bbox":[40,40,10,640]}
+{"kind":"shape","slide":7,"id":"7","role":"header accent","shapeType":"rect","bbox":[78,57,4,18]}
+{"kind":"shape","slide":7,"id":"8","role":"header kicker","shapeType":"rect","bbox":[92,54,460,22]}
+{"kind":"textbox","slide":7,"id":"8","role":"header kicker","text":"06 · RISK CONTROL","textChars":17,"textLines":1,"bbox":[92,54,460,22]}
+{"kind":"shape","slide":7,"id":"9","role":"header index pill","shapeType":"roundRect","bbox":[1126,46,82,34]}
+{"kind":"shape","slide":7,"id":"10","role":"header index","shapeType":"rect","bbox":[1140,56,54,14]}
+{"kind":"textbox","slide":7,"id":"10","role":"header index","text":"07 / 08","textChars":7,"textLines":1,"bbox":[1140,56,54,14]}
+{"kind":"shape","slide":7,"id":"11","role":"header line","shapeType":"rect","bbox":[78,94,1130,1.5]}
+{"kind":"shape","slide":7,"id":"12","role":"title","shapeType":"rect","bbox":[74,92,900,112]}
+{"kind":"textbox","slide":7,"id":"12","role":"title","text":"最重要的不是功能堆叠，而是主线一定可交付","textChars":20,"textLines":1,"bbox":[74,92,900,112]}
+{"kind":"shape","slide":7,"id":"13","role":"risk card","shapeType":"roundRect","bbox":[76,246,540,166]}
+{"kind":"shape","slide":7,"id":"14","role":"risk title","shapeType":"rect","bbox":[100,268,240,22]}
+{"kind":"textbox","slide":7,"id":"14","role":"risk title","text":"结构化输出不稳定","textChars":8,"textLines":1,"bbox":[100,268,240,22]}
+{"kind":"shape","slide":7,"id":"15","role":"risk body","shapeType":"rect","bbox":[100,308,470,34]}
+{"kind":"textbox","slide":7,"id":"15","role":"risk body","text":"页面解析结果不统一，后续索引会被带偏。","textChars":19,"textLines":1,"bbox":[100,308,470,34]}
+{"kind":"shape","slide":7,"id":"16","role":"risk fallback bg","shapeType":"roundRect","bbox":[100,358,480,34]}
+{"kind":"shape","slide":7,"id":"17","role":"risk fallback","shapeType":"rect","bbox":[114,366,446,16]}
+{"kind":"textbox","slide":7,"id":"17","role":"risk fallback","text":"先保 texts / tables / figures 三类字段稳定。","textChars":35,"textLines":1,"bbox":[114,366,446,16]}
+{"kind":"shape","slide":7,"id":"18","role":"risk card","shapeType":"roundRect","bbox":[640,246,540,166]}
+{"kind":"shape","slide":7,"id":"19","role":"risk title","shapeType":"rect","bbox":[664,268,240,22]}
+{"kind":"textbox","slide":7,"id":"19","role":"risk title","text":"关系抽取噪声大","textChars":7,"textLines":1,"bbox":[664,268,240,22]}
+{"kind":"shape","slide":7,"id":"20","role":"risk body","shapeType":"rect","bbox":[664,308,470,34]}
+{"kind":"textbox","slide":7,"id":"20","role":"risk body","text":"同名实体、别名、缩写跨页难对齐，图谱可能误导回答。","textChars":25,"textLines":1,"bbox":[664,308,470,34]}
+{"kind":"shape","slide":7,"id":"21","role":"risk fallback bg","shapeType":"roundRect","bbox":[664,358,480,34]}
+{"kind":"shape","slide":7,"id":"22","role":"risk fallback","shapeType":"rect","bbox":[678,366,446,16]}
+{"kind":"textbox","slide":7,"id":"22","role":"risk fallback","text":"优先使用规则边，语义边只做增强。","textChars":16,"textLines":1,"bbox":[678,366,446,16]}
+{"kind":"shape","slide":7,"id":"23","role":"risk card","shapeType":"roundRect","bbox":[76,434,540,166]}
+{"kind":"shape","slide":7,"id":"24","role":"risk title","shapeType":"rect","bbox":[100,456,240,22]}
+{"kind":"textbox","slide":7,"id":"24","role":"risk title","text":"增强实验时间不够","textChars":8,"textLines":1,"bbox":[100,456,240,22]}
+{"kind":"shape","slide":7,"id":"25","role":"risk body","shapeType":"rect","bbox":[100,496,470,34]}
+{"kind":"textbox","slide":7,"id":"25","role":"risk body","text":"四组系统同时推进，容易让所有链路都不完整。","textChars":21,"textLines":1,"bbox":[100,496,470,34]}
+{"kind":"shape","slide":7,"id":"26","role":"risk fallback bg","shapeType":"roundRect","bbox":[100,546,480,34]}
+{"kind":"shape","slide":7,"id":"27","role":"risk fallback","shapeType":"rect","bbox":[114,554,446,16]}
+{"kind":"textbox","slide":7,"id":"27","role":"risk fallback","text":"优先保住两组对比、基础评测和展示界面。","textChars":19,"textLines":1,"bbox":[114,554,446,16]}
+{"kind":"shape","slide":7,"id":"28","role":"risk card","shapeType":"roundRect","bbox":[640,434,540,166]}
+{"kind":"shape","slide":7,"id":"29","role":"risk title","shapeType":"rect","bbox":[664,456,240,22]}
+{"kind":"textbox","slide":7,"id":"29","role":"risk title","text":"对照不够严格","textChars":6,"textLines":1,"bbox":[664,456,240,22]}
+{"kind":"shape","slide":7,"id":"30","role":"risk body","shapeType":"rect","bbox":[664,496,470,34]}
+{"kind":"textbox","slide":7,"id":"30","role":"risk body","text":"纯文本组与多模态组模型能力不完全等价。","textChars":19,"textLines":1,"bbox":[664,496,470,34]}
+{"kind":"shape","slide":7,"id":"31","role":"risk fallback bg","shapeType":"roundRect","bbox":[664,546,480,34]}
+{"kind":"shape","slide":7,"id":"32","role":"risk fallback","shapeType":"rect","bbox":[678,554,446,16]}
+{"kind":"textbox","slide":7,"id":"32","role":"risk fallback","text":"明确说明是工程比较，不夸成严格因果消融。","textChars":20,"textLines":1,"bbox":[678,554,446,16]}
+{"kind":"shape","slide":8,"id":"2","role":"bg band","shapeType":"rect","bbox":[0,0,1280,88]}
+{"kind":"shape","slide":8,"id":"3","role":"bg accent block","shapeType":"rect","bbox":[1030,0,250,88]}
+{"kind":"shape","slide":8,"id":"4","role":"bg footer block","shapeType":"rect","bbox":[0,614,248,106]}
+{"kind":"shape","slide":8,"id":"5","role":"canvas","shapeType":"roundRect","bbox":[40,40,1200,640]}
+{"kind":"shape","slide":8,"id":"6","role":"canvas spine","shapeType":"rect","bbox":[40,40,10,640]}
+{"kind":"shape","slide":8,"id":"7","role":"header accent","shapeType":"rect","bbox":[78,57,4,18]}
+{"kind":"shape","slide":8,"id":"8","role":"header kicker","shapeType":"rect","bbox":[92,54,460,22]}
+{"kind":"textbox","slide":8,"id":"8","role":"header kicker","text":"07 · DELIVERY PLAN","textChars":18,"textLines":1,"bbox":[92,54,460,22]}
+{"kind":"shape","slide":8,"id":"9","role":"header index pill","shapeType":"roundRect","bbox":[1126,46,82,34]}
+{"kind":"shape","slide":8,"id":"10","role":"header index","shapeType":"rect","bbox":[1140,56,54,14]}
+{"kind":"textbox","slide":8,"id":"10","role":"header index","text":"08 / 08","textChars":7,"textLines":1,"bbox":[1140,56,54,14]}
+{"kind":"shape","slide":8,"id":"11","role":"header line","shapeType":"rect","bbox":[78,94,1130,1.5]}
+{"kind":"shape","slide":8,"id":"12","role":"title","shapeType":"rect","bbox":[74,90,980,112]}
+{"kind":"textbox","slide":8,"id":"12","role":"title","text":"我们希望交付的，不只是一个想法，而是一条可收敛的路线","textChars":26,"textLines":1,"bbox":[74,90,980,112]}
+{"kind":"shape","slide":8,"id":"13","role":"contribution panel","shapeType":"roundRect","bbox":[76,246,444,286]}
+{"kind":"shape","slide":8,"id":"14","role":"contribution panel accent","shapeType":"rect","bbox":[76,246,6,286]}
+{"kind":"shape","slide":8,"id":"15","role":"contribution label","shapeType":"rect","bbox":[104,272,140,20]}
+{"kind":"textbox","slide":8,"id":"15","role":"contribution label","text":"预期贡献","textChars":4,"textLines":1,"bbox":[104,272,140,20]}
+{"kind":"shape","slide":8,"id":"16","role":"contribution list","shapeType":"rect","bbox":[104,316,378,164]}
+{"kind":"textbox","slide":8,"id":"16","role":"contribution list","text":"• 先交付课程要求对应的多模态问答闭环\n• 把 GraphRAG 设计成增量增强，而非单点前提\n• 整理引用标注质量与失败案例，提升答辩可解释性\n• 在无本地 GPU 条件下完成可演示原型","textChars":94,"textLines":4,"bbox":[104,316,378,164]}
+{"kind":"shape","slide":8,"id":"17","role":"timeline panel","shapeType":"roundRect","bbox":[548,246,650,286]}
+{"kind":"shape","slide":8,"id":"18","role":"timeline panel accent","shapeType":"rect","bbox":[548,246,6,286]}
+{"kind":"shape","slide":8,"id":"19","role":"timeline label","shapeType":"rect","bbox":[576,272,120,20]}
+{"kind":"textbox","slide":8,"id":"19","role":"timeline label","text":"阶段计划","textChars":4,"textLines":1,"bbox":[576,272,120,20]}
+{"kind":"shape","slide":8,"id":"20","role":"timeline line","shapeType":"rect","bbox":[650,396,430,5]}
+{"kind":"shape","slide":8,"id":"21","role":"timeline node","shapeType":"ellipse","bbox":[662,368,56,56]}
+{"kind":"shape","slide":8,"id":"22","role":"timeline node number","shapeType":"rect","bbox":[683,388,14,16]}
+{"kind":"textbox","slide":8,"id":"22","role":"timeline node number","text":"1","textChars":1,"textLines":1,"bbox":[683,388,14,16]}
+{"kind":"shape","slide":8,"id":"23","role":"timeline phase","shapeType":"rect","bbox":[654,326,72,18]}
+{"kind":"textbox","slide":8,"id":"23","role":"timeline phase","text":"阶段 1","textChars":4,"textLines":1,"bbox":[654,326,72,18]}
+{"kind":"shape","slide":8,"id":"24","role":"timeline title","shapeType":"rect","bbox":[636,344,108,18]}
+{"kind":"textbox","slide":8,"id":"24","role":"timeline title","text":"解析与分块","textChars":5,"textLines":1,"bbox":[636,344,108,18]}
+{"kind":"shape","slide":8,"id":"25","role":"timeline detail bg","shapeType":"roundRect","bbox":[622,444,136,54]}
+{"kind":"shape","slide":8,"id":"26","role":"timeline detail","shapeType":"rect","bbox":[636,456,108,30]}
+{"kind":"textbox","slide":8,"id":"26","role":"timeline detail","text":"PDF 渲染\n结构化抽取","textChars":12,"textLines":2,"bbox":[636,456,108,30]}
+{"kind":"shape","slide":8,"id":"27","role":"timeline node","shapeType":"ellipse","bbox":[790,368,56,56]}
+{"kind":"shape","slide":8,"id":"28","role":"timeline node number","shapeType":"rect","bbox":[811,388,14,16]}
+{"kind":"textbox","slide":8,"id":"28","role":"timeline node number","text":"2","textChars":1,"textLines":1,"bbox":[811,388,14,16]}
+{"kind":"shape","slide":8,"id":"29","role":"timeline phase","shapeType":"rect","bbox":[782,326,72,18]}
+{"kind":"textbox","slide":8,"id":"29","role":"timeline phase","text":"阶段 2","textChars":4,"textLines":1,"bbox":[782,326,72,18]}
+{"kind":"shape","slide":8,"id":"30","role":"timeline title","shapeType":"rect","bbox":[764,344,108,18]}
+{"kind":"textbox","slide":8,"id":"30","role":"timeline title","text":"索引与基线","textChars":5,"textLines":1,"bbox":[764,344,108,18]}
+{"kind":"shape","slide":8,"id":"31","role":"timeline detail bg","shapeType":"roundRect","bbox":[750,444,136,54]}
+{"kind":"shape","slide":8,"id":"32","role":"timeline detail","shapeType":"rect","bbox":[764,456,108,30]}
+{"kind":"textbox","slide":8,"id":"32","role":"timeline detail","text":"FAISS 索引\n纯文本基线","textChars":14,"textLines":2,"bbox":[764,456,108,30]}
+{"kind":"shape","slide":8,"id":"33","role":"timeline node","shapeType":"ellipse","bbox":[918,368,56,56]}
+{"kind":"shape","slide":8,"id":"34","role":"timeline node number","shapeType":"rect","bbox":[939,388,14,16]}
+{"kind":"textbox","slide":8,"id":"34","role":"timeline node number","text":"3","textChars":1,"textLines":1,"bbox":[939,388,14,16]}
+{"kind":"shape","slide":8,"id":"35","role":"timeline phase","shapeType":"rect","bbox":[910,326,72,18]}
+{"kind":"textbox","slide":8,"id":"35","role":"timeline phase","text":"阶段 3","textChars":4,"textLines":1,"bbox":[910,326,72,18]}
+{"kind":"shape","slide":8,"id":"36","role":"timeline title","shapeType":"rect","bbox":[892,344,108,18]}
+{"kind":"textbox","slide":8,"id":"36","role":"timeline title","text":"多模态 RAG","textChars":7,"textLines":1,"bbox":[892,344,108,18]}
+{"kind":"shape","slide":8,"id":"37","role":"timeline detail bg","shapeType":"roundRect","bbox":[878,444,136,54]}
+{"kind":"shape","slide":8,"id":"38","role":"timeline detail","shapeType":"rect","bbox":[892,456,108,30]}
+{"kind":"textbox","slide":8,"id":"38","role":"timeline detail","text":"问答闭环\n引用标注","textChars":9,"textLines":2,"bbox":[892,456,108,30]}
+{"kind":"shape","slide":8,"id":"39","role":"timeline node","shapeType":"ellipse","bbox":[1046,368,56,56]}
+{"kind":"shape","slide":8,"id":"40","role":"timeline node number","shapeType":"rect","bbox":[1067,388,14,16]}
+{"kind":"textbox","slide":8,"id":"40","role":"timeline node number","text":"4","textChars":1,"textLines":1,"bbox":[1067,388,14,16]}
+{"kind":"shape","slide":8,"id":"41","role":"timeline phase","shapeType":"rect","bbox":[1038,326,72,18]}
+{"kind":"textbox","slide":8,"id":"41","role":"timeline phase","text":"阶段 4","textChars":4,"textLines":1,"bbox":[1038,326,72,18]}
+{"kind":"shape","slide":8,"id":"42","role":"timeline title","shapeType":"rect","bbox":[1020,344,108,18]}
+{"kind":"textbox","slide":8,"id":"42","role":"timeline title","text":"图增强探索","textChars":5,"textLines":1,"bbox":[1020,344,108,18]}
+{"kind":"shape","slide":8,"id":"43","role":"timeline detail bg","shapeType":"roundRect","bbox":[1006,444,136,54]}
+{"kind":"shape","slide":8,"id":"44","role":"timeline detail","shapeType":"rect","bbox":[1020,456,108,30]}
+{"kind":"textbox","slide":8,"id":"44","role":"timeline detail","text":"知识图增强\nGraphRAG","textChars":14,"textLines":2,"bbox":[1020,456,108,30]}
+{"kind":"shape","slide":8,"id":"45","role":"timeline caption","shapeType":"rect","bbox":[576,552,566,34]}
+{"kind":"textbox","slide":8,"id":"45","role":"timeline caption","text":"先做解析、索引、问答、评测四步主线，再尝试图增强与多跳推理。","textChars":30,"textLines":1,"bbox":[576,552,566,34]}
+{"kind":"shape","slide":8,"id":"46","role":"closing panel","shapeType":"roundRect","bbox":[76,572,1122,72]}
+{"kind":"shape","slide":8,"id":"47","role":"closing text","shapeType":"rect","bbox":[104,596,1060,24]}
+{"kind":"textbox","slide":8,"id":"47","role":"closing text","text":"一句话总结：先做稳的多模态 RAG，证明题目 3 的主线能跑通；GraphRAG 作为增强方向，用来争取多跳推理和结构解释能力的增益。","textChars":67,"textLines":1,"bbox":[104,596,1060,24]}

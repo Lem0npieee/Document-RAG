@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document-RAG 开题展示</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <main class="stage-wrap">
+        <div class="stage">
+          <div class="deck-frame">
+            <section class="slides" id="slides">
+              <section class="slide slide--cover is-active" data-title="封面">
+                <div class="slide__backdrop slide__backdrop--cover"></div>
+                <div class="slide__content cover-layout">
+                  <div class="eyebrow">多模态大模型原理与应用 · 题目 3</div>
+                  <h1 class="cover-title">文档理解与多模态检索问答系统</h1>
+                  <p class="cover-subtitle">
+                    基于 Qwen2.5-VL 与 LangChain 的多模态文档问答设计，
+                    以轻量文档图增强作为进阶方向。
+                  </p>
+
+                  <div class="cover-tags">
+                    <span>多模态 RAG</span>
+                    <span>DocVQA / ChartQA</span>
+                    <span>轻量 GraphRAG</span>
+                    <span>课程作业开题展示</span>
+                  </div>
+
+                  <div class="cover-footer">
+                    <div>
+                      <span class="meta-label">展示目标</span>
+                      <strong>讲清主线交付、增强目标、风险与回退</strong>
+                    </div>
+                    <div>
+                      <span class="meta-label">当前口径</span>
+                      <strong>最低可交付版本以多模态 RAG 为主</strong>
+                    </div>
+                  </div>
+
+                  <img
+                    class="cover-figure"
+                    src="./assets/figures/document-weave.svg"
+                    alt="抽象文档结构背景"
+                  />
+                </div>
+              </section>
+
+              <section class="slide" data-title="背景与问题">
+                <div class="slide__content stack-layout">
+                  <header class="section-head">
+                    <span class="eyebrow">01 · Why This Problem</span>
+                    <h2>文档问答的难点不只在 OCR，而在证据组织</h2>
+                  </header>
+
+                  <div class="three-up">
+                    <article class="panel problem-panel">
+                      <span class="panel-index">A</span>
+                      <h3>文档天然多模态</h3>
+                      <p>
+                        文本、图表、表格、版面结构混在一起。只看纯文本，
+                        很容易丢掉图像与版面中的关键信息。
+                      </p>
+                    </article>
+                    <article class="panel problem-panel">
+                      <span class="panel-index">B</span>
+                      <h3>问题常常跨页、跨块</h3>
+                      <p>
+                        “图 3 说明了什么”这类问题并不只依赖单段文字，
+                        还可能关联图号、页面、章节结论和上下文引用。
+                      </p>
+                    </article>
+                    <article class="panel problem-panel">
+                      <span class="panel-index">C</span>
+                      <h3>仅靠向量相似度不够</h3>
+                      <p>
+                        传统 RAG 能找到“像答案”的片段，
+                        但不擅长表达“这个片段为什么和那个图有关”。
+                      </p>
+                    </article>
+                  </div>
+
+                  <div class="focus-strip">
+                    <div class="focus-strip__label">核心研究问题</div>
+                    <p>
+                      在先满足课程题目 3 最低要求的前提下，
+                      <strong>多模态信息能否显著提升文档问答效果；进一步引入轻量图结构后，
+                      是否能在多跳推理问题上提供额外收益？</strong>
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <section class="slide" data-title="题目要求与项目目标">
+                <div class="slide__content split-layout">
+                  <header class="section-head">
+                    <span class="eyebrow">02 · Scope Control</span>
+                    <h2>课程最低要求与项目目标分层</h2>
+                  </header>
+
+                  <div class="split-grid">
+                    <article class="panel requirement-panel">
+                      <div class="panel-topline">课程最低验收</div>
+                      <ul class="check-list">
+                        <li>支持上传多页 PDF 或图像</li>
+                        <li>自动分块文本 / 表格 / 图形内容</li>
+                        <li>支持自然语言查询并标注页面或图号引用</li>
+                        <li>至少在一个文档数据集上评测</li>
+                        <li>完成纯文本 RAG 与多模态 RAG 对比</li>
+                      </ul>
+                    </article>
+
+                    <article class="panel target-panel">
+                      <div class="goal-block">
+                        <span class="goal-label">最低可交付版本</span>
+                        <h3>先做稳的多模态 RAG 闭环</h3>
+                        <ul class="check-list">
+                          <li>页面解析 + 结构化分块</li>
+                          <li>FAISS 向量检索</li>
+                          <li>多模态问答与页码 / 图号引用</li>
+                          <li>纯文本 vs 多模态两组评测</li>
+                        </ul>
+                      </div>
+                      <div class="goal-block goal-block--accent">
+                        <span class="goal-label">增强目标</span>
+                        <h3>加入轻量文档图增强</h3>
+                        <ul class="check-list">
+                          <li>规则边 + 可选语义边</li>
+                          <li>文本 GraphRAG / 多模态 GraphRAG</li>
+                          <li>多跳推理与关系路径引用探索</li>
+                        </ul>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </section>
+
+              <section class="slide" data-title="主线方案">
+                <div class="slide__content stack-layout">
+                  <header class="section-head">
+                    <span class="eyebrow">03 · Mainline Pipeline</span>
+                    <h2>先交付课程要求，再谈增强模块</h2>
+                  </header>
+
+                  <div class="pipeline">
+                    <div class="pipeline-step">
+                      <span>1</span>
+                      <h3>上传与渲染</h3>
+                      <p>PDF / 图像输入，经 PyMuPDF 渲染为页面图像。</p>
+                    </div>
+                    <div class="pipeline-step">
+                      <span>2</span>
+                      <h3>结构化抽取</h3>
+                      <p>用 Qwen2.5-VL 抽取文本、表格、图表描述与页码元数据。</p>
+                    </div>
+                    <div class="pipeline-step">
+                      <span>3</span>
+                      <h3>向量化索引</h3>
+                      <p>用 LangChain + FAISS 建立可检索的 Document 索引。</p>
+                    </div>
+                    <div class="pipeline-step">
+                      <span>4</span>
+                      <h3>多模态问答</h3>
+                      <p>检索文本块与原页面图像，共同送入 VLM 回答问题。</p>
+                    </div>
+                    <div class="pipeline-step">
+                      <span>5</span>
+                      <h3>引用标注</h3>
+                      <p>输出页码、图号等可追踪引用，满足题目 3 的答题要求。</p>
+                    </div>
+                  </div>
+
+                  <div class="principles">
+                    <article class="principle">
+                      <h3>先闭环</h3>
+                      <p>先保证上传、问答、引用、评测四件事跑通。</p>
+                    </article>
+                    <article class="principle">
+                      <h3>再增强</h3>
+                      <p>GraphRAG 只在主链路稳定之后增加，不抢主线资源。</p>
+                    </article>
+                    <article class="principle">
+                      <h3>重答辩价值</h3>
+                      <p>每个模块都要能解释“为什么做”和“如果没做成怎么办”。</p>
+                    </article>
+                  </div>
+                </div>
+              </section>
+
+              <section class="slide" data-title="GraphRAG 定位">
+                <div class="slide__content split-layout split-layout--graph">
+                  <header class="section-head">
+                    <span class="eyebrow">04 · GraphRAG Positioning</span>
+                    <h2>我们做的是轻量文档图增强，不是微软 GraphRAG 全复现</h2>
+                  </header>
+
+                  <div class="graph-grid">
+                    <article class="panel borrow-panel">
+                      <h3>借鉴什么</h3>
+                      <ul class="check-list">
+                        <li>用图结构增强检索，而不是只靠向量相似度</li>
+                        <li>围绕问题构建局部证据上下文</li>
+                        <li>让多跳关系成为可解释的补充信号</li>
+                      </ul>
+                    </article>
+
+                    <article class="panel boundary-panel">
+                      <h3>明确不做什么</h3>
+                      <ul class="check-list">
+                        <li>不复现 community-based indexing</li>
+                        <li>不生成 community reports</li>
+                        <li>不做 global search 的全局主题总结</li>
+                        <li>不把轻量文档图表述成严格知识库</li>
+                      </ul>
+                    </article>
+
+                    <article class="panel graph-panel">
+                      <img
+                        src="./assets/figures/local-graph.svg"
+                        alt="局部图检索示意图"
+                      />
+                      <p class="graph-caption">
+                        当前增强部分只面向<strong>具体问题的局部图检索</strong>：
+                        种子节点、邻居扩展、局部证据融合，而不是宏观主题总结。
+                      </p>
+                    </article>
+                  </div>
+                </div>
+              </section>
+
+              <section class="slide" data-title="数据集与实验">
+                <div class="slide__content stack-layout">
+                  <header class="section-head">
+                    <span class="eyebrow">05 · Datasets & Evaluation</span>
+                    <h2>实验分成必做对比与增强探索两层</h2>
+                  </header>
+
+                  <div class="dataset-row">
+                    <article class="panel dataset-card">
+                      <span class="card-tag">数据集 A</span>
+                      <h3>学术论文 PDF</h3>
+                      <p>3 份含图表、表格和跨节引用关系的论文，用于构建自建测试集。</p>
+                    </article>
+                    <article class="panel dataset-card">
+                      <span class="card-tag">数据集 B</span>
+                      <h3>ChartQA 子集</h3>
+                      <p>重点验证图表理解能力，检查视觉信息是否真正带来收益。</p>
+                    </article>
+                    <article class="panel dataset-card">
+                      <span class="card-tag">数据集 C</span>
+                      <h3>DocVQA 子集</h3>
+                      <p>作为结构化文档问答补充，增强评测的可比性与覆盖面。</p>
+                    </article>
+                  </div>
+
+                  <div class="experiment-grid">
+                    <article class="panel experiment-panel">
+                      <div class="panel-topline">必做实验</div>
+                      <h3>纯文本 RAG vs 多模态 RAG</h3>
+                      <ul class="check-list">
+                        <li>重点看图表题、表格题是否提升</li>
+                        <li>重点检查引用页码 / 图号是否稳定</li>
+                        <li>对应课程题目 3 的最低验收要求</li>
+                      </ul>
+                    </article>
+                    <article class="panel experiment-panel experiment-panel--accent">
+                      <div class="panel-topline">增强实验</div>
+                      <h3>文本 GraphRAG / 多模态 GraphRAG</h3>
+                      <ul class="check-list">
+                        <li>重点看多跳推理题是否受益</li>
+                        <li>重点分析关系路径是否更清晰</li>
+                        <li>若收益不足，可保留为探索性结果</li>
+                      </ul>
+                    </article>
+                  </div>
+                </div>
+              </section>
+
+              <section class="slide" data-title="风险与回退">
+                <div class="slide__content stack-layout">
+                  <header class="section-head">
+                    <span class="eyebrow">06 · Risk Control</span>
+                    <h2>最重要的不是功能堆叠，而是主线一定可交付</h2>
+                  </header>
+
+                  <div class="risk-grid">
+                    <article class="panel risk-card">
+                      <h3>结构化输出不稳定</h3>
+                      <p>页面解析结果不统一，后续索引会被带偏。</p>
+                      <div class="risk-fallback">先保 `texts` / `tables` / `figures` 三类字段稳定。</div>
+                    </article>
+                    <article class="panel risk-card">
+                      <h3>关系抽取噪声大</h3>
+                      <p>同名实体、别名、缩写跨页难对齐，图谱可能误导回答。</p>
+                      <div class="risk-fallback">优先使用规则边，语义边只做增强。</div>
+                    </article>
+                    <article class="panel risk-card">
+                      <h3>增强实验时间不够</h3>
+                      <p>四组系统同时推进，容易让所有链路都不完整。</p>
+                      <div class="risk-fallback">优先保住两组对比、基础评测和展示界面。</div>
+                    </article>
+                    <article class="panel risk-card">
+                      <h3>对照不够严格</h3>
+                      <p>纯文本组与多模态组模型能力不完全等价。</p>
+                      <div class="risk-fallback">明确说明是工程比较，不夸成严格因果消融。</div>
+                    </article>
+                  </div>
+                </div>
+              </section>
+
+              <section class="slide" data-title="计划与贡献">
+                <div class="slide__content final-layout">
+                  <header class="section-head">
+                    <span class="eyebrow">07 · Delivery Plan</span>
+                    <h2>我们希望交付的，不只是一个想法，而是一条可收敛的路线</h2>
+                  </header>
+
+                  <div class="final-grid">
+                    <article class="panel contribution-panel">
+                      <div class="panel-topline">预期贡献</div>
+                      <ul class="check-list">
+                        <li>先交付课程要求对应的多模态问答闭环</li>
+                        <li>把 GraphRAG 设计成增量增强，而非单点前提</li>
+                        <li>整理引用标注质量与失败案例，提升答辩可解释性</li>
+                        <li>在无本地 GPU 条件下完成可演示原型</li>
+                      </ul>
+                    </article>
+
+                    <article class="panel timeline-panel">
+                      <div class="panel-topline">阶段计划</div>
+                      <img
+                        src="./assets/figures/phase-roadmap.svg"
+                        alt="阶段计划时间轴"
+                      />
+                      <p class="timeline-caption">
+                        先做解析、索引、问答、评测四步主线，再尝试图增强与多跳推理。
+                      </p>
+                    </article>
+                  </div>
+
+                  <div class="closing-note">
+                    <strong>一句话总结：</strong>
+                    先做稳的多模态 RAG，证明题目 3 的主线能跑通；GraphRAG 作为增强方向，
+                    用来争取多跳推理和结构解释能力的增益。
+                  </div>
+                </div>
+              </section>
+            </section>
+
+            <button class="click-zone click-zone--prev" id="click-prev" type="button" aria-label="上一页"></button>
+            <button class="click-zone click-zone--next" id="click-next" type="button" aria-label="下一页"></button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div class="overview" id="overview" hidden>
+      <div class="overview__panel">
+        <div class="overview__head">
+          <span class="eyebrow">Slide Overview</span>
+          <h2>目录总览</h2>
+          <button id="close-overview" type="button" aria-label="关闭总览">×</button>
+        </div>
+        <div class="overview__list" id="overview-list"></div>
+      </div>
+    </div>
+
+    <script src="./assets/app.js"></script>
+  </body>
+</html>
