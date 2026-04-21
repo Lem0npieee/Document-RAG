@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multimodal GraphRAG Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://unpkg.com/vis-network@9.1.2/dist/vis-network.min.js"
+      defer
+    ></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="badge">Multimodal GraphRAG</p>
+          <h1>Knowledge Flow Studio</h1>
+          <p class="subtitle">
+            Upload documents, explore the graph, and keep conversation history in one
+            place.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <label class="file-button upload-main">
+            <input id="fileInput" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp" />
+            上传文档并增量入库
+          </label>
+          <button id="resetGraph" class="ghost">Reset Graph</button>
+        </div>
+      </header>
+
+      <main class="grid">
+        <section class="panel chat-panel">
+          <div class="panel-header">
+            <h2>Chat Workspace</h2>
+            <span class="chip">History on</span>
+          </div>
+          <div id="chatHistory" class="chat-history"></div>
+          <div class="chat-input">
+            <textarea id="chatInput" placeholder="Ask about the graph..." rows="2"></textarea>
+            <button id="sendBtn" class="primary">Send</button>
+          </div>
+        </section>
+
+        <section class="panel graph-panel">
+          <div class="panel-header">
+            <h2>Knowledge Graph</h2>
+            <div class="legend">
+              <span class="legend-item" data-type="text">Text</span>
+              <span class="legend-item" data-type="table">Table</span>
+              <span class="legend-item" data-type="figure">Figure</span>
+              <span class="legend-item" data-type="entity">Entity</span>
+            </div>
+          </div>
+          <div id="graphCanvas" class="graph-canvas"></div>
+          <div class="graph-footer">
+            <div>
+              <strong id="nodeCount">0</strong> nodes · <strong id="edgeCount">0</strong> edges
+            </div>
+            <button id="centerGraph" class="ghost">Center</button>
+          </div>
+        </section>
+
+        <section class="panel inspector-panel">
+          <div class="panel-header">
+            <h2>Node Inspector</h2>
+            <span class="chip">Interactive</span>
+          </div>
+          <div id="nodeInspector" class="inspector-empty">
+            Select a node to see details.
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
