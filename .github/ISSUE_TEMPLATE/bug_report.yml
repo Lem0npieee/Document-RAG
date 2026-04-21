@@ -1,0 +1,50 @@
+name: Bug 报告
+description: 记录一个可复现的问题，方便同学一起排查
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: 问题描述
+      description: 用一句话说明哪里不正常
+      placeholder: 例如：上传文档后，页面没有生成索引结果
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 按顺序写出最小复现步骤
+      placeholder: |
+        1. 打开 ...
+        2. 点击 ...
+        3. 看到 ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望结果
+      placeholder: 你原本希望发生什么
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际结果
+      placeholder: 实际发生了什么，最好附报错信息或截图说明
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: 环境信息
+      description: 可填写 Python 版本、系统、浏览器或运行命令
+      placeholder: macOS / Python 3.11 / 运行命令 ...
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充信息
+      description: 日志、截图、临时猜测都可以放这里
+

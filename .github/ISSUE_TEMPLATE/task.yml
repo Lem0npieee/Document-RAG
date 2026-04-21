@@ -1,0 +1,38 @@
+name: 实现任务
+description: 记录一个实现任务、里程碑或拆分项
+title: "[Task] "
+labels: ["task"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: 目标
+      description: 这个任务要解决什么问题
+      placeholder: 例如：接入文档切分与向量检索
+    validations:
+      required: true
+  - type: textarea
+    id: breakdown
+    attributes:
+      label: 任务拆分
+      description: 需要做哪些具体工作
+      placeholder: |
+        - 完成 ...
+        - 补充 ...
+        - 验证 ...
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收标准
+      description: 什么情况下可以认为完成
+      placeholder: 例如：README 中的阶段目标已实现，且本地可运行验证通过
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: 备注
+      description: 依赖、风险或后续事项
+

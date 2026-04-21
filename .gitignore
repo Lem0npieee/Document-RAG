@@ -1,0 +1,56 @@
+# 系统文件
+.DS_Store
+
+# 环境变量与本地配置
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+site/
+pip-wheel-metadata/
+
+# 虚拟环境
+.venv/
+venv/
+env/
+ENV/
+
+# 测试与覆盖率
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+.jupyter/
+
+# 编辑器缓存
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# 日志与运行产物
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+outputs/
+faiss_index/
+doc_graph/
+logs/
