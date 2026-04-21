@@ -1,0 +1,47 @@
+<svg width="640" height="290" viewBox="0 0 640 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="290" rx="28" fill="#F8FCFA"/>
+  <path d="M78 158H562" stroke="#C4D8D2" stroke-width="8" stroke-linecap="round"/>
+  <g>
+    <circle cx="118" cy="158" r="26" fill="#0E8F78"/>
+    <circle cx="248" cy="158" r="26" fill="#0E8F78"/>
+    <circle cx="378" cy="158" r="26" fill="#0E8F78"/>
+    <circle cx="508" cy="158" r="26" fill="#D8E6E2"/>
+  </g>
+  <g font-family="Avenir Next, PingFang SC, sans-serif" text-anchor="middle">
+    <text x="118" y="105" font-size="15" font-weight="700" fill="#0C5D50">阶段 1</text>
+    <text x="118" y="131" font-size="13" fill="#4F6762">解析与分块</text>
+
+    <text x="248" y="105" font-size="15" font-weight="700" fill="#0C5D50">阶段 2</text>
+    <text x="248" y="131" font-size="13" fill="#4F6762">索引与基线</text>
+
+    <text x="378" y="105" font-size="15" font-weight="700" fill="#0C5D50">阶段 3</text>
+    <text x="378" y="131" font-size="13" fill="#4F6762">多模态 RAG</text>
+
+    <text x="508" y="105" font-size="15" font-weight="700" fill="#6A7D79">阶段 4</text>
+    <text x="508" y="131" font-size="13" fill="#6A7D79">图增强探索</text>
+  </g>
+  <g font-family="Avenir Next, PingFang SC, sans-serif" font-size="13" fill="white" font-weight="700" text-anchor="middle">
+    <text x="118" y="163">1</text>
+    <text x="248" y="163">2</text>
+    <text x="378" y="163">3</text>
+  </g>
+  <g font-family="Avenir Next, PingFang SC, sans-serif" font-size="13" fill="#586A66" font-weight="700" text-anchor="middle">
+    <text x="508" y="163">4</text>
+  </g>
+  <g fill="#103934" fill-opacity="0.06">
+    <rect x="78" y="194" width="100" height="56" rx="18"/>
+    <rect x="208" y="194" width="100" height="56" rx="18"/>
+    <rect x="338" y="194" width="100" height="56" rx="18"/>
+    <rect x="468" y="194" width="100" height="56" rx="18"/>
+  </g>
+  <g font-family="PingFang SC, Hiragino Sans GB, sans-serif" font-size="12" fill="#39504B" text-anchor="middle">
+    <text x="128" y="217">PDF 渲染</text>
+    <text x="128" y="235">结构化抽取</text>
+    <text x="258" y="217">FAISS 索引</text>
+    <text x="258" y="235">纯文本基线</text>
+    <text x="388" y="217">问答闭环</text>
+    <text x="388" y="235">引用标注</text>
+    <text x="518" y="217">知识图谱</text>
+    <text x="518" y="235">GraphRAG</text>
+  </g>
+</svg>
