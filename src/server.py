@@ -23,7 +23,9 @@ OUTPUTS_DIR = APP_ROOT / "outputs"
 UPLOAD_DIR = OUTPUTS_DIR / "uploads"
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
-app = Flask(__name__, static_folder=str(WEB_DIR), static_url_path="")
+# Disable Flask built-in static route to avoid shadowing custom routes
+# such as /outputs/<path:filename>.
+app = Flask(__name__, static_folder=None)
 
 _chain_cache: MultiModalGraphRAG | None = None
 _chain_mtime: float | None = None
@@ -70,9 +72,40 @@ def _graph_data_path() -> Path:
     return settings.parsed_dir / "graph_data.json"
 
 
+def _documents_path() -> Path:
+    settings = get_settings()
+    return settings.parsed_dir / "documents.json"
+
+
+def _to_outputs_url(image_path: str) -> str:
+    """Convert an image path to a web URL served by /outputs."""
+    raw = str(image_path or "").replace("\\", "/").strip()
+    if not raw:
+        return ""
+
+    lowered = raw.lower()
+    marker = "outputs/"
+    idx = lowered.find(marker)
+    if idx != -1:
+        relative = raw[idx + len(marker):].lstrip("/")
+        return f"/outputs/{relative}"
+
+    if raw.startswith("pages/"):
+        return f"/outputs/{raw}"
+    return ""
+
+
 @app.get("/")
 def index() -> Any:
     return send_from_directory(str(WEB_DIR), "index.html")
+
+
+@app.get("/favicon.ico")
+def favicon() -> Any:
+    favicon_path = WEB_DIR / "favicon.ico"
+    if favicon_path.exists():
+        return send_from_directory(str(WEB_DIR), "favicon.ico")
+    return ("", 204)
 
 
 @app.get("/health")
@@ -85,7 +118,46 @@ def graph_data() -> Any:
     path = _graph_data_path()
     if not path.exists():
         return jsonify({"documents": []})
-    return jsonify(json.loads(path.read_text(encoding="utf-8")))
+
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    docs_path = _documents_path()
+    node_map: dict[str, dict[str, Any]] = {}
+
+    if docs_path.exists():
+        docs = json.loads(docs_path.read_text(encoding="utf-8"))
+        for item in docs:
+            metadata = item.get("metadata", {}) if isinstance(item, dict) else {}
+            node_id = str(metadata.get("node_id", "")).strip()
+            if not node_id:
+                continue
+
+            image_path = str(metadata.get("image_path", "")).strip()
+            node_map[node_id] = {
+                "id": node_id,
+                "type": str(metadata.get("type", "text")),
+                "source": str(metadata.get("source", "")),
+                "page": metadata.get("page"),
+                "fig_id": str(metadata.get("fig_id", "")),
+                "content": str(item.get("page_content", "")),
+                "image_path": image_path,
+                "image_url": _to_outputs_url(image_path),
+            }
+
+    documents = payload.get("documents", []) if isinstance(payload, dict) else []
+    for doc in documents:
+        pages = doc.get("pages", []) if isinstance(doc, dict) else []
+        for page in pages:
+            if not isinstance(page, dict):
+                continue
+            image_path = str(page.get("image_path", "")).strip()
+            page["image_url"] = _to_outputs_url(image_path)
+
+    if isinstance(payload, dict):
+        payload["node_map"] = node_map
+    else:
+        payload = {"documents": [], "node_map": node_map}
+
+    return jsonify(payload)
 
 
 @app.post("/ingest")
@@ -137,6 +209,11 @@ def chat() -> Any:
             "image_paths": result.image_paths,
         }
     )
+
+
+@app.get("/outputs/<path:filename>")
+def output_files(filename: str) -> Any:
+    return send_from_directory(str(OUTPUTS_DIR), filename)
 
 
 @app.get("/<path:filename>")

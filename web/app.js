@@ -11,6 +11,7 @@ const graphCanvas = document.getElementById("graphCanvas");
 const API_BASE = "";
 
 const colorMap = {
+  page: "#94a3b8",
   text: "#fcd34d",
   table: "#34d399",
   figure: "#f472b6",
@@ -46,10 +47,66 @@ function addMessage(role, text) {
   chatHistory.scrollTop = chatHistory.scrollHeight;
 }
 
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function normalizeImageUrl(value) {
+  const raw = String(value || "").replace(/\\/g, "/").trim();
+  if (!raw) return "";
+  if (raw.startsWith("http://") || raw.startsWith("https://") || raw.startsWith("/")) {
+    return raw;
+  }
+
+  const lowered = raw.toLowerCase();
+  const marker = "outputs/";
+  const idx = lowered.indexOf(marker);
+  if (idx !== -1) {
+    return `/${raw.slice(idx)}`;
+  }
+  if (raw.startsWith("pages/")) {
+    return `/outputs/${raw}`;
+  }
+  return "";
+}
+
+function estimateTokenCount(text) {
+  const raw = String(text || "").trim();
+  if (!raw) return 1;
+
+  // Rough multilingual token estimate:
+  // - CJK chars count as 1 token each
+  // - Latin words count as 1 token each
+  const cjkCount = (raw.match(/[\u4e00-\u9fff]/g) || []).length;
+  const latinWords = (raw.replace(/[\u4e00-\u9fff]/g, " ").match(/[A-Za-z0-9_]+/g) || []).length;
+  const punctuation = (raw.match(/[^\w\s\u4e00-\u9fff]/g) || []).length;
+
+  return Math.max(1, cjkCount + latinWords + Math.floor(punctuation * 0.2));
+}
+
+function tokenToNodeSize(tokens) {
+  // Visible circle radius mapped from token count.
+  const t = Math.max(1, Number(tokens) || 1);
+  // Uniformly scale up all nodes while preserving the same visual format.
+  const base = Math.max(14, Math.min(64, 10 + Math.sqrt(t) * 2.8));
+  return Math.round(base * 3);
+}
+
 async function fetchGraph() {
   try {
     const res = await fetch(`${API_BASE}/graph`);
     const json = await res.json();
+    if (!json || !json.node_map) {
+      addMessage(
+        "assistant",
+        "Graph API is missing node details. Please restart backend server (python src/server.py)."
+      );
+    }
     const graph = parseGraphData(json);
     if (graph) {
       initGraph(graph);
@@ -73,23 +130,60 @@ async function sendChat(question) {
   return json.answer;
 }
 
+function withInitialSpreadPositions(nodes) {
+  // Use a deterministic spiral layout so the graph is already spread on first paint.
+  // This avoids startup jitter from physics solvers on dense graphs.
+  const goldenAngle = Math.PI * (3 - Math.sqrt(5)); // ~2.39996
+  const baseRadius = 80;
+  const radiusStep = 42;
+
+  return nodes.map((node, index) => {
+    const angle = index * goldenAngle;
+    const radius = baseRadius + Math.sqrt(index + 1) * radiusStep;
+    return {
+      ...node,
+      x: Math.cos(angle) * radius,
+      y: Math.sin(angle) * radius,
+    };
+  });
+}
+
 function initGraph(graph) {
   graphState = graph;
 
-  const nodes = graph.nodes.map((node) => {
+  const rawNodes = graph.nodes.map((node) => {
     const color = colorMap[node.type] || colorMap.default;
-    const size = 10 + Math.min(node.tokens || 40, 140) * 0.12;
+    // Circle size is driven by token count.
+    const tokenCount = Number(node.tokens) || estimateTokenCount(node.content || node.label);
+    const size = tokenToNodeSize(tokenCount);
     return {
       id: node.id,
       label: node.label,
-      color,
-      value: size,
-      font: { color: "#0f172a", face: "Space Grotesk" },
+      // "dot" is a circular node with label rendered outside the node.
+      shape: "dot",
+      size,
+      color: {
+        background: color,
+        border: color,
+        highlight: { background: color, border: "#0f172a" },
+        hover: { background: color, border: "#0f172a" },
+      },
+      borderWidth: 0,
+      borderWidthSelected: 1.5,
+      font: {
+        color: "#0f172a",
+        face: "Space Grotesk",
+        size: 13,
+        // Keep label outside the circle (below the node).
+        vadjust: size + 8,
+      },
+      labelHighlightBold: false,
       shadow: false,
-    selectable: true,
+      selectable: true,
       data: node,
     };
   });
+  const nodes = withInitialSpreadPositions(rawNodes);
 
   const edges = graph.edges.map((edge, index) => ({
     id: `edge_${index}`,
@@ -110,18 +204,47 @@ function initGraph(graph) {
 
   const data = { nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) };
   const options = {
-    interaction: { hover: true, multiselect: true },
-    physics: {
-      stabilization: { iterations: 120, fit: true },
-      barnesHut: {
-        gravitationalConstant: -24000,
-        springLength: 160,
-        springConstant: 0.04,
-        damping: 0.3,
-      },
+    interaction: {
+      hover: true,
+      multiselect: true,
+      // Prevent selecting connected edges when clicking a node.
+      selectConnectedEdges: false,
     },
-    layout: { improvedLayout: true },
-    nodes: { shadow: false, selectable: true },
+    // Re-enable physics and increase repulsion so nodes spread further apart.
+    physics: {
+      enabled: true,
+      solver: "forceAtlas2Based",
+      stabilization: {
+        enabled: true,
+        iterations: 300,
+        updateInterval: 20,
+        fit: true,
+      },
+      forceAtlas2Based: {
+        gravitationalConstant: -200,
+        centralGravity: 0.002,
+        // Stronger edge attraction.
+        springLength: 125,
+        springConstant: 0.2,
+        damping: 0.85,
+        avoidOverlap: 0.8,
+      },
+      minVelocity: 0.2,
+      maxVelocity: 30,
+      timestep: 0.35,
+    },
+    layout: {
+      improvedLayout: false,
+      randomSeed: 11,
+    },
+    nodes: {
+      shape: "dot",
+      shadow: false,
+      selectable: true,
+      borderWidth: 0,
+      labelHighlightBold: false,
+      font: { face: "Space Grotesk", size: 13, color: "#0f172a", vadjust: 12 },
+    },
     edges: { smooth: true, selectable: false },
   };
 
@@ -134,19 +257,22 @@ function initGraph(graph) {
     network.fit({ animation: { duration: 900, easingFunction: "easeInOutQuad" } });
   });
 
-  network.on("selectNode", (params) => {
-    const nodeId = params.nodes[0];
-    const node = nodes.find((item) => item.id === nodeId);
-    if (node) {
-      renderInspector(node.data);
+  network.on("click", (params) => {
+    const nodeId = params.nodes?.[0];
+    if (nodeId) {
+      const node = nodes.find((item) => item.id === nodeId);
+      if (node) {
+        renderInspector(node.data);
+      }
+      return;
     }
-  });
 
-  network.on("selectEdge", (params) => {
-    const edgeId = params.edges[0];
-    const edge = edges.find((item) => item.id === edgeId);
-    if (edge) {
-      renderInspector(edge.data, true);
+    const edgeId = params.edges?.[0];
+    if (edgeId) {
+      const edge = edges.find((item) => item.id === edgeId);
+      if (edge) {
+        renderInspector(edge.data, true);
+      }
     }
   });
 }
@@ -166,12 +292,32 @@ function renderInspector(data, isEdge = false) {
     return;
   }
 
+  const source = escapeHtml(data.source || "-");
+  const page = data.page ?? "-";
+  const nodeType = escapeHtml(data.type || "unknown");
+  const nodeId = escapeHtml(data.id || "-");
+  const figId = data.fig_id ? `<p><strong>Figure ID:</strong> ${escapeHtml(data.fig_id)}</p>` : "";
+  const content = String(data.content || "").trim();
+  const imageUrl = normalizeImageUrl(data.image_url || data.image_path);
+
   nodeInspector.innerHTML = `
     <div class="inspector-card">
-      <h3>${data.label}</h3>
-      <p><strong>Type:</strong> ${data.type}</p>
-      <p><strong>Token size:</strong> ${data.tokens || 0}</p>
-      <p><strong>ID:</strong> ${data.id}</p>
+      <h3>${escapeHtml(data.label || data.id || "Node")}</h3>
+      <p><strong>Type:</strong> ${nodeType}</p>
+      <p><strong>Source:</strong> ${source}</p>
+      <p><strong>Page:</strong> ${page}</p>
+      ${figId}
+      <p><strong>ID:</strong> ${nodeId}</p>
+      ${
+        content
+          ? `<p><strong>Content:</strong></p><pre style="white-space: pre-wrap; word-break: break-word; max-height: 220px; overflow-y: auto; padding: 10px; border-radius: 10px; background: rgba(15,23,42,0.05); border: 1px solid rgba(15,23,42,0.08);">${escapeHtml(content)}</pre>`
+          : `<p><strong>Content:</strong> (暂无原文内容)</p>`
+      }
+      ${
+        imageUrl
+          ? `<p><strong>Page Preview:</strong></p><img src="${escapeHtml(imageUrl)}" alt="page preview" style="width: 100%; border-radius: 10px; border: 1px solid rgba(15,23,42,0.12);" />`
+          : ""
+      }
     </div>
   `;
 }
@@ -179,6 +325,7 @@ function renderInspector(data, isEdge = false) {
 function parseGraphData(raw) {
   if (!raw) return null;
 
+  const nodeMap = raw.node_map || {};
   const documents = raw.documents || [{ source: raw.source || "doc", pages: raw.pages || [] }];
   const nodes = [];
   const edges = [];
@@ -190,14 +337,39 @@ function parseGraphData(raw) {
     pages.forEach((page) => {
       const pageLabel = `${source} p${page.page}`;
       const pageId = `${source}_page_${page.page}`;
-      nodes.push({ id: pageId, label: pageLabel, type: "text", tokens: 120 });
+      nodes.push({
+        id: pageId,
+        label: pageLabel,
+        type: "page",
+        tokens: Math.max(16, (page.node_ids || []).length * 3),
+        source,
+        page: page.page,
+        content: "",
+        image_path: page.image_path || "",
+        image_url: page.image_url || "",
+      });
 
       (page.node_ids || []).forEach((nodeId) => {
+        const detail = nodeMap[nodeId] || {};
+        const nodeType = detail.type || "text";
+        const content = detail.content || "";
+        const figId = detail.fig_id || "";
+        const label =
+          figId ||
+          (content
+            ? content.replace(/\s+/g, " ").slice(0, 28) + (content.length > 28 ? "..." : "")
+            : nodeId.replace(/_/g, " "));
         nodes.push({
           id: nodeId,
-          label: nodeId.replace(/_/g, " "),
-          type: "text",
-          tokens: 60,
+          label,
+          type: nodeType,
+          tokens: estimateTokenCount(content || label),
+          source: detail.source || source,
+          page: detail.page || page.page,
+          fig_id: figId,
+          content,
+          image_path: detail.image_path || page.image_path || "",
+          image_url: detail.image_url || page.image_url || "",
         });
         edges.push({ from: pageId, to: nodeId, relation: "contains" });
       });
@@ -208,7 +380,12 @@ function parseGraphData(raw) {
           id: entityId,
           label: entity.name,
           type: "entity",
-          tokens: 40,
+          tokens: estimateTokenCount(entity.name),
+          source,
+          page: page.page,
+          content: "",
+          image_path: page.image_path || "",
+          image_url: page.image_url || "",
         });
         edges.push({ from: pageId, to: entityId, relation: "mentions" });
       });
