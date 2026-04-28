@@ -72,6 +72,8 @@ Rules:
 5) Return JSON only.
 """.strip()
 
+MAX_PARSE_ATTEMPTS = 2
+
 _ALLOWED_TYPES = {
     "person",
     "location",
@@ -548,7 +550,7 @@ def _parse_page_with_retry(
     image_path: Path,
     page_num: int,
 ) -> dict[str, Any]:
-    prompts = [PARSE_PROMPT, PARSE_PROMPT_REPAIR, PARSE_PROMPT_REPAIR]
+    prompts = [PARSE_PROMPT, PARSE_PROMPT_REPAIR][:MAX_PARSE_ATTEMPTS]
     candidates: list[dict[str, Any]] = []
 
     for idx, prompt in enumerate(prompts, start=1):
