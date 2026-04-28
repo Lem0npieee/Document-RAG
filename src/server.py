@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import os
 import sys
+import threading
 import uuid
 from pathlib import Path
 from typing import Any
@@ -33,6 +34,7 @@ app = Flask(__name__, static_folder=None)
 
 _chain_cache: MultiModalGraphRAG | None = None
 _chain_mtime: float | None = None
+_ingest_build_lock = threading.Lock()
 ALLOWED_UPLOAD_SUFFIXES = {".pdf", ".png", ".jpg", ".jpeg", ".webp"}
 
 
@@ -67,6 +69,20 @@ def _load_chain() -> MultiModalGraphRAG:
         _chain_mtime = mtime
 
     return _chain_cache
+
+
+def _ingest_token_required() -> str:
+    return str(os.getenv("INGEST_API_TOKEN", "")).strip()
+
+
+def _check_ingest_token() -> tuple[bool, Any | None]:
+    required = _ingest_token_required()
+    if not required:
+        return True, None
+    provided = str(request.headers.get("X-Ingest-Token", "")).strip()
+    if provided != required:
+        return False, (jsonify({"error": "forbidden"}), 403)
+    return True, None
 
 
 def _graph_data_path() -> Path:
@@ -167,6 +183,10 @@ def graph_data() -> Any:
 
 @app.post("/ingest")
 def ingest() -> Any:
+    token_ok, token_error = _check_ingest_token()
+    if not token_ok:
+        return token_error
+
     if "file" not in request.files:
         return jsonify({"error": "file is required"}), 400
 
@@ -184,12 +204,17 @@ def ingest() -> Any:
     filename = _safe_upload_name(file.filename)
     dest = UPLOAD_DIR / filename
 
+    if not _ingest_build_lock.acquire(blocking=False):
+        return jsonify({"error": "ingest already in progress"}), 409
+
     try:
         file.save(dest)
         result = build_knowledge_base(str(dest), force_rebuild=False)
         return jsonify({"ok": True, "result": result})
     except Exception as exc:
         return jsonify({"error": f"Ingest failed: {exc.__class__.__name__}: {exc}"}), 500
+    finally:
+        _ingest_build_lock.release()
 
 
 @app.post("/chat")
