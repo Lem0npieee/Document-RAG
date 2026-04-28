@@ -59,9 +59,7 @@ def _load_chain() -> MultiModalGraphRAG:
     mtime = graph_path.stat().st_mtime
     if _chain_cache is None or _chain_mtime != mtime:
         _chain_cache = MultiModalGraphRAG(
-            api_key=settings.api_key,
-            vl_model=settings.vl_model,
-            embedding_model=settings.embedding_model,
+            settings=settings,
             faiss_dir=settings.faiss_dir,
             graph_path=graph_path,
             pages_dir=settings.pages_dir,

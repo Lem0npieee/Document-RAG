@@ -6,11 +6,12 @@ from pathlib import Path
 from typing import Any
 
 import networkx as nx
-from langchain.schema import Document
+from langchain_core.documents import Document
 
+from src.config import Settings
 from src.graph.builder import load_graph
 from src.indexing.faiss_store import load_faiss_index
-from src.vl_client import DashScopeVLClient
+from src.vl_client import create_vl_client
 
 
 @dataclass
@@ -25,17 +26,15 @@ class GraphRAGResult:
 class MultiModalGraphRAG:
     def __init__(
         self,
-        api_key: str,
-        vl_model: str,
-        embedding_model: str,
+        settings: Settings,
         faiss_dir: str | Path,
         graph_path: str | Path,
         pages_dir: str | Path,
     ) -> None:
-        self.vl_client = DashScopeVLClient(api_key=api_key, model=vl_model)
+        self.vl_client = create_vl_client(settings)
         self.vectorstore = load_faiss_index(
-            api_key=api_key,
-            embedding_model=embedding_model,
+            api_key=settings.dashscope_api_key,
+            embedding_model=settings.embedding_model,
             index_dir=faiss_dir,
         )
         self.graph = load_graph(graph_path)

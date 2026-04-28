@@ -129,9 +129,7 @@ def main() -> None:
 
     settings = get_settings()
     chain = MultiModalGraphRAG(
-        api_key=settings.api_key,
-        vl_model=settings.vl_model,
-        embedding_model=settings.embedding_model,
+        settings=settings,
         faiss_dir=settings.faiss_dir,
         graph_path=settings.graph_dir / "graph.pkl",
         pages_dir=settings.pages_dir,

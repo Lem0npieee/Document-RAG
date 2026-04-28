@@ -7,10 +7,10 @@ from pathlib import Path
 from typing import Any
 
 import fitz
-from langchain.schema import Document
+from langchain_core.documents import Document
 
 from src.utils.json_utils import ensure_page_schema, extract_json_object
-from src.vl_client import DashScopeVLClient
+from src.vl_client import VLClient
 
 PARSE_PROMPT = """
 You are a document parsing expert.
@@ -511,15 +511,40 @@ def _parse_score(parsed: dict[str, Any]) -> tuple[int, int, int, int]:
     return (text_n, struct_n, signal_n, rel_n)
 
 
-def _text_only_pass(vl_client: DashScopeVLClient, image_path: Path) -> list[Any]:
+def _coerce_single_block_parse(data: Any) -> dict[str, Any]:
+    if not isinstance(data, dict):
+        return {}
+
+    known_keys = {
+        "texts",
+        "tables",
+        "figures",
+        "section_conclusions",
+        "entities",
+        "keywords",
+        "relations",
+    }
+    if any(key in data for key in known_keys):
+        return data
+
+    content, bbox = _extract_content_bbox(data, preferred_keys=["content", "text", "markdown", "description"])
+    if not content:
+        return data
+    block: dict[str, Any] = {"content": content}
+    if bbox:
+        block["bbox"] = bbox
+    return {"texts": [block]}
+
+
+def _text_only_pass(vl_client: VLClient, image_path: Path) -> list[Any]:
     raw = vl_client.extract_structured_page(PARSE_PROMPT_TEXT_ONLY, image_path)
-    data = extract_json_object(raw)
+    data = _coerce_single_block_parse(extract_json_object(raw))
     texts = data.get("texts", [])
     return texts if isinstance(texts, list) else []
 
 
 def _parse_page_with_retry(
-    vl_client: DashScopeVLClient,
+    vl_client: VLClient,
     image_path: Path,
     page_num: int,
 ) -> dict[str, Any]:
@@ -533,7 +558,7 @@ def _parse_page_with_retry(
                 f"{page_num}, retrying extraction pass {idx}/{len(prompts)}..."
             )
         raw_text = vl_client.extract_structured_page(prompt, image_path)
-        parsed = ensure_page_schema(extract_json_object(raw_text))
+        parsed = ensure_page_schema(_coerce_single_block_parse(extract_json_object(raw_text)))
         candidates.append(parsed)
         if not _is_suspicious_parse(parsed):
             return parsed
@@ -563,7 +588,7 @@ def _parse_page_with_retry(
 def parse_images_to_documents(
     image_paths: list[Path],
     source_name: str,
-    vl_client: DashScopeVLClient,
+    vl_client: VLClient,
 ) -> tuple[list[Document], dict[str, Any]]:
     documents: list[Document] = []
     graph_pages: list[dict[str, Any]] = []
