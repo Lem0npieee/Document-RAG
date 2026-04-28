@@ -19,6 +19,27 @@ from src.parsing.pipeline import (
 from src.vl_client import DashScopeVLClient
 
 
+def _resolve_input_path(input_file: str | Path, settings) -> Path:
+    raw = Path(input_file)
+    candidates: list[Path] = []
+
+    if raw.is_absolute():
+        candidates.append(raw)
+    else:
+        candidates.append(raw)
+        candidates.append(settings.doc_dir / raw)
+
+    for candidate in candidates:
+        if candidate.exists() and candidate.is_file():
+            return candidate.resolve()
+
+    attempts = "\n".join(f"- {c}" for c in candidates)
+    raise FileNotFoundError(
+        f"Input file not found: {input_file}\nTried:\n{attempts}\n"
+        f"Tip: put documents under {settings.doc_dir} or pass an absolute path."
+    )
+
+
 def _compute_file_signature(input_file: str | Path) -> dict[str, str | float | int]:
     input_path = Path(input_file)
     if not input_path.exists():
@@ -300,6 +321,44 @@ def _flatten_pages(graph_container: dict) -> list[dict]:
     return pages
 
 
+def _flatten_cross_page_links(graph_container: dict) -> list[dict]:
+    links: list[dict] = []
+    for item in graph_container.get("documents", []):
+        if not isinstance(item, dict):
+            continue
+        source = str(item.get("source", ""))
+        cross_links = item.get("cross_page_links", [])
+        if not isinstance(cross_links, list):
+            continue
+        for link in cross_links:
+            if not isinstance(link, dict):
+                continue
+            normalized = dict(link)
+            if not normalized.get("source"):
+                normalized["source"] = source
+            links.append(normalized)
+    return links
+
+
+def _flatten_document_keywords(graph_container: dict) -> list[dict]:
+    keywords: list[dict] = []
+    for item in graph_container.get("documents", []):
+        if not isinstance(item, dict):
+            continue
+        source = str(item.get("source", ""))
+        keyword_items = item.get("document_keywords", [])
+        if not isinstance(keyword_items, list):
+            continue
+        for kw in keyword_items:
+            if not isinstance(kw, dict):
+                continue
+            normalized = dict(kw)
+            if not normalized.get("source"):
+                normalized["source"] = source
+            keywords.append(normalized)
+    return keywords
+
+
 def _save_merged_outputs(
     documents: list[Document], graph_container: dict, parsed_dir: Path
 ) -> tuple[Path, Path]:
@@ -365,11 +424,13 @@ def check_existing_knowledge_base() -> dict[str, str | bool | float]:
 
 def build_knowledge_base(input_file: str, force_rebuild: bool = False) -> dict[str, str | float]:
     settings = get_settings()
-    source_name = Path(input_file).name
+    resolved_input = _resolve_input_path(input_file, settings)
+    source_name = resolved_input.name
     paths = _artifact_paths(settings)
-    signature = _compute_file_signature(input_file)
+    signature = _compute_file_signature(resolved_input)
 
     print(f"[1/7] 开始处理文档入库，输入文件: {source_name}")
+    print(f"  解析后的输入路径: {resolved_input}")
     print(f"  输出目录: {settings.output_root}")
     print(f"  强制重建索引: {'是' if force_rebuild else '否'}")
 
@@ -377,7 +438,7 @@ def build_knowledge_base(input_file: str, force_rebuild: bool = False) -> dict[s
     documents = load_documents_from_json(paths["docs"])
     graph_container = _normalize_graph_data(load_graph_data_from_json(paths["graph_data"]))
 
-    existing = check_knowledge_base_status(input_file)
+    existing = check_knowledge_base_status(resolved_input)
     if not force_rebuild and bool(existing.get("can_reuse", False)) and bool(existing.get("kb_ready", False)):
         print("  文档已在知识库中，直接复用现有索引与图谱")
         if bool(existing.get("bootstrap_meta", False)):
@@ -410,12 +471,37 @@ def build_knowledge_base(input_file: str, force_rebuild: bool = False) -> dict[s
     document_known = bool(existing.get("document_known", False))
     newly_added = False
 
+    if force_rebuild:
+        print("  启用强制重建：将重新解析该文档并重建索引/图谱")
+        documents = [doc for doc in documents if str(doc.metadata.get("source", "")) != source_name]
+        graph_docs = graph_container.get("documents", [])
+        if isinstance(graph_docs, list):
+            graph_container["documents"] = [
+                item
+                for item in graph_docs
+                if not (isinstance(item, dict) and str(item.get("source", "")) == source_name)
+            ]
+        registry_docs = registry.get("documents", [])
+        if isinstance(registry_docs, list):
+            registry["documents"] = [
+                item
+                for item in registry_docs
+                if not (
+                    isinstance(item, dict)
+                    and (
+                        str(item.get("source_name", "")) == source_name
+                        or str(item.get("sha256", "")) == str(signature["sha256"])
+                    )
+                )
+            ]
+        document_known = False
+
     if not document_known:
         print("  该文档未入库，开始增量解析并追加")
         doc_page_dir = settings.pages_dir / str(signature["sha256"])[:12]
 
         print(f"[2/7] 准备输入图片...")
-        image_paths = prepare_input_as_images(input_file, doc_page_dir)
+        image_paths = prepare_input_as_images(resolved_input, doc_page_dir)
         print(f"  已生成 {len(image_paths)} 张图片")
 
         print(f"[3/7] 初始化视觉语言客户端，使用模型: {settings.vl_model}")
@@ -443,6 +529,8 @@ def build_knowledge_base(input_file: str, force_rebuild: bool = False) -> dict[s
                 "page_dir": str(doc_page_dir),
                 "added_at": datetime.now().isoformat(),
                 "pages": new_graph_data.get("pages", []),
+                "cross_page_links": new_graph_data.get("cross_page_links", []),
+                "document_keywords": new_graph_data.get("document_keywords", []),
             }
         )
 
@@ -488,7 +576,11 @@ def build_knowledge_base(input_file: str, force_rebuild: bool = False) -> dict[s
     print(f"[7/7] 构建文档知识图谱...")
     graph = build_document_graph(
         documents=documents,
-        graph_data={"pages": _flatten_pages(graph_container)},
+        graph_data={
+            "pages": _flatten_pages(graph_container),
+            "cross_page_links": _flatten_cross_page_links(graph_container),
+            "document_keywords": _flatten_document_keywords(graph_container),
+        },
     )
     graph_path, stats = save_graph(graph, settings.graph_dir)
     print(f"  图谱保存至: {graph_path}")
@@ -509,7 +601,11 @@ def build_knowledge_base(input_file: str, force_rebuild: bool = False) -> dict[s
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build multimodal GraphRAG artifacts")
-    parser.add_argument("--input", required=True, help="Path to input PDF/image")
+    parser.add_argument(
+        "--input",
+        required=True,
+        help="Path or filename of input PDF/image. Relative names are searched under doc/ by default.",
+    )
     parser.add_argument("--force-rebuild", action="store_true",
                        help="Force rebuild all artifacts even if they exist")
     args = parser.parse_args()

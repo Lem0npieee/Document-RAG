@@ -144,6 +144,9 @@ pip install -r requirements.txt
 
 4. 构建知识库（输入PDF或图片）：
 
+- 建议先把文档放到项目根目录下的 `doc/` 文件夹
+- `--input` 既支持绝对路径，也支持仅传文件名（会自动在 `doc/` 下查找）
+
 ```bash
 python build_multimodal_graphrag.py --input "你的文档.pdf"
 ```

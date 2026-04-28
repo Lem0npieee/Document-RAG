@@ -21,13 +21,7 @@ def build_faiss_index(
 
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
-
-    # 检查索引是否已存在（FAISS保存两个文件：index.faiss 和 index.pkl）
-    index_faiss_file = output_path / "index.faiss"
-    index_pkl_file = output_path / "index.pkl"
-    if index_faiss_file.exists() and index_pkl_file.exists():
-        print(f"    FAISS索引已存在，跳过构建: {output_path}")
-        return output_path
+    print(f"    将重建FAISS索引并覆盖目录: {output_path}")
 
     print(f"    正在构建FAISS向量索引，文档数: {len(documents)}")
 

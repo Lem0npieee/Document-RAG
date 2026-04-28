@@ -1,4 +1,4 @@
-const chatHistory = document.getElementById("chatHistory");
+﻿const chatHistory = document.getElementById("chatHistory");
 const chatInput = document.getElementById("chatInput");
 const sendBtn = document.getElementById("sendBtn");
 const fileInput = document.getElementById("fileInput");
@@ -15,7 +15,8 @@ const colorMap = {
   text: "#fcd34d",
   table: "#34d399",
   figure: "#f472b6",
-  entity: "#60a5fa",
+  keyword: "#fb7185",
+  cross_page_text: "#94a3b8",
   conclusion: "#a78bfa",
   default: "#e2e8f0",
 };
@@ -28,14 +29,14 @@ const demoGraph = {
     { id: "doc_text_1", label: "Section 1", type: "text", tokens: 120 },
     { id: "doc_table_1", label: "Table 2", type: "table", tokens: 60 },
     { id: "doc_fig_1", label: "Figure 3", type: "figure", tokens: 80 },
-    { id: "entity_qwen", label: "Qwen-VL", type: "entity", tokens: 40 },
-    { id: "entity_acc", label: "Accuracy", type: "entity", tokens: 30 },
+    { id: "keyword_qwen", label: "Qwen-VL", type: "keyword", tokens: 40 },
+    { id: "keyword_acc", label: "Accuracy", type: "keyword", tokens: 30 },
   ],
   edges: [
-    { from: "doc_text_1", to: "doc_table_1", relation: "同页" },
-    { from: "doc_table_1", to: "doc_fig_1", relation: "支撑结论" },
-    { from: "doc_fig_1", to: "entity_acc", relation: "展示" },
-    { from: "entity_qwen", to: "doc_fig_1", relation: "表现最优" },
+    { from: "doc_text_1", to: "doc_table_1", relation: "鍚岄〉" },
+    { from: "doc_table_1", to: "doc_fig_1", relation: "鏀拺缁撹" },
+    { from: "doc_fig_1", to: "keyword_acc", relation: "shows" },
+    { from: "keyword_qwen", to: "doc_fig_1", relation: "best_performance" },
   ],
 };
 
@@ -75,6 +76,121 @@ function normalizeImageUrl(value) {
   return "";
 }
 
+function normalizeBbox(value) {
+  if (!Array.isArray(value) || value.length !== 4) return null;
+  const nums = value.map((x) => Number(x));
+  if (nums.some((x) => Number.isNaN(x))) return null;
+  let [x1, y1, x2, y2] = nums;
+  x1 = Math.max(0, Math.min(1, x1));
+  y1 = Math.max(0, Math.min(1, y1));
+  x2 = Math.max(0, Math.min(1, x2));
+  y2 = Math.max(0, Math.min(1, y2));
+  if (x2 <= x1 || y2 <= y1) return null;
+  return [x1, y1, x2, y2];
+}
+
+function drawCropPreview(canvas, imageUrl, bbox) {
+  if (!canvas || !imageUrl || !bbox) return;
+  const img = new Image();
+  img.onload = () => {
+    const [x1, y1, x2, y2] = bbox;
+    // Keep crop accurate by default; only add tiny padding for very small boxes.
+    const boxW = x2 - x1;
+    const boxH = y2 - y1;
+    const tinyPad = boxW < 0.08 || boxH < 0.05 ? 0.005 : 0;
+    const padX = tinyPad;
+    const padY = tinyPad;
+    const bx1 = Math.max(0, x1 - padX);
+    const by1 = Math.max(0, y1 - padY);
+    const bx2 = Math.min(1, x2 + padX);
+    const by2 = Math.min(1, y2 + padY);
+
+    let sx = Math.max(0, Math.floor(bx1 * img.width));
+    let sy = Math.max(0, Math.floor(by1 * img.height));
+    let sw = Math.max(1, Math.floor((bx2 - bx1) * img.width));
+    let sh = Math.max(1, Math.floor((by2 - by1) * img.height));
+
+    // Refine crop by trimming near-white margins inside the bbox region.
+    const probe = document.createElement("canvas");
+    probe.width = sw;
+    probe.height = sh;
+    const pctx = probe.getContext("2d", { willReadFrequently: true });
+    if (pctx) {
+      pctx.drawImage(img, sx, sy, sw, sh, 0, 0, sw, sh);
+      const imageData = pctx.getImageData(0, 0, sw, sh).data;
+      let minX = sw;
+      let minY = sh;
+      let maxX = -1;
+      let maxY = -1;
+
+      const stepX = Math.max(1, Math.floor(sw / 320));
+      const stepY = Math.max(1, Math.floor(sh / 320));
+      const isForeground = (r, g, b) => {
+        const brightness = (r + g + b) / 3;
+        const spread = Math.max(r, g, b) - Math.min(r, g, b);
+        return brightness < 246 || spread > 12;
+      };
+
+      for (let y = 0; y < sh; y += stepY) {
+        for (let x = 0; x < sw; x += stepX) {
+          const idx = (y * sw + x) * 4;
+          const r = imageData[idx];
+          const g = imageData[idx + 1];
+          const b = imageData[idx + 2];
+          if (!isForeground(r, g, b)) continue;
+          if (x < minX) minX = x;
+          if (y < minY) minY = y;
+          if (x > maxX) maxX = x;
+          if (y > maxY) maxY = y;
+        }
+      }
+
+      if (maxX >= minX && maxY >= minY) {
+        const refineMargin = 4;
+        const rsx = Math.max(0, minX - refineMargin);
+        const rsy = Math.max(0, minY - refineMargin);
+        const rsw = Math.max(1, Math.min(sw - rsx, maxX - minX + 1 + refineMargin * 2));
+        const rsh = Math.max(1, Math.min(sh - rsy, maxY - minY + 1 + refineMargin * 2));
+        sx += rsx;
+        sy += rsy;
+        sw = rsw;
+        sh = rsh;
+      }
+    }
+
+    // Keep display reasonably large while avoiding extreme upscale blur.
+    const maxDisplayW = 560;
+    const minDisplayW = 220;
+    const displayW = Math.max(minDisplayW, Math.min(maxDisplayW, sw));
+    const displayH = Math.max(120, Math.round((displayW * sh) / sw));
+    const dpr = Math.max(1, window.devicePixelRatio || 1);
+
+    canvas.style.width = `${displayW}px`;
+    canvas.style.height = `${displayH}px`;
+    canvas.width = Math.round(displayW * dpr);
+    canvas.height = Math.round(displayH * dpr);
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
+    ctx.clearRect(0, 0, displayW, displayH);
+    ctx.drawImage(img, sx, sy, sw, sh, 0, 0, displayW, displayH);
+  };
+  img.onerror = () => {
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    canvas.style.width = "100%";
+    canvas.style.height = "80px";
+    canvas.width = 320;
+    canvas.height = 80;
+    ctx.fillStyle = "#64748b";
+    ctx.font = "14px Space Grotesk";
+    ctx.fillText("Crop preview unavailable", 12, 42);
+  };
+  img.src = imageUrl;
+}
+
 function estimateTokenCount(text) {
   const raw = String(text || "").trim();
   if (!raw) return 1;
@@ -87,6 +203,15 @@ function estimateTokenCount(text) {
   const punctuation = (raw.match(/[^\w\s\u4e00-\u9fff]/g) || []).length;
 
   return Math.max(1, cjkCount + latinWords + Math.floor(punctuation * 0.2));
+}
+
+function normalizeSemanticId(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "_")
+    .replace(/[^\w\u4e00-\u9fff]+/g, "_")
+    .replace(/^_+|_+$/g, "") || "unknown";
 }
 
 function tokenToNodeSize(tokens) {
@@ -189,7 +314,7 @@ function initGraph(graph) {
     id: `edge_${index}`,
     from: edge.from,
     to: edge.to,
-    label: edge.relation || "关联",
+    label: edge.relation || "鍏宠仈",
     font: { color: "#cbd5f5", size: 10, align: "top" },
     arrows: { to: { enabled: true, scaleFactor: 0.7 } },
     color: { color: "rgba(100,116,139,0.55)" },
@@ -286,7 +411,7 @@ function renderInspector(data, isEdge = false) {
         <h3>Edge Relation</h3>
         <p><strong>From:</strong> ${data.from}</p>
         <p><strong>To:</strong> ${data.to}</p>
-        <p><strong>Relation:</strong> ${data.relation || "关联"}</p>
+        <p><strong>Relation:</strong> ${data.relation || "鍏宠仈"}</p>
       </div>
     `;
     return;
@@ -295,15 +420,22 @@ function renderInspector(data, isEdge = false) {
   const source = escapeHtml(data.source || "-");
   const page = data.page ?? "-";
   const nodeType = escapeHtml(data.type || "unknown");
+  const keywordType = data.keyword_type
+    ? `<p><strong>Keyword Type:</strong> ${escapeHtml(data.keyword_type)}</p>`
+    : "";
   const nodeId = escapeHtml(data.id || "-");
   const figId = data.fig_id ? `<p><strong>Figure ID:</strong> ${escapeHtml(data.fig_id)}</p>` : "";
   const content = String(data.content || "").trim();
   const imageUrl = normalizeImageUrl(data.image_url || data.image_path);
+  const bbox = normalizeBbox(data.bbox);
+  const isPageNode = String(data.type || "").toLowerCase() === "page";
+  const cropCanvasId = `crop_${String(data.id || "node").replace(/[^a-zA-Z0-9_]/g, "_")}`;
 
   nodeInspector.innerHTML = `
     <div class="inspector-card">
       <h3>${escapeHtml(data.label || data.id || "Node")}</h3>
       <p><strong>Type:</strong> ${nodeType}</p>
+      ${keywordType}
       <p><strong>Source:</strong> ${source}</p>
       <p><strong>Page:</strong> ${page}</p>
       ${figId}
@@ -311,15 +443,28 @@ function renderInspector(data, isEdge = false) {
       ${
         content
           ? `<p><strong>Content:</strong></p><pre style="white-space: pre-wrap; word-break: break-word; max-height: 220px; overflow-y: auto; padding: 10px; border-radius: 10px; background: rgba(15,23,42,0.05); border: 1px solid rgba(15,23,42,0.08);">${escapeHtml(content)}</pre>`
-          : `<p><strong>Content:</strong> (暂无原文内容)</p>`
+          : `<p><strong>Content:</strong> (鏆傛棤鍘熸枃鍐呭)</p>`
       }
       ${
-        imageUrl
-          ? `<p><strong>Page Preview:</strong></p><img src="${escapeHtml(imageUrl)}" alt="page preview" style="width: 100%; border-radius: 10px; border: 1px solid rgba(15,23,42,0.12);" />`
-          : ""
+        isPageNode
+          ? imageUrl
+            ? `<p><strong>Page Preview:</strong></p><img src="${escapeHtml(imageUrl)}" alt="page preview" style="width: 100%; border-radius: 10px; border: 1px solid rgba(15,23,42,0.12);" />`
+            : `<p class="inspector-note">No page image available.</p>`
+          : imageUrl
+            ? `${
+                bbox
+                  ? `<p><strong>Local Preview:</strong></p><canvas id="${cropCanvasId}" class="crop-preview-canvas"></canvas>`
+                  : `<p class="inspector-note">No local bbox for this node yet.</p>`
+              }`
+            : `<p class="inspector-note">No image available for this node.</p>`
       }
     </div>
   `;
+
+  if (!isPageNode && bbox && imageUrl) {
+    const canvas = document.getElementById(cropCanvasId);
+    drawCropPreview(canvas, imageUrl, bbox);
+  }
 }
 
 function parseGraphData(raw) {
@@ -367,6 +512,7 @@ function parseGraphData(raw) {
           source: detail.source || source,
           page: detail.page || page.page,
           fig_id: figId,
+          bbox: detail.bbox || null,
           content,
           image_path: detail.image_path || page.image_path || "",
           image_url: detail.image_url || page.image_url || "",
@@ -374,25 +520,60 @@ function parseGraphData(raw) {
         edges.push({ from: pageId, to: nodeId, relation: "contains" });
       });
 
-      (page.entities || []).forEach((entity) => {
-        const entityId = `entity_${entity.name}`.replace(/\s+/g, "_");
+      (page.keywords || []).forEach((keyword) => {
+        const term =
+          typeof keyword === "string"
+            ? keyword
+            : String(keyword?.term || keyword?.name || "").trim();
+        if (!term) return;
+        const keywordType =
+          typeof keyword === "string" ? "concept" : String(keyword?.type || "concept");
+        const keywordId = `keyword_${normalizeSemanticId(term)}`;
         nodes.push({
-          id: entityId,
-          label: entity.name,
-          type: "entity",
-          tokens: estimateTokenCount(entity.name),
+          id: keywordId,
+          label: term,
+          type: "keyword",
+          tokens: estimateTokenCount(term),
+          keyword_type: keywordType,
           source,
           page: page.page,
-          content: "",
+          content: term,
           image_path: page.image_path || "",
           image_url: page.image_url || "",
         });
-        edges.push({ from: pageId, to: entityId, relation: "mentions" });
+        edges.push({ from: pageId, to: keywordId, relation: "keyword" });
       });
 
       (page.relations || []).forEach((rel) => {
-        const fromId = `entity_${rel.from}`.replace(/\s+/g, "_");
-        const toId = `entity_${rel.to}`.replace(/\s+/g, "_");
+        const fromRaw = String(rel?.from || "").trim();
+        const toRaw = String(rel?.to || "").trim();
+        if (!fromRaw || !toRaw) return;
+        const fromId = `keyword_${normalizeSemanticId(fromRaw)}`;
+        const toId = `keyword_${normalizeSemanticId(toRaw)}`;
+        nodes.push({
+          id: fromId,
+          label: fromRaw,
+          type: "keyword",
+          tokens: estimateTokenCount(fromRaw),
+          keyword_type: "concept",
+          source,
+          page: page.page,
+          content: fromRaw,
+          image_path: page.image_path || "",
+          image_url: page.image_url || "",
+        });
+        nodes.push({
+          id: toId,
+          label: toRaw,
+          type: "keyword",
+          tokens: estimateTokenCount(toRaw),
+          keyword_type: "concept",
+          source,
+          page: page.page,
+          content: toRaw,
+          image_path: page.image_path || "",
+          image_url: page.image_url || "",
+        });
         edges.push({ from: fromId, to: toId, relation: rel.relation });
       });
     });

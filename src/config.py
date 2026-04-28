@@ -12,6 +12,7 @@ class Settings:
     api_key: str
     vl_model: str = "qwen3-vl-8b-instruct"
     embedding_model: str = "text-embedding-v3"
+    doc_root: Path = Path("doc")
     output_root: Path = Path("outputs")
     pages_dirname: str = "pages"
     parsed_dirname: str = "parsed"
@@ -34,6 +35,10 @@ class Settings:
     def graph_dir(self) -> Path:
         return self.output_root / self.graph_dirname
 
+    @property
+    def doc_dir(self) -> Path:
+        return self.doc_root
+
 
 def _clean_env_value(value: str) -> str:
     return value.strip().strip("\"").strip("'")
@@ -51,9 +56,11 @@ def get_settings() -> Settings:
         api_key=api_key,
         vl_model=os.getenv("VL_MODEL", "qwen3-vl-8b-instruct"),
         embedding_model=os.getenv("EMBEDDING_MODEL", "text-embedding-v3"),
+        doc_root=Path(os.getenv("DOC_ROOT", "doc")),
         output_root=Path(os.getenv("OUTPUT_ROOT", "outputs")),
     )
 
+    settings.doc_dir.mkdir(parents=True, exist_ok=True)
     settings.output_root.mkdir(parents=True, exist_ok=True)
     settings.pages_dir.mkdir(parents=True, exist_ok=True)
     settings.parsed_dir.mkdir(parents=True, exist_ok=True)

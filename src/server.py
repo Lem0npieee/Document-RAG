@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
 import uuid
 from pathlib import Path
@@ -20,7 +21,10 @@ from src.rag.multimodal_graph_rag_chain import MultiModalGraphRAG
 
 WEB_DIR = APP_ROOT / "web"
 OUTPUTS_DIR = APP_ROOT / "outputs"
-UPLOAD_DIR = OUTPUTS_DIR / "uploads"
+_doc_root_env = os.getenv("DOC_ROOT", "doc")
+_doc_root_path = Path(_doc_root_env)
+DOC_DIR = _doc_root_path if _doc_root_path.is_absolute() else APP_ROOT / _doc_root_path
+UPLOAD_DIR = DOC_DIR
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 # Disable Flask built-in static route to avoid shadowing custom routes
@@ -137,9 +141,12 @@ def graph_data() -> Any:
                 "type": str(metadata.get("type", "text")),
                 "source": str(metadata.get("source", "")),
                 "page": metadata.get("page"),
+                "page_span": metadata.get("page_span", []),
                 "fig_id": str(metadata.get("fig_id", "")),
                 "content": str(item.get("page_content", "")),
+                "bbox": metadata.get("bbox"),
                 "image_path": image_path,
+                "image_paths": metadata.get("image_paths", []),
                 "image_url": _to_outputs_url(image_path),
             }
 

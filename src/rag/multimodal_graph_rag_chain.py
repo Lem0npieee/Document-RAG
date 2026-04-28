@@ -1,8 +1,11 @@
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
+import networkx as nx
 from langchain.schema import Document
 
 from src.graph.builder import load_graph
@@ -37,8 +40,174 @@ class MultiModalGraphRAG:
         )
         self.graph = load_graph(graph_path)
         self.pages_dir = Path(pages_dir)
+        self.community_profiles = self._build_community_profiles()
 
-    def _expand_with_graph(self, seed_node_ids: list[str], max_nodes: int = 8) -> list[str]:
+    def _build_community_profiles(self) -> list[dict[str, Any]]:
+        if self.graph.number_of_nodes() == 0:
+            return []
+
+        undirected = self.graph.to_undirected()
+        if undirected.number_of_nodes() == 0:
+            return []
+
+        try:
+            communities = list(nx.algorithms.community.greedy_modularity_communities(undirected))
+        except Exception:
+            communities = [set(undirected.nodes())]
+
+        profiles: list[dict[str, Any]] = []
+        for idx, comm in enumerate(sorted(communities, key=len, reverse=True), start=1):
+            node_ids = [nid for nid in comm if nid in self.graph]
+            if not node_ids:
+                continue
+
+            pages: set[int] = set()
+            entity_names: list[str] = []
+            keyword_names: list[str] = []
+            content_nodes: list[tuple[int, str, str]] = []
+
+            for nid in node_ids:
+                node = self.graph.nodes[nid]
+
+                page = node.get("page")
+                if isinstance(page, int) and page > 0:
+                    pages.add(page)
+
+                page_span = node.get("page_span", [])
+                if isinstance(page_span, list):
+                    for p in page_span:
+                        if isinstance(p, int) and p > 0:
+                            pages.add(p)
+
+                node_type = str(node.get("type", ""))
+                name = str(node.get("name", "")).strip()
+                if node_type == "entity" and name:
+                    entity_names.append(name)
+                if node_type == "keyword" and name:
+                    keyword_names.append(name)
+
+                content = str(node.get("content", "")).strip()
+                if content:
+                    degree = int(self.graph.degree(nid))
+                    content_nodes.append((degree, nid, content))
+
+            content_nodes.sort(key=lambda x: x[0], reverse=True)
+            snippet_lines: list[str] = []
+            for _, nid, content in content_nodes[:8]:
+                snippet = content.replace("\n", " ").strip()
+                if len(snippet) > 180:
+                    snippet = f"{snippet[:180]}..."
+                snippet_lines.append(f"[{nid}] {snippet}")
+
+            relation_lines: list[str] = []
+            node_set = set(node_ids)
+            for src in node_ids:
+                for dst in self.graph.successors(src):
+                    if dst not in node_set:
+                        continue
+                    rel = str(self.graph.edges[src, dst].get("relation", "related"))
+                    relation_lines.append(f"{src} --[{rel}]--> {dst}")
+                    if len(relation_lines) >= 20:
+                        break
+                if len(relation_lines) >= 20:
+                    break
+
+            profiles.append(
+                {
+                    "community_id": idx,
+                    "node_ids": node_ids,
+                    "size": len(node_ids),
+                    "pages": sorted(pages),
+                    "entities": sorted(set(entity_names))[:12],
+                    "keywords": sorted(set(keyword_names))[:16],
+                    "snippets": snippet_lines,
+                    "relations": relation_lines,
+                }
+            )
+
+        return profiles
+
+    def _query_tokens(self, text: str) -> list[str]:
+        raw = str(text).lower()
+        en_words = re.findall(r"[a-z0-9_]{2,}", raw)
+        zh_terms = re.findall(r"[\u4e00-\u9fff]{2,}", raw)
+        single_zh = re.findall(r"[\u4e00-\u9fff]", raw)
+        tokens = en_words + zh_terms + single_zh
+        return list(dict.fromkeys(tokens))
+
+    def _select_global_profiles(
+        self,
+        question: str,
+        preferred_node_ids: list[str],
+        top_n: int = 4,
+    ) -> list[dict[str, Any]]:
+        if not self.community_profiles:
+            return []
+
+        q_tokens = self._query_tokens(question)
+        preferred = set(preferred_node_ids)
+        scored: list[tuple[float, dict[str, Any]]] = []
+
+        for profile in self.community_profiles:
+            text_blob = " ".join(
+                profile.get("entities", [])
+                + profile.get("keywords", [])
+                + profile.get("snippets", [])
+                + profile.get("relations", [])
+            ).lower()
+            token_hits = sum(1 for t in q_tokens if t and t in text_blob)
+            overlap = len(preferred.intersection(set(profile.get("node_ids", []))))
+            size_bonus = min(int(profile.get("size", 0)), 80) * 0.03
+            page_bonus = min(len(profile.get("pages", [])), 12) * 0.08
+            score = token_hits * 2.5 + overlap * 1.2 + size_bonus + page_bonus
+            scored.append((score, profile))
+
+        scored.sort(key=lambda x: x[0], reverse=True)
+        picked = [profile for score, profile in scored[:top_n] if score > 0]
+        if not picked:
+            picked = [profile for _, profile in scored[: max(1, min(top_n, 2))]]
+        return picked
+
+    def _render_global_context(self, profiles: list[dict[str, Any]]) -> str:
+        if not profiles:
+            return "无全局社区证据"
+
+        blocks: list[str] = []
+        for profile in profiles:
+            cid = profile.get("community_id")
+            size = profile.get("size", 0)
+            pages = profile.get("pages", [])
+            entities = profile.get("entities", [])
+            keywords = profile.get("keywords", [])
+            snippets = profile.get("snippets", [])
+            relations = profile.get("relations", [])
+
+            blocks.append(
+                (
+                    f"[社区#{cid}] 节点数={size} 页码={pages}\n"
+                    f"关键实体: {entities}\n"
+                    f"关键关键词: {keywords}\n"
+                    f"代表片段:\n" + ("\n".join(snippets[:5]) if snippets else "无") + "\n"
+                    f"代表关系:\n" + ("\n".join(relations[:8]) if relations else "无")
+                )
+            )
+
+        return "\n\n".join(blocks)
+
+    def _neighbor_rank(self, nid: str) -> tuple[int, int]:
+        node_type = str(self.graph.nodes[nid].get("type", ""))
+        priority_map = {
+            "figure": 0,
+            "table": 0,
+            "conclusion": 1,
+            "text": 1,
+            "entity": 2,
+            "keyword": 2,
+            "cross_page_text": 3,
+        }
+        return (priority_map.get(node_type, 5), -int(self.graph.degree(nid)))
+
+    def _expand_with_graph(self, seed_node_ids: list[str], max_nodes: int = 18) -> list[str]:
         selected: list[str] = []
         seen = set()
 
@@ -47,25 +216,43 @@ class MultiModalGraphRAG:
                 selected.append(node_id)
                 seen.add(node_id)
 
-        neighbors: list[str] = []
-        for seed in selected:
-            if seed not in self.graph:
-                continue
-            near = list(self.graph.successors(seed)) + list(self.graph.predecessors(seed))
-            neighbors.extend(near)
+        if not selected:
+            return selected
 
-        neighbors = [node for node in neighbors if node in self.graph and node not in seen]
-        neighbors.sort(
-            key=lambda nid: 0
-            if self.graph.nodes[nid].get("type") in {"figure", "table"}
-            else 1
-        )
+        def collect_neighbors(candidates: list[str]) -> list[str]:
+            acc: list[str] = []
+            for nid in candidates:
+                if nid not in self.graph:
+                    continue
+                near = list(self.graph.successors(nid)) + list(self.graph.predecessors(nid))
+                acc.extend(near)
+            uniq = [n for n in dict.fromkeys(acc) if n in self.graph and n not in seen]
+            uniq.sort(key=self._neighbor_rank)
+            return uniq
 
-        for node in neighbors:
+        # Hop-1 expansion around local retrieval seeds.
+        hop1 = collect_neighbors(selected)
+        for nid in hop1:
             if len(selected) >= max_nodes:
                 break
-            selected.append(node)
-            seen.add(node)
+            selected.append(nid)
+            seen.add(nid)
+
+        if len(selected) >= max_nodes:
+            return selected
+
+        # Hop-2 bridge expansion via entity/keyword hubs to improve cross-document linking.
+        bridge_nodes = [
+            nid
+            for nid in selected
+            if str(self.graph.nodes[nid].get("type", "")) in {"entity", "keyword"}
+        ]
+        hop2 = collect_neighbors(bridge_nodes)
+        for nid in hop2:
+            if len(selected) >= max_nodes:
+                break
+            selected.append(nid)
+            seen.add(nid)
 
         return selected
 
@@ -77,7 +264,7 @@ class MultiModalGraphRAG:
             for dst in self.graph.successors(src):
                 if dst not in node_set:
                     continue
-                relation = self.graph.edges[src, dst].get("relation", "相关")
+                relation = self.graph.edges[src, dst].get("relation", "related")
                 relation_lines.append(f"{src} --[{relation}]--> {dst}")
 
         return relation_lines
@@ -115,15 +302,26 @@ class MultiModalGraphRAG:
         for node_id in node_ids:
             if node_id not in self.graph:
                 continue
-            page = self.graph.nodes[node_id].get("page")
+            node = self.graph.nodes[node_id]
+            page = node.get("page")
             if isinstance(page, int) and page > 0:
                 pages.add(page)
+            page_span = node.get("page_span", [])
+            if isinstance(page_span, list):
+                for p in page_span:
+                    if isinstance(p, int) and p > 0:
+                        pages.add(p)
 
         if not pages:
             for doc in retrieved_docs:
                 page = doc.metadata.get("page")
                 if isinstance(page, int) and page > 0:
                     pages.add(page)
+                page_span = doc.metadata.get("page_span", [])
+                if isinstance(page_span, list):
+                    for p in page_span:
+                        if isinstance(p, int) and p > 0:
+                            pages.add(p)
 
         return sorted(pages)
 
@@ -135,78 +333,100 @@ class MultiModalGraphRAG:
             if node_id not in self.graph:
                 continue
             image_path = str(self.graph.nodes[node_id].get("image_path", "")).strip()
-            if not image_path:
-                continue
-            p = Path(image_path)
-            if p.exists() and str(p) not in seen:
-                paths.append(p)
-                seen.add(str(p))
+            if image_path:
+                p = Path(image_path)
+                if p.exists() and str(p) not in seen:
+                    paths.append(p)
+                    seen.add(str(p))
+            image_paths = self.graph.nodes[node_id].get("image_paths", [])
+            if isinstance(image_paths, list):
+                for item in image_paths:
+                    pi = Path(str(item))
+                    if pi.exists() and str(pi) not in seen:
+                        paths.append(pi)
+                        seen.add(str(pi))
 
         for doc in retrieved_docs:
             image_path = str(doc.metadata.get("image_path", "")).strip()
-            if not image_path:
-                continue
-            p = Path(image_path)
-            if p.exists() and str(p) not in seen:
-                paths.append(p)
-                seen.add(str(p))
+            if image_path:
+                p = Path(image_path)
+                if p.exists() and str(p) not in seen:
+                    paths.append(p)
+                    seen.add(str(p))
+            image_paths = doc.metadata.get("image_paths", [])
+            if isinstance(image_paths, list):
+                for item in image_paths:
+                    pi = Path(str(item))
+                    if pi.exists() and str(pi) not in seen:
+                        paths.append(pi)
+                        seen.add(str(pi))
 
         return paths
 
-    def ask(self, question: str, k: int = 3, max_nodes: int = 8) -> GraphRAGResult:
-        print(f"\n[GraphRAG问答] 问题: {question}")
-        print(f"  检索参数: k={k}, max_nodes={max_nodes}")
+    def ask(self, question: str, k: int = 3, max_nodes: int = 18) -> GraphRAGResult:
+        print(f"\n[GraphRAG] Question: {question}")
+        print(f"  Retrieval params: k={k}, max_nodes={max_nodes}")
 
         retriever = self.vectorstore.as_retriever(search_kwargs={"k": k})
         retrieved_docs = retriever.invoke(question)
-        print(f"  检索到 {len(retrieved_docs)} 个相关文档")
+        print(f"  Retrieved docs: {len(retrieved_docs)}")
 
-        seed_node_ids = [
-            str(doc.metadata.get("node_id"))
-            for doc in retrieved_docs
-            if doc.metadata.get("node_id")
-        ]
-        print(f"  种子节点: {len(seed_node_ids)} 个")
+        seed_node_ids = [str(doc.metadata.get("node_id")) for doc in retrieved_docs if doc.metadata.get("node_id")]
+        print(f"  Seed nodes: {len(seed_node_ids)}")
 
         expanded_node_ids = self._expand_with_graph(seed_node_ids, max_nodes=max_nodes)
-        print(f"  扩展后节点: {len(expanded_node_ids)} 个")
+        print(f"  Expanded nodes: {len(expanded_node_ids)}")
 
-        relation_lines = self._collect_relations(expanded_node_ids)
-        print(f"  发现关系: {len(relation_lines)} 条")
+        global_profiles = self._select_global_profiles(
+            question=question,
+            preferred_node_ids=expanded_node_ids,
+            top_n=4,
+        )
+        global_context = self._render_global_context(global_profiles)
 
-        text_evidence = self._collect_text_evidence(expanded_node_ids, retrieved_docs)
-        pages = self._collect_pages(expanded_node_ids, retrieved_docs)
-        print(f"  相关页面: {pages}")
+        global_node_ids: list[str] = []
+        for profile in global_profiles:
+            for nid in profile.get("node_ids", []):
+                if len(global_node_ids) >= 24:
+                    break
+                global_node_ids.append(str(nid))
 
-        image_paths = self._collect_image_paths(expanded_node_ids, retrieved_docs)
+        fused_node_ids = list(dict.fromkeys(expanded_node_ids + global_node_ids))
+        print(
+            f"  Global communities: {len(global_profiles)}, global supplement nodes: {len(global_node_ids)}, fused nodes: {len(fused_node_ids)}"
+        )
+
+        relation_lines = self._collect_relations(fused_node_ids)
+        print(f"  Relations found: {len(relation_lines)}")
+
+        text_evidence = self._collect_text_evidence(fused_node_ids, retrieved_docs)
+        pages = self._collect_pages(fused_node_ids, retrieved_docs)
+        print(f"  Related pages: {pages}")
+
+        image_paths = self._collect_image_paths(fused_node_ids, retrieved_docs)
         if not image_paths:
-            image_paths = [
-                self.pages_dir / f"page_{page}.png"
-                for page in pages
-                if (self.pages_dir / f"page_{page}.png").exists()
-            ]
-        print(f"  使用图片: {len(image_paths)} 张")
+            image_paths = [self.pages_dir / f"page_{page}.png" for page in pages if (self.pages_dir / f"page_{page}.png").exists()]
+        print(f"  Images used: {len(image_paths)}")
 
         relation_block = "\n".join(relation_lines) if relation_lines else "无显式关系"
 
         prompt = (
-            "你是文档智能助手。请根据以下多模态证据回答用户问题。\n"
-            "证据包含：①检索文本 ②实体关系链 ③文档页面原图。\n"
+            "你是文档问答助手。请融合局部检索证据、图谱关系链与全局社区摘要回答问题。\n"
+            "若局部证据与全局摘要冲突，以局部证据为准并说明冲突点。\n"
             f"用户问题：{question}\n\n"
-            f"实体关系链（知识图谱路径）：\n{relation_block}\n\n"
-            f"检索到的文本与描述：\n{text_evidence}\n\n"
-            "要求：答案必须准确、简洁。回答末尾必须标注 "
-            "[引用：第X页, 图Y/表格Z/文本, 经由关系: R]。"
+            f"图谱关系链：\n{relation_block}\n\n"
+            f"全局社区证据：\n{global_context}\n\n"
+            f"文本证据：\n{text_evidence}\n\n"
+            "要求：回答准确、简洁；结尾给出引用页码与关键关系。"
         )
 
-        print(f"  正在生成答案...")
+        print("  Generating answer...")
         answer = self.vl_client.answer_question(prompt=prompt, image_paths=image_paths)
-        print(f"  答案生成完成，长度: {len(answer)} 字符")
+        print(f"  Answer generated: {len(answer)} chars")
 
-        print(f"  问答完成\n")
         return GraphRAGResult(
             answer=answer,
-            node_ids=expanded_node_ids,
+            node_ids=fused_node_ids,
             pages=pages,
             image_paths=[str(p) for p in image_paths],
             relations=relation_lines,

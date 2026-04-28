@@ -11,7 +11,7 @@ def extract_json_object(text: str) -> dict[str, Any]:
         try:
             obj, _ = decoder.raw_decode(text[start:])
             if isinstance(obj, dict):
-                print(f"      成功提取JSON对象，键: {list(obj.keys())}")
+                print(f"      Parsed JSON object keys: {list(obj.keys())}")
                 return obj
         except json.JSONDecodeError:
             continue
@@ -28,16 +28,17 @@ def ensure_page_schema(raw: dict[str, Any]) -> dict[str, Any]:
         if isinstance(raw.get("section_conclusions", []), list)
         else [],
         "entities": raw.get("entities", []) if isinstance(raw.get("entities", []), list) else [],
+        "keywords": raw.get("keywords", []) if isinstance(raw.get("keywords", []), list) else [],
         "relations": raw.get("relations", []) if isinstance(raw.get("relations", []), list) else [],
     }
 
-    # 打印统计信息
-    print(f"      规范化数据统计:")
-    print(f"        文本段落: {len(result['texts'])} 个")
-    print(f"        表格: {len(result['tables'])} 个")
-    print(f"        图表: {len(result['figures'])} 个")
-    print(f"        结论: {len(result['section_conclusions'])} 个")
-    print(f"        实体: {len(result['entities'])} 个")
-    print(f"        关系: {len(result['relations'])} 个")
+    print("      Normalized page schema stats:")
+    print(f"        texts: {len(result['texts'])}")
+    print(f"        tables: {len(result['tables'])}")
+    print(f"        figures: {len(result['figures'])}")
+    print(f"        section_conclusions: {len(result['section_conclusions'])}")
+    print(f"        entities: {len(result['entities'])}")
+    print(f"        keywords: {len(result['keywords'])}")
+    print(f"        relations: {len(result['relations'])}")
 
     return result

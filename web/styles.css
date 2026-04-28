@@ -248,8 +248,16 @@ body {
   color: #f472b6;
 }
 
-.legend-item[data-type="entity"] {
-  color: #60a5fa;
+.legend-item[data-type="keyword"] {
+  color: #fb7185;
+}
+
+.legend-item[data-type="cross_page_text"] {
+  color: #94a3b8;
+}
+
+.legend-item[data-type="conclusion"] {
+  color: #a78bfa;
 }
 
 .graph-footer {
@@ -286,6 +294,22 @@ body {
 .inspector-card p {
   font-size: 16px;
   line-height: 1.6;
+}
+
+.crop-preview-canvas {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #f8fafc;
+  display: block;
+  margin-top: 6px;
+}
+
+.inspector-note {
+  margin-top: 8px;
+  color: #64748b;
+  font-size: 14px;
 }
 
 @media (max-width: 1100px) {
