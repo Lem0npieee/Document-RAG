@@ -363,12 +363,55 @@ class MultiModalGraphRAG:
 
         return paths
 
-    def ask(self, question: str, k: int = 3, max_nodes: int = 18) -> GraphRAGResult:
+    def _canonical_source_name(self, value: str | None) -> str:
+        if not value:
+            return ""
+        return Path(str(value)).name.strip().lower()
+
+    def _retrieve_docs(self, question: str, k: int, source_hint: str | None = None) -> list[Document]:
+        if k <= 0:
+            return []
+
+        source_key = self._canonical_source_name(source_hint)
+        candidate_k = max(k * 6, 30) if source_key else k
+        candidates: list[Document] = []
+
+        try:
+            candidates = self.vectorstore.similarity_search(question, k=candidate_k)
+        except Exception:
+            retriever = self.vectorstore.as_retriever(search_kwargs={"k": candidate_k})
+            candidates = retriever.invoke(question)
+
+        if not source_key:
+            return candidates[:k]
+
+        filtered: list[Document] = []
+        for doc in candidates:
+            doc_source = self._canonical_source_name(str(doc.metadata.get("source", "")))
+            if doc_source == source_key:
+                filtered.append(doc)
+
+        if len(filtered) >= k:
+            return filtered[:k]
+
+        # If source filtering is too strict and returns nothing, keep behavior robust
+        # by falling back to top semantic candidates.
+        return filtered if filtered else candidates[:k]
+
+    def ask(
+        self,
+        question: str,
+        k: int = 3,
+        max_nodes: int = 18,
+        source_hint: str | None = None,
+        answer_style: str = "detailed",
+    ) -> GraphRAGResult:
         print(f"\n[GraphRAG] Question: {question}")
         print(f"  Retrieval params: k={k}, max_nodes={max_nodes}")
+        if source_hint:
+            print(f"  Source hint: {source_hint}")
 
-        retriever = self.vectorstore.as_retriever(search_kwargs={"k": k})
-        retrieved_docs = retriever.invoke(question)
+        retrieved_docs = self._retrieve_docs(question=question, k=k, source_hint=source_hint)
         print(f"  Retrieved docs: {len(retrieved_docs)}")
 
         seed_node_ids = [str(doc.metadata.get("node_id")) for doc in retrieved_docs if doc.metadata.get("node_id")]
@@ -419,6 +462,13 @@ class MultiModalGraphRAG:
             f"文本证据：\n{text_evidence}\n\n"
             "要求：回答准确、简洁；结尾给出引用页码与关键关系。"
         )
+        if answer_style == "short":
+            prompt += (
+                "\n\nEvaluation output format:\n"
+                "1) Output only the final answer string.\n"
+                "2) No explanation, no citation, no extra words.\n"
+                "3) If uncertain, output your best short span from the document."
+            )
 
         print("  Generating answer...")
         answer = self.vl_client.answer_question(prompt=prompt, image_paths=image_paths)
@@ -430,4 +480,13 @@ class MultiModalGraphRAG:
             pages=pages,
             image_paths=[str(p) for p in image_paths],
             relations=relation_lines,
+        )
+
+    def ask_eval(self, question: str, source_hint: str | None = None, k: int = 5, max_nodes: int = 24) -> GraphRAGResult:
+        return self.ask(
+            question=question,
+            k=k,
+            max_nodes=max_nodes,
+            source_hint=source_hint,
+            answer_style="short",
         )

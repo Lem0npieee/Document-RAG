@@ -15,8 +15,8 @@ const colorMap = {
   text: "#fcd34d",
   table: "#34d399",
   figure: "#f472b6",
-  keyword: "#fb7185",
-  cross_page_text: "#94a3b8",
+  keyword: "#2591e9",
+  cross_page_text: "#fb7185",
   conclusion: "#a78bfa",
   default: "#e2e8f0",
 };
