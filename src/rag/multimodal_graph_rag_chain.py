@@ -6,11 +6,12 @@ from pathlib import Path
 from typing import Any
 
 import networkx as nx
-from langchain.schema import Document
+from langchain_core.documents import Document
 
+from src.config import Settings
 from src.graph.builder import load_graph
 from src.indexing.faiss_store import load_faiss_index
-from src.vl_client import DashScopeVLClient
+from src.vl_client import create_vl_client
 
 
 @dataclass
@@ -23,19 +24,23 @@ class GraphRAGResult:
 
 
 class MultiModalGraphRAG:
+    MAX_RELATION_LINES = 48
+    MAX_SAME_PAGE_RELATION_LINES = 8
+    MAX_TEXT_EVIDENCE_LINES = 18
+    MAX_TEXT_EVIDENCE_CHARS = 3600
+    MAX_GLOBAL_CONTEXT_CHARS = 2400
+
     def __init__(
         self,
-        api_key: str,
-        vl_model: str,
-        embedding_model: str,
+        settings: Settings,
         faiss_dir: str | Path,
         graph_path: str | Path,
         pages_dir: str | Path,
     ) -> None:
-        self.vl_client = DashScopeVLClient(api_key=api_key, model=vl_model)
+        self.vl_client = create_vl_client(settings)
         self.vectorstore = load_faiss_index(
-            api_key=api_key,
-            embedding_model=embedding_model,
+            api_key=settings.dashscope_api_key,
+            embedding_model=settings.embedding_model,
             index_dir=faiss_dir,
         )
         self.graph = load_graph(graph_path)
@@ -257,17 +262,53 @@ class MultiModalGraphRAG:
         return selected
 
     def _collect_relations(self, node_ids: list[str]) -> list[str]:
-        relation_lines: list[str] = []
+        prioritized_lines: list[str] = []
+        same_page_lines: list[str] = []
         node_set = set(node_ids)
+        seen = set()
 
         for src in node_ids:
             for dst in self.graph.successors(src):
                 if dst not in node_set:
                     continue
                 relation = self.graph.edges[src, dst].get("relation", "related")
-                relation_lines.append(f"{src} --[{relation}]--> {dst}")
+                line = f"{src} --[{relation}]--> {dst}"
+                if line in seen:
+                    continue
+                seen.add(line)
+                if relation == "same_page":
+                    if len(same_page_lines) < self.MAX_SAME_PAGE_RELATION_LINES:
+                        same_page_lines.append(line)
+                    continue
+                if len(prioritized_lines) < self.MAX_RELATION_LINES:
+                    prioritized_lines.append(line)
 
-        return relation_lines
+        remaining = max(0, self.MAX_RELATION_LINES - len(prioritized_lines))
+        if remaining > 0:
+            prioritized_lines.extend(same_page_lines[:remaining])
+        return prioritized_lines[: self.MAX_RELATION_LINES]
+
+    def _limit_line_block(
+        self,
+        lines: list[str],
+        max_lines: int,
+        max_chars: int,
+    ) -> str:
+        kept: list[str] = []
+        total_chars = 0
+        for line in lines:
+            trimmed = str(line).strip()
+            if not trimmed:
+                continue
+            next_chars = total_chars + len(trimmed) + (1 if kept else 0)
+            if kept and (len(kept) >= max_lines or next_chars > max_chars):
+                break
+            if not kept and len(trimmed) > max_chars:
+                kept.append(trimmed[:max_chars])
+                break
+            kept.append(trimmed)
+            total_chars = next_chars
+        return "\n".join(kept)
 
     def _collect_text_evidence(self, node_ids: list[str], retrieved_docs: list[Document]) -> str:
         lines: list[str] = []
@@ -287,14 +328,22 @@ class MultiModalGraphRAG:
                     lines.append(f"[node={node_id} | page={page} | type={node_type}] {content}")
 
         if lines:
-            return "\n".join(lines)
+            return self._limit_line_block(
+                lines,
+                max_lines=self.MAX_TEXT_EVIDENCE_LINES,
+                max_chars=self.MAX_TEXT_EVIDENCE_CHARS,
+            )
 
         fallback = []
         for doc in retrieved_docs:
             page = doc.metadata.get("page", "?")
             node_type = doc.metadata.get("type", "text")
             fallback.append(f"[page={page} | type={node_type}] {doc.page_content}")
-        return "\n".join(fallback)
+        return self._limit_line_block(
+            fallback,
+            max_lines=self.MAX_TEXT_EVIDENCE_LINES,
+            max_chars=self.MAX_TEXT_EVIDENCE_CHARS,
+        )
 
     def _collect_pages(self, node_ids: list[str], retrieved_docs: list[Document]) -> list[int]:
         pages = set()
@@ -426,6 +475,8 @@ class MultiModalGraphRAG:
             top_n=4,
         )
         global_context = self._render_global_context(global_profiles)
+        if len(global_context) > self.MAX_GLOBAL_CONTEXT_CHARS:
+            global_context = global_context[: self.MAX_GLOBAL_CONTEXT_CHARS].rstrip() + "..."
 
         global_node_ids: list[str] = []
         for profile in global_profiles:

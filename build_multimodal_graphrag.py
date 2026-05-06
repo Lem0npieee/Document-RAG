@@ -6,7 +6,7 @@ import json
 from datetime import datetime
 from pathlib import Path
 
-from langchain.schema import Document
+from langchain_core.documents import Document
 
 from src.config import get_settings
 from src.graph.builder import build_document_graph, save_graph
@@ -16,7 +16,7 @@ from src.parsing.pipeline import (
     prepare_input_as_images,
     save_parsing_outputs,
 )
-from src.vl_client import DashScopeVLClient
+from src.vl_client import create_vl_client
 
 
 def _resolve_input_path(input_file: str | Path, settings) -> Path:
@@ -504,11 +504,11 @@ def build_knowledge_base(input_file: str, force_rebuild: bool = False) -> dict[s
         image_paths = prepare_input_as_images(resolved_input, doc_page_dir)
         print(f"  已生成 {len(image_paths)} 张图片")
 
-        print(f"[3/7] 初始化视觉语言客户端，使用模型: {settings.vl_model}")
-        vl_client = DashScopeVLClient(
-            api_key=settings.api_key,
-            model=settings.vl_model,
+        print(
+            f"[3/7] 初始化视觉语言客户端，provider: {settings.model_provider}, "
+            f"model: {settings.active_vl_model}"
         )
+        vl_client = create_vl_client(settings)
 
         print(f"[4/7] 解析图片内容...")
         new_documents, new_graph_data = parse_images_to_documents(
@@ -567,7 +567,7 @@ def build_knowledge_base(input_file: str, force_rebuild: bool = False) -> dict[s
     print(f"[6/7] 构建FAISS向量索引...")
     faiss_path = build_faiss_index(
         documents=documents,
-        api_key=settings.api_key,
+        api_key=settings.dashscope_api_key,
         embedding_model=settings.embedding_model,
         output_dir=settings.faiss_dir,
     )

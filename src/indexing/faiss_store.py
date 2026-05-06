@@ -4,7 +4,7 @@ from pathlib import Path
 
 from langchain_community.embeddings import DashScopeEmbeddings
 from langchain_community.vectorstores import FAISS
-from langchain.schema import Document
+from langchain_core.documents import Document
 
 
 def build_faiss_index(

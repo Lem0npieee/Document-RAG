@@ -140,7 +140,22 @@ pip install -r requirements.txt
 3. 配置密钥：
 
 - 复制 `.env.example` 为 `.env`
-- 在 `.env` 中填写真实 `DASHSCOPE_API_KEY`
+- 至少填写真实 `DASHSCOPE_API_KEY`
+- 默认 `MODEL_PROVIDER=dashscope`，行为与当前主分支一致
+- 若要切到本机 CLIProxyAPI，请额外配置：
+
+```env
+MODEL_PROVIDER=cliproxyapi
+CLIPROXY_API_BASE_URL=http://127.0.0.1:8317
+CLIPROXY_API_KEY=sk-dummy
+CLIPROXY_PROVIDER=qclaw
+CLIPROXY_VL_MODEL=modelroute
+```
+
+说明：
+- 当前项目仍然使用 DashScope embeddings，所以即使切到 `cliproxyapi`，`DASHSCOPE_API_KEY` 也必须保留
+- CLIProxyAPI 路径只替换 VLM，不改 FAISS / GraphRAG / 前端交互
+- 已在本机验证 `modelroute` 可跑通完整闭环；`pool-hy3-preview` 目前会返回 `auth_unavailable`，若上游鉴权恢复可再手动切回
 
 4. 构建知识库（输入PDF或图片）：
 

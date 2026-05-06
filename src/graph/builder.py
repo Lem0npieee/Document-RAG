@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 import networkx as nx
-from langchain.schema import Document
+from langchain_core.documents import Document
 
 
 def _normalize_key(value: str) -> str:
