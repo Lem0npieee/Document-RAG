@@ -1,0 +1,670 @@
+\chapter{一、任务定义与应用背景}\label{ux4e00ux4efbux52a1ux5b9aux4e49ux4e0eux5e94ux7528ux80ccux666f}
+
+\section{1.1 任务定义}\label{ux4efbux52a1ux5b9aux4e49}
+
+本项目面向课程题目 3``文档理解 +
+多模态检索问答系统''，目标是构建一个能够处理 PDF、扫描文档、论文页面和
+PPT 截图的\textbf{多模态 GraphRAG 文档问答系统}。与早期方案中``先做基础
+RAG、再把 GraphRAG 作为增强方向''的设计不同，当前项目已经直接围绕
+GraphRAG
+主线实现：系统在入库阶段同时构建文本/图表片段、页面图像证据、关键词/关系节点和跨页连接；在问答阶段同时使用向量检索、图谱扩展、社区级全局补充和原始页面图像来生成答案。
+
+本项目要解决的问题可以概括为：
+
+\begin{quote}
+对于图文混排、跨页引用和结构复杂的长文档，如何把页面视觉信息、文本语义片段和知识图谱关系融合到同一条检索问答链路中，使回答既能利用多模态证据，又能给出可追溯的页码、节点和关系依据。
+\end{quote}
+
+系统的输入、处理和输出如下：
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+环节
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+内容
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+输入 & 多页 PDF、单页图片、扫描件、文档截图，格式支持
+\texttt{.pdf/.png/.jpg/.jpeg/.webp} \\
+解析 & 使用 PyMuPDF 渲染页面图像，调用 qwen3-vl-8b-instruct
+抽取文本、表格、图表描述、结论、关键词和关系 \\
+索引 & 将抽取内容封装为 LangChain \texttt{Document}，使用 DashScope
+\texttt{text-embedding-v3} 建立 FAISS 向量索引 \\
+建图 & 使用 networkx
+构建文档知识图谱，包含内容节点、关键词节点、同页边、跨页边、图表/结论/语义关系边 \\
+问答 &
+基于问题进行向量召回、图谱邻域扩展、社区摘要式全局补充，并把相关页面原图送入
+VLM 生成答案 \\
+输出 & 自然语言回答、相关页码、节点
+ID、关系路径、图谱可视化和页面/局部区域预览 \\
+\end{longtable}
+
+\section{1.2 应用背景}\label{ux5e94ux7528ux80ccux666f}
+
+真实文档并不是纯文本集合。学术论文、技术手册、财报、合同和教学课件通常包含正文、公式、表格、图像、图注、脚注、跨页段落和图表引用。传统文本
+RAG 主要依赖 OCR 或 PDF 文本抽取后的向量相似度，容易出现三个问题：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{视觉信息丢失}：图表趋势、版面结构、颜色标记、坐标轴和表格边界很难被纯文本准确保留；
+\item
+  \textbf{结构关系不足}：同一页内的图文对应、跨页段落延续、图号与结论之间的支撑关系无法仅靠向量相似度稳定表达；
+\item
+  \textbf{证据链不可解释}：向量检索可以找到相似片段，但不擅长回答``某结论由哪些图表和实验支撑''这类多跳问题。
+\end{enumerate}
+
+RAG
+的核心价值在于把模型参数知识与外部非参数知识库结合，提升事实性、可更新性和证据可追踪性
+{[}1{]}。GraphRAG
+进一步把非结构化文本组织为实体、关系和社区结构，使检索不只依赖相似度，还能沿图关系扩展证据。微软
+GraphRAG
+的论文与官方文档指出，图索引可以服务局部搜索和全局搜索：局部搜索适合围绕具体实体回答细节问题，全局搜索则通过社区报告支撑跨语料的综合性问题
+{[}2{]}{[}3{]}。对于文档问答而言，图结构并不只是``锦上添花''，而是连接文本、图表、页面和跨页证据的必要组织形式。
+
+多模态文档 RAG 的最新基准也说明了这一方向的必要性。MMDocRAG 指出，长文档
+DocVQA
+同时面临长上下文、多模态证据链和跨模态推理三重挑战，纯文本中心的方法往往会遗漏关键视觉信息；其数据包含
+4,055 个专家标注问答、222 份长文档，平均每份约 67
+页，强调对多页、多模态证据选择和整合能力的评测
+{[}8{]}。因此，本项目把``多模态 + 图结构 +
+可追溯引用''作为统一主线，而不是把 GraphRAG 放在可选增强层。
+
+\chapter{二、相关工作调研}\label{ux4e8cux76f8ux5173ux5de5ux4f5cux8c03ux7814}
+
+\section{2.1 RAG 与 GraphRAG}\label{rag-ux4e0e-graphrag}
+
+Lewis 等人在 NeurIPS 2020 提出的 Retrieval-Augmented Generation
+将生成模型与外部检索索引结合，证明了检索式非参数记忆能提升知识密集型任务的事实性和可追溯性
+{[}1{]}。但标准 RAG
+的基本单位通常是文本块，检索机制主要由查询与片段的向量相似度决定，难以表达文档内部的显式关系。
+
+Edge 等人的 GraphRAG
+将源文档构造成实体知识图谱，再对图社区生成摘要，用于回答局部和全局问题
+{[}2{]}。微软官方文档进一步把查询模式分为 Local Search、Global
+Search、DRIFT Search 和 Basic Search：Local Search
+融合知识图谱与原文块，适合具体实体相关问题；Global Search
+基于社区报告进行 map-reduce 式综合，适合整体性问题
+{[}3{]}。本项目借鉴这一思想，但针对课程场景做轻量化改造：不完整复现微软的
+Parquet 工作流、Leiden
+层级社区报告和大规模全局总结，而是围绕单文档/小文档集构建本地 networkx
+图，并在问答时生成图邻域与社区 profile 作为上下文。
+
+2025 年 ACL Findings 的 Query-Driven Multimodal GraphRAG
+指出，静态知识库和低效多模态融合会限制复杂跨模态推理；其方案根据查询语义动态构建局部图，采用多路径检索，并按需补充缺失的多模态信息
+{[}9{]}。本项目目前采用``预构建文档图 +
+查询时局部扩展''的折中路线：入库时建立稳定图谱，查询时再根据向量种子节点做一跳/二跳扩展，并补充页面图像。
+
+\section{2.2
+文档问答与多模态检索}\label{ux6587ux6863ux95eeux7b54ux4e0eux591aux6a21ux6001ux68c0ux7d22}
+
+DocVQA 是文档视觉问答的经典数据集，包含约 12,000 张文档图像和 50,000
+个问题，答案通常是从文档图像中抽取的文本 span
+{[}4{]}。它强调模型不仅要读文字，还要理解表单、布局和文档结构。ChartQA
+则聚焦图表问答，包含 9.6K 个人工编写问题和 23.1K
+个由图表摘要生成的问题，问题常涉及视觉特征、逻辑推理和算术操作
+{[}5{]}。这两个数据集分别覆盖文档
+OCR/版面理解和图表推理，是本项目评测设计的重要依据。
+
+ColPali 提出直接从文档页面图像生成多向量表示，并使用 late interaction
+机制进行文档检索。该工作指出，文档页面包含表格、图像、版式和字体等视觉线索，传统文本抽取式检索流程脆弱且容易遗漏视觉信息
+{[}6{]}。虽然本项目没有训练视觉检索器，但其思想支持我们保留页面原图，并在问答阶段将图像证据与文本/图谱证据一起输入
+qwen3-vl-8b-instruct。
+
+MMDocRAG 进一步说明了长文档多模态 RAG
+的难度：不仅需要检索相关文本，还要选择和整合文本、表格、图像等多模态
+quote，并评估证据链是否正确
+{[}8{]}。因此，本项目的评测不只看最终答案，还会记录引用页码、节点
+ID、图谱关系和失败案例。
+
+\section{2.3
+多模态模型选择}\label{ux591aux6a21ux6001ux6a21ux578bux9009ux62e9}
+
+本项目使用 qwen3-vl-8b-instruct
+作为文档解析和多模态回答的核心模型。Qwen3-VL
+官方仓库和模型卡显示，该系列支持图像/视频/文本统一理解，增强了
+OCR、空间感知、长上下文和多模态推理能力；Qwen3-VL-8B-Instruct 以
+Apache-2.0 许可证开放，适合作为课程项目的低成本 API 或本地部署候选模型
+{[}7{]}。相比传统 OCR + 版面分析 + 规则抽取流水线，VLM
+直接对页面图片进行结构化抽取，可以更快搭建原型，并保留后续改进空间。
+
+\section{2.4 方法对比}\label{ux65b9ux6cd5ux5bf9ux6bd4}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+方法
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+优势
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+局限
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+本项目对应做法
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+纯文本 RAG & 实现简单，成本低 & 容易丢失图表、版面和跨页关系 &
+作为消融或课程对照方向，不再作为主系统 \\
+多模态 RAG & 能利用页面图像和图表信息 & 仍以相似片段为主，关系链不清晰 &
+保留页面原图，并让 VLM 参与解析和生成 \\
+文本 GraphRAG & 能利用实体/关系做多跳扩展 & 不处理视觉证据 &
+借鉴图索引和局部/全局检索思想 \\
+多模态 GraphRAG & 同时组织文本、视觉和关系证据 &
+抽取噪声、图规模和上下文预算更难控制 & 当前主线方案：FAISS + networkx +
+页面图像 + VLM \\
+\end{longtable}
+
+\chapter{三、系统方案设计}\label{ux4e09ux7cfbux7edfux65b9ux6848ux8bbeux8ba1}
+
+\section{3.1 总体架构}\label{ux603bux4f53ux67b6ux6784}
+
+当前仓库已经按``构建知识库''和``在线问答''两条链路组织，而不是最低版本/增强版本两套系统。
+
+\begin{verbatim}
+用户上传 PDF / 图片
+    │
+    ▼
+Flask /ingest 接口
+    │
+    ▼
+build_multimodal_graphrag.py
+    │
+    ├─ PyMuPDF 渲染 PDF 页面 / 复制单页图片
+    ├─ qwen3-vl-8b-instruct 结构化抽取
+    ├─ 生成 LangChain Document 与 graph_data.json
+    ├─ DashScope text-embedding-v3 + FAISS 建立向量索引
+    └─ networkx 构建 doc_graph/graph.pkl
+
+用户提问
+    │
+    ▼
+Flask /chat 接口
+    │
+    ▼
+MultiModalGraphRAG.ask()
+    │
+    ├─ FAISS top-k 召回语义相关节点
+    ├─ 以召回节点为种子做图谱邻域扩展
+    ├─ 基于 greedy modularity 生成社区 profile 并选择全局补充证据
+    ├─ 收集文本证据、关系路径、页码和页面图片
+    └─ qwen3-vl-8b-instruct 融合图文证据生成回答
+
+前端展示
+    │
+    ├─ Chat Workspace：问答历史
+    ├─ Knowledge Graph：节点/边可视化
+    └─ Node Inspector：节点内容、页码、bbox 局部预览
+\end{verbatim}
+
+\section{3.2 核心模块}\label{ux6838ux5fc3ux6a21ux5757}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+模块
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+对应文件
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+已实现功能
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+配置管理 & \path{src/config.py} & 读取 \texttt{.env}，配置 DashScope
+API、模型名、文档目录和输出目录 \\
+VLM 调用 & \path{src/vl_client.py} & 将页面图片转为 base64 data
+URI，调用 DashScope \texttt{MultiModalConversation}，带瞬时错误重试 \\
+文档解析 & \path{src/parsing/pipeline.py} & PDF
+渲染、图片准备、页面结构化抽取、稀疏结果重试、文本兜底抽取、bbox
+归一化 \\
+向量入库 & \path{src/indexing/faiss_store.py} & 使用
+DashScopeEmbeddings 分批嵌入，构建并保存 FAISS 索引 \\
+图谱构建 & \path{src/graph/builder.py} &
+构建内容节点、关键词节点、同页边、continuation 边、cross\_page\_merge
+边和语义关系边 \\
+一键入库 & \path{build_multimodal_graphrag.py} &
+文件签名、增量入库、产物复用、文档注册表、FAISS 与图谱重建 \\
+GraphRAG 问答 & \path{src/rag/multimodal_graph_rag_chain.py} &
+向量召回、图邻域扩展、社区 profile 选择、图文证据融合回答 \\
+后端服务 & \path{src/server.py} & Flask
+静态前端、上传入库、问答接口、图谱数据接口、输出文件访问 \\
+前端界面 & \path{web/index.html}, \path{web/app.js},
+\path{web/styles.css} & 上传、聊天、vis-network
+图谱可视化、节点检查器和 bbox 局部裁剪预览 \\
+评测脚本 & \path{eval/code/*.py} & DocVQA
+数据加载、评测知识库构建、ANLS/EM 计算、预测与错误样例保存 \\
+\end{longtable}
+
+\section{3.3
+文档解析与结构化表示}\label{ux6587ux6863ux89e3ux6790ux4e0eux7ed3ux6784ux5316ux8868ux793a}
+
+系统首先使用 PyMuPDF 将 PDF 页面以较高缩放比例渲染为 PNG。随后，解析
+prompt 要求 qwen3-vl-8b-instruct 输出统一 JSON：
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{texts}：正文、标题、图注等文本块；
+\item
+  \texttt{tables}：表格内容或 Markdown 表格；
+\item
+  \texttt{figures}：图像/图表编号、描述和 bbox；
+\item
+  \texttt{section\_conclusions}：页面或小节结论；
+\item
+  \texttt{keywords}：方法、模型、数据集、指标、任务等高价值名词短语；
+\item
+  \texttt{relations}：从页面中抽取的三元组关系。
+\end{itemize}
+
+解析模块设计了两类鲁棒性策略：第一，若结构化抽取过稀疏，会自动使用更高召回的
+repair prompt 重试；第二，若仍缺少文本块，会额外调用 text-only prompt
+进行兜底抽取。所有内容片段都会被赋予稳定 \texttt{node\_id}，并保留
+\texttt{source}、\texttt{page}、\texttt{type}、\texttt{image\_path}、\texttt{bbox}、\texttt{fig\_id}
+等元数据，为检索、引用和前端可视化提供统一索引。
+
+\section{3.4 图谱构建}\label{ux56feux8c31ux6784ux5efa}
+
+当前图谱不是传统意义上只包含``实体-关系''的知识库，而是面向文档问答的\textbf{异构文档图}。节点包括：
+
+\begin{itemize}
+\tightlist
+\item
+  内容节点：text、table、figure、conclusion、cross\_page\_text；
+\item
+  关键词节点：method、model、dataset、metric、task、concept 等；
+\item
+  页面相关信息：通过页面节点和 \texttt{contains} 关系在前端中展示。
+\end{itemize}
+
+边包括：
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{same\_page}：同一页内容节点之间的局部上下文联系；
+\item
+  \texttt{keyword\_hit}：关键词与页面内容锚点之间的双向连接；
+\item
+  \texttt{cooccurrence}：同页关键词之间的共现关系；
+\item
+  \texttt{continuation}：相邻页面文本延续；
+\item
+  \texttt{cross\_page\_merge}：跨页合并片段与原始前后节点的联系；
+\item
+  VLM 抽取关系：例如方法、模型、指标、图表描述之间的语义边。
+\end{itemize}
+
+这种设计比``只抽实体''的图谱更贴合文档问答：页面、图表、表格和跨页段落本身就是重要证据节点。系统还故意弱化了不稳定的实体节点，优先使用关键词和内容锚点，以降低同名实体、别名和幻觉关系带来的噪声。
+
+\section{3.5 GraphRAG
+检索与生成}\label{graphrag-ux68c0ux7d22ux4e0eux751fux6210}
+
+问答链 \texttt{MultiModalGraphRAG.ask()} 的核心步骤如下：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  使用 FAISS 对用户问题做 top-k 语义召回，得到种子 \texttt{node\_id}；
+\item
+  在 networkx 图中从种子节点出发扩展一跳邻居，并通过关键词/实体类 hub
+  做二跳桥接；
+\item
+  将图转为无向图后使用 greedy modularity communities 生成社区
+  profile，按查询词命中、种子节点重叠、社区规模和页码覆盖选择全局补充证据；
+\item
+  收集融合后的节点内容、关系路径、页码、页面图片和跨页图片；
+\item
+  构造包含``图谱关系链 + 全局社区证据 + 文本证据 + 页面原图''的多模态
+  prompt；
+\item
+  调用 qwen3-vl-8b-instruct
+  生成回答，并返回答案、页码、节点、关系和图片路径。
+\end{enumerate}
+
+这一设计对应微软 GraphRAG 中 local/global
+两类思想，但采用更适合课程项目的轻量实现：局部扩展负责具体证据定位，社区
+profile 负责补充全局上下文，页面图像负责恢复图表、版面和视觉细节。
+
+\chapter{四、模型与技术选型}\label{ux56dbux6a21ux578bux4e0eux6280ux672fux9009ux578b}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+组件
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+选型
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+理由
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+文档解析与回答模型 & qwen3-vl-8b-instruct & 支持
+OCR、文档结构理解、图像问答和较强多模态推理；API 调用降低本地算力压力 \\
+多模态 API & DashScope \texttt{MultiModalConversation} & 与 Qwen
+系列模型适配，便于课程项目快速联调 \\
+文本嵌入 & DashScope \texttt{text-embedding-v3} &
+与主模型同平台，支持中英文文档，适合 FAISS 本地索引 \\
+向量数据库 & FAISS & 轻量、本地、无需额外服务，适合课程演示和离线评测 \\
+图谱库 & networkx & Python
+原生体验好，便于构建有向图、邻域扩展和社区发现 \\
+文档渲染 & PyMuPDF & CPU 环境即可快速将 PDF 页面转为图片 \\
+后端 & Flask & 简洁稳定，方便提供 \texttt{/ingest}、\texttt{/chat} 和
+\texttt{/graph} 接口 \\
+前端 & 原生 HTML/CSS/JS + vis-network &
+便于图谱可视化、节点检查和轻量部署 \\
+评测 & 自建脚本 + ANLS/EM & 与 DocVQA
+评测习惯兼容，便于保存预测、指标和错误案例 \\
+\end{longtable}
+
+\chapter{五、数据集与实验设计}\label{ux4e94ux6570ux636eux96c6ux4e0eux5b9eux9a8cux8bbeux8ba1}
+
+\section{5.1 数据集计划}\label{ux6570ux636eux96c6ux8ba1ux5212}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{自建长文档测试集}：选择 3-5
+  篇含图表、表格、跨页段落和结论引用的论文或技术文档，人工编写问题，覆盖文本理解、表格查询、图表解释、跨页证据、多跳推理和引用定位。
+\item
+  \textbf{DocVQA 子集}：使用公开 DocVQA
+  标注中的验证样本，评估系统在单页文档问答上的抽取式准确性，指标使用
+  ANLS 与 Exact Match。
+\item
+  \textbf{ChartQA
+  子集}：抽取图表推理问题，用于观察页面原图和图表描述在视觉/逻辑问题中的作用。
+\end{enumerate}
+
+\section{5.2 评测问题类型}\label{ux8bc4ux6d4bux95eeux9898ux7c7bux578b}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+类型
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+目标
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+示例
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+文本定位 & 检查 OCR/文本抽取和语义召回能力 & ``第 3
+节提出的方法核心思想是什么？'' \\
+表格问答 & 检查表格抽取和结构理解 & ``表 2 中哪个模型在 DocVQA
+上得分最高？'' \\
+图表理解 & 检查 VLM 对页面图像和图表描述的利用 & ``图 4
+展示了什么趋势？'' \\
+跨页延续 & 检查 \texttt{cross\_page\_text} 与 \texttt{continuation} 边 &
+``第 1 页末尾延续到第 2 页的段落主要讲什么？'' \\
+多跳关系 & 检查图谱扩展是否能补足单次向量召回 &
+``某方法的结论由哪些图表或实验结果支撑？'' \\
+引用追踪 & 检查答案是否能给出页码、图号和关系依据 &
+``请回答并标出相关页码和关键节点。'' \\
+\end{longtable}
+
+\section{5.3 指标设计}\label{ux6307ux6807ux8bbeux8ba1}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+指标
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+说明
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+适用范围
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+ANLS & 平均归一化编辑相似度，DocVQA 常用指标 & DocVQA/短答案问题 \\
+Exact Match & 预测答案与任一标准答案完全匹配 & DocVQA/短答案问题 \\
+人工准确率 & 三档评分：正确、部分正确、错误 & 自建长文档问题 \\
+引用命中率 & 回答给出的页码、图号、节点是否覆盖真实证据 &
+自建问题与案例分析 \\
+证据召回率 & top-k + 图扩展后的证据中是否包含人工标注依据 &
+自建可标注问题 \\
+图谱有效性 & 开启/关闭图扩展时多跳题表现差异 & 消融实验 \\
+运行代价 & 入库耗时、问答耗时、API 调用次数和 token 成本 & 工程可行性 \\
+\end{longtable}
+
+\section{5.4 实验组织}\label{ux5b9eux9a8cux7ec4ux7ec7}
+
+项目主系统始终是多模态
+GraphRAG，不再拆成``最低可交付版本''和``增强版本''。为了满足课程对实验分析的要求，后续将采用\textbf{同一系统内的消融开关}来解释各组件贡献：
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Full：多模态 GraphRAG}，使用向量召回、图谱扩展、社区 profile
+  和页面图像；
+\item
+  \textbf{No-Graph：关闭图谱扩展}，只使用向量召回节点和页面图像，观察多跳问题下降幅度；
+\item
+  \textbf{No-Image：关闭页面原图输入}，只使用文本和图谱证据，观察图表题、表格题下降幅度；
+\item
+  \textbf{Short-Answer Eval}：评测脚本使用 \texttt{ask\_eval()}
+  约束输出为短答案，计算 ANLS/EM。
+\end{itemize}
+
+这种实验方式不把项目割裂为多个产品版本，而是在 GraphRAG
+主线下分析``视觉证据''和``图结构证据''的独立贡献。
+
+\chapter{六、算力预算与时间计划}\label{ux516dux7b97ux529bux9884ux7b97ux4e0eux65f6ux95f4ux8ba1ux5212}
+
+\section{6.1 算力与成本}\label{ux7b97ux529bux4e0eux6210ux672c}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+资源
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+需求
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+方案
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+本地计算 & CPU 即可 & PDF 渲染、FAISS、networkx 和 Flask 均可本地运行 \\
+GPU & 非必需 & 使用 DashScope API 调用 qwen3-vl-8b-instruct \\
+存储 & 百 MB 到数 GB & 页面图片、FAISS 索引、JSON
+解析结果和图谱文件保存在 \texttt{outputs/} 或 \texttt{eval/output/} \\
+API 成本 & 与页数和问题数相关 & 先小样本评测，再扩展；复用 build meta
+避免重复入库 \\
+网络 & 构建和问答时需要 & API
+调用依赖外部服务；本地检索与图谱读取不依赖网络 \\
+\end{longtable}
+
+\section{6.2 当前进度}\label{ux5f53ux524dux8fdbux5ea6}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+阶段
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+状态
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+产出
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+工程骨架 & 已完成 &
+\texttt{src/}、\texttt{web/}、\texttt{eval/}、\texttt{requirements.txt}、运行说明 \\
+文档解析 & 已完成初版 & VLM JSON 抽取、bbox、重试和文本兜底 \\
+向量索引 & 已完成 & FAISS 本地索引与增量重建 \\
+图谱构建 & 已完成初版 & networkx
+文档图、关键词节点、跨页边、同页边、关系边 \\
+GraphRAG 问答 & 已完成初版 & 向量召回 + 图扩展 + 社区 profile +
+页面图像生成 \\
+Web 演示 & 已完成初版 & 上传入库、聊天、图谱可视化、节点检查 \\
+评测脚本 & 已完成框架 & DocVQA KB 构建、ANLS/EM、预测与错误样例输出 \\
+\end{longtable}
+
+\section{6.3 后续计划}\label{ux540eux7eedux8ba1ux5212}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+时间
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+工作
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+产出
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+第 1 周 & 清理图谱噪声、优化关键词和关系过滤 & 更稳定的
+\texttt{graph\_data.json} 与图谱统计 \\
+第 2 周 & 构建自建长文档测试集，补充 DocVQA 小样本 &
+\path{test_questions.json}、评测输入 \\
+第 3 周 & 跑 Full/No-Graph/No-Image 消融实验 &
+指标表、错误案例、运行成本记录 \\
+第 4 周 & 完善前端演示、整理最终报告和答辩材料 & Demo
+视频、最终报告、展示 PPT \\
+\end{longtable}
+
+\chapter{七、风险分析与应对方案}\label{ux4e03ux98ceux9669ux5206ux6790ux4e0eux5e94ux5bf9ux65b9ux6848}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+风险
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+表现
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+应对
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+VLM 结构化抽取不稳定 & JSON 缺字段、文本过稀疏、关系幻觉 & 已加入 repair
+prompt、text-only pass、schema 归一化；后续继续加强关键词过滤 \\
+图谱过密或噪声边过多 & 图扩展引入无关证据，影响回答 & 限制
+\texttt{max\_nodes}，按节点类型和度排序邻居，弱化实体节点，优先内容锚点和关键词 \\
+多文档同名实体/关键词混淆 & 检索跨错文档 & 已在元数据中保留
+\texttt{source}，问答链支持
+\texttt{source\_hint}；评测时按图片/文档源过滤 \\
+API 成本和时间不可控 & 大量页面重复解析 & 使用文件 sha256
+注册表和产物复用；评测目录独立设置 \texttt{OUTPUT\_ROOT} \\
+图表题仍需视觉细节 & 文本描述不足以回答坐标/趋势问题 &
+问答阶段保留页面原图和 bbox 预览，必要时让 VLM 直接看相关页面 \\
+课程要求需要定量结果 & 只有 demo 说服力不足 & 已准备 DocVQA
+评测脚本，后续补充 ANLS/EM、引用命中率和人工评分 \\
+\end{longtable}
+
+\chapter{八、创新点与贡献}\label{ux516bux521bux65b0ux70b9ux4e0eux8d21ux732e}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{以 GraphRAG
+  作为主线而非附加模块}：从入库开始同时构建向量索引和文档图谱，使文本、图表、页面和跨页关系处于同一证据空间。
+\item
+  \textbf{页面图像驱动的结构化解析}：直接使用 VLM
+  从页面图像中抽取文本、表格、图表、结论、关键词和关系，减少传统 OCR +
+  版面规则流水线的复杂度。
+\item
+  \textbf{面向文档的异构图设计}：把
+  text/table/figure/conclusion/cross\_page\_text 和 keyword
+  都纳入图谱，而不局限于传统实体关系图。
+\item
+  \textbf{向量检索与图谱扩展融合}：先用 FAISS 找到语义种子，再用
+  networkx 邻域和社区 profile
+  扩展证据，兼顾具体证据定位和全局上下文补充。
+\item
+  \textbf{可解释前端展示}：前端不仅返回答案，还展示图谱节点、边、页码、bbox
+  局部图像和关系路径，便于课程演示和错误分析。
+\item
+  \textbf{低资源可落地}：无需本地 GPU，核心计算依赖轻量本地组件和 API
+  调用，适合课程项目周期内完成。
+\end{enumerate}
+
+\chapter{参考文献}\label{ux53c2ux8003ux6587ux732e}
+
+{[}1{]} Lewis, P. et al.~(2020). Retrieval-Augmented Generation for
+Knowledge-Intensive NLP Tasks. NeurIPS 2020.
+\url{https://papers.nips.cc/paper_files/paper/2020/hash/6b493230205f780e1bc26945df7481e5-Abstract.html}
+
+{[}2{]} Edge, D. et al.~(2024). From Local to Global: A Graph RAG
+Approach to Query-Focused Summarization. arXiv:2404.16130.
+\url{https://graphrag.com/appendices/research/2404.16130/}
+
+{[}3{]} Microsoft GraphRAG Documentation. Query Engine Overview and
+Indexing Overview. \url{https://microsoft.github.io/graphrag/query/overview/}
+; \url{https://microsoft.github.io/graphrag/index/overview/}
+
+{[}4{]} Mathew, M., Karatzas, D., Jawahar, C. V. (2021). DocVQA: A
+Dataset for VQA on Document Images. WACV 2021.
+\url{https://site.docvqa.org/datasets/docvqa}
+
+{[}5{]} Masry, A. et al.~(2022). ChartQA: A Benchmark for Question
+Answering about Charts with Visual and Logical Reasoning. Findings of
+ACL 2022. \url{https://aclanthology.org/2022.findings-acl.177/}
+
+{[}6{]} Faysse, M. et al.~(2024). ColPali: Efficient Document Retrieval
+with Vision Language Models. arXiv:2407.01449.
+\url{https://huggingface.co/papers/2407.01449}
+
+{[}7{]} Qwen Team. Qwen3-VL official repository and Qwen3-VL-8B-Instruct
+model card. \url{https://github.com/QwenLM/Qwen3-VL} ;
+\url{https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct}
+
+{[}8{]} Dong, K. et al.~(2025). Benchmarking Retrieval-Augmented
+Multimodal Generation for Document Question Answering. MMDocRAG.
+\url{https://mmdocrag.github.io/MMDocRAG/}
+
+{[}9{]} Bu, C. et al.~(2025). Query-Driven Multimodal GraphRAG: Dynamic
+Local Knowledge Graph Construction for Online Reasoning. Findings of ACL
+2025. \url{https://aclanthology.org/2025.findings-acl.1100/}
