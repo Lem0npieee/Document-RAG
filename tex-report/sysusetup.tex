@@ -7,10 +7,10 @@
   author*              = {DING Zirui, LIANG Lihang, LI Junzhang},
   speciality           = {计算机科学与技术},
   speciality*          = {Computer Science and Technology},
-  supervisor           = {请填写导师},
-  supervisor*          = {Supervisor},
+  supervisor           = {刘阳},
+  supervisor*          = {LIU Yang},
   department           = {计算机学院},
-  student-id           = {},
+  student-id           = {23336058、23336128、23336113},
   math-font            = xits,
   cite-style           = super,
 }
@@ -31,7 +31,7 @@
 \usepackage[sort]{natbib}
 \bibliographystyle{sysuthesis-numerical}
 
-\graphicspath{{image/}}
+\graphicspath{{image/}{../}}
 
 \IfFontExistsTF{Menlo}{
   \setmonofont{Menlo}[Scale=MatchLowercase]
@@ -43,6 +43,7 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}%
 }
+\providecommand{\pandocbounded}[1]{#1}
 
 \DeclareRobustCommand\cs[1]{\texttt{\char`\\#1}}
 \DeclareRobustCommand\env[1]{\texttt{#1}}
