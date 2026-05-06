@@ -190,101 +190,55 @@ function normalizeBbox(value) {
   return [x1, y1, x2, y2];
 }
 
+function nodeTypeOf(data) {
+  return String(data?.type || "").toLowerCase();
+}
+
+function shouldShowContent(data) {
+  return !["page", "keyword"].includes(nodeTypeOf(data));
+}
+
+function shouldShowLocalPreview(data) {
+  return ["table", "figure"].includes(nodeTypeOf(data));
+}
+
 function drawCropPreview(canvas, imageUrl, bbox) {
   if (!canvas || !imageUrl || !bbox) return;
   const img = new Image();
   img.onload = () => {
     const [x1, y1, x2, y2] = bbox;
-    // Keep crop accurate by default; only add tiny padding for very small boxes.
     const boxW = x2 - x1;
     const boxH = y2 - y1;
-    const tinyPad = boxW < 0.08 || boxH < 0.05 ? 0.005 : 0;
-    const padX = tinyPad;
-    const padY = tinyPad;
+    const padX = Math.max(0.012, Math.min(0.035, boxW * 0.08));
+    const padY = Math.max(0.012, Math.min(0.04, boxH * 0.12));
     const bx1 = Math.max(0, x1 - padX);
     const by1 = Math.max(0, y1 - padY);
     const bx2 = Math.min(1, x2 + padX);
     const by2 = Math.min(1, y2 + padY);
+    const sx = Math.max(0, Math.floor(bx1 * img.naturalWidth));
+    const sy = Math.max(0, Math.floor(by1 * img.naturalHeight));
+    const sw = Math.max(1, Math.min(img.naturalWidth - sx, Math.ceil((bx2 - bx1) * img.naturalWidth)));
+    const sh = Math.max(1, Math.min(img.naturalHeight - sy, Math.ceil((by2 - by1) * img.naturalHeight)));
 
-    let sx = Math.max(0, Math.floor(bx1 * img.width));
-    let sy = Math.max(0, Math.floor(by1 * img.height));
-    let sw = Math.max(1, Math.floor((bx2 - bx1) * img.width));
-    let sh = Math.max(1, Math.floor((by2 - by1) * img.height));
-
-    // Refine crop by trimming near-white margins inside the bbox region.
-    const probe = document.createElement("canvas");
-    probe.width = sw;
-    probe.height = sh;
-    const pctx = probe.getContext("2d", { willReadFrequently: true });
-    if (pctx) {
-      pctx.drawImage(img, sx, sy, sw, sh, 0, 0, sw, sh);
-      const imageData = pctx.getImageData(0, 0, sw, sh).data;
-      let minX = sw;
-      let minY = sh;
-      let maxX = -1;
-      let maxY = -1;
-
-      const stepX = Math.max(1, Math.floor(sw / 320));
-      const stepY = Math.max(1, Math.floor(sh / 320));
-      const isForeground = (r, g, b) => {
-        const brightness = (r + g + b) / 3;
-        const spread = Math.max(r, g, b) - Math.min(r, g, b);
-        return brightness < 246 || spread > 12;
-      };
-
-      for (let y = 0; y < sh; y += stepY) {
-        for (let x = 0; x < sw; x += stepX) {
-          const idx = (y * sw + x) * 4;
-          const r = imageData[idx];
-          const g = imageData[idx + 1];
-          const b = imageData[idx + 2];
-          if (!isForeground(r, g, b)) continue;
-          if (x < minX) minX = x;
-          if (y < minY) minY = y;
-          if (x > maxX) maxX = x;
-          if (y > maxY) maxY = y;
-        }
-      }
-
-      if (maxX >= minX && maxY >= minY) {
-        const refineMargin = 4;
-        const rsx = Math.max(0, minX - refineMargin);
-        const rsy = Math.max(0, minY - refineMargin);
-        const rsw = Math.max(1, Math.min(sw - rsx, maxX - minX + 1 + refineMargin * 2));
-        const rsh = Math.max(1, Math.min(sh - rsy, maxY - minY + 1 + refineMargin * 2));
-        sx += rsx;
-        sy += rsy;
-        sw = rsw;
-        sh = rsh;
-      }
-    }
-
-    // Keep display reasonably large while avoiding extreme upscale blur.
-    const maxDisplayW = 560;
-    const minDisplayW = 220;
-    const displayW = Math.max(minDisplayW, Math.min(maxDisplayW, sw));
-    const displayH = Math.max(120, Math.round((displayW * sh) / sw));
-    const dpr = Math.max(1, window.devicePixelRatio || 1);
-
-    canvas.style.width = `${displayW}px`;
-    canvas.style.height = `${displayH}px`;
-    canvas.width = Math.round(displayW * dpr);
-    canvas.height = Math.round(displayH * dpr);
+    canvas.width = sw;
+    canvas.height = sh;
+    canvas.style.width = `${Math.min(sw, 520)}px`;
+    canvas.style.height = "auto";
+    canvas.style.aspectRatio = `${sw} / ${sh}`;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = "high";
-    ctx.clearRect(0, 0, displayW, displayH);
-    ctx.drawImage(img, sx, sy, sw, sh, 0, 0, displayW, displayH);
+    ctx.clearRect(0, 0, sw, sh);
+    ctx.drawImage(img, sx, sy, sw, sh, 0, 0, sw, sh);
   };
   img.onerror = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-    canvas.style.width = "100%";
-    canvas.style.height = "80px";
     canvas.width = 320;
     canvas.height = 80;
+    canvas.style.width = "100%";
+    canvas.style.height = "auto";
     ctx.fillStyle = "#64748b";
     ctx.font = "14px Space Grotesk";
     ctx.fillText("Crop preview unavailable", 12, 42);
@@ -480,7 +434,7 @@ function initGraph(graph) {
 
   network = new vis.Network(graphCanvas, data, options);
   network.once("afterDrawing", () => {
-    network.fit({ animation: { duration: 900, easingFunction: "easeInOutQuad" } });
+    network.fit({ animation: false });
   });
 
   network.on("click", (params) => {
@@ -505,6 +459,7 @@ function initGraph(graph) {
 
 function renderInspector(data, isEdge = false) {
   if (!data) return;
+  nodeInspector.className = "inspector-body";
 
   if (isEdge) {
     nodeInspector.innerHTML = `
@@ -529,7 +484,18 @@ function renderInspector(data, isEdge = false) {
   const content = String(data.content || "").trim();
   const imageUrl = normalizeImageUrl(data.image_url || data.image_path);
   const bbox = normalizeBbox(data.bbox);
-  const isPageNode = String(data.type || "").toLowerCase() === "page";
+  const isPageNode = nodeTypeOf(data) === "page";
+  const showContent = shouldShowContent(data) && content;
+  const wantsLocalPreview = shouldShowLocalPreview(data);
+  const showLocalPreview = wantsLocalPreview && bbox && imageUrl;
+  const showPagePreview = isPageNode && imageUrl;
+  const previewUnavailable = wantsLocalPreview && !showLocalPreview
+    ? `<p class="inspector-note">${
+        bbox
+          ? "Local Preview unavailable: page image is missing."
+          : "Local Preview unavailable: this node has no bbox coordinates."
+      }</p>`
+    : "";
   const cropCanvasId = `crop_${String(data.id || "node").replace(/[^a-zA-Z0-9_]/g, "_")}`;
 
   nodeInspector.innerHTML = `
@@ -542,27 +508,25 @@ function renderInspector(data, isEdge = false) {
       ${figId}
       <p><strong>ID:</strong> ${nodeId}</p>
       ${
-        content
-          ? `<p><strong>Content:</strong></p><pre style="white-space: pre-wrap; word-break: break-word; max-height: 220px; overflow-y: auto; padding: 10px; border-radius: 10px; background: rgba(15,23,42,0.05); border: 1px solid rgba(15,23,42,0.08);">${escapeHtml(content)}</pre>`
-          : `<p><strong>Content:</strong> (鏆傛棤鍘熸枃鍐呭)</p>`
+        showContent
+          ? `<p><strong>Content:</strong></p><pre class="inspector-content">${escapeHtml(content)}</pre>`
+          : ""
       }
       ${
-        isPageNode
-          ? imageUrl
-            ? `<p><strong>Page Preview:</strong></p><img src="${escapeHtml(imageUrl)}" alt="page preview" style="width: 100%; border-radius: 10px; border: 1px solid rgba(15,23,42,0.12);" />`
-            : `<p class="inspector-note">No page image available.</p>`
-          : imageUrl
-            ? `${
-                bbox
-                  ? `<p><strong>Local Preview:</strong></p><canvas id="${cropCanvasId}" class="crop-preview-canvas"></canvas>`
-                  : `<p class="inspector-note">No local bbox for this node yet.</p>`
-              }`
-            : `<p class="inspector-note">No image available for this node.</p>`
+        showPagePreview
+          ? `<p><strong>Page Preview:</strong></p><img src="${escapeHtml(imageUrl)}" alt="page preview" class="page-preview-image" />`
+          : ""
       }
+      ${
+        showLocalPreview
+          ? `<p><strong>Local Preview:</strong></p><div class="crop-preview-wrap"><canvas id="${cropCanvasId}" class="crop-preview-canvas"></canvas></div>`
+          : ""
+      }
+      ${previewUnavailable}
     </div>
   `;
 
-  if (!isPageNode && bbox && imageUrl) {
+  if (showLocalPreview) {
     const canvas = document.getElementById(cropCanvasId);
     drawCropPreview(canvas, imageUrl, bbox);
   }
@@ -726,6 +690,7 @@ fileInput.addEventListener("change", async (event) => {
 
 resetGraph.addEventListener("click", () => {
   initGraph(demoGraph);
+  nodeInspector.className = "inspector-empty";
   nodeInspector.textContent = "Select a node to see details.";
 });
 
