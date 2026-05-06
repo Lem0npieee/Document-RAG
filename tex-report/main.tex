@@ -1,0 +1,34 @@
+% !TeX encoding = UTF-8
+% !TeX program = xelatex
+% !TeX spellcheck = zh_CN
+
+\documentclass[
+    fontset=fandol,
+    degree=bachelor,
+    openany
+]{sysuthesis}
+
+\input{sysusetup.tex}
+
+\begin{document}
+
+\makeatletter
+\newgeometry{margin=2.54cm}
+\pagenumbering{Alph}
+\pagestyle{empty}
+\sysu@title@pagetrue
+\sysu@cover
+\clearpage
+\restoregeometry
+\pagestyle{plain}
+\sysu@title@pagefalse
+\makeatother
+
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+
+\pagenumbering{arabic}
+\input{docs/proposal.tex}
+
+\end{document}
