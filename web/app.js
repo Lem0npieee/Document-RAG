@@ -43,7 +43,11 @@ const demoGraph = {
 function addMessage(role, text) {
   const bubble = document.createElement("div");
   bubble.className = `chat-bubble ${role}`;
-  bubble.textContent = text;
+  if (role === "assistant") {
+    bubble.innerHTML = renderMarkdown(text);
+  } else {
+    bubble.textContent = text;
+  }
   chatHistory.appendChild(bubble);
   chatHistory.scrollTop = chatHistory.scrollHeight;
 }
@@ -55,6 +59,103 @@ function escapeHtml(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+}
+
+function renderInlineMarkdown(value) {
+  const codeSpans = [];
+  const placeholder = "\u0000CODE";
+  let html = escapeHtml(value).replace(/`([^`]+)`/g, (_, code) => {
+    codeSpans.push(`<code>${code}</code>`);
+    return `${placeholder}${codeSpans.length - 1}\u0000`;
+  });
+
+  html = html
+    .replace(/\*\*([^*\n]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/__([^_\n]+)__/g, "<strong>$1</strong>")
+    .replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<em>$2</em>")
+    .replace(/(^|[^_])_([^_\n]+)_/g, "$1<em>$2</em>")
+    .replace(/~~([^~\n]+)~~/g, "<del>$1</del>");
+
+  const codePattern = new RegExp(`${placeholder}(\\d+)\\u0000`, "g");
+  return html.replace(codePattern, (_, index) => codeSpans[Number(index)] || "");
+}
+
+function renderMarkdown(value) {
+  const lines = String(value ?? "").replace(/\r\n?/g, "\n").split("\n");
+  const blocks = [];
+  let i = 0;
+
+  const isBlockStart = (line) =>
+    /^```/.test(line) ||
+    /^#{1,4}\s+/.test(line) ||
+    /^>\s?/.test(line) ||
+    /^\s*([-*+])\s+/.test(line) ||
+    /^\s*\d+\.\s+/.test(line);
+
+  while (i < lines.length) {
+    const line = lines[i];
+    if (!line.trim()) {
+      i += 1;
+      continue;
+    }
+
+    if (/^```/.test(line)) {
+      i += 1;
+      const codeLines = [];
+      while (i < lines.length && !/^```/.test(lines[i])) {
+        codeLines.push(lines[i]);
+        i += 1;
+      }
+      if (i < lines.length) i += 1;
+      blocks.push(`<pre><code>${escapeHtml(codeLines.join("\n"))}</code></pre>`);
+      continue;
+    }
+
+    const heading = line.match(/^(#{1,4})\s+(.+)$/);
+    if (heading) {
+      const level = Math.min(heading[1].length + 2, 6);
+      blocks.push(`<h${level}>${renderInlineMarkdown(heading[2].trim())}</h${level}>`);
+      i += 1;
+      continue;
+    }
+
+    if (/^>\s?/.test(line)) {
+      const quoteLines = [];
+      while (i < lines.length && /^>\s?/.test(lines[i])) {
+        quoteLines.push(lines[i].replace(/^>\s?/, ""));
+        i += 1;
+      }
+      blocks.push(`<blockquote>${quoteLines.map(renderInlineMarkdown).join("<br>")}</blockquote>`);
+      continue;
+    }
+
+    const unordered = line.match(/^\s*([-*+])\s+(.+)$/);
+    const ordered = line.match(/^\s*\d+\.\s+(.+)$/);
+    if (unordered || ordered) {
+      const orderedList = Boolean(ordered);
+      const tag = orderedList ? "ol" : "ul";
+      const items = [];
+      while (i < lines.length) {
+        const item = orderedList
+          ? lines[i].match(/^\s*\d+\.\s+(.+)$/)
+          : lines[i].match(/^\s*[-*+]\s+(.+)$/);
+        if (!item) break;
+        items.push(`<li>${renderInlineMarkdown(item[1].trim())}</li>`);
+        i += 1;
+      }
+      blocks.push(`<${tag}>${items.join("")}</${tag}>`);
+      continue;
+    }
+
+    const paragraphLines = [];
+    while (i < lines.length && lines[i].trim() && !isBlockStart(lines[i])) {
+      paragraphLines.push(lines[i].trim());
+      i += 1;
+    }
+    blocks.push(`<p>${paragraphLines.map(renderInlineMarkdown).join("<br>")}</p>`);
+  }
+
+  return blocks.join("");
 }
 
 function normalizeImageUrl(value) {
