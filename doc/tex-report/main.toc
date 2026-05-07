@@ -1,0 +1,31 @@
+\addvspace {12bp}
+\addvspace {12bp}
+\contentsline {chapter}{\numberline {1}任务定义与应用背景}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}任务定义}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}应用背景}{1}{section.1.2}%
+\addvspace {12bp}
+\contentsline {chapter}{\numberline {2}相关工作调研}{3}{chapter.2}%
+\addvspace {12bp}
+\contentsline {chapter}{\numberline {3}系统方案设计}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}总体架构}{6}{section.3.1}%
+\contentsline {section}{\numberline {3.2}核心模块}{7}{section.3.2}%
+\contentsline {section}{\numberline {3.3}文档解析与结构化表示}{8}{section.3.3}%
+\contentsline {section}{\numberline {3.4}图谱构建}{8}{section.3.4}%
+\contentsline {section}{\numberline {3.5}GraphRAG 检索与生成}{9}{section.3.5}%
+\addvspace {12bp}
+\contentsline {chapter}{\numberline {4}模型与技术选型}{10}{chapter.4}%
+\addvspace {12bp}
+\contentsline {chapter}{\numberline {5}数据集与实验设计}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}数据集计划}{11}{section.5.1}%
+\contentsline {section}{\numberline {5.2}评测问题类型}{11}{section.5.2}%
+\contentsline {section}{\numberline {5.3}指标设计}{11}{section.5.3}%
+\addvspace {12bp}
+\contentsline {chapter}{\numberline {6}算力预算与时间计划}{13}{chapter.6}%
+\contentsline {section}{\numberline {6.1}算力与成本}{13}{section.6.1}%
+\contentsline {section}{\numberline {6.2}当前进度}{13}{section.6.2}%
+\contentsline {section}{\numberline {6.3}后续计划}{13}{section.6.3}%
+\addvspace {12bp}
+\contentsline {chapter}{\numberline {7}创新点与贡献}{15}{chapter.7}%
+\addvspace {12bp}
+\contentsline {chapter}{\numberline {8}参考文献}{16}{chapter.8}%
+\contentsfinish 

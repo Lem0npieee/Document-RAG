@@ -1,0 +1,312 @@
+{"kind":"deck","id":"document-rag-proposal-8page","slideCount":8,"slideSize":{"width":1280,"height":720}}
+{"kind":"slide","slide":1,"id":"tuqyj4"}
+{"kind":"slide","slide":2,"id":"m8tmxd"}
+{"kind":"slide","slide":3,"id":"4i4y34"}
+{"kind":"slide","slide":4,"id":"r83mwy"}
+{"kind":"slide","slide":5,"id":"d7ibbk"}
+{"kind":"slide","slide":6,"id":"4miak6"}
+{"kind":"slide","slide":7,"id":"0sl9oh"}
+{"kind":"slide","slide":8,"id":"ok353t"}
+{"kind":"shape","slide":1,"id":"1","role":"bg band","shapeType":"rect","bbox":[0,0,1280,88]}
+{"kind":"shape","slide":1,"id":"2","role":"bg accent block","shapeType":"rect","bbox":[1030,0,250,88]}
+{"kind":"shape","slide":1,"id":"3","role":"bg footer block","shapeType":"rect","bbox":[0,614,248,106]}
+{"kind":"shape","slide":1,"id":"4","role":"canvas","shapeType":"roundRect","bbox":[40,40,1200,640]}
+{"kind":"shape","slide":1,"id":"5","role":"canvas spine","shapeType":"rect","bbox":[40,40,10,640]}
+{"kind":"shape","slide":1,"id":"6","role":"cover rule","shapeType":"rect","bbox":[82,118,6,438]}
+{"kind":"shape","slide":1,"id":"7","role":"cover kicker","shapeType":"rect","bbox":[106,116,220,18]}
+{"kind":"textbox","slide":1,"id":"7","role":"cover kicker","text":"课程作业开题答辩","textChars":8,"textLines":1,"bbox":[106,116,220,18]}
+{"kind":"shape","slide":1,"id":"8","role":"cover course label","shapeType":"rect","bbox":[106,148,360,20]}
+{"kind":"textbox","slide":1,"id":"8","role":"cover course label","text":"多模态大模型原理与应用 · 题目 3","textChars":18,"textLines":1,"bbox":[106,148,360,20]}
+{"kind":"shape","slide":1,"id":"9","role":"cover title","shapeType":"rect","bbox":[100,188,670,136]}
+{"kind":"textbox","slide":1,"id":"9","role":"cover title","text":"文档理解与多模态 GraphRAG 检索问答系统","textChars":24,"textLines":1,"bbox":[100,188,670,136]}
+{"kind":"shape","slide":1,"id":"10","role":"cover subtitle","shapeType":"rect","bbox":[106,338,608,66]}
+{"kind":"textbox","slide":1,"id":"10","role":"cover subtitle","text":"基于 qwen3-vl-8b-instruct、FAISS 与 networkx 的可追溯文档智能助手","textChars":51,"textLines":1,"bbox":[106,338,608,66]}
+{"kind":"shape","slide":1,"id":"11","role":"cover summary panel","shapeType":"roundRect","bbox":[826,130,340,262]}
+{"kind":"shape","slide":1,"id":"12","role":"cover summary panel accent","shapeType":"rect","bbox":[826,130,6,262]}
+{"kind":"shape","slide":1,"id":"13","role":"cover summary label","shapeType":"rect","bbox":[856,156,120,18]}
+{"kind":"textbox","slide":1,"id":"13","role":"cover summary label","text":"核心技术栈","textChars":5,"textLines":1,"bbox":[856,156,120,18]}
+{"kind":"shape","slide":1,"id":"14","role":"cover summary list","shapeType":"rect","bbox":[856,194,258,92]}
+{"kind":"textbox","slide":1,"id":"14","role":"cover summary list","text":"• qwen3-vl-8b-instruct 文档解析\n• FAISS 向量索引 + networkx 图谱\n• DashScope API 多模态问答","textChars":76,"textLines":3,"bbox":[856,194,258,92]}
+{"kind":"shape","slide":1,"id":"15","role":"cover summary rule","shapeType":"rect","bbox":[856,310,230,2]}
+{"kind":"shape","slide":1,"id":"16","role":"cover summary closing","shapeType":"rect","bbox":[856,332,244,34]}
+{"kind":"textbox","slide":1,"id":"16","role":"cover summary closing","text":"原型已完成 · 进入评测阶段","textChars":14,"textLines":1,"bbox":[856,332,244,34]}
+{"kind":"shape","slide":1,"id":"17","role":"tag","shapeType":"roundRect","bbox":[104,440,180,32]}
+{"kind":"shape","slide":1,"id":"18","role":"tag text","shapeType":"rect","bbox":[118,448,152,16]}
+{"kind":"textbox","slide":1,"id":"18","role":"tag text","text":"多模态 GraphRAG","textChars":12,"textLines":1,"bbox":[118,448,152,16]}
+{"kind":"shape","slide":1,"id":"19","role":"tag","shapeType":"roundRect","bbox":[296,440,184,32]}
+{"kind":"shape","slide":1,"id":"20","role":"tag text","shapeType":"rect","bbox":[310,448,156,16]}
+{"kind":"textbox","slide":1,"id":"20","role":"tag text","text":"DocVQA / ChartQA","textChars":16,"textLines":1,"bbox":[310,448,156,16]}
+{"kind":"shape","slide":1,"id":"21","role":"tag","shapeType":"roundRect","bbox":[492,440,184,32]}
+{"kind":"shape","slide":1,"id":"22","role":"tag text","shapeType":"rect","bbox":[506,448,156,16]}
+{"kind":"textbox","slide":1,"id":"22","role":"tag text","text":"qwen3-vl-8b-instruct","textChars":20,"textLines":1,"bbox":[506,448,156,16]}
+{"kind":"shape","slide":1,"id":"23","role":"tag","shapeType":"roundRect","bbox":[688,440,110,32]}
+{"kind":"shape","slide":1,"id":"24","role":"tag text","shapeType":"rect","bbox":[702,448,82,16]}
+{"kind":"textbox","slide":1,"id":"24","role":"tag text","text":"FAISS","textChars":5,"textLines":1,"bbox":[702,448,82,16]}
+{"kind":"shape","slide":1,"id":"25","role":"tag","shapeType":"roundRect","bbox":[810,440,120,32]}
+{"kind":"shape","slide":1,"id":"26","role":"tag text","shapeType":"rect","bbox":[824,448,92,16]}
+{"kind":"textbox","slide":1,"id":"26","role":"tag text","text":"networkx","textChars":8,"textLines":1,"bbox":[824,448,92,16]}
+{"kind":"shape","slide":1,"id":"27","role":"cover footer card","shapeType":"roundRect","bbox":[104,518,308,90]}
+{"kind":"shape","slide":1,"id":"28","role":"cover footer card accent","shapeType":"rect","bbox":[104,518,6,90]}
+{"kind":"shape","slide":1,"id":"29","role":"cover footer card","shapeType":"roundRect","bbox":[430,518,308,90]}
+{"kind":"shape","slide":1,"id":"30","role":"cover footer card accent","shapeType":"rect","bbox":[430,518,6,90]}
+{"kind":"shape","slide":1,"id":"31","role":"cover footer label","shapeType":"rect","bbox":[128,536,120,18]}
+{"kind":"textbox","slide":1,"id":"31","role":"cover footer label","text":"核心技术栈","textChars":5,"textLines":1,"bbox":[128,536,120,18]}
+{"kind":"shape","slide":1,"id":"32","role":"cover footer body","shapeType":"rect","bbox":[128,560,248,34]}
+{"kind":"textbox","slide":1,"id":"32","role":"cover footer body","text":"qwen3-vl-8b-instruct + FAISS + networkx + DashScope","textChars":51,"textLines":1,"bbox":[128,560,248,34]}
+{"kind":"shape","slide":1,"id":"33","role":"cover footer label","shapeType":"rect","bbox":[454,536,120,18]}
+{"kind":"textbox","slide":1,"id":"33","role":"cover footer label","text":"当前状态","textChars":4,"textLines":1,"bbox":[454,536,120,18]}
+{"kind":"shape","slide":1,"id":"34","role":"cover footer body","shapeType":"rect","bbox":[454,560,248,34]}
+{"kind":"textbox","slide":1,"id":"34","role":"cover footer body","text":"原型系统已完成，进入评测阶段","textChars":14,"textLines":1,"bbox":[454,560,248,34]}
+{"kind":"shape","slide":1,"id":"35","role":"cover lower rule","shapeType":"rect","bbox":[826,414,340,2]}
+{"kind":"shape","slide":1,"id":"36","role":"cover lower label","shapeType":"rect","bbox":[856,434,80,16]}
+{"kind":"textbox","slide":1,"id":"36","role":"cover lower label","text":"项目关键词","textChars":5,"textLines":1,"bbox":[856,434,80,16]}
+{"kind":"shape","slide":1,"id":"37","role":"hero note","shapeType":"rect","bbox":[856,460,270,78]}
+{"kind":"textbox","slide":1,"id":"37","role":"hero note","text":"多模态 GraphRAG · 可追溯文档问答","textChars":22,"textLines":1,"bbox":[856,460,270,78]}
+{"kind":"shape","slide":1,"id":"38","role":"hero note caption","shapeType":"rect","bbox":[856,556,264,34]}
+{"kind":"textbox","slide":1,"id":"38","role":"hero note caption","text":"向量检索 + 图谱扩展 + 页面图像融合","textChars":20,"textLines":1,"bbox":[856,556,264,34]}
+{"kind":"shape","slide":2,"id":"1","role":"bg band","shapeType":"rect","bbox":[0,0,1280,88]}
+{"kind":"shape","slide":2,"id":"2","role":"bg accent block","shapeType":"rect","bbox":[1030,0,250,88]}
+{"kind":"shape","slide":2,"id":"3","role":"bg footer block","shapeType":"rect","bbox":[0,614,248,106]}
+{"kind":"shape","slide":2,"id":"4","role":"canvas","shapeType":"roundRect","bbox":[40,40,1200,640]}
+{"kind":"shape","slide":2,"id":"5","role":"canvas spine","shapeType":"rect","bbox":[40,40,10,640]}
+{"kind":"shape","slide":2,"id":"6","role":"header accent","shapeType":"rect","bbox":[78,57,4,18]}
+{"kind":"shape","slide":2,"id":"7","role":"header kicker","shapeType":"rect","bbox":[92,54,460,22]}
+{"kind":"textbox","slide":2,"id":"7","role":"header kicker","text":"01 · 任务背景","textChars":9,"textLines":1,"bbox":[92,54,460,22]}
+{"kind":"shape","slide":2,"id":"8","role":"header index pill","shapeType":"roundRect","bbox":[1126,46,82,34]}
+{"kind":"shape","slide":2,"id":"9","role":"header index","shapeType":"rect","bbox":[1140,56,54,14]}
+{"kind":"textbox","slide":2,"id":"9","role":"header index","text":"02 / 08","textChars":7,"textLines":1,"bbox":[1140,56,54,14]}
+{"kind":"shape","slide":2,"id":"10","role":"header line","shapeType":"rect","bbox":[78,94,1130,1.5]}
+{"kind":"shape","slide":2,"id":"11","role":"title","shapeType":"rect","bbox":[74,92,900,112]}
+{"kind":"textbox","slide":2,"id":"11","role":"title","text":"为什么纯文本 RAG 不够","textChars":13,"textLines":1,"bbox":[74,92,900,112]}
+{"kind":"shape","slide":2,"id":"12","role":"problem card","shapeType":"roundRect","bbox":[76,254,350,250]}
+{"kind":"shape","slide":2,"id":"13","role":"problem card accent","shapeType":"rect","bbox":[76,254,6,250]}
+{"kind":"shape","slide":2,"id":"14","role":"problem index","shapeType":"ellipse","bbox":[100,276,34,34]}
+{"kind":"shape","slide":2,"id":"15","role":"problem index text","shapeType":"rect","bbox":[111,285,12,12]}
+{"kind":"textbox","slide":2,"id":"15","role":"problem index text","text":"A","textChars":1,"textLines":1,"bbox":[111,285,12,12]}
+{"kind":"shape","slide":2,"id":"16","role":"problem title","shapeType":"rect","bbox":[100,326,288,30]}
+{"kind":"textbox","slide":2,"id":"16","role":"problem title","text":"视觉信息丢失","textChars":6,"textLines":1,"bbox":[100,326,288,30]}
+{"kind":"shape","slide":2,"id":"17","role":"problem body","shapeType":"rect","bbox":[100,376,298,92]}
+{"kind":"textbox","slide":2,"id":"17","role":"problem body","text":"图表趋势、版面结构、颜色标记、坐标轴和表格边界很难被纯文本准确保留。","textChars":34,"textLines":1,"bbox":[100,376,298,92]}
+{"kind":"shape","slide":2,"id":"18","role":"problem card","shapeType":"roundRect","bbox":[450,254,350,250]}
+{"kind":"shape","slide":2,"id":"19","role":"problem card accent","shapeType":"rect","bbox":[450,254,6,250]}
+{"kind":"shape","slide":2,"id":"20","role":"problem index","shapeType":"ellipse","bbox":[474,276,34,34]}
+{"kind":"shape","slide":2,"id":"21","role":"problem index text","shapeType":"rect","bbox":[485,285,12,12]}
+{"kind":"textbox","slide":2,"id":"21","role":"problem index text","text":"B","textChars":1,"textLines":1,"bbox":[485,285,12,12]}
+{"kind":"shape","slide":2,"id":"22","role":"problem title","shapeType":"rect","bbox":[474,326,288,30]}
+{"kind":"textbox","slide":2,"id":"22","role":"problem title","text":"结构关系不足","textChars":6,"textLines":1,"bbox":[474,326,288,30]}
+{"kind":"shape","slide":2,"id":"23","role":"problem body","shapeType":"rect","bbox":[474,376,298,92]}
+{"kind":"textbox","slide":2,"id":"23","role":"problem body","text":"同一页内的图文对应、跨页段落延续、图号与结论之间的支撑关系无法仅靠向量相似度稳定表达。","textChars":43,"textLines":1,"bbox":[474,376,298,92]}
+{"kind":"shape","slide":2,"id":"24","role":"problem card","shapeType":"roundRect","bbox":[824,254,350,250]}
+{"kind":"shape","slide":2,"id":"25","role":"problem card accent","shapeType":"rect","bbox":[824,254,6,250]}
+{"kind":"shape","slide":2,"id":"26","role":"problem index","shapeType":"ellipse","bbox":[848,276,34,34]}
+{"kind":"shape","slide":2,"id":"27","role":"problem index text","shapeType":"rect","bbox":[859,285,12,12]}
+{"kind":"textbox","slide":2,"id":"27","role":"problem index text","text":"C","textChars":1,"textLines":1,"bbox":[859,285,12,12]}
+{"kind":"shape","slide":2,"id":"28","role":"problem title","shapeType":"rect","bbox":[848,326,288,30]}
+{"kind":"textbox","slide":2,"id":"28","role":"problem title","text":"证据链不可解释","textChars":7,"textLines":1,"bbox":[848,326,288,30]}
+{"kind":"shape","slide":2,"id":"29","role":"problem body","shapeType":"rect","bbox":[848,376,298,92]}
+{"kind":"textbox","slide":2,"id":"29","role":"problem body","text":"向量检索可以找到相似片段，但不擅长回答\"某结论由哪些图表和实验支撑\"这类多跳问题。","textChars":41,"textLines":1,"bbox":[848,376,298,92]}
+{"kind":"shape","slide":2,"id":"30","role":"focus strip","shapeType":"roundRect","bbox":[76,540,1124,104]}
+{"kind":"shape","slide":2,"id":"31","role":"focus label","shapeType":"rect","bbox":[108,560,120,18]}
+{"kind":"textbox","slide":2,"id":"31","role":"focus label","text":"系统要做什么","textChars":6,"textLines":1,"bbox":[108,560,120,18]}
+{"kind":"shape","slide":2,"id":"32","role":"focus body","shapeType":"rect","bbox":[108,590,1040,34]}
+{"kind":"textbox","slide":2,"id":"32","role":"focus body","text":"上传多页 PDF 或图像后，系统同时构建文本/图表片段、页面图像证据、关键词/关系节点和跨页连接，使回答既能利用多模态证据，又能给出可追溯的页码、节点和关系依据。","textChars":81,"textLines":1,"bbox":[108,590,1040,34]}
+{"kind":"shape","slide":3,"id":"1","role":"bg band","shapeType":"rect","bbox":[0,0,1280,88]}
+{"kind":"shape","slide":3,"id":"2","role":"bg accent block","shapeType":"rect","bbox":[1030,0,250,88]}
+{"kind":"shape","slide":3,"id":"3","role":"bg footer block","shapeType":"rect","bbox":[0,614,248,106]}
+{"kind":"shape","slide":3,"id":"4","role":"canvas","shapeType":"roundRect","bbox":[40,40,1200,640]}
+{"kind":"shape","slide":3,"id":"5","role":"canvas spine","shapeType":"rect","bbox":[40,40,10,640]}
+{"kind":"shape","slide":3,"id":"6","role":"header accent","shapeType":"rect","bbox":[78,57,4,18]}
+{"kind":"shape","slide":3,"id":"7","role":"header kicker","shapeType":"rect","bbox":[92,54,460,22]}
+{"kind":"textbox","slide":3,"id":"7","role":"header kicker","text":"02 · 系统总览","textChars":9,"textLines":1,"bbox":[92,54,460,22]}
+{"kind":"shape","slide":3,"id":"8","role":"header index pill","shapeType":"roundRect","bbox":[1126,46,82,34]}
+{"kind":"shape","slide":3,"id":"9","role":"header index","shapeType":"rect","bbox":[1140,56,54,14]}
+{"kind":"textbox","slide":3,"id":"9","role":"header index","text":"03 / 08","textChars":7,"textLines":1,"bbox":[1140,56,54,14]}
+{"kind":"shape","slide":3,"id":"10","role":"header line","shapeType":"rect","bbox":[78,94,1130,1.5]}
+{"kind":"shape","slide":3,"id":"11","role":"title","shapeType":"rect","bbox":[74,90,900,112]}
+{"kind":"textbox","slide":3,"id":"11","role":"title","text":"系统怎么跑起来","textChars":7,"textLines":1,"bbox":[74,90,900,112]}
+{"kind":"shape","slide":3,"id":"12","role":"subtitle","shapeType":"rect","bbox":[74,202,820,56]}
+{"kind":"textbox","slide":3,"id":"12","role":"subtitle","text":"知识库构建 + 在线问答 + 前端展示三条链路","textChars":23,"textLines":1,"bbox":[74,202,820,56]}
+{"kind":"shape","slide":3,"id":"13","role":"architecture-image","shapeType":"rect","bbox":[90,210,1100,420]}
+{"kind":"shape","slide":3,"id":"14","role":"arch-caption","shapeType":"roundRect","bbox":[90,650,1100,50]}
+{"kind":"shape","slide":3,"id":"15","role":"arch-caption-text","shapeType":"rect","bbox":[110,662,1060,26]}
+{"kind":"textbox","slide":3,"id":"15","role":"arch-caption-text","text":"PyMuPDF → qwen3-vl-8b-instruct → FAISS + networkx → 多模态问答","textChars":57,"textLines":1,"bbox":[110,662,1060,26]}
+{"kind":"shape","slide":4,"id":"1","role":"bg band","shapeType":"rect","bbox":[0,0,1280,88]}
+{"kind":"shape","slide":4,"id":"2","role":"bg accent block","shapeType":"rect","bbox":[1030,0,250,88]}
+{"kind":"shape","slide":4,"id":"3","role":"bg footer block","shapeType":"rect","bbox":[0,614,248,106]}
+{"kind":"shape","slide":4,"id":"4","role":"canvas","shapeType":"roundRect","bbox":[40,40,1200,640]}
+{"kind":"shape","slide":4,"id":"5","role":"canvas spine","shapeType":"rect","bbox":[40,40,10,640]}
+{"kind":"shape","slide":4,"id":"6","role":"header accent","shapeType":"rect","bbox":[78,57,4,18]}
+{"kind":"shape","slide":4,"id":"7","role":"header kicker","shapeType":"rect","bbox":[92,54,460,22]}
+{"kind":"textbox","slide":4,"id":"7","role":"header kicker","text":"03 · 实验设计","textChars":9,"textLines":1,"bbox":[92,54,460,22]}
+{"kind":"shape","slide":4,"id":"8","role":"header index pill","shapeType":"roundRect","bbox":[1126,46,82,34]}
+{"kind":"shape","slide":4,"id":"9","role":"header index","shapeType":"rect","bbox":[1140,56,54,14]}
+{"kind":"textbox","slide":4,"id":"9","role":"header index","text":"04 / 08","textChars":7,"textLines":1,"bbox":[1140,56,54,14]}
+{"kind":"shape","slide":4,"id":"10","role":"header line","shapeType":"rect","bbox":[78,94,1130,1.5]}
+{"kind":"shape","slide":4,"id":"11","role":"title","shapeType":"rect","bbox":[74,92,900,112]}
+{"kind":"textbox","slide":4,"id":"11","role":"title","text":"评测什么、怎么评","textChars":8,"textLines":1,"bbox":[74,92,900,112]}
+{"kind":"shape","slide":4,"id":"12","role":"dataset card","shapeType":"roundRect","bbox":[76,246,350,146]}
+{"kind":"shape","slide":4,"id":"13","role":"dataset tag","shapeType":"rect","bbox":[100,268,86,16]}
+{"kind":"textbox","slide":4,"id":"13","role":"dataset tag","text":"数据集 A","textChars":5,"textLines":1,"bbox":[100,268,86,16]}
+{"kind":"shape","slide":4,"id":"14","role":"dataset title","shapeType":"rect","bbox":[100,294,230,24]}
+{"kind":"textbox","slide":4,"id":"14","role":"dataset title","text":"自建长文档测试集","textChars":8,"textLines":1,"bbox":[100,294,230,24]}
+{"kind":"shape","slide":4,"id":"15","role":"dataset body","shapeType":"rect","bbox":[100,332,292,42]}
+{"kind":"textbox","slide":4,"id":"15","role":"dataset body","text":"3-5 篇含图表、表格、跨页段落和结论引用的论文，人工编写问题。","textChars":32,"textLines":1,"bbox":[100,332,292,42]}
+{"kind":"shape","slide":4,"id":"16","role":"dataset card","shapeType":"roundRect","bbox":[448,246,350,146]}
+{"kind":"shape","slide":4,"id":"17","role":"dataset tag","shapeType":"rect","bbox":[472,268,86,16]}
+{"kind":"textbox","slide":4,"id":"17","role":"dataset tag","text":"数据集 B","textChars":5,"textLines":1,"bbox":[472,268,86,16]}
+{"kind":"shape","slide":4,"id":"18","role":"dataset title","shapeType":"rect","bbox":[472,294,230,24]}
+{"kind":"textbox","slide":4,"id":"18","role":"dataset title","text":"DocVQA 子集","textChars":9,"textLines":1,"bbox":[472,294,230,24]}
+{"kind":"shape","slide":4,"id":"19","role":"dataset body","shapeType":"rect","bbox":[472,332,292,42]}
+{"kind":"textbox","slide":4,"id":"19","role":"dataset body","text":"公开 DocVQA 验证样本，评估单页文档问答抽取式准确性。","textChars":30,"textLines":1,"bbox":[472,332,292,42]}
+{"kind":"shape","slide":4,"id":"20","role":"dataset card","shapeType":"roundRect","bbox":[820,246,350,146]}
+{"kind":"shape","slide":4,"id":"21","role":"dataset tag","shapeType":"rect","bbox":[844,268,86,16]}
+{"kind":"textbox","slide":4,"id":"21","role":"dataset tag","text":"数据集 C","textChars":5,"textLines":1,"bbox":[844,268,86,16]}
+{"kind":"shape","slide":4,"id":"22","role":"dataset title","shapeType":"rect","bbox":[844,294,230,24]}
+{"kind":"textbox","slide":4,"id":"22","role":"dataset title","text":"ChartQA 子集","textChars":10,"textLines":1,"bbox":[844,294,230,24]}
+{"kind":"shape","slide":4,"id":"23","role":"dataset body","shapeType":"rect","bbox":[844,332,292,42]}
+{"kind":"textbox","slide":4,"id":"23","role":"dataset body","text":"图表推理问题，观察页面原图和图表描述的作用。","textChars":22,"textLines":1,"bbox":[844,332,292,42]}
+{"kind":"shape","slide":4,"id":"24","role":"experiment panel","shapeType":"roundRect","bbox":[76,430,542,210]}
+{"kind":"shape","slide":4,"id":"25","role":"experiment panel accent","shapeType":"rect","bbox":[76,430,6,210]}
+{"kind":"shape","slide":4,"id":"26","role":"experiment label","shapeType":"rect","bbox":[104,454,120,16]}
+{"kind":"textbox","slide":4,"id":"26","role":"experiment label","text":"消融实验","textChars":4,"textLines":1,"bbox":[104,454,120,16]}
+{"kind":"shape","slide":4,"id":"27","role":"experiment title","shapeType":"rect","bbox":[104,480,340,52]}
+{"kind":"textbox","slide":4,"id":"27","role":"experiment title","text":"Full / No-Graph / No-Image / Short-Answer","textChars":41,"textLines":1,"bbox":[104,480,340,52]}
+{"kind":"shape","slide":4,"id":"28","role":"experiment list","shapeType":"rect","bbox":[104,546,470,100]}
+{"kind":"textbox","slide":4,"id":"28","role":"experiment list","text":"• Full：向量召回 + 图谱扩展 + 社区 profile + 页面图像\n• No-Graph：关闭图谱扩展，观察多跳问题下降幅度\n• No-Image：关闭页面原图输入，观察图表题下降幅度\n• Short-Answer Eval：约束输出为短答案，计算 ANLS/EM","textChars":137,"textLines":4,"bbox":[104,546,470,100]}
+{"kind":"shape","slide":5,"id":"1","role":"bg band","shapeType":"rect","bbox":[0,0,1280,88]}
+{"kind":"shape","slide":5,"id":"2","role":"bg accent block","shapeType":"rect","bbox":[1030,0,250,88]}
+{"kind":"shape","slide":5,"id":"3","role":"bg footer block","shapeType":"rect","bbox":[0,614,248,106]}
+{"kind":"shape","slide":5,"id":"4","role":"canvas","shapeType":"roundRect","bbox":[40,40,1200,640]}
+{"kind":"shape","slide":5,"id":"5","role":"canvas spine","shapeType":"rect","bbox":[40,40,10,640]}
+{"kind":"shape","slide":5,"id":"6","role":"header accent","shapeType":"rect","bbox":[78,57,4,18]}
+{"kind":"shape","slide":5,"id":"7","role":"header kicker","shapeType":"rect","bbox":[92,54,460,22]}
+{"kind":"textbox","slide":5,"id":"7","role":"header kicker","text":"04 · Demo","textChars":9,"textLines":1,"bbox":[92,54,460,22]}
+{"kind":"shape","slide":5,"id":"8","role":"header index pill","shapeType":"roundRect","bbox":[1126,46,82,34]}
+{"kind":"shape","slide":5,"id":"9","role":"header index","shapeType":"rect","bbox":[1140,56,54,14]}
+{"kind":"textbox","slide":5,"id":"9","role":"header index","text":"05 / 08","textChars":7,"textLines":1,"bbox":[1140,56,54,14]}
+{"kind":"shape","slide":5,"id":"10","role":"header line","shapeType":"rect","bbox":[78,94,1130,1.5]}
+{"kind":"shape","slide":5,"id":"11","role":"title","shapeType":"rect","bbox":[74,90,900,112]}
+{"kind":"textbox","slide":5,"id":"11","role":"title","text":"Knowledge Flow Studio","textChars":21,"textLines":1,"bbox":[74,90,900,112]}
+{"kind":"shape","slide":5,"id":"12","role":"subtitle","shapeType":"rect","bbox":[74,202,820,56]}
+{"kind":"textbox","slide":5,"id":"12","role":"subtitle","text":"问答、知识图谱、节点检查、页面预览四块功能","textChars":21,"textLines":1,"bbox":[74,202,820,56]}
+{"kind":"shape","slide":5,"id":"13","role":"demo-image","shapeType":"rect","bbox":[90,200,1100,440]}
+{"kind":"shape","slide":5,"id":"14","role":"feature-tag","shapeType":"roundRect","bbox":[85,660,240,28]}
+{"kind":"shape","slide":5,"id":"15","role":"feature-tag-text","shapeType":"rect","bbox":[85,664,240,20]}
+{"kind":"textbox","slide":5,"id":"15","role":"feature-tag-text","text":"问答","textChars":2,"textLines":1,"bbox":[85,664,240,20]}
+{"kind":"shape","slide":5,"id":"16","role":"feature-tag","shapeType":"roundRect","bbox":[375,660,240,28]}
+{"kind":"shape","slide":5,"id":"17","role":"feature-tag-text","shapeType":"rect","bbox":[375,664,240,20]}
+{"kind":"textbox","slide":5,"id":"17","role":"feature-tag-text","text":"知识图谱","textChars":4,"textLines":1,"bbox":[375,664,240,20]}
+{"kind":"shape","slide":5,"id":"18","role":"feature-tag","shapeType":"roundRect","bbox":[665,660,240,28]}
+{"kind":"shape","slide":5,"id":"19","role":"feature-tag-text","shapeType":"rect","bbox":[665,664,240,20]}
+{"kind":"textbox","slide":5,"id":"19","role":"feature-tag-text","text":"节点检查","textChars":4,"textLines":1,"bbox":[665,664,240,20]}
+{"kind":"shape","slide":5,"id":"20","role":"feature-tag","shapeType":"roundRect","bbox":[955,660,240,28]}
+{"kind":"shape","slide":5,"id":"21","role":"feature-tag-text","shapeType":"rect","bbox":[955,664,240,20]}
+{"kind":"textbox","slide":5,"id":"21","role":"feature-tag-text","text":"页面预览","textChars":4,"textLines":1,"bbox":[955,664,240,20]}
+{"kind":"shape","slide":6,"id":"1","role":"bg band","shapeType":"rect","bbox":[0,0,1280,88]}
+{"kind":"shape","slide":6,"id":"2","role":"bg accent block","shapeType":"rect","bbox":[1030,0,250,88]}
+{"kind":"shape","slide":6,"id":"3","role":"bg footer block","shapeType":"rect","bbox":[0,614,248,106]}
+{"kind":"shape","slide":6,"id":"4","role":"canvas","shapeType":"roundRect","bbox":[40,40,1200,640]}
+{"kind":"shape","slide":6,"id":"5","role":"canvas spine","shapeType":"rect","bbox":[40,40,10,640]}
+{"kind":"shape","slide":6,"id":"6","role":"header accent","shapeType":"rect","bbox":[78,57,4,18]}
+{"kind":"shape","slide":6,"id":"7","role":"header kicker","shapeType":"rect","bbox":[92,54,460,22]}
+{"kind":"textbox","slide":6,"id":"7","role":"header kicker","text":"05 · 算力和计划","textChars":10,"textLines":1,"bbox":[92,54,460,22]}
+{"kind":"shape","slide":6,"id":"8","role":"header index pill","shapeType":"roundRect","bbox":[1126,46,82,34]}
+{"kind":"shape","slide":6,"id":"9","role":"header index","shapeType":"rect","bbox":[1140,56,54,14]}
+{"kind":"textbox","slide":6,"id":"9","role":"header index","text":"06 / 08","textChars":7,"textLines":1,"bbox":[1140,56,54,14]}
+{"kind":"shape","slide":6,"id":"10","role":"header line","shapeType":"rect","bbox":[78,94,1130,1.5]}
+{"kind":"shape","slide":6,"id":"11","role":"title","shapeType":"rect","bbox":[74,92,900,112]}
+{"kind":"textbox","slide":6,"id":"11","role":"title","text":"算力预算与时间计划","textChars":9,"textLines":1,"bbox":[74,92,900,112]}
+{"kind":"shape","slide":6,"id":"12","role":"resource panel","shapeType":"roundRect","bbox":[76,246,540,380]}
+{"kind":"shape","slide":6,"id":"13","role":"resource panel accent","shapeType":"rect","bbox":[76,246,6,380]}
+{"kind":"shape","slide":6,"id":"14","role":"resource label","shapeType":"rect","bbox":[104,272,140,20]}
+{"kind":"textbox","slide":6,"id":"14","role":"resource label","text":"算力与成本","textChars":5,"textLines":1,"bbox":[104,272,140,20]}
+{"kind":"shape","slide":6,"id":"15","role":"resource name","shapeType":"rect","bbox":[104,310,100,18]}
+{"kind":"textbox","slide":6,"id":"15","role":"resource name","text":"本地计算","textChars":4,"textLines":1,"bbox":[104,310,100,18]}
+{"kind":"shape","slide":6,"id":"16","role":"resource value","shapeType":"rect","bbox":[210,310,100,18]}
+{"kind":"textbox","slide":6,"id":"16","role":"resource value","text":"CPU 即可","textChars":6,"textLines":1,"bbox":[210,310,100,18]}
+{"kind":"shape","slide":6,"id":"17","role":"resource detail","shapeType":"rect","bbox":[104,332,480,30]}
+{"kind":"textbox","slide":6,"id":"17","role":"resource detail","text":"PDF 渲染、FAISS、networkx 和 Flask 均可本地运行","textChars":36,"textLines":1,"bbox":[104,332,480,30]}
+{"kind":"shape","slide":6,"id":"18","role":"resource name","shapeType":"rect","bbox":[104,372,100,18]}
+{"kind":"textbox","slide":6,"id":"18","role":"resource name","text":"GPU","textChars":3,"textLines":1,"bbox":[104,372,100,18]}
+{"kind":"shape","slide":6,"id":"19","role":"resource value","shapeType":"rect","bbox":[210,372,100,18]}
+{"kind":"textbox","slide":6,"id":"19","role":"resource value","text":"非必需","textChars":3,"textLines":1,"bbox":[210,372,100,18]}
+{"kind":"shape","slide":6,"id":"20","role":"resource detail","shapeType":"rect","bbox":[104,394,480,30]}
+{"kind":"textbox","slide":6,"id":"20","role":"resource detail","text":"使用 DashScope API 调用 qwen3-vl-8b-instruct","textChars":40,"textLines":1,"bbox":[104,394,480,30]}
+{"kind":"shape","slide":6,"id":"21","role":"resource name","shapeType":"rect","bbox":[104,434,100,18]}
+{"kind":"textbox","slide":6,"id":"21","role":"resource name","text":"存储","textChars":2,"textLines":1,"bbox":[104,434,100,18]}
+{"kind":"shape","slide":6,"id":"22","role":"resource value","shapeType":"rect","bbox":[210,434,100,18]}
+{"kind":"textbox","slide":6,"id":"22","role":"resource value","text":"百 MB 到数 GB","textChars":10,"textLines":1,"bbox":[210,434,100,18]}
+{"kind":"shape","slide":6,"id":"23","role":"resource detail","shapeType":"rect","bbox":[104,456,480,30]}
+{"kind":"textbox","slide":6,"id":"23","role":"resource detail","text":"页面图片、FAISS 索引、JSON 解析结果和图谱文件","textChars":28,"textLines":1,"bbox":[104,456,480,30]}
+{"kind":"shape","slide":6,"id":"24","role":"resource name","shapeType":"rect","bbox":[104,496,100,18]}
+{"kind":"textbox","slide":6,"id":"24","role":"resource name","text":"API 成本","textChars":6,"textLines":1,"bbox":[104,496,100,18]}
+{"kind":"shape","slide":6,"id":"25","role":"resource value","shapeType":"rect","bbox":[210,496,100,18]}
+{"kind":"textbox","slide":6,"id":"25","role":"resource value","text":"与页数和问题数相关","textChars":9,"textLines":1,"bbox":[210,496,100,18]}
+{"kind":"shape","slide":6,"id":"26","role":"resource detail","shapeType":"rect","bbox":[104,518,480,30]}
+{"kind":"textbox","slide":6,"id":"26","role":"resource detail","text":"先小样本评测，再扩展；复用 build meta 避免重复入库","textChars":31,"textLines":1,"bbox":[104,518,480,30]}
+{"kind":"shape","slide":6,"id":"27","role":"progress panel","shapeType":"roundRect","bbox":[640,246,560,180]}
+{"kind":"shape","slide":6,"id":"28","role":"progress panel accent","shapeType":"rect","bbox":[640,246,6,180]}
+{"kind":"shape","slide":6,"id":"29","role":"progress label","shapeType":"rect","bbox":[668,272,120,20]}
+{"kind":"textbox","slide":6,"id":"29","role":"progress label","text":"当前进度","textChars":4,"textLines":1,"bbox":[668,272,120,20]}
+{"kind":"shape","slide":6,"id":"30","role":"progress list","shapeType":"rect","bbox":[668,304,504,110]}
+{"kind":"textbox","slide":6,"id":"30","role":"progress list","text":"• 工程骨架：已完成\n• 文档解析：已完成初版\n• 向量索引：已完成\n• 图谱构建：已完成初版\n• GraphRAG 问答：已完成初版\n• Web 演示：已完成初版\n• 评测脚本：已完成框架","textChars":95,"textLines":7,"bbox":[668,304,504,110]}
+{"kind":"shape","slide":6,"id":"31","role":"plan panel","shapeType":"roundRect","bbox":[640,446,560,180]}
+{"kind":"shape","slide":6,"id":"32","role":"plan panel accent","shapeType":"rect","bbox":[640,446,6,180]}
+{"kind":"shape","slide":6,"id":"33","role":"plan label","shapeType":"rect","bbox":[668,472,140,20]}
+{"kind":"textbox","slide":6,"id":"33","role":"plan label","text":"后续 4 周计划","textChars":8,"textLines":1,"bbox":[668,472,140,20]}
+{"kind":"shape","slide":6,"id":"34","role":"plan list","shapeType":"rect","bbox":[668,504,504,110]}
+{"kind":"textbox","slide":6,"id":"34","role":"plan list","text":"• 第 1 周：清理图谱噪声、优化关键词和关系过滤\n• 第 2 周：构建自建长文档测试集，补充 DocVQA 小样本\n• 第 3 周：跑 Full/No-Graph/No-Image 消融实验\n• 第 4 周：完善前端演示、整理最终报告和答辩材料","textChars":123,"textLines":4,"bbox":[668,504,504,110]}
+{"kind":"shape","slide":7,"id":"1","role":"bg band","shapeType":"rect","bbox":[0,0,1280,88]}
+{"kind":"shape","slide":7,"id":"2","role":"bg accent block","shapeType":"rect","bbox":[1030,0,250,88]}
+{"kind":"shape","slide":7,"id":"3","role":"bg footer block","shapeType":"rect","bbox":[0,614,248,106]}
+{"kind":"shape","slide":7,"id":"4","role":"canvas","shapeType":"roundRect","bbox":[40,40,1200,640]}
+{"kind":"shape","slide":7,"id":"5","role":"canvas spine","shapeType":"rect","bbox":[40,40,10,640]}
+{"kind":"shape","slide":7,"id":"6","role":"header accent","shapeType":"rect","bbox":[78,57,4,18]}
+{"kind":"shape","slide":7,"id":"7","role":"header kicker","shapeType":"rect","bbox":[92,54,460,22]}
+{"kind":"textbox","slide":7,"id":"7","role":"header kicker","text":"06 · 参考文献","textChars":9,"textLines":1,"bbox":[92,54,460,22]}
+{"kind":"shape","slide":7,"id":"8","role":"header index pill","shapeType":"roundRect","bbox":[1126,46,82,34]}
+{"kind":"shape","slide":7,"id":"9","role":"header index","shapeType":"rect","bbox":[1140,56,54,14]}
+{"kind":"textbox","slide":7,"id":"9","role":"header index","text":"07 / 08","textChars":7,"textLines":1,"bbox":[1140,56,54,14]}
+{"kind":"shape","slide":7,"id":"10","role":"header line","shapeType":"rect","bbox":[78,94,1130,1.5]}
+{"kind":"shape","slide":7,"id":"11","role":"title","shapeType":"rect","bbox":[74,92,900,112]}
+{"kind":"textbox","slide":7,"id":"11","role":"title","text":"核心来源","textChars":4,"textLines":1,"bbox":[74,92,900,112]}
+{"kind":"shape","slide":7,"id":"12","role":"refs panel","shapeType":"roundRect","bbox":[76,246,1124,380]}
+{"kind":"shape","slide":7,"id":"13","role":"refs panel accent","shapeType":"rect","bbox":[76,246,6,380]}
+{"kind":"shape","slide":7,"id":"14","role":"refs list","shapeType":"rect","bbox":[104,272,1068,340]}
+{"kind":"textbox","slide":7,"id":"14","role":"refs list","text":"[1] Lewis, P. et al. (2020). Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. NeurIPS 2020.\n\n[2] Edge, D. et al. (2024). From Local to Global: A Graph RAG Approach to Query-Focused Summarization. arXiv:2404.16130.\n\n[3] Microsoft GraphRAG Documentation. Query Engine Overview and Indexing Overview.\n\n[4] Mathew, M. et al. (2021). DocVQA: A Dataset for VQA on Document Images. WACV 2021.\n\n[5] Masry, A. et al. (2022). ChartQA: A Benchmark for Question Answering about Charts. Findings of ACL 2022.\n\n[6] Faysse, M. et al. (2024). ColPali: Efficient Document Retrieval with Vision Language Models. arXiv:2407.01449.\n\n[7] Qwen Team. Qwen3-VL official repository and Qwen3-VL-8B-Instruct model card.\n\n[8] Dong, K. et al. (2025). Benchmarking Retrieval-Augmented Multimodal Generation for Document Question Answering. MMDocRAG.\n\n[9] Bu, C. et al. (2025). Query-Driven Multimodal GraphRAG: Dynamic Local Knowledge Graph Construction for Online Reasoning. Findings of ACL 2025.","textChars":985,"textLines":17,"bbox":[104,272,1068,340]}
+{"kind":"shape","slide":8,"id":"1","role":"bg band","shapeType":"rect","bbox":[0,0,1280,88]}
+{"kind":"shape","slide":8,"id":"2","role":"bg accent block","shapeType":"rect","bbox":[1030,0,250,88]}
+{"kind":"shape","slide":8,"id":"3","role":"bg footer block","shapeType":"rect","bbox":[0,614,248,106]}
+{"kind":"shape","slide":8,"id":"4","role":"canvas","shapeType":"roundRect","bbox":[40,40,1200,640]}
+{"kind":"shape","slide":8,"id":"5","role":"canvas spine","shapeType":"rect","bbox":[40,40,10,640]}
+{"kind":"shape","slide":8,"id":"6","role":"closing rule","shapeType":"rect","bbox":[82,118,6,438]}
+{"kind":"shape","slide":8,"id":"7","role":"closing kicker","shapeType":"rect","bbox":[106,148,360,20]}
+{"kind":"textbox","slide":8,"id":"7","role":"closing kicker","text":"07 · 结束","textChars":7,"textLines":1,"bbox":[106,148,360,20]}
+{"kind":"shape","slide":8,"id":"8","role":"closing title","shapeType":"rect","bbox":[100,188,600,80]}
+{"kind":"textbox","slide":8,"id":"8","role":"closing title","text":"谢谢","textChars":2,"textLines":1,"bbox":[100,188,600,80]}
+{"kind":"shape","slide":8,"id":"9","role":"closing subtitle","shapeType":"rect","bbox":[106,290,700,50]}
+{"kind":"textbox","slide":8,"id":"9","role":"closing subtitle","text":"多模态 GraphRAG · 可追溯文档问答 · qwen3-vl-8b-instruct + FAISS + networkx","textChars":64,"textLines":1,"bbox":[106,290,700,50]}
+{"kind":"shape","slide":8,"id":"10","role":"closing panel","shapeType":"roundRect","bbox":[76,380,1124,120]}
+{"kind":"shape","slide":8,"id":"11","role":"closing body","shapeType":"rect","bbox":[104,404,1068,72]}
+{"kind":"textbox","slide":8,"id":"11","role":"closing body","text":"从入库开始同时构建向量索引和文档图谱，使文本、图表、页面和跨页关系处于同一证据空间。","textChars":42,"textLines":1,"bbox":[104,404,1068,72]}
+{"kind":"shape","slide":8,"id":"12","role":"keyword-tag","shapeType":"roundRect","bbox":[104,560,112,32]}
+{"kind":"shape","slide":8,"id":"13","role":"keyword-text","shapeType":"rect","bbox":[114,566,92,20]}
+{"kind":"textbox","slide":8,"id":"13","role":"keyword-text","text":"GraphRAG","textChars":8,"textLines":1,"bbox":[114,566,92,20]}
+{"kind":"shape","slide":8,"id":"14","role":"keyword-tag","shapeType":"roundRect","bbox":[230,560,100,32]}
+{"kind":"shape","slide":8,"id":"15","role":"keyword-text","shapeType":"rect","bbox":[240,566,80,20]}
+{"kind":"textbox","slide":8,"id":"15","role":"keyword-text","text":"FAISS","textChars":5,"textLines":1,"bbox":[240,566,80,20]}
+{"kind":"shape","slide":8,"id":"16","role":"keyword-tag","shapeType":"roundRect","bbox":[344,560,112,32]}
+{"kind":"shape","slide":8,"id":"17","role":"keyword-text","shapeType":"rect","bbox":[354,566,92,20]}
+{"kind":"textbox","slide":8,"id":"17","role":"keyword-text","text":"networkx","textChars":8,"textLines":1,"bbox":[354,566,92,20]}
+{"kind":"shape","slide":8,"id":"18","role":"keyword-tag","shapeType":"roundRect","bbox":[470,560,280,32]}
+{"kind":"shape","slide":8,"id":"19","role":"keyword-text","shapeType":"rect","bbox":[480,566,260,20]}
+{"kind":"textbox","slide":8,"id":"19","role":"keyword-text","text":"qwen3-vl-8b-instruct","textChars":20,"textLines":1,"bbox":[480,566,260,20]}
+{"kind":"shape","slide":8,"id":"20","role":"keyword-tag","shapeType":"roundRect","bbox":[764,560,126,32]}
+{"kind":"shape","slide":8,"id":"21","role":"keyword-text","shapeType":"rect","bbox":[774,566,106,20]}
+{"kind":"textbox","slide":8,"id":"21","role":"keyword-text","text":"DashScope","textChars":9,"textLines":1,"bbox":[774,566,106,20]}
+{"kind":"shape","slide":8,"id":"22","role":"keyword-tag","shapeType":"roundRect","bbox":[904,560,100,32]}
+{"kind":"shape","slide":8,"id":"23","role":"keyword-text","shapeType":"rect","bbox":[914,566,80,20]}
+{"kind":"textbox","slide":8,"id":"23","role":"keyword-text","text":"PyMuPDF","textChars":7,"textLines":1,"bbox":[914,566,80,20]}
+{"kind":"shape","slide":8,"id":"24","role":"keyword-tag","shapeType":"roundRect","bbox":[1018,560,100,32]}
+{"kind":"shape","slide":8,"id":"25","role":"keyword-text","shapeType":"rect","bbox":[1028,566,80,20]}
+{"kind":"textbox","slide":8,"id":"25","role":"keyword-text","text":"Flask","textChars":5,"textLines":1,"bbox":[1028,566,80,20]}
