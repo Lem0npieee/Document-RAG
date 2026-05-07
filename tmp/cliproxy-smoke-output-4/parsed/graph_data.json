@@ -1,0 +1,38 @@
+{
+  "documents": [
+    {
+      "source": "unknown_source",
+      "pages": []
+    },
+    {
+      "source": "slide-08.png",
+      "input_file": "/Users/lianglihang/Downloads/Document-RAG/tmp/slides/document-rag-proposal/preview/slide-08.png",
+      "sha256": "df0ef3bc9d5d67733b728ea0f4a1dc59e80f22814e6e7c8eb4e22aee1f77a999",
+      "size": 145302,
+      "mtime": 1776778070.67604,
+      "page_dir": "tmp/cliproxy-smoke-output-4/pages/df0ef3bc9d5d",
+      "added_at": "2026-04-28T17:59:12.159496",
+      "pages": [
+        {
+          "source": "slide-08.png",
+          "page": 1,
+          "image_path": "tmp/cliproxy-smoke-output-4/pages/df0ef3bc9d5d/page_1.png",
+          "entities": [],
+          "keywords": [],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {},
+          "node_ids": [
+            "slide_08_page1_text_0"
+          ],
+          "text_node_ids": [
+            "slide_08_page1_text_0"
+          ],
+          "conclusion_node_ids": []
+        }
+      ],
+      "cross_page_links": [],
+      "document_keywords": []
+    }
+  ]
+}
