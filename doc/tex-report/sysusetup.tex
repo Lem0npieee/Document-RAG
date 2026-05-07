@@ -1,0 +1,54 @@
+% !TeX root = ./main.tex
+
+\sysusetup{
+  title                = {文档理解与多模态 GraphRAG 检索问答系统开题报告},
+  title*               = {Proposal Report for Document Understanding and Multimodal GraphRAG Question Answering System},
+  author               = {丁子睿、梁力航、李俊璋},
+  author*              = {DING Zirui, LIANG Lihang, LI Junzhang},
+  speciality           = {计算机科学与技术},
+  speciality*          = {Computer Science and Technology},
+  supervisor           = {刘阳},
+  supervisor*          = {LIU Yang},
+  department           = {计算机学院},
+  student-id           = {23336058、23336128、23336113},
+  math-font            = xits,
+  cite-style           = super,
+}
+
+\IfFileExists{/.sysu-thesis.devcontainer}{
+  \sysusetup{cjk-font = noto}
+}{}
+
+\usepackage{amsthm}
+\usepackage{bicaption}
+\usepackage{threeparttable}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{calc}
+\usepackage{listings}
+\usepackage{siunitx}
+
+\usepackage[sort]{natbib}
+\bibliographystyle{sysuthesis-numerical}
+
+\graphicspath{{image/}{../}}
+
+\IfFontExistsTF{Menlo}{
+  \setmonofont{Menlo}[Scale=MatchLowercase]
+}{}
+
+\setlength{\headheight}{17.6pt}
+\AtBeginEnvironment{longtable}{\small}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}%
+}
+\providecommand{\pandocbounded}[1]{#1}
+
+\DeclareRobustCommand\cs[1]{\texttt{\char`\\#1}}
+\DeclareRobustCommand\env[1]{\texttt{#1}}
+\DeclareRobustCommand\pkg[1]{\textsf{#1}}
+\DeclareRobustCommand\file[1]{\nolinkurl{#1}}
+
+\usepackage{xurl}
+\usepackage{hyperref}

@@ -1,0 +1,40 @@
+<svg width="620" height="420" viewBox="0 0 620 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="620" height="420" rx="28" fill="#F8FCFA"/>
+  <rect x="32" y="32" width="556" height="356" rx="24" fill="url(#surface)"/>
+  <path d="M130 126L236 100L310 176L412 118L506 168" stroke="#0E8F78" stroke-width="4" stroke-linecap="round"/>
+  <path d="M130 126L172 264L310 176L452 278L506 168" stroke="#1E5DA6" stroke-width="4" stroke-linecap="round" opacity="0.72"/>
+  <path d="M236 100L236 300L452 278" stroke="#0C5D50" stroke-width="3" stroke-linecap="round" stroke-dasharray="9 10" opacity="0.42"/>
+  <g>
+    <circle cx="310" cy="176" r="34" fill="#0E8F78"/>
+    <circle cx="310" cy="176" r="50" fill="#0E8F78" fill-opacity="0.12"/>
+    <text x="310" y="182" text-anchor="middle" font-family="Avenir Next, PingFang SC, sans-serif" font-size="15" font-weight="700" fill="white">种子</text>
+  </g>
+  <g fill="#F2FFFB" stroke="#0E8F78" stroke-width="3">
+    <circle cx="130" cy="126" r="22"/>
+    <circle cx="236" cy="100" r="22"/>
+    <circle cx="412" cy="118" r="22"/>
+    <circle cx="506" cy="168" r="22"/>
+    <circle cx="172" cy="264" r="22"/>
+    <circle cx="452" cy="278" r="22"/>
+    <circle cx="236" cy="300" r="22"/>
+  </g>
+  <g font-family="Avenir Next, PingFang SC, sans-serif" font-size="14" fill="#0C5D50" font-weight="600">
+    <text x="90" y="111">图号</text>
+    <text x="208" y="74">同页</text>
+    <text x="398" y="87">结论</text>
+    <text x="494" y="202">表格</text>
+    <text x="137" y="301">引用</text>
+    <text x="433" y="312">跨页</text>
+    <text x="210" y="333">文本块</text>
+  </g>
+  <rect x="56" y="336" width="214" height="34" rx="17" fill="#D8EEE8"/>
+  <rect x="286" y="336" width="280" height="34" rx="17" fill="#E1ECF9"/>
+  <text x="163" y="358" text-anchor="middle" font-family="Avenir Next, PingFang SC, sans-serif" font-size="13" font-weight="700" fill="#0C5D50">局部邻居扩展</text>
+  <text x="426" y="358" text-anchor="middle" font-family="Avenir Next, PingFang SC, sans-serif" font-size="13" font-weight="700" fill="#204F86">只回答具体问题，不做全局社区总结</text>
+  <defs>
+    <linearGradient id="surface" x1="60" y1="48" x2="566" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EEF7F4"/>
+    </linearGradient>
+  </defs>
+</svg>

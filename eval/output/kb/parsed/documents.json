@@ -1,0 +1,1801 @@
+[
+  {
+    "page_content": "DRAFT VERSION OCTOBER 28, 2025",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 1,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_1.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page1_text_0",
+      "bbox": [
+        0.1,
+        0.07,
+        0.3,
+        0.09
+      ]
+    }
+  },
+  {
+    "page_content": "(TDE, ??), AT2019qiz (?). This discovery provides compelling evidence that at least a subset of QPEs are physically linked to TDEs. Intriguingly, similar connections were previously suggested for the prototypical QPE source GSN069, which displays TDE-like features in its long-term X-ray evolution (?) and its abnormal nitrogen-enriched gas (?), as well as in other systems including AT2019vcb (?), XMMSL1J024916.6-041244 (?), and AT2022upj (?). Remarkably, QPE and TDE host galaxies share several distinctive characteristics, including a strong preference for post-starburst galaxies (?) and the frequent presence of extended emission-line regions (EELRs, ??), which are indicative of recently faded active galactic nuclei (AGNs). The mounting evidence for QPE-TDE connections has given rise to the \"EMRI+TDE=QPE\" model (?), which yet requires EMRIs to reside in unusual quasi-circular orbits (?), likely formed during previous AGN phases (?). This progress motivates a unified model in which QPEs represent a transient phase following TDEs involving SMBHs shortly after the cessation of AGN activity (?). Nevertheless, it remains uncertain whether all QPEs originate from this channel, and if not, what fraction do.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page2_text_0",
+      "bbox": [
+        0.1,
+        0.08,
+        0.86,
+        0.18
+      ]
+    }
+  },
+  {
+    "page_content": "Among known QPE sources to date, the one discovered by ? is of particular interest as it may represent the first confirmed case of QPEs arising from the awakening of a dormant SMBH. The galaxy SDSSJ1335+0728, at a redshift of 0.024, had remained photometrically stable for two decades until 2019 December, when an optical brightening (designated ZTF19acskyy or \"Ansky\") was detected. Subsequent X-ray monitoring beginning in 2024 February revealed extreme QPE activity characterized by a recurrence period of approximately 4.5 days, the highest fluxes and amplitudes, the longest timescales, and the largest integrated energies observed to date. Given that its optical light curve deviates significantly from that of typical optical TDEs, ? proposed that the QPEs in this system are more likely associated with a turn-on AGN rather than a TDE. This discovery, therefore, potentially broadens the range of plausible formation channels for QPEs. However, as discussed by both ? and ?, an exotic TDE scenario for Ansky cannot be definitively ruled out. First, its blue optical color and soft X-ray emission (black-body temperature kTbb ≈ 50–100 eV) are both typical characteristics of TDEs. Moreover, the absence of broad emission lines in the optical spectra of SDSSJ1335+0728 even after the outburst (?) poses a challenge for the AGN interpretation. In contrast, it aligns more naturally with the TDE scenario, particularly considering the existence of a subclass of featureless TDEs (??).",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page2_text_1",
+      "bbox": [
+        0.1,
+        0.24,
+        0.86,
+        0.4
+      ]
+    }
+  },
+  {
+    "page_content": "In this work, we present our new HST UV spectroscopic observation taken in the late stage of Ansky. We describe our multi-wavelength data reduction and analysis in Sections 2 and 3. In Section 4, based on the observational properties, we demonstrate that Ansky is more likely to be a TDE instead of a turn-on AGN, and discuss the causes of its unique features among TDEs, and the possible physical connection between QPEs and TDEs. Finally, we summarize our findings in Section 5. For this work, we adopt the cosmological parameters of H₀ = 70 km s⁻¹ Mpc⁻¹, Ωₘ = 0.3, and ΩΛ = 0.7.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page2_text_2",
+      "bbox": [
+        0.49,
+        0.08,
+        0.86,
+        0.18
+      ]
+    }
+  },
+  {
+    "page_content": "2. OBSERVATIONS AND DATA\n2.1. HST UV Spectroscopic Observation\nWe proposed a Director’s Discretionary Time (DDT) program (ID:17933, PI: Jiang) with the Space Telescope Imaging Spectrograph (STIS) mounted on the Hubble Space Telescope (HST) to obtain the UV spectra of Ansky. The observation was conducted on 2025 May 24. We adopted a slit with a width of 0''.2 (52X0.2) to cover the core of the galaxy and minimize starlight contamination. We chose observations with G140L and G230L gratings, each with an exposure time of 4528 seconds. The final combined spectrum covers a rest-frame wavelength range from about 1100 Å to 3050 Å with a median signal-to-noise (S/N) of 12. The HST UV spectrum is shown in Figure ??. The HST data were obtained from the Mikulski Archive for Space Telescopes (MAST) at the Space Telescope Science Institute. The data can be accessed via doi:10.17909/vd2n-yb27.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page2_text_3",
+      "bbox": [
+        0.49,
+        0.18,
+        0.86,
+        0.32
+      ]
+    }
+  },
+  {
+    "page_content": "2.2. Transient Astrometry in HST image\nIn our HST UV spectroscopic observations, we selected the ACQ/IMAGE acquisition mode with a clear filter. This mode provides an acquisition image covering an area of 100 × 100 pixels. Therefore, we can utilize the high spatial resolution of HST to verify whether the source is located at the center of the host galaxy. Specifically, we used the two-dimensional fitting algorithm GALFIT (?) to model the image using a two-component fit consisting of a PSF and a Sérsic profile. The cutout images of the observed data, model, and residual are shown in Figure ??. We measured an offset of 0.34 ± 0.70 pixels between the barycenter of the PSF and the galaxy center, corresponding to approximately 9 ± 18 pc. This result indicates that the location of the outburst is consistent with the galactic center.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page2_text_4",
+      "bbox": [
+        0.49,
+        0.32,
+        0.86,
+        0.44
+      ]
+    }
+  },
+  {
+    "page_content": "2.3. Optical Spectroscopic Observation\nWe have obtained three optical spectra of Ansky. Two of these were observed using the Low-Resolution Imaging Spectrometer (LRIS, ?) on the Keck 10-meter telescope and reduced with Lpipe (?). The observations employed a 1'' slit and a D560 dichroic to split the light into blue and red arms simultaneously. For the first run on 2021 May 16, the 400/3400 blue-arm grism and the 400/8500 red-arm grating centered at 7865 Å were used, giving a resolving power of R~1000 and a wavelength coverage of 3100Å to 10300Å. The configuration of the second run on 2025 June 1 was essentially the same as that of the first, with the only difference",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page2_text_5",
+      "bbox": [
+        0.49,
+        0.44,
+        0.86,
+        0.6
+      ]
+    }
+  },
+  {
+    "page_content": "ANSKY",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page3_text_0",
+      "bbox": [
+        0.47,
+        0.05,
+        0.52,
+        0.06
+      ]
+    }
+  },
+  {
+    "page_content": "Figure 1. Top panel: The HST STIS spectrum of Ansky observed on 2025 May 24 UT. The red and green dashed lines represent our best-fit blackbody and power-law models, respectively. Bottom panel: The residual spectrum after subtracting the power-law fitting component. The blue dashed line indicates the location of C IV λ1549.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page3_text_1",
+      "bbox": [
+        0.08,
+        0.49,
+        0.92,
+        0.53
+      ]
+    }
+  },
+  {
+    "page_content": "being that the blue side employed the 600/4000 grism. Notably, the second Keck/LRIS spectrum was taken only one week after the HST/STIS observation, which can be considered as well-coordinated observation given the long variability timescale of Ansky.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page3_text_2",
+      "bbox": [
+        0.08,
+        0.55,
+        0.48,
+        0.61
+      ]
+    }
+  },
+  {
+    "page_content": "Additionally, we have obtained another spectrum using the BINOSPEC spectrograph (?) mounted on the 6.5m Multiple Mirror Telescope (MMT) on 2025 June 16, in which a 270 (R ~ 1400) grating at a central wavelength of 6500 Å and a 1\" long slit were used for the observation. The data was reduced using the standard Binospec IDL pipeline by the SAO staff. We also collected the archival pre-flare SDSS spectrum obtained in 2007, and all spectra are shown in Figure ??.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page3_text_3",
+      "bbox": [
+        0.08,
+        0.62,
+        0.48,
+        0.73
+      ]
+    }
+  },
+  {
+    "page_content": "2.4. Swift/UVOT photometry",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page3_text_4",
+      "bbox": [
+        0.17,
+        0.76,
+        0.37,
+        0.78
+      ]
+    }
+  },
+  {
+    "page_content": "UV images were obtained with the Neil Gehrels Swift Observatory (hereafter Swift) with the Ultra-Violet Optical Telescope (UVOT). The Swift photometry (PIs: Hernandez-Garcia, Pasham) was measured with the UVOTSOURCE task in the Heasoft package (?) with the source and background regions defined by circles with radii of 5\" and 30\", respectively. Moreover, we proposed a single-epoch Swift/UVOT observation on 2025 May 28, which is quasi-",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page3_text_5",
+      "bbox": [
+        0.08,
+        0.79,
+        0.48,
+        0.88
+      ]
+    }
+  },
+  {
+    "page_content": "simultaneous with the HST STIS observation and reveals that the high temperature characteristic of Ansky continued until six years after outburst (see Figure ??).",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page3_text_6",
+      "bbox": [
+        0.52,
+        0.55,
+        0.92,
+        0.61
+      ]
+    }
+  },
+  {
+    "page_content": "The photometry was calibrated to the AB magnitude system (?), adopting the revised zero points and sensitivities from ?. We derived the corresponding host photometric magnitudes for subtraction using the Code Investigating GALaxy Emission (CIGALE; ?) in Section ??.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page3_text_7",
+      "bbox": [
+        0.52,
+        0.62,
+        0.92,
+        0.68
+      ]
+    }
+  },
+  {
+    "page_content": "2.5. Archival photometry Data",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page3_text_8",
+      "bbox": [
+        0.61,
+        0.68,
+        0.78,
+        0.7
+      ]
+    }
+  },
+  {
+    "page_content": "We also collected host-subtracted light curves of Ansky from public time-domain surveys, including data from the Asteroid Terrestrial Impact Last Alert System (ATLAS; ?) and the Zwicky Transient Facility (ZTF; ?).",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page3_text_9",
+      "bbox": [
+        0.52,
+        0.71,
+        0.92,
+        0.77
+      ]
+    }
+  },
+  {
+    "page_content": "The ATLAS c- and o-band light curves were obtained using the ATLAS Forced Photometry Service¹, which performs PSF photometry on the difference images. The ZTF g- and r-band light curves were obtained using the ZTF Forced Photometry Service (?). We binned the light curves in 10-day intervals to improve the SNR. All light curves, after correction for Galactic extinction, are shown in Figure ??.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page3_text_10",
+      "bbox": [
+        0.52,
+        0.78,
+        0.92,
+        0.88
+      ]
+    }
+  },
+  {
+    "page_content": "¹ https://fallingstar-data.com/forcedphot/",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page3_text_11",
+      "bbox": [
+        0.52,
+        0.89,
+        0.75,
+        0.91
+      ]
+    }
+  },
+  {
+    "page_content": "A graph showing spectral flux versus rest wavelength. The top panel displays an observed spectrum with fitted blackbody and power-law models, while the bottom panel shows residuals after subtracting the power-law component. A vertical blue dashed line marks the position of C IV λ1549.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png",
+      "type": "figure",
+      "fig_id": "Figure 1",
+      "node_id": "2510_22211v1_page3_figure_0",
+      "bbox": [
+        0.08,
+        0.26,
+        0.92,
+        0.4
+      ]
+    }
+  },
+  {
+    "page_content": "adopted a ? extinction law with R_V = 3.1 and a Galactic extinction of E(B-V) = 0.0288 ± 0.001 mag (?).",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page4_text_0",
+      "bbox": [
+        0.1,
+        0.07,
+        0.48,
+        0.12
+      ]
+    }
+  },
+  {
+    "page_content": "3. ANALYSIS AND RESULTS",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page4_text_1",
+      "bbox": [
+        0.1,
+        0.12,
+        0.48,
+        0.15
+      ]
+    }
+  },
+  {
+    "page_content": "3.1. Featureless in UV/Optical spectra",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page4_text_2",
+      "bbox": [
+        0.1,
+        0.15,
+        0.48,
+        0.18
+      ]
+    }
+  },
+  {
+    "page_content": "In order to test for any UV line features of Ansky, we performed both blackbody and power-law fits on the HST spectrum. The best-fit blackbody temperature is 38,063 ± 107 K, and the power-law fitting result is f_λ ∝ λ^{-2.6}. This slope is much steeper than that of AGNs, which have a typical index of -1.5 (?), further disfavoring the AGN scenario. We then subtracted the best-fit power-law component, and the residual spectrum is shown in the bottom panel of Figure ??. We do not detect any emission line features, including typical broad emission lines seen in Type 1 AGNs, in the residual spectrum, although it is noisy at the joint wavelength of G140L and G230L (1500–1600 Å). There appear to be narrow absorption lines of Lyα, N V λ1240 and C IV λ1549 with full widths at half maximum (FWHM) of about 500 km s^{-1}, likely due to absorption by host-galaxy gas. Furthermore, we measured the equivalent width of the Lyα absorption feature and used the empirical relation provided by ?, estimated that the column density of the HI is approximately 1.84 × 10^{14} cm^{-2}.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page4_text_3",
+      "bbox": [
+        0.1,
+        0.18,
+        0.48,
+        0.3
+      ]
+    }
+  },
+  {
+    "page_content": "This steep UV slope and the absence of spectral lines have been observed in some TDEs, referred to as featureless TDEs (?). Furthermore, we plot the HST spectrum along with the LRIS spectrum in Figure ??, revealing that the optical spectra are dominated by the host-galaxy component of SDSSJ1335+0728. Our HST spectrum directly indicates that there is a high-temperature, featureless blackbody transient independent of the host galaxy. Interestingly, the UV spectrum shows a notable blue excess relative to the blackbody fit to the photometric SED. In contrast, a power-law fit with an index of -3 provides a much better match in Figure ??. Such differences in the fits to the photometric SED have also been observed in other optical TDEs (?).",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page4_text_4",
+      "bbox": [
+        0.1,
+        0.3,
+        0.48,
+        0.42
+      ]
+    }
+  },
+  {
+    "page_content": "As noted in ?, SDSS J1335+0728 exhibited either no or very weak AGN activity prior to Ansky. Furthermore, none of the available spectra in ? showed broad Balmer line components or Bowen fluorescence following the outburst—features commonly observed in AGN flares (?) and typical optical TDEs (?). Intriguingly, the authors report a delayed response of the narrow-line region (NLR) to the increase in ionizing flux beginning in 2019 December, deriving an upper limit of 1.1 pc for the NLR’s inner radius. Our Keck and MMT spectra also reveal a prominent [O III] λ5007 emission line with a flux of ~2.2 × 10^{-15} erg s^{-1} cm^{-2} Å^{-1}, which is comparable to the [O III] flux observed in the SOAR/Goodman spectrum taken in 2024 January by ?.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page4_text_5",
+      "bbox": [
+        0.1,
+        0.42,
+        0.48,
+        0.54
+      ]
+    }
+  },
+  {
+    "page_content": "3.2. Photometric Analysis",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page4_text_6",
+      "bbox": [
+        0.1,
+        0.54,
+        0.48,
+        0.57
+      ]
+    }
+  },
+  {
+    "page_content": "We used the package SUPERBOL (?) to fit the spectral energy distribution (SED) of Ansky with a blackbody model. Due to the sparse cadence of the Swift/UVOT observations, we set up SUPERBOL to employ a simple linear interpolation to shift the other observed bands to the epochs of the g-band observations to estimate the bolometric blackbody light curve and we marked the fits constrained by UV data. The blackbody temperature shows a slight decline near the first peak but remains above 20,000 K throughout the observed period. The results are presented in Figure ??. We also find that blackbody temperatures from Opt-UV photometric SEDs are always lower than those inferred from the HST STIS spectrum, suggesting that the bolometric luminosities derived from photometric fits may be underestimated. Considering the large uncertainties in the UV-based estimates, the high temperature observed throughout the event’s lifetime remains consistent with those of other featureless TDEs. The peak blackbody luminosity is 2.1 ± 1.0 × 10^{43} erg s^{-1}, and the total radiated energy by 2025 June (+1800 days) is about 1.1 × 10^{51} erg.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page4_text_7",
+      "bbox": [
+        0.5,
+        0.07,
+        0.86,
+        0.22
+      ]
+    }
+  },
+  {
+    "page_content": "Then, we applied the same function of Gaussian rise and power-law decline in ? to fit the g- and r-band light curves. Following ?, we characterized the light curve evolution speed by calculating the rest-frame duration it takes for a TDE to rise from half-max to max (t_{1/2,rise}) and to decline from max to half-max (t_{1/2,decline}). We find that t_{1/2,rise} is 126 ± 10 days in the g band and is 129 ± 7 days in the r band, both slightly longer than those of other optical TDEs (?). The rise of Ansky lasted for approximately 350 days before reaching its peak. However, the power-law decline is exceptionally slow, with t_{1/2,decline} = 1520 ± 75 days and 1572 ± 77 days in the g and r bands, respectively. Overall, the evolution of the bolometric light curve resembles that of other optical TDEs, except for the longer rise and decay timescales observed in this event.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page4_text_8",
+      "bbox": [
+        0.5,
+        0.22,
+        0.86,
+        0.42
+      ]
+    }
+  },
+  {
+    "page_content": "3.3. Host galaxy and BH mass",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page4_text_9",
+      "bbox": [
+        0.5,
+        0.42,
+        0.86,
+        0.45
+      ]
+    }
+  },
+  {
+    "page_content": "The pre-outburst SDSS spectra of the galaxy nucleus have placed it in the locus of star-forming region in the Baldwin-Phillips-Terlevich (BPT) diagram based on its narrow-line ratios (see Figure 9 in ?). It was reported in the MPA-JHU catalogue with a logM_BH of 6.17 ± 0.51, derived from the M–σ relation of ?. We collected multi-band photometry of the host galaxy from several archival surveys, including GALEX, SDSS, Two Micron All-Sky Survey (2MASS), and the Wide-field Infrared Survey Explorer (WISE). We used the Python package Code Investigating GALaxy Emission (CIGALE; ?) to model the SED of the host galaxy. CIGALE can fit the SED of a galaxy from far-UV to radio and estimate its physical properties through the analysis of likelihood distributions, taking into account the contribution of an AGN component. We assumed a delayed star formation history",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page4_text_10",
+      "bbox": [
+        0.5,
+        0.45,
+        0.86,
+        0.6
+      ]
+    }
+  },
+  {
+    "page_content": "Figure 2. Left panel: The HST ACQ image taken on 2025 May 24 UT in the clear filter. Middle panel: The fitted model of SDSSJ1335+0728. Right panel: The residual image from our fit. The center of the galaxy SDSS J1335+0728 is marked with a red circle of radius 0.''2.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page5_text_0",
+      "bbox": [
+        0.08,
+        0.3,
+        0.9,
+        0.35
+      ]
+    }
+  },
+  {
+    "page_content": "Figure 3. Rest-frame optical spectra of Ansky. Each spectrum is labeled by the instrument employed and the date of observation.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page5_text_1",
+      "bbox": [
+        0.08,
+        0.62,
+        0.48,
+        0.66
+      ]
+    }
+  },
+  {
+    "page_content": "with an optional exponential burst, adopting the single stellar population models of ?. Dust attenuation was described by the ? law, while dust emission was included following the prescriptions of ?. The contribution from an active galactic nucleus (AGN) was incorporated using the models of??. Our best-fit model yields a reduced χ² of 2.0. In our fitting, we employed the CIGALE to predict the fluxes and uncertainties in the Swift/UVOT filters using its Bayesian analysis, which were used to subtract the host-galaxy contribution. The stellar mass of the galaxy is 10¹⁰·⁰²±⁰·¹³ M⊙ and the star formation rate (SFR) is logSFR = 0.42 ± 0.41. Using the empirical relation between MBH and the total galaxy stellar mass in the local universe (?), we estimate a MBH of 10⁶·⁴²±⁰·⁵⁷ M⊙. Additionally, there is no contribution of AGN (fAGN = 0) in our fit and gives an upper limit luminosity of the AGN compo-",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page5_text_2",
+      "bbox": [
+        0.08,
+        0.67,
+        0.48,
+        0.85
+      ]
+    }
+  },
+  {
+    "page_content": "4. DISCUSSION Before we begin detailed discussions, we will first summarize the main properties of Ansky as follows.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page5_text_3",
+      "bbox": [
+        0.51,
+        0.38,
+        0.9,
+        0.43
+      ]
+    }
+  },
+  {
+    "page_content": "• Our HST UV spectrum reveals a featureless continuum that is best described by a blackbody model with a TBB ~ 38,000K, showing no detectable emission lines even six years after the outburst. Together with the optical spectra taken by us and those from ?, these multi-epoch observations demonstrate that Ansky has never developed broad emission lines in either the optical or UV spectra throughout its observed history.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page5_text_4",
+      "bbox": [
+        0.51,
+        0.45,
+        0.9,
+        0.55
+      ]
+    }
+  },
+  {
+    "page_content": "• The peak blackbody luminosity Lbb = (2.1 ± 1.0) × 10⁴³ erg s⁻¹ is at the lower end of all optical TDEs (?), although its absolute magnitude in the g band (Mg = −17) is the lowest. The blackbody temperature remains above 20,000 K throughout the observed period.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page5_text_5",
+      "bbox": [
+        0.51,
+        0.58,
+        0.9,
+        0.66
+      ]
+    }
+  },
+  {
+    "page_content": "• Delayed soft X-ray emission was detected with QPEs. The X-ray spectra remain super-soft and can be well described by a blackbody even in the quiescent state (kT ~ 50−100 eV, ?).",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page5_text_6",
+      "bbox": [
+        0.51,
+        0.68,
+        0.9,
+        0.75
+      ]
+    }
+  },
+  {
+    "page_content": "• The timescale of Ansky’s light curves is very long. We calculated that the t₁/₂,rise is nearly 128 days and the t₁/₂,decline is nearly 1550 days. However, Ansky continues to fade, following a slow power-law decline.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page5_text_7",
+      "bbox": [
+        0.51,
+        0.77,
+        0.9,
+        0.84
+      ]
+    }
+  },
+  {
+    "page_content": "4.1. Featureless Spectra Disfavor the Turn-On AGN Scenario All of the multi-wavelength characteristics of Ansky are difficult to reconcile with a turn-on AGN scenario. The most",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page5_text_8",
+      "bbox": [
+        0.51,
+        0.86,
+        0.9,
+        0.91
+      ]
+    }
+  },
+  {
+    "page_content": "Three panels showing an astronomical object. Left: HST ACQ image with a red circle marking the center. Middle: Fitted model. Right: Residual image.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_5.png",
+      "type": "figure",
+      "fig_id": "Figure 2",
+      "node_id": "2510_22211v1_page5_figure_0",
+      "bbox": [
+        0.08,
+        0.08,
+        0.9,
+        0.3
+      ]
+    }
+  },
+  {
+    "page_content": "A graph plotting Scaled Flux versus Rest Wavelength. It contains four overlaid spectral lines labeled with dates and instruments.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_5.png",
+      "type": "figure",
+      "fig_id": "Figure 3",
+      "node_id": "2510_22211v1_page5_figure_1",
+      "bbox": [
+        0.08,
+        0.35,
+        0.48,
+        0.62
+      ]
+    }
+  },
+  {
+    "page_content": "ZHU ET AL.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 6,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_6.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page6_text_0",
+      "bbox": [
+        0.45,
+        0.04,
+        0.55,
+        0.06
+      ]
+    }
+  },
+  {
+    "page_content": "Figure 4. The fit to the UV-optical photometric SED of Ansky and comparison with the UV-optical spectra. The green and red dashed lines represent the power-law and blackbody fitting of the SED, respectively. The black and grey lines show the UV (HST/STIS on 2025 May 24) and optical spectra (LRIS/Keck on 2025 June 1), respectively. The blue solid dots denote the photometric measurements of Ansky at the epoch quasi-simultaneously with the UV spectroscopic observation. The far-UV spectrum provides the strongest evidence for the deviation from a lower-temperature blackbody model. The excess of optical spectra over photometry at λ > 4000 Å is due to the strong host contamination.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 6,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_6.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page6_text_1",
+      "bbox": [
+        0.08,
+        0.41,
+        0.92,
+        0.47
+      ]
+    }
+  },
+  {
+    "page_content": "challenging feature to explain is the persistent absence of broad emission lines, which is a defining signature of turn-on AGNs (??). It is particularly puzzling that no gas appears to be present at the typical broad-line region (BLR) scale, while substantial gas exists both in the inner accretion disk, as evidenced by the outburst continuum, and at larger scales traced by the strong delayed [OIII] emission (Section ??). This suggests an apparent gas gap precisely at BLR scales (see a cartoon in Figure ??).",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 6,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_6.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page6_text_2",
+      "bbox": [
+        0.08,
+        0.5,
+        0.48,
+        0.61
+      ]
+    }
+  },
+  {
+    "page_content": "It is worth noting that there is a rare subclass of AGNs generally found at high redshifts (z ≥ 1.5), known as weak-emission-line quasars (WLQs; ??), which are characterized by the absence of strong broad emission lines in their optical (rest-frame UV) spectra. However, a weak Mg IIλ2799 emission line is commonly detectable in WLQs (?), which is still absent in Ansky. In addition, near-infrared (rest-frame optical) spectroscopy of WLQs reveals that their Hβ lines are not significantly weaker than those of typical quasars (?), in contrast to those of Ansky. Furthermore, ? summarized the X-ray properties of 32 WLQs and found that they typically possess a hard power-law effective photon index (Γ_eff ~ 1.2), as measured from the X-ray stacking spectrum of 14 WLQs. Therefore, WLQs are also highly inconsistent with Ansky in terms of their X-ray and rest-frame UV-to-optical spectral properties.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 6,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_6.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page6_text_3",
+      "bbox": [
+        0.08,
+        0.62,
+        0.48,
+        0.88
+      ]
+    }
+  },
+  {
+    "page_content": "However, the advent of time-domain surveys in recent years has revealed a rich diversity of nuclear transients, the physical mechanisms of which can sometimes be extremely challenging to diagnose. Consequently, some of these events are classified as ambiguous nuclear transients (ANTs; e.g. ??), most of which are outbursts occurring in AGN environments. Among them, we noticed that ASASSN-20hx (?) also exhibited featureless optical spectra and low-luminosity, slowly evolving light curves throughout its lifetime, which is strikingly similar to Ansky. The persistence of a hard X-ray spectrum both before and after ASASSN-20hx suggests that it probably occurred in an AGN. Based on this, we speculate that ASASSN-20hx shares the same physical origin as Ansky, both being a featureless TDE (see Section ??), except that it occurred in an AGN.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 6,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_6.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page6_text_4",
+      "bbox": [
+        0.51,
+        0.5,
+        0.92,
+        0.73
+      ]
+    }
+  },
+  {
+    "page_content": "4.2. Ansky as a low-luminosity and slowly evolving featureless TDE",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 6,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_6.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page6_text_5",
+      "bbox": [
+        0.51,
+        0.73,
+        0.92,
+        0.77
+      ]
+    }
+  },
+  {
+    "page_content": "In this subsection, we will show that the unusual properties observed in Ansky align naturally with the characteristics of featureless TDEs. These are a new population of optical TDEs that are featured by their blue continuum, yet lack the discernible emission lines or spectroscopic features present in the canonical TDE classes (?). Featureless TDEs generally have a higher luminosity, a longer rising time scale, and a more massive black hole than other TDEs (see Figure ??).",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 6,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_6.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page6_text_6",
+      "bbox": [
+        0.51,
+        0.77,
+        0.92,
+        0.88
+      ]
+    }
+  },
+  {
+    "page_content": "A plot showing the flux versus rest wavelength for Ansky's UV-optical photometric SED and comparison with spectra. The x-axis represents Rest Wavelength (Å) from 1000 to 10000 Å. The y-axis represents Flux (10^-15 ergs cm^-2 Å^-1) on a logarithmic scale from 10^-1 to 10^1. Data points include HST/STIS (black line), Keck/LRIS (grey line), photometry (blue dots), a power-law index=-3.0 (green dashed line), and a blackbody T=29002K (red dashed line).",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 6,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_6.png",
+      "type": "figure",
+      "fig_id": "Figure 4",
+      "node_id": "2510_22211v1_page6_figure_0",
+      "bbox": [
+        0.08,
+        0.07,
+        0.92,
+        0.4
+      ]
+    }
+  },
+  {
+    "page_content": "Figure 5. The multiwavelength light curves of Ansky showing a double-peaked structure with long rise and decline timescales in the optical bands. The black vertical line marks the date of our HST/STIS observation, while the gray dashed line indicates the first epoch of detected QPE. The blue and red dashed lines represent the fitted Gaussian rises in the g and r bands, respectively. The dotted line shows the power-law decline. The optical light curves are binned in 10-day intervals, with the original unbinned data overplotted in the background with reduced opacity. The shaded region highlights the rebrightening phase.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page7_text_0",
+      "bbox": [
+        0.08,
+        0.44,
+        0.92,
+        0.53
+      ]
+    }
+  },
+  {
+    "page_content": "However, Ansky lies at the lower end of luminosity and at the longer end of the rising timescale ². Interestingly, we found that AT2022gri — the other nearby featureless TDE — also exhibits a low luminosity and a long rising timescale that differ markedly from those of other featureless TDEs.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page7_text_1",
+      "bbox": [
+        0.08,
+        0.53,
+        0.48,
+        0.6
+      ]
+    }
+  },
+  {
+    "page_content": "We also collected all available archival HST UV spectra of featureless TDEs, which we present in Figure ??. Notably, the UV spectrum of Ansky closely resembles those of two nearby featureless TDEs: AT2021ehb (?) and AT2022gri (ID: 17001, PI: Walter Maksym). All three sources display the hallmark of an extremely high-temperature blackbody spectrum, consistent with values derived from optical photometry, and the characteristic of the featureless TDE population (?). In addition, their steep UV spectra, lacking broad emission lines, are markedly different from those typically observed in AGNs, as shown for comparison in Figure ??. Another \"X-ray long-lived\" TDE, GSN069, displays emission features indicative of TDEs in a very late stage yet lacks classic AGN emissions (????). It shares certain similarities with the UV spectra of featureless TDEs, while all four sources clearly deviate from the typical AGNs.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page7_text_2",
+      "bbox": [
+        0.08,
+        0.6,
+        0.48,
+        0.82
+      ]
+    }
+  },
+  {
+    "page_content": "An optically thick reprocessing layer surrounding the inner accretion flow can efficiently thermalize the ionizing radiation, suppressing line formation and producing the nearly blackbody continua observed (?). The extreme ionization state of the reprocessing gas may further inhibit bound-bound transitions from H and He, preventing the appearance of broad emission features commonly seen in other TDEs. Such an extreme ionization state can be induced by either a very high irradiating luminosity or a reprocessing envelope with a relatively low column density. Furthermore, any residual line photons generated in the outflow are subject to repeated electron scattering, which erases line contrast, leaving behind a smooth, high-temperature blackbody spectrum with a steep UV slope. Geometric and orientation effects may contribute as well, since the radiation produced from a disk is likely anisotropic, and the emergent optical depth depends on the viewing angle. Taken together, these considerations suggest that featureless TDEs arise from systems with reprocessing layers that are optically and geometrically thick, yet highly ionized, naturally producing spectra that diverge from those of AGNs while remaining consistent with theoretical expectations for TDE emission. Notably, previously",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page7_text_3",
+      "bbox": [
+        0.52,
+        0.53,
+        0.92,
+        0.89
+      ]
+    }
+  },
+  {
+    "page_content": "² Note that the short timescale of TDEs in ? may be due to selection bias as they selected TDEs with e-folding rise/decline time of 2–300 days.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page7_text_4",
+      "bbox": [
+        0.08,
+        0.84,
+        0.48,
+        0.88
+      ]
+    }
+  },
+  {
+    "page_content": "Multiwavelength light curve plot of Ansky with flux in μJy on the left y-axis and luminosity L_g (in 10^42 erg/s) on the right y-axis versus MJD (Modified Julian Date) on the x-axis. Data points are color-coded by bandpass (ZTF_g, ZTF_r, ATLAS_c, ATLAS_o, Swift_U, Swift_UVM2, Swift_UVW1, Swift_UVW2). Fitted Gaussian rises (blue/red dashed lines), power-law decline (dotted line), HST/STIS observation (black vertical line), first epoch of detected QPE (gray dashed line), and rebrightening phase (shaded region) are indicated.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_7.png",
+      "type": "figure",
+      "fig_id": "Figure 5",
+      "node_id": "2510_22211v1_page7_figure_0",
+      "bbox": [
+        0.08,
+        0.08,
+        0.92,
+        0.44
+      ]
+    }
+  },
+  {
+    "page_content": "8",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page8_text_0",
+      "bbox": [
+        0.09,
+        0.05,
+        0.12,
+        0.07
+      ]
+    }
+  },
+  {
+    "page_content": "ZHU ET AL.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page8_text_1",
+      "bbox": [
+        0.46,
+        0.05,
+        0.55,
+        0.07
+      ]
+    }
+  },
+  {
+    "page_content": "not synchronized with those in the r-band. Similar excess variance can be seen in the r-band of AT2022gri, while its g-band light curve remains relatively smooth. In the near future, it would be interesting to explore the short-timescale (e.g. hourly to daily) optical variability of TDEs with deeper surveys such as the Legacy Survey of Space and Time (LSST; ?) and the Wide Field Survey Telescope (WFST; ?). At this point, we are not considering the excess variance to be a serious issue for the TDE scenario.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page8_text_2",
+      "bbox": [
+        0.52,
+        0.08,
+        0.92,
+        0.18
+      ]
+    }
+  },
+  {
+    "page_content": "4.3. What makes Ansky a special TDE?",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page8_text_3",
+      "bbox": [
+        0.52,
+        0.21,
+        0.92,
+        0.23
+      ]
+    }
+  },
+  {
+    "page_content": "Although our new evidence from the UV spectrum suggests that Ansky is most likely to be a featureless TDE, its distinctive properties in luminosity and timescale remain puzzling. We explore the possible TDE scenarios that could address these characteristics.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page8_text_4",
+      "bbox": [
+        0.52,
+        0.24,
+        0.92,
+        0.28
+      ]
+    }
+  },
+  {
+    "page_content": "It has been suggested that TDEs by intermediate-mass black holes (IMBHs) could have a longer timescale, both due to a longer circularization timescale and super-Eddington phase (?). ? have studied the case of a main sequence star disrupted by an IMBH and predicted a ~ 10 year super-Eddington accretion phase, with the dominant observable radiation peaking in the UV/optical bands with a luminosity of ~ 10^42 erg s^-1 which is comparable to the slowly decaying blackbody luminosity of Ansky. Remarkably, the recent discovery of EP240222a (?), which is the first off-center IMBH-TDE promptly captured during its X-ray outburst, also revealed a long but faint peak plateau phase. We have checked the outburst location in the HST ACQ image, but found no evidence for an offset origin (see Figure ??). A single point source is detected at the center of SDSSJ1335+0728, indicating that the position of Ansky can be constrained to within the sub-pixel resolution of the HST ACQ image. We estimate the offset to be less than 0.025 arcsec, corresponding to approximately 13 pc. Given that the M_BH estimated from the host stellar mass is a normal 10^6 M_☉, we think it is less unlikely that the IMBH is located at the center of the galaxy. However, it remains possible that the IMBH is off-center, but that it is too close to be resolved, even with the HST.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page8_text_5",
+      "bbox": [
+        0.52,
+        0.3,
+        0.92,
+        0.5
+      ]
+    }
+  },
+  {
+    "page_content": "The longer evolution time scale can also be explained by the tidal disruption involving a post-main-sequence (post-MS) star. The rising and falling timescales of the TDE light curve depend on the fallback timescale t_fb of the stellar debris (?):",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page8_text_6",
+      "bbox": [
+        0.52,
+        0.51,
+        0.92,
+        0.55
+      ]
+    }
+  },
+  {
+    "page_content": "t_fb ≈ 0.11 β^{-3} (M_bh / 10^6 M_☉)^{1/2} (M_* / M_☉)^{-1} (R_* / R_☉)^{3/2} yr,",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page8_text_7",
+      "bbox": [
+        0.52,
+        0.56,
+        0.92,
+        0.6
+      ]
+    }
+  },
+  {
+    "page_content": "where β ≡ r_t / r_p is the ratio between tidal radius and the pericenter radius, and M_* and R_* are the mass and radius of the disrupted star. For a post-MS star with M_* = 1 M_☉ and R_* = 3 ~ 10 R_☉, the inferred t_fb is (0.9 ~ 5) β^{-3} yr, consistent with the observation of Ansky for a typical β value of 1~2.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page8_text_8",
+      "bbox": [
+        0.52,
+        0.61,
+        0.92,
+        0.7
+      ]
+    }
+  },
+  {
+    "page_content": "Figure 6. The evolution of blackbody temperature, radius and luminosity of Ansky form top to bottom, respectively. Note that black circles denote fits constrained by UV photometry, while blue circles indicate fits without real UV constraints. The red line represents a power-law decay fit with an index of -0.51.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page8_text_9",
+      "bbox": [
+        0.09,
+        0.48,
+        0.48,
+        0.52
+      ]
+    }
+  },
+  {
+    "page_content": "identified featureless TDEs generally exhibit high luminosities (?), consistent with efficient reprocessing of accretion power into a smooth continuum. In contrast, the recent discovery of several low-luminosity featureless TDEs points to a potential role for geometry-dependent effects in the unified model of ?. Detailed modeling will be presented in a subsequent work.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page8_text_10",
+      "bbox": [
+        0.09,
+        0.57,
+        0.48,
+        0.66
+      ]
+    }
+  },
+  {
+    "page_content": "It is worth noting that Ansky's optical light curves do not decline smoothly, but rather show clear excess variance, which is a key argument for AGN by ?. The most prominent excess can be considered as a rebrightening feature (see Figure ??), which is actually quite common among optical TDEs (?). Ansky still exhibits excess variance for the remaining short-timescale fluctuations. However, it is difficult to determine how much of this variability is genuine ?. For example, variations on a daily timescale in the g-band are",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page8_text_11",
+      "bbox": [
+        0.09,
+        0.67,
+        0.48,
+        0.77
+      ]
+    }
+  },
+  {
+    "page_content": "? One possibility is that the ZTF forced-photometry pipeline is not fully effective in subtracting the contrition of the host nucleus for nearby extended galaxies.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page8_text_12",
+      "bbox": [
+        0.09,
+        0.84,
+        0.48,
+        0.88
+      ]
+    }
+  },
+  {
+    "page_content": "A plot showing the evolution of blackbody temperature, radius, and luminosity of Ansky over rest-frame days from peak. The top panel shows blackbody temperature (T_BB) in units of 10^3 K, the middle panel shows blackbody radius (R_BB) in units of 10^14 cm, and the bottom panel shows blackbody luminosity (L_BB) in units of log10[erg s^-1]. Black circles represent fits constrained by UV photometry, blue circles represent fits without real UV constraints, and a red line represents a power-law decay fit with an index of -0.51.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+      "type": "figure",
+      "fig_id": "Figure 6",
+      "node_id": "2510_22211v1_page8_figure_0",
+      "bbox": [
+        0.09,
+        0.09,
+        0.48,
+        0.48
+      ]
+    }
+  },
+  {
+    "page_content": "The rising phase of Ansky lasts for about 350 days, which could put further constraint on the radius of the disrupted star and β. The specific orbital energy of the bound stellar debris is distributed between εmb and 0. εmb is the specific orbital energy of the most bounded debris, which is a few times the typical energy spread of the debris Δε = GMbhR*/rP². Adopting the definition of β, the expression of Δε can be further converted to:",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 9,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_9.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page9_text_0",
+      "bbox": [
+        0.1,
+        0.48,
+        0.48,
+        0.57
+      ]
+    }
+  },
+  {
+    "page_content": "Δε = 1.92 × 10¹⁷β² (Mbh / 10⁶ M⊙)¹/³ (M* / M⊙)²/³ (R* / R⊙)⁻¹ erg/g.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 9,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_9.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page9_text_1",
+      "bbox": [
+        0.1,
+        0.57,
+        0.48,
+        0.62
+      ]
+    }
+  },
+  {
+    "page_content": "We assumed that the disruption occurs at t=0, the TDE begins to shine at t=P(εmb) (orbital period of the most bound debris), and the luminosity reaches its peak at t=P(εpeak) (orbital period of the debris responsible for the peak fallback rate). Then the duration of the rising phase is Δt = P(εpeak) - P(εmb). Note that to obtain Δt ≳ 350 days, P(εpeak) should be larger than 350 days, because P(εmb) has a positive value. The exact values of εmb and εpeak should be obtained via hydrodynamical simulation, which is beyond the scope of this paper. Here, we simply take εpeak = -Δε and Mbh = 10⁶.⁴²M⊙ (derived in Section ??), the condition P(εpeak) > 350 days is translated to Δε < 8.69 × 10¹⁶erg/g. Inserting this inequality into equation ??, we find:",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 9,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_9.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page9_text_2",
+      "bbox": [
+        0.1,
+        0.62,
+        0.48,
+        0.75
+      ]
+    }
+  },
+  {
+    "page_content": "R* / R⊙ > 3.04β²(M* / M⊙)²/³",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 9,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_9.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page9_text_3",
+      "bbox": [
+        0.1,
+        0.75,
+        0.48,
+        0.8
+      ]
+    }
+  },
+  {
+    "page_content": "It is evident that the full disruption (β > 1) of a 1 M⊙ MS star cannot produce a rise phase as long as 350 days. Next, we consider the possible β value in the disruption of an 1M⊙ post-MS star by a 10⁶.⁴²M⊙ BH, using the condition Δt = 350 days. Assuming εmb = -2Δε and εpeak = -Δε (see Figure 6 of ? for an example), we find β ≃ 0.86 for R* = 3R⊙, and β ≃ 1.56 for R* = 10R⊙.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 9,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_9.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page9_text_4",
+      "bbox": [
+        0.52,
+        0.48,
+        0.9,
+        0.57
+      ]
+    }
+  },
+  {
+    "page_content": "The peak luminosities of post-MS TDEs would be one order of magnitude lower than those of main-sequence (MS) TDEs, because debris with similar mass falls back over a longer time. This is also consistent with the fact that Ansky has the lowest luminosity among TDEs. Therefore, a post-MS TDE can successfully explain Ansky’s longer time scale and lower luminosity compared to normal TDEs. Moreover, as the debris falls back over a longer timescale, the reprocessing envelope formed in the early phase is likely less compact or optically thick compared to those formed in MS TDEs, which naturally leads to a higher ionization state and suppresses line formation. Theoretical predictions suggest that the incidence rate of post-MS TDEs is much lower than that of MS TDEs (?), considering comprehensively the differences in the duration of post-MS and MS stages as well as the differences in loss-cones. This explains why only Ansky and AT2022gri show characteristics of post-MS TDEs among the hundreds of cases of TDEs that have been discovered so far.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 9,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_9.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page9_text_5",
+      "bbox": [
+        0.52,
+        0.57,
+        0.9,
+        0.8
+      ]
+    }
+  },
+  {
+    "page_content": "4.4. The formation of QPEs in the TDE scenario",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 9,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_9.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page9_text_6",
+      "bbox": [
+        0.52,
+        0.8,
+        0.9,
+        0.86
+      ]
+    }
+  },
+  {
+    "page_content": "Schematic illustration of a featureless TDE occurring in the special environment of SDSSJ1335+0728.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 9,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_9.png",
+      "type": "figure",
+      "fig_id": "Figure 7",
+      "node_id": "2510_22211v1_page9_figure_0",
+      "bbox": [
+        0.1,
+        0.26,
+        0.9,
+        0.44
+      ]
+    }
+  },
+  {
+    "page_content": "10",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page10_text_0"
+    }
+  },
+  {
+    "page_content": "ZHU ET AL.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page10_text_1"
+    }
+  },
+  {
+    "page_content": "Scaled Flux (10⁻¹⁵ ergs⁻¹ cm⁻² Å⁻¹)",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page10_text_2"
+    }
+  },
+  {
+    "page_content": "Rest Wavelength (Å)",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page10_text_3"
+    }
+  },
+  {
+    "page_content": "Figure 8. Comparison of the UV spectra of Ansky with those of other featureless TDEs (AT2022gri and AT2021ehb; ?). Also shown for comparison are the UV spectra of the prototype QPE source GSN069 (?), which is also likely a TDE; the SDSS quasar composite spectrum (?); and a representative weak-emission-line quasar (SDSSJ090843.25+285229.8; ?). The fluxes of AT2021ehb and GSN069 are scaled by the coefficients of 0.4 and 0.3, respectively.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page10_text_4"
+    }
+  },
+  {
+    "page_content": "? proposed a unified scenario in which QPEs are produced in recently faded AGNs where TDEs frequently feed a misaligned accretion disk to the quasi-circular EMRI formed in the previous AGN disk. Evidence for recently faded AGNs primarily comes from the high detection rate of AGN-ionized EELRs in the integral field spectrograph (IFS) observations of QPE host galaxies (?). Unfortunately, to our knowledge, there has been no such IFS observation of SDSSJ1335+0728 thus far.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page10_text_5"
+    }
+  },
+  {
+    "page_content": "Besides EELRs, ? have proposed a novel method to identify recently faded AGN systems through the infrared (IR) echoes of a torus remnant. After the AGN activity turned off, the inner part of the torus disappeared first due to frequent collisions between clumps that rapidly dissipated their orbital energy. When only the outer part of the torus is left behind, an IR dust echo naturally follows a TDE (???), albeit with a long time delay as a result of the large inner radius of the torus. This phenomenon has been firmly observed in",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page10_text_6"
+    }
+  },
+  {
+    "page_content": "AT2019qiz, whose IR echo indicates a torus radius > 1.2pc. As discussed in ?, the IR echo of Ansky also shows an atypically long time delay, supporting the presence of a torus remnant. The dust covering factor of Ansky is estimated to be 0.06, following ? and using the latest dust luminosity (?). It should be emphasized that this is only a lower limit, since the IR light curve was still rising until the last IR photometry, after which the WISE satellite retired. TDEs in normal galaxies usually have a dust covering factor of ~ 0.01 or less (?), so the dust covering factor of Ansky is significantly higher than that of normal TDEs. On the other hand, the residual torus may be collapsing towards the equatorial plane due to the absence of radiation pressure support. Therefore, Ansky's covering factor may represent an intermediate value between AGNs and TDEs. Moreover, the delayed yet rapid emergence of the [O III] emission suggests that the gas is distributed on a parsec scale (see Figure ??), which had remained unionized before the occurrence of Ansky due to the faded AGN.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page10_text_7"
+    }
+  },
+  {
+    "page_content": "A plot comparing UV spectra. The x-axis is Rest Wavelength (Å) ranging from 1000 to 3000. The y-axis is Scaled Flux (10⁻¹⁵ ergs⁻¹ cm⁻² Å⁻¹) on a logarithmic scale from 10⁻² to 10¹. Multiple curves are shown: black (Ansky), red (AT2022gri), cyan (QSO-composite), blue (GSN069), yellow (AT2021ehb), and magenta (weak-line quasar). A vertical purple line labeled 'Mg II' is marked near 2500 Å. Legends are provided below the plot.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_10.png",
+      "type": "figure",
+      "fig_id": "Figure 8",
+      "node_id": "2510_22211v1_page10_figure_0"
+    }
+  },
+  {
+    "page_content": "ANSKY",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 11,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_11.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page11_text_0",
+      "bbox": [
+        0.47,
+        0.05,
+        0.52,
+        0.08
+      ]
+    }
+  },
+  {
+    "page_content": "11",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 11,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_11.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page11_text_1",
+      "bbox": [
+        0.88,
+        0.05,
+        0.91,
+        0.08
+      ]
+    }
+  },
+  {
+    "page_content": "5. CONCLUSION",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 11,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_11.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page11_text_2",
+      "bbox": [
+        0.63,
+        0.08,
+        0.77,
+        0.11
+      ]
+    }
+  },
+  {
+    "page_content": "Although there are an increasing number of cases where QPEs are associated with TDEs, it remains unclear whether a TDE is a prerequisite for QPE production. Therefore, ZTF19acskyy (\"Ansky\") is a particularly noteworthy case, as it represents a potential first QPE source linked to a turn-on AGN. If confirmed, this would suggest a novel yet analogous formation mechanism for QPEs and imply that their occurrence is related to sudden accretion outbursts but not necessarily to TDEs.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 11,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_11.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page11_text_3",
+      "bbox": [
+        0.51,
+        0.11,
+        0.91,
+        0.2
+      ]
+    }
+  },
+  {
+    "page_content": "In this work, we present an HST UV spectrum taken in the late stage of Ansky and analyze the long-term evolution of its light curves. Our findings strongly support the interpretation of Ansky as a featureless TDE, characterized by the persistent absence of broad emission lines in both optical and UV spectra since its discovery. This characteristic is inconsistent with the turn-on AGN scenario as suggested by ?. Further compelling evidence comes from the slope of the UV continuum, whose spectral index of -2.6 is much steeper than that of normal AGNs but typical of TDEs. Compared to other featureless TDEs, Ansky exhibits a lower blackbody luminosity (~10^43 erg s^-1) and notably slower rise and decline timescales, indicating a distinct subclass of TDEs. We first considered the possibility of an IMBH origin for Ansky. However, high-resolution HST ACQ imaging constrains the transient location to within 13 pc of the galactic nucleus, strongly disfavoring an offset IMBH-TDE scenario. Instead, we propose that Ansky is most likely the tidal disruption of a post-MS star by a typical SMBH. This scenario naturally explains the longer evolution timescale and lower luminosity, as post-MS TDEs are expected to have longer fallback times and dimmer emission than main-sequence star disruptions (Section ??).",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 11,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_11.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page11_text_4",
+      "bbox": [
+        0.51,
+        0.2,
+        0.91,
+        0.37
+      ]
+    }
+  },
+  {
+    "page_content": "As noted in our previous work (?), Ansky shows a long-delayed infrared echo, indicating the presence of a torus remnant likely left behind by a recently faded AGN, similar to that observed in AT2019qiz. Future IFS observations of its host galaxy SDSSJ1335+0728 will be critical in confirming whether it is indeed a recently faded AGN by detecting EELRs commonly seen in QPE hosts (?).",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 11,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_11.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page11_text_5",
+      "bbox": [
+        0.51,
+        0.37,
+        0.91,
+        0.45
+      ]
+    }
+  },
+  {
+    "page_content": "Therefore, it is the first time that a rare, featureless TDE has been directly linked to QPEs in the case of Ansky. It provides further support for the unified scenario, in which QPEs arise from the collision between a quasi-circular EMRI and a TDE disk, with the occurrence rates of both being significantly boosted in recently faded AGNs (?). In this regard, efforts are underway to discover alternative formation channels for QPEs beyond TDEs. Upcoming deeper surveys, such as LSST and WFST, will undoubtedly reveal more faint TDEs similar to Ansky, which will further clarify the nature of featureless TDEs as well as the connection between TDEs and QPEs. On the other hand, future observations of more",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 11,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_11.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page11_text_6",
+      "bbox": [
+        0.51,
+        0.45,
+        0.91,
+        0.6
+      ]
+    }
+  },
+  {
+    "page_content": "Figure 9. Top panel: Rising timescale (t_{1/2,rise}) versus black hole mass (M_{BH}). Bottom panel: Peak blackbody luminosity (L_{BB}) versus black hole mass (M_{BH}). We compare Ansky (red dot) and AT2022gri (gold dot) with other optical TDEs (blue dots) from ?, with the featureless subclass indicated by black dots.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 11,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_11.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page11_text_7",
+      "bbox": [
+        0.09,
+        0.53,
+        0.48,
+        0.6
+      ]
+    }
+  },
+  {
+    "page_content": "However, on larger scales, a residual extended [O III] emission region may still be visible. Located at a low redshift of 0.024, Ansky's host galaxy is an ideal target for IFS observation. We optimistically predict that an EELR will be detected once such observations are carried out, which would offer additional strong evidence of a recently faded AGN.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 11,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_11.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page11_text_8",
+      "bbox": [
+        0.09,
+        0.6,
+        0.48,
+        0.68
+      ]
+    }
+  },
+  {
+    "page_content": "Lastly, we noticed that ? recently reported an intriguing doubling of the QPE recurrence timescale in their 2025 observations. Furthermore, the 2025 QPEs were found to be four times more energetic and exhibited a more asymmetric flare profile. These new and unexpected phenomena demand a refinement of the EMRI+disk collision model, such as an evolving interaction due to changes in either the EMRI or the disk properties. It would also be interesting to establish whether this phenomenon is specific to Ansky, i.e. occurring after the disruption of a post-MS system, or whether it is common to all QPEs.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 11,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_11.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page11_text_9",
+      "bbox": [
+        0.09,
+        0.68,
+        0.48,
+        0.83
+      ]
+    }
+  },
+  {
+    "page_content": "A scatter plot with two panels. The x-axis is Log10[M_BH] (M_☉). The y-axis of the top panel is Log10[t_{1/2,rise}] (day). The y-axis of the bottom panel is Log10[L_bb] (erg s⁻¹). Data points are color-coded: blue dots represent 'Yao+23', red dot represents 'Ansky', gold dot represents 'AT2022gri', and black dots represent 'Featureless'. Error bars are shown for each data point.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 11,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_11.png",
+      "type": "figure",
+      "fig_id": "Figure 9",
+      "node_id": "2510_22211v1_page11_figure_0",
+      "bbox": [
+        0.09,
+        0.08,
+        0.48,
+        0.53
+      ]
+    }
+  },
+  {
+    "page_content": "5. CONCLUSION",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 11,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_11.png",
+      "type": "conclusion",
+      "node_id": "2510_22211v1_page11_conclusion_0",
+      "bbox": [
+        0.63,
+        0.08,
+        0.77,
+        0.11
+      ]
+    }
+  },
+  {
+    "page_content": "SMBH accretion outbursts associated with QPEs could help determine whether QPEs are exclusively tied to TDEs. Notably, the existence of Type II QPEs linked to episodic gas accretion in AGNs has been predicted by ?. Thus, it is encouraging to explore whether turn-on AGNs remain a viable alternative channel, even if not the one observed in Ansky.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 12,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_12.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page12_text_0"
+    }
+  },
+  {
+    "page_content": "Software: astropy (The Astropy Collaboration 2013, 2018, 2022), HEAsoft (HEASARC 2014)",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 12,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_12.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page12_text_1"
+    }
+  },
+  {
+    "page_content": "ACKNOWLEDGMENTS",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 12,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_12.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page12_text_2"
+    }
+  },
+  {
+    "page_content": "We thank the anonymous referee for his/her very positive and constructive comments, which have improved the manuscript significantly. We gratefully acknowledge the Weihai TDE meeting held in summer 2025, which provided us with valuable opportunities for fruitful discussions. This work is supported by the National Key Research and Development Program of China (2023YFA1608100), the Strategic Priority Research Program of the Chinese Academy of Sciences (XDB0550200), the National Natural Science Foundation of China (grants 12522303,12192221,12393814), the Hong Kong Research Grants Council (HKU17305124, N_HKU782/23), the Fundamental Research Funds for Central Universities (WK2030000097) and the China Manned Space Project. The authors appreciate the support of the Cyrus Chun Ying Tang Foundations.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 12,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_12.png",
+      "type": "text",
+      "node_id": "2510_22211v1_page12_text_3"
+    }
+  },
+  {
+    "page_content": "DRAFT VERSION OCTOBER 28, 2025\n(TDE, ??), AT2019qiz (?). This discovery provides compelling evidence that at least a subset of QPEs are physically linked to TDEs. Intriguingly, similar connections were previously suggested for the prototypical QPE source GSN069, which displays TDE-like features in its long-term X-ray evolution (?) and its abnormal nitrogen-enriched gas (?), as well as in other systems including AT2019vcb (?), XMMSL1J024916.6-041244 (?), and AT2022upj (?). Remarkably, QPE and TDE host galaxies share several distinctive characteristics, including a strong preference for post-starburst galaxies (?) and the frequent presence of extended emission-line regions (EELRs, ??), which are indicative of recently faded active galactic nuclei (AGNs). The mounting evidence for QPE-TDE connections has given rise to the \"EMRI+TDE=QPE\" model (?), which yet requires EMRIs to reside in unusual quasi-circular orbits (?), likely formed during previous AGN phases (?). This progress motivates a unified model in which QPEs represent a transient phase following TDEs involving SMBHs shortly after the cessation of AGN activity (?). Nevertheless, it remains uncertain whether all QPEs originate from this channel, and if not, what fraction do.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 1,
+      "page_span": [
+        1,
+        2
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_1.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_1.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_2.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22211v1_page1_to_page2_cross_text_0",
+      "from_node_id": "2510_22211v1_page1_text_0",
+      "to_node_id": "2510_22211v1_page2_text_0"
+    }
+  },
+  {
+    "page_content": "2.3. Optical Spectroscopic Observation\nWe have obtained three optical spectra of Ansky. Two of these were observed using the Low-Resolution Imaging Spectrometer (LRIS, ?) on the Keck 10-meter telescope and reduced with Lpipe (?). The observations employed a 1'' slit and a D560 dichroic to split the light into blue and red arms simultaneously. For the first run on 2021 May 16, the 400/3400 blue-arm grism and the 400/8500 red-arm grating centered at 7865 Å were used, giving a resolving power of R~1000 and a wavelength coverage of 3100Å to 10300Å. The configuration of the second run on 2025 June 1 was essentially the same as that of the first, with the only difference\nANSKY",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 2,
+      "page_span": [
+        2,
+        3
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_2.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_2.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22211v1_page2_to_page3_cross_text_0",
+      "from_node_id": "2510_22211v1_page2_text_5",
+      "to_node_id": "2510_22211v1_page3_text_0"
+    }
+  },
+  {
+    "page_content": "¹ https://fallingstar-data.com/forcedphot/\nadopted a ? extinction law with R_V = 3.1 and a Galactic extinction of E(B-V) = 0.0288 ± 0.001 mag (?).",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 3,
+      "page_span": [
+        3,
+        4
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_4.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22211v1_page3_to_page4_cross_text_0",
+      "from_node_id": "2510_22211v1_page3_text_11",
+      "to_node_id": "2510_22211v1_page4_text_0"
+    }
+  },
+  {
+    "page_content": "The pre-outburst SDSS spectra of the galaxy nucleus have placed it in the locus of star-forming region in the Baldwin-Phillips-Terlevich (BPT) diagram based on its narrow-line ratios (see Figure 9 in ?). It was reported in the MPA-JHU catalogue with a logM_BH of 6.17 ± 0.51, derived from the M–σ relation of ?. We collected multi-band photometry of the host galaxy from several archival surveys, including GALEX, SDSS, Two Micron All-Sky Survey (2MASS), and the Wide-field Infrared Survey Explorer (WISE). We used the Python package Code Investigating GALaxy Emission (CIGALE; ?) to model the SED of the host galaxy. CIGALE can fit the SED of a galaxy from far-UV to radio and estimate its physical properties through the analysis of likelihood distributions, taking into account the contribution of an AGN component. We assumed a delayed star formation history\nFigure 2. Left panel: The HST ACQ image taken on 2025 May 24 UT in the clear filter. Middle panel: The fitted model of SDSSJ1335+0728. Right panel: The residual image from our fit. The center of the galaxy SDSS J1335+0728 is marked with a red circle of radius 0.''2.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 4,
+      "page_span": [
+        4,
+        5
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_4.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_4.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_5.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22211v1_page4_to_page5_cross_text_0",
+      "from_node_id": "2510_22211v1_page4_text_10",
+      "to_node_id": "2510_22211v1_page5_text_0"
+    }
+  },
+  {
+    "page_content": "4.1. Featureless Spectra Disfavor the Turn-On AGN Scenario All of the multi-wavelength characteristics of Ansky are difficult to reconcile with a turn-on AGN scenario. The most\nZHU ET AL.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 5,
+      "page_span": [
+        5,
+        6
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_5.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_5.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_6.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22211v1_page5_to_page6_cross_text_0",
+      "from_node_id": "2510_22211v1_page5_text_8",
+      "to_node_id": "2510_22211v1_page6_text_0"
+    }
+  },
+  {
+    "page_content": "In this subsection, we will show that the unusual properties observed in Ansky align naturally with the characteristics of featureless TDEs. These are a new population of optical TDEs that are featured by their blue continuum, yet lack the discernible emission lines or spectroscopic features present in the canonical TDE classes (?). Featureless TDEs generally have a higher luminosity, a longer rising time scale, and a more massive black hole than other TDEs (see Figure ??).\nFigure 5. The multiwavelength light curves of Ansky showing a double-peaked structure with long rise and decline timescales in the optical bands. The black vertical line marks the date of our HST/STIS observation, while the gray dashed line indicates the first epoch of detected QPE. The blue and red dashed lines represent the fitted Gaussian rises in the g and r bands, respectively. The dotted line shows the power-law decline. The optical light curves are binned in 10-day intervals, with the original unbinned data overplotted in the background with reduced opacity. The shaded region highlights the rebrightening phase.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 6,
+      "page_span": [
+        6,
+        7
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_6.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_6.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_7.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22211v1_page6_to_page7_cross_text_0",
+      "from_node_id": "2510_22211v1_page6_text_6",
+      "to_node_id": "2510_22211v1_page7_text_0"
+    }
+  },
+  {
+    "page_content": "² Note that the short timescale of TDEs in ? may be due to selection bias as they selected TDEs with e-folding rise/decline time of 2–300 days.\n8",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 7,
+      "page_span": [
+        7,
+        8
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_7.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_7.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22211v1_page7_to_page8_cross_text_0",
+      "from_node_id": "2510_22211v1_page7_text_4",
+      "to_node_id": "2510_22211v1_page8_text_0"
+    }
+  },
+  {
+    "page_content": "? One possibility is that the ZTF forced-photometry pipeline is not fully effective in subtracting the contrition of the host nucleus for nearby extended galaxies.\nThe rising phase of Ansky lasts for about 350 days, which could put further constraint on the radius of the disrupted star and β. The specific orbital energy of the bound stellar debris is distributed between εmb and 0. εmb is the specific orbital energy of the most bounded debris, which is a few times the typical energy spread of the debris Δε = GMbhR*/rP². Adopting the definition of β, the expression of Δε can be further converted to:",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 8,
+      "page_span": [
+        8,
+        9
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_9.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22211v1_page8_to_page9_cross_text_0",
+      "from_node_id": "2510_22211v1_page8_text_12",
+      "to_node_id": "2510_22211v1_page9_text_0"
+    }
+  },
+  {
+    "page_content": "4.4. The formation of QPEs in the TDE scenario\n10",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 9,
+      "page_span": [
+        9,
+        10
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_9.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_9.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_10.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22211v1_page9_to_page10_cross_text_0",
+      "from_node_id": "2510_22211v1_page9_text_6",
+      "to_node_id": "2510_22211v1_page10_text_0"
+    }
+  },
+  {
+    "page_content": "AT2019qiz, whose IR echo indicates a torus radius > 1.2pc. As discussed in ?, the IR echo of Ansky also shows an atypically long time delay, supporting the presence of a torus remnant. The dust covering factor of Ansky is estimated to be 0.06, following ? and using the latest dust luminosity (?). It should be emphasized that this is only a lower limit, since the IR light curve was still rising until the last IR photometry, after which the WISE satellite retired. TDEs in normal galaxies usually have a dust covering factor of ~ 0.01 or less (?), so the dust covering factor of Ansky is significantly higher than that of normal TDEs. On the other hand, the residual torus may be collapsing towards the equatorial plane due to the absence of radiation pressure support. Therefore, Ansky's covering factor may represent an intermediate value between AGNs and TDEs. Moreover, the delayed yet rapid emergence of the [O III] emission suggests that the gas is distributed on a parsec scale (see Figure ??), which had remained unionized before the occurrence of Ansky due to the faded AGN.\nANSKY",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 10,
+      "page_span": [
+        10,
+        11
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_10.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_10.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_11.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22211v1_page10_to_page11_cross_text_0",
+      "from_node_id": "2510_22211v1_page10_text_7",
+      "to_node_id": "2510_22211v1_page11_text_0"
+    }
+  },
+  {
+    "page_content": "Lastly, we noticed that ? recently reported an intriguing doubling of the QPE recurrence timescale in their 2025 observations. Furthermore, the 2025 QPEs were found to be four times more energetic and exhibited a more asymmetric flare profile. These new and unexpected phenomena demand a refinement of the EMRI+disk collision model, such as an evolving interaction due to changes in either the EMRI or the disk properties. It would also be interesting to establish whether this phenomenon is specific to Ansky, i.e. occurring after the disruption of a post-MS system, or whether it is common to all QPEs.\nSMBH accretion outbursts associated with QPEs could help determine whether QPEs are exclusively tied to TDEs. Notably, the existence of Type II QPEs linked to episodic gas accretion in AGNs has been predicted by ?. Thus, it is encouraging to explore whether turn-on AGNs remain a viable alternative channel, even if not the one observed in Ansky.",
+    "metadata": {
+      "source": "2510.22211v1.pdf",
+      "page": 11,
+      "page_span": [
+        11,
+        12
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_11.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_11.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_12.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22211v1_page11_to_page12_cross_text_0",
+      "from_node_id": "2510_22211v1_page11_text_9",
+      "to_node_id": "2510_22211v1_page12_text_0"
+    }
+  }
+]

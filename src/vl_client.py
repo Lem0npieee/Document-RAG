@@ -65,9 +65,28 @@ class DashScopeVLClient:
                 except (TypeError, ValueError):
                     raise RuntimeError(f"Unexpected DashScope response format: {response}")
 
-        choices = payload.get("output", {}).get("choices", [])
+        output = payload.get("output")
+        if not isinstance(output, dict):
+            status_code = payload.get("status_code")
+            code = payload.get("code")
+            message = payload.get("message")
+            request_id = payload.get("request_id")
+            raise RuntimeError(
+                "Unexpected DashScope response payload: "
+                f"output={type(output).__name__}, "
+                f"status_code={status_code}, code={code}, "
+                f"message={message}, request_id={request_id}"
+            )
+
+        choices = output.get("choices", [])
+        if not isinstance(choices, list):
+            choices = []
         for choice in choices:
+            if not isinstance(choice, dict):
+                continue
             message = choice.get("message", {})
+            if not isinstance(message, dict):
+                continue
             content = message.get("content", [])
             if isinstance(content, str):
                 print(f"      Extracted response text length: {len(content)}")

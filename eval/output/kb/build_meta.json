@@ -1,0 +1,12 @@
+{
+  "documents": [
+    {
+      "input_file": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\pdfQA\\syn-pdfQA\\01.2_Input_Files_PDF\\research articles\\2510.22211v1.pdf",
+      "source_name": "2510.22211v1.pdf",
+      "sha256": "073db817879b901b155ef5e59d2b5767f4bfab0579516460be4f4fde621699a6",
+      "size": 1025081,
+      "mtime": 1778082594.1995595,
+      "added_at": "2026-05-07T23:04:17.733736"
+    }
+  ]
+}

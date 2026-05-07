@@ -1,0 +1,15 @@
+{
+  "updated_at": "2026-05-07T23:25:04.586764",
+  "annotations_root": "eval\\pdfQA",
+  "pdfs_root": "eval\\pdfQA",
+  "kb_root": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb",
+  "category": "syn",
+  "total_samples": 20,
+  "total_unique_docs": 1,
+  "built_docs": 1,
+  "skipped_docs": 0,
+  "failed_docs": 0,
+  "failed_sources": {},
+  "progress_file": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\pdfqa\\pdfqa_build_progress.json",
+  "warnings_count": 0
+}

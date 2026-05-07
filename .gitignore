@@ -54,3 +54,10 @@ outputs/
 faiss_index/
 doc_graph/
 logs/
+
+# Eval temporary result dumps (repo root)
+metrics_*.json
+errors_*.jsonl
+*_fallback.json
+*_fallback.jsonl
+_write_test_root.txt

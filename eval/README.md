@@ -1,66 +1,90 @@
-# DocVQA Evaluation (Backend Only)
+# pdfQA Evaluation (Backend Only)
 
-本目录用于**只评测当前模型**（`MultiModalGraphRAG`），不做前端改动，也不做横向对比。  
-按你的要求，评测相关代码、输入、输出都放在 `eval/` 下。
+This folder contains a complete evaluation pipeline for this project on `pdfQA`.
+It evaluates the current backend chain (`MultiModalGraphRAG`) only.
 
-## 目录约定
+## Folder Layout
 
 ```text
 eval/
-  code/                    # 评测脚本
+  code/
     loader.py
     metrics.py
-    build_docvqa_kb.py
-    run_docvqa_eval.py
+    build_pdfqa_kb.py
+    run_pdfqa_eval.py
   input/
-    docvqa/
-      val.json             # 标注文件（你放）
-      images/              # 图片目录（你放）
+    pdfqa/
+      annotations/        # pdfQA-Annotations (JSON files)
+      pdfs/               # pdfQA-Benchmark PDFs
   output/
-    kb/                    # 评测用知识库产物（FAISS/graph/parsed/pages）
-    docvqa/                # 评测结果（predictions/metrics/errors）
+    kb/                   # FAISS/graph/pages for evaluation
+    pdfqa/                # predictions / metrics / errors
 ```
 
-## 1) 准备输入数据
+## 1) Download and place data
 
-把 DocVQA 数据放到：
+You need both:
 
-- `eval/input/docvqa/val.json`
-- `eval/input/docvqa/images/`
+1. `pdfQA-Annotations`  
+   - Hugging Face: `pdfqa/pdfQA-Annotations`
+2. `pdfQA-Benchmark` (PDF files)  
+   - Hugging Face: `pdfqa/pdfQA-Benchmark`
 
-`val.json` 每条样本至少应包含：
+Official download scripts are listed here:
+- https://github.com/tobischimanski/pdfQA
 
-- `question`（问题）
-- `answers`（答案列表，或 `answer`）
-- `image`（图片名/相对路径）
+Place files as:
 
-## 2) 构建评测知识库（只跑后端）
+```text
+eval/input/pdfqa/annotations/real-pdfQA/.../*.json
+eval/input/pdfqa/annotations/syn-pdfQA/.../*.json
+eval/input/pdfqa/pdfs/real-pdfQA/.../*.pdf
+eval/input/pdfqa/pdfs/syn-pdfQA/.../*.pdf
+```
+
+The loader scans recursively, so exact subfolders can be nested.
+
+## 2) Build evaluation KB
 
 ```bash
-python eval/code/build_docvqa_kb.py --resume --strict-images
+python eval/code/build_pdfqa_kb.py --resume --strict-docs --category real
 ```
 
-说明：
+Useful args:
 
-- 脚本会自动把 `OUTPUT_ROOT` 指向 `eval/output/kb`，不会写到默认 `outputs/`。
-- `--resume` 支持断点续跑。
-- `--force-rebuild` 可强制重建单图入库。
+- `--category all|real|syn` (default: `real`)
+- `--max-samples 200` (quick smoke run)
+- `--max-docs 50`
+- `--force-rebuild`
 
-## 3) 跑评测
+This script writes KB artifacts into `eval/output/kb` by setting:
+- `OUTPUT_ROOT=eval/output/kb`
+- `DOC_ROOT=eval/input/pdfqa/pdfs`
+
+## 3) Run evaluation
 
 ```bash
-python eval/code/run_docvqa_eval.py --resume --strict-images --k 5 --max-nodes 24
+python eval/code/run_pdfqa_eval.py --resume --strict-docs --category real --k 5 --max-nodes 24
 ```
 
-输出文件：
+Outputs:
 
-- `eval/output/docvqa/predictions.jsonl`
-- `eval/output/docvqa/metrics.json`
-- `eval/output/docvqa/errors_topk.jsonl`
+- `eval/output/pdfqa/predictions.jsonl`
+- `eval/output/pdfqa/metrics.json`
+- `eval/output/pdfqa/errors_topk.jsonl`
 
-## 可选参数
+## 4) Metrics
 
-- `--max-samples 100`：先小样本试跑
-- `--anls-threshold 0.5`：ANLS 阈值
-- `--log-every 20`：进度打印间隔
+The script reports:
+
+- `ANLS`
+- `EM`
+- `evidence_page_recall` (only when page labels exist in annotations)
+- group metrics by category, dataset, and question type
+
+## Notes
+
+- `source_hint` is always set to the matched PDF basename, so retrieval stays within the target source.
+- If a sample has no answer text, it is skipped by default.
+- If a JSON annotation points to a missing PDF and `--strict-docs` is set, that sample is skipped and logged as a warning.
 

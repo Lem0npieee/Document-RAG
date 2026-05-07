@@ -20,7 +20,6 @@ def levenshtein_distance(a: str, b: str) -> int:
     if not b:
         return len(a)
 
-    # Keep memory O(min(len(a), len(b))).
     if len(a) < len(b):
         a, b = b, a
 
@@ -43,7 +42,6 @@ def anls_score_single(pred: str, ref: str, threshold: float = 0.5) -> float:
         return 1.0
     if not p or not r:
         return 0.0
-
     dist = levenshtein_distance(p, r)
     denom = max(len(p), len(r), 1)
     sim = 1.0 - (dist / denom)
@@ -84,3 +82,41 @@ def summarize_metrics(records: list[dict[str, Any]], threshold: float = 0.5) -> 
         "anls": round(sum(anls_values) / n, 6),
         "em": round(sum(em_values) / n, 6),
     }
+
+
+def evidence_page_recall(records: list[dict[str, Any]]) -> dict[str, float | int]:
+    labeled = 0
+    hit = 0
+    for item in records:
+        gt_pages = item.get("evidence_pages", [])
+        pred_pages = item.get("pages", [])
+        if not isinstance(gt_pages, list) or not gt_pages:
+            continue
+        labeled += 1
+        gt = set()
+        for p in gt_pages:
+            try:
+                ip = int(p)
+            except Exception:
+                continue
+            if ip > 0:
+                gt.add(ip)
+        pred = set()
+        if isinstance(pred_pages, list):
+            for p in pred_pages:
+                try:
+                    ip = int(p)
+                except Exception:
+                    continue
+                if ip > 0:
+                    pred.add(ip)
+        if gt and gt.intersection(pred):
+            hit += 1
+
+    recall = (hit / labeled) if labeled else 0.0
+    return {
+        "labeled_count": labeled,
+        "hit_count": hit,
+        "recall": round(recall, 6),
+    }
+

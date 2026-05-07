@@ -1,0 +1,2219 @@
+{
+  "documents": [
+    {
+      "source": "unknown_source",
+      "pages": []
+    },
+    {
+      "source": "2510.22211v1.pdf",
+      "input_file": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\pdfQA\\syn-pdfQA\\01.2_Input_Files_PDF\\research articles\\2510.22211v1.pdf",
+      "sha256": "073db817879b901b155ef5e59d2b5767f4bfab0579516460be4f4fde621699a6",
+      "size": 1025081,
+      "mtime": 1778082594.1995595,
+      "page_dir": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b",
+      "added_at": "2026-05-07T23:04:17.733736",
+      "pages": [
+        {
+          "source": "2510.22211v1.pdf",
+          "page": 1,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_1.png",
+          "entities": [],
+          "keywords": [],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {},
+          "node_ids": [
+            "2510_22211v1_page1_text_0",
+            "2510_22211v1_page1_to_page2_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22211v1_page1_text_0"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "page": 2,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_2.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "QPEs",
+              "type": "concept"
+            },
+            {
+              "term": "TDEs",
+              "type": "concept"
+            },
+            {
+              "term": "AGN",
+              "type": "concept"
+            },
+            {
+              "term": "SMBH",
+              "type": "concept"
+            },
+            {
+              "term": "EMRI",
+              "type": "concept"
+            },
+            {
+              "term": "HST",
+              "type": "organization"
+            },
+            {
+              "term": "STIS",
+              "type": "method"
+            },
+            {
+              "term": "GALFIT",
+              "type": "method"
+            },
+            {
+              "term": "LRIS",
+              "type": "method"
+            },
+            {
+              "term": "Lpipe",
+              "type": "method"
+            },
+            {
+              "term": "Keck 10-meter telescope",
+              "type": "organization"
+            },
+            {
+              "term": "MAST",
+              "type": "organization"
+            }
+          ],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {},
+          "node_ids": [
+            "2510_22211v1_page2_text_0",
+            "2510_22211v1_page2_text_1",
+            "2510_22211v1_page2_text_2",
+            "2510_22211v1_page2_text_3",
+            "2510_22211v1_page2_text_4",
+            "2510_22211v1_page2_text_5",
+            "2510_22211v1_page1_to_page2_cross_text_0",
+            "2510_22211v1_page2_to_page3_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22211v1_page2_text_0",
+            "2510_22211v1_page2_text_1",
+            "2510_22211v1_page2_text_2",
+            "2510_22211v1_page2_text_3",
+            "2510_22211v1_page2_text_4",
+            "2510_22211v1_page2_text_5"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "page": 3,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_3.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "blackbody model",
+              "type": "model"
+            },
+            {
+              "term": "power-law model",
+              "type": "model"
+            },
+            {
+              "term": "residual spectrum",
+              "type": "concept"
+            },
+            {
+              "term": "UVOTSOURCE",
+              "type": "task"
+            },
+            {
+              "term": "HST/STIS",
+              "type": "other"
+            },
+            {
+              "term": "C IV λ1549",
+              "type": "other"
+            },
+            {
+              "term": "Swift/UVOT",
+              "type": "other"
+            },
+            {
+              "term": "Heasoft",
+              "type": "other"
+            },
+            {
+              "term": "ATLAS",
+              "type": "other"
+            },
+            {
+              "term": "ZTF",
+              "type": "other"
+            },
+            {
+              "term": "CIGALE",
+              "type": "other"
+            }
+          ],
+          "relations": [
+            {
+              "from": "Ansky",
+              "relation": "observed_with",
+              "to": "HST/STIS"
+            },
+            {
+              "from": "Ansky",
+              "relation": "observed_with",
+              "to": "Keck/LRIS"
+            },
+            {
+              "from": "Ansky",
+              "relation": "observed_with",
+              "to": "BINOSPEC"
+            },
+            {
+              "from": "Ansky",
+              "relation": "observed_with",
+              "to": "Swift/UVOT"
+            },
+            {
+              "from": "Ansky",
+              "relation": "observed_with",
+              "to": "ATLAS"
+            },
+            {
+              "from": "Ansky",
+              "relation": "observed_with",
+              "to": "ZTF"
+            },
+            {
+              "from": "blackbody model",
+              "relation": "fits",
+              "to": "spectrum"
+            },
+            {
+              "from": "power-law model",
+              "relation": "fits",
+              "to": "spectrum"
+            },
+            {
+              "from": "residual spectrum",
+              "relation": "derived_from",
+              "to": "spectrum"
+            },
+            {
+              "from": "C IV λ1549",
+              "relation": "marked_by",
+              "to": "blue dashed line"
+            },
+            {
+              "from": "UVOTSOURCE",
+              "relation": "used_for",
+              "to": "photometry"
+            },
+            {
+              "from": "Heasoft",
+              "relation": "contains",
+              "to": "UVOTSOURCE"
+            },
+            {
+              "from": "CIGALE",
+              "relation": "used_for",
+              "to": "host photometric magnitudes"
+            },
+            {
+              "from": "ATLAS Forced Photometry Service",
+              "relation": "used_for",
+              "to": "ATLAS light curves"
+            },
+            {
+              "from": "ZTF Forced Photometry Service",
+              "relation": "used_for",
+              "to": "ZTF light curves"
+            }
+          ],
+          "section_conclusions": [],
+          "figure_id_map": {
+            "Figure 1": "2510_22211v1_page3_figure_0"
+          },
+          "node_ids": [
+            "2510_22211v1_page3_text_0",
+            "2510_22211v1_page3_text_1",
+            "2510_22211v1_page3_text_2",
+            "2510_22211v1_page3_text_3",
+            "2510_22211v1_page3_text_4",
+            "2510_22211v1_page3_text_5",
+            "2510_22211v1_page3_text_6",
+            "2510_22211v1_page3_text_7",
+            "2510_22211v1_page3_text_8",
+            "2510_22211v1_page3_text_9",
+            "2510_22211v1_page3_text_10",
+            "2510_22211v1_page3_text_11",
+            "2510_22211v1_page3_figure_0",
+            "2510_22211v1_page2_to_page3_cross_text_0",
+            "2510_22211v1_page3_to_page4_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22211v1_page3_text_0",
+            "2510_22211v1_page3_text_1",
+            "2510_22211v1_page3_text_2",
+            "2510_22211v1_page3_text_3",
+            "2510_22211v1_page3_text_4",
+            "2510_22211v1_page3_text_5",
+            "2510_22211v1_page3_text_6",
+            "2510_22211v1_page3_text_7",
+            "2510_22211v1_page3_text_8",
+            "2510_22211v1_page3_text_9",
+            "2510_22211v1_page3_text_10",
+            "2510_22211v1_page3_text_11"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "page": 4,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_4.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "SUPERBOL",
+              "type": "method"
+            },
+            {
+              "term": "g-band",
+              "type": "metric"
+            },
+            {
+              "term": "r-band",
+              "type": "metric"
+            },
+            {
+              "term": "Lyα",
+              "type": "metric"
+            },
+            {
+              "term": "N V",
+              "type": "metric"
+            },
+            {
+              "term": "C IV",
+              "type": "metric"
+            },
+            {
+              "term": "HI",
+              "type": "metric"
+            },
+            {
+              "term": "BPT diagram",
+              "type": "model"
+            },
+            {
+              "term": "MPA-JHU catalogue",
+              "type": "dataset"
+            },
+            {
+              "term": "CIGALE",
+              "type": "method"
+            },
+            {
+              "term": "AGN",
+              "type": "concept"
+            },
+            {
+              "term": "TDE",
+              "type": "concept"
+            }
+          ],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {},
+          "node_ids": [
+            "2510_22211v1_page4_text_0",
+            "2510_22211v1_page4_text_1",
+            "2510_22211v1_page4_text_2",
+            "2510_22211v1_page4_text_3",
+            "2510_22211v1_page4_text_4",
+            "2510_22211v1_page4_text_5",
+            "2510_22211v1_page4_text_6",
+            "2510_22211v1_page4_text_7",
+            "2510_22211v1_page4_text_8",
+            "2510_22211v1_page4_text_9",
+            "2510_22211v1_page4_text_10",
+            "2510_22211v1_page3_to_page4_cross_text_0",
+            "2510_22211v1_page4_to_page5_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22211v1_page4_text_0",
+            "2510_22211v1_page4_text_1",
+            "2510_22211v1_page4_text_2",
+            "2510_22211v1_page4_text_3",
+            "2510_22211v1_page4_text_4",
+            "2510_22211v1_page4_text_5",
+            "2510_22211v1_page4_text_6",
+            "2510_22211v1_page4_text_7",
+            "2510_22211v1_page4_text_8",
+            "2510_22211v1_page4_text_9",
+            "2510_22211v1_page4_text_10"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "page": 5,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_5.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "blackbody model",
+              "type": "model"
+            },
+            {
+              "term": "featureless continuum",
+              "type": "concept"
+            },
+            {
+              "term": "broad emission lines",
+              "type": "concept"
+            },
+            {
+              "term": "X-ray spectra",
+              "type": "dataset"
+            },
+            {
+              "term": "light curves",
+              "type": "metric"
+            },
+            {
+              "term": "turn-on AGN scenario",
+              "type": "concept"
+            }
+          ],
+          "relations": [
+            {
+              "from": "Ansky",
+              "relation": "has property",
+              "to": "featureless continuum"
+            },
+            {
+              "from": "Ansky",
+              "relation": "has property",
+              "to": "no broad emission lines"
+            },
+            {
+              "from": "Ansky",
+              "relation": "has property",
+              "to": "delayed soft X-ray emission"
+            },
+            {
+              "from": "Ansky",
+              "relation": "has property",
+              "to": "long timescale light curves"
+            },
+            {
+              "from": "Ansky",
+              "relation": "is inconsistent with",
+              "to": "turn-on AGN scenario"
+            }
+          ],
+          "section_conclusions": [],
+          "figure_id_map": {
+            "Figure 2": "2510_22211v1_page5_figure_0",
+            "Figure 3": "2510_22211v1_page5_figure_1"
+          },
+          "node_ids": [
+            "2510_22211v1_page5_text_0",
+            "2510_22211v1_page5_text_1",
+            "2510_22211v1_page5_text_2",
+            "2510_22211v1_page5_text_3",
+            "2510_22211v1_page5_text_4",
+            "2510_22211v1_page5_text_5",
+            "2510_22211v1_page5_text_6",
+            "2510_22211v1_page5_text_7",
+            "2510_22211v1_page5_text_8",
+            "2510_22211v1_page5_figure_0",
+            "2510_22211v1_page5_figure_1",
+            "2510_22211v1_page4_to_page5_cross_text_0",
+            "2510_22211v1_page5_to_page6_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22211v1_page5_text_0",
+            "2510_22211v1_page5_text_1",
+            "2510_22211v1_page5_text_2",
+            "2510_22211v1_page5_text_3",
+            "2510_22211v1_page5_text_4",
+            "2510_22211v1_page5_text_5",
+            "2510_22211v1_page5_text_6",
+            "2510_22211v1_page5_text_7",
+            "2510_22211v1_page5_text_8"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "page": 6,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_6.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "power-law index=-3.0",
+              "type": "model"
+            },
+            {
+              "term": "blackbody T=29002K",
+              "type": "model"
+            },
+            {
+              "term": "featureless TDE",
+              "type": "concept"
+            },
+            {
+              "term": "X-ray stacking spectrum",
+              "type": "dataset"
+            },
+            {
+              "term": "Ansky",
+              "type": "other"
+            },
+            {
+              "term": "ASASSN-20hx",
+              "type": "other"
+            },
+            {
+              "term": "HST/STIS",
+              "type": "other"
+            },
+            {
+              "term": "Keck/LRIS",
+              "type": "other"
+            },
+            {
+              "term": "AGN",
+              "type": "other"
+            },
+            {
+              "term": "WLQs",
+              "type": "other"
+            },
+            {
+              "term": "Mg IIλ2799",
+              "type": "other"
+            },
+            {
+              "term": "BLR",
+              "type": "other"
+            }
+          ],
+          "relations": [
+            {
+              "from": "Ansky",
+              "relation": "is classified as",
+              "to": "featureless TDE"
+            },
+            {
+              "from": "ASASSN-20hx",
+              "relation": "is speculated to share the same physical origin as",
+              "to": "Ansky"
+            },
+            {
+              "from": "Ansky",
+              "relation": "is compared to",
+              "to": "WLQs"
+            },
+            {
+              "from": "Ansky",
+              "relation": "is associated with",
+              "to": "AGN"
+            }
+          ],
+          "section_conclusions": [],
+          "figure_id_map": {
+            "Figure 4": "2510_22211v1_page6_figure_0"
+          },
+          "node_ids": [
+            "2510_22211v1_page6_text_0",
+            "2510_22211v1_page6_text_1",
+            "2510_22211v1_page6_text_2",
+            "2510_22211v1_page6_text_3",
+            "2510_22211v1_page6_text_4",
+            "2510_22211v1_page6_text_5",
+            "2510_22211v1_page6_text_6",
+            "2510_22211v1_page6_figure_0",
+            "2510_22211v1_page5_to_page6_cross_text_0",
+            "2510_22211v1_page6_to_page7_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22211v1_page6_text_0",
+            "2510_22211v1_page6_text_1",
+            "2510_22211v1_page6_text_2",
+            "2510_22211v1_page6_text_3",
+            "2510_22211v1_page6_text_4",
+            "2510_22211v1_page6_text_5",
+            "2510_22211v1_page6_text_6"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "page": 7,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_7.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "reprocessing layer",
+              "type": "concept"
+            },
+            {
+              "term": "blackbody spectrum",
+              "type": "concept"
+            },
+            {
+              "term": "luminosity",
+              "type": "metric"
+            },
+            {
+              "term": "rising timescale",
+              "type": "metric"
+            },
+            {
+              "term": "MJD",
+              "type": "metric"
+            },
+            {
+              "term": "featureless TDEs",
+              "type": "other"
+            },
+            {
+              "term": "multiwavelength light curves",
+              "type": "other"
+            },
+            {
+              "term": "double-peaked structure",
+              "type": "other"
+            },
+            {
+              "term": "UV spectra",
+              "type": "other"
+            },
+            {
+              "term": "HST/STIS",
+              "type": "other"
+            }
+          ],
+          "relations": [
+            {
+              "from": "Ansky",
+              "relation": "is a",
+              "to": "object"
+            },
+            {
+              "from": "AT2022gri",
+              "relation": "is a",
+              "to": "object"
+            },
+            {
+              "from": "AT2021ehb",
+              "relation": "is a",
+              "to": "object"
+            },
+            {
+              "from": "GSN069",
+              "relation": "is a",
+              "to": "object"
+            },
+            {
+              "from": "HST/STIS",
+              "relation": "is used for",
+              "to": "observation"
+            },
+            {
+              "from": "QPE",
+              "relation": "is detected at",
+              "to": "first epoch"
+            },
+            {
+              "from": "TDE",
+              "relation": "is characterized by",
+              "to": "featureless spectra"
+            },
+            {
+              "from": "AGN",
+              "relation": "has distinct spectra from",
+              "to": "TDE"
+            },
+            {
+              "from": "Walter Maksym",
+              "relation": "is PI of",
+              "to": "AT2022gri"
+            }
+          ],
+          "section_conclusions": [],
+          "figure_id_map": {
+            "Figure 5": "2510_22211v1_page7_figure_0"
+          },
+          "node_ids": [
+            "2510_22211v1_page7_text_0",
+            "2510_22211v1_page7_text_1",
+            "2510_22211v1_page7_text_2",
+            "2510_22211v1_page7_text_3",
+            "2510_22211v1_page7_text_4",
+            "2510_22211v1_page7_figure_0",
+            "2510_22211v1_page6_to_page7_cross_text_0",
+            "2510_22211v1_page7_to_page8_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22211v1_page7_text_0",
+            "2510_22211v1_page7_text_1",
+            "2510_22211v1_page7_text_2",
+            "2510_22211v1_page7_text_3",
+            "2510_22211v1_page7_text_4"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "page": 8,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_8.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "blackbody temperature",
+              "type": "metric"
+            },
+            {
+              "term": "blackbody radius",
+              "type": "metric"
+            },
+            {
+              "term": "blackbody luminosity",
+              "type": "metric"
+            },
+            {
+              "term": "rest-frame days from peak",
+              "type": "metric"
+            },
+            {
+              "term": "UV photometry",
+              "type": "method"
+            },
+            {
+              "term": "power-law decay",
+              "type": "model"
+            },
+            {
+              "term": "LSST",
+              "type": "organization"
+            },
+            {
+              "term": "WFST",
+              "type": "organization"
+            },
+            {
+              "term": "HST",
+              "type": "organization"
+            },
+            {
+              "term": "ZTF",
+              "type": "organization"
+            },
+            {
+              "term": "AGN",
+              "type": "concept"
+            },
+            {
+              "term": "post-MS star",
+              "type": "concept"
+            }
+          ],
+          "relations": [
+            {
+              "from": "Ansky",
+              "relation": "is a",
+              "to": "TDE"
+            },
+            {
+              "from": "Ansky",
+              "relation": "has",
+              "to": "blackbody temperature"
+            },
+            {
+              "from": "Ansky",
+              "relation": "has",
+              "to": "blackbody radius"
+            },
+            {
+              "from": "Ansky",
+              "relation": "has",
+              "to": "blackbody luminosity"
+            },
+            {
+              "from": "Ansky",
+              "relation": "shows",
+              "to": "excess variance"
+            },
+            {
+              "from": "Ansky",
+              "relation": "is compared to",
+              "to": "EP240222a"
+            },
+            {
+              "from": "Ansky",
+              "relation": "is located near",
+              "to": "SDSSJ1335+0728"
+            },
+            {
+              "from": "Ansky",
+              "relation": "has",
+              "to": "fallback timescale"
+            }
+          ],
+          "section_conclusions": [],
+          "figure_id_map": {
+            "Figure 6": "2510_22211v1_page8_figure_0"
+          },
+          "node_ids": [
+            "2510_22211v1_page8_text_0",
+            "2510_22211v1_page8_text_1",
+            "2510_22211v1_page8_text_2",
+            "2510_22211v1_page8_text_3",
+            "2510_22211v1_page8_text_4",
+            "2510_22211v1_page8_text_5",
+            "2510_22211v1_page8_text_6",
+            "2510_22211v1_page8_text_7",
+            "2510_22211v1_page8_text_8",
+            "2510_22211v1_page8_text_9",
+            "2510_22211v1_page8_text_10",
+            "2510_22211v1_page8_text_11",
+            "2510_22211v1_page8_text_12",
+            "2510_22211v1_page8_figure_0",
+            "2510_22211v1_page7_to_page8_cross_text_0",
+            "2510_22211v1_page8_to_page9_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22211v1_page8_text_0",
+            "2510_22211v1_page8_text_1",
+            "2510_22211v1_page8_text_2",
+            "2510_22211v1_page8_text_3",
+            "2510_22211v1_page8_text_4",
+            "2510_22211v1_page8_text_5",
+            "2510_22211v1_page8_text_6",
+            "2510_22211v1_page8_text_7",
+            "2510_22211v1_page8_text_8",
+            "2510_22211v1_page8_text_9",
+            "2510_22211v1_page8_text_10",
+            "2510_22211v1_page8_text_11",
+            "2510_22211v1_page8_text_12"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "page": 9,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_9.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "TDE",
+              "type": "concept"
+            },
+            {
+              "term": "post-MS TDE",
+              "type": "concept"
+            },
+            {
+              "term": "main-sequence TDE",
+              "type": "concept"
+            },
+            {
+              "term": "QPEs",
+              "type": "concept"
+            },
+            {
+              "term": "hydrodynamical simulation",
+              "type": "method"
+            },
+            {
+              "term": "reprocessing envelope",
+              "type": "concept"
+            },
+            {
+              "term": "Ansky",
+              "type": "other"
+            },
+            {
+              "term": "AT2022gri",
+              "type": "other"
+            }
+          ],
+          "relations": [
+            {
+              "from": "Ansky",
+              "relation": "is an example of",
+              "to": "post-MS TDE"
+            },
+            {
+              "from": "post-MS TDE",
+              "relation": "has lower luminosity than",
+              "to": "main-sequence TDE"
+            },
+            {
+              "from": "post-MS TDE",
+              "relation": "explains",
+              "to": "Ansky's longer time scale and lower luminosity"
+            },
+            {
+              "from": "reprocessing envelope",
+              "relation": "is less compact or optically thick in",
+              "to": "post-MS TDE"
+            },
+            {
+              "from": "QPEs",
+              "relation": "are formed in",
+              "to": "TDE scenario"
+            }
+          ],
+          "section_conclusions": [],
+          "figure_id_map": {
+            "Figure 7": "2510_22211v1_page9_figure_0"
+          },
+          "node_ids": [
+            "2510_22211v1_page9_text_0",
+            "2510_22211v1_page9_text_1",
+            "2510_22211v1_page9_text_2",
+            "2510_22211v1_page9_text_3",
+            "2510_22211v1_page9_text_4",
+            "2510_22211v1_page9_text_5",
+            "2510_22211v1_page9_text_6",
+            "2510_22211v1_page9_figure_0",
+            "2510_22211v1_page8_to_page9_cross_text_0",
+            "2510_22211v1_page9_to_page10_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22211v1_page9_text_0",
+            "2510_22211v1_page9_text_1",
+            "2510_22211v1_page9_text_2",
+            "2510_22211v1_page9_text_3",
+            "2510_22211v1_page9_text_4",
+            "2510_22211v1_page9_text_5",
+            "2510_22211v1_page9_text_6"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "page": 10,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_10.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "UV spectra",
+              "type": "dataset"
+            },
+            {
+              "term": "featureless TDEs",
+              "type": "concept"
+            },
+            {
+              "term": "QPE source",
+              "type": "concept"
+            },
+            {
+              "term": "quasar composite spectrum",
+              "type": "dataset"
+            },
+            {
+              "term": "weak-emission-line quasar",
+              "type": "dataset"
+            },
+            {
+              "term": "scaled flux",
+              "type": "metric"
+            },
+            {
+              "term": "rest wavelength",
+              "type": "metric"
+            },
+            {
+              "term": "recently faded AGNs",
+              "type": "concept"
+            },
+            {
+              "term": "misaligned accretion disk",
+              "type": "concept"
+            },
+            {
+              "term": "EMRI",
+              "type": "concept"
+            },
+            {
+              "term": "AGN-ionized EELRs",
+              "type": "concept"
+            },
+            {
+              "term": "integral field spectrograph (IFS",
+              "type": "method"
+            }
+          ],
+          "relations": [
+            {
+              "from": "Ansky",
+              "relation": "is compared with",
+              "to": "AT2022gri, AT2021ehb, GSN069, QSO-composite, weak-line quasar"
+            },
+            {
+              "from": "Ansky",
+              "relation": "has",
+              "to": "IR echo"
+            },
+            {
+              "from": "Ansky",
+              "relation": "has",
+              "to": "dust covering factor"
+            },
+            {
+              "from": "Ansky",
+              "relation": "is associated with",
+              "to": "torus remnant"
+            },
+            {
+              "from": "Ansky",
+              "relation": "shows",
+              "to": "atypically long time delay"
+            },
+            {
+              "from": "Ansky",
+              "relation": "has",
+              "to": "delayed yet rapid emergence of [O III] emission"
+            },
+            {
+              "from": "Ansky",
+              "relation": "had",
+              "to": "unionized gas"
+            }
+          ],
+          "section_conclusions": [],
+          "figure_id_map": {
+            "Figure 8": "2510_22211v1_page10_figure_0"
+          },
+          "node_ids": [
+            "2510_22211v1_page10_text_0",
+            "2510_22211v1_page10_text_1",
+            "2510_22211v1_page10_text_2",
+            "2510_22211v1_page10_text_3",
+            "2510_22211v1_page10_text_4",
+            "2510_22211v1_page10_text_5",
+            "2510_22211v1_page10_text_6",
+            "2510_22211v1_page10_text_7",
+            "2510_22211v1_page10_figure_0",
+            "2510_22211v1_page9_to_page10_cross_text_0",
+            "2510_22211v1_page10_to_page11_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22211v1_page10_text_0",
+            "2510_22211v1_page10_text_1",
+            "2510_22211v1_page10_text_2",
+            "2510_22211v1_page10_text_3",
+            "2510_22211v1_page10_text_4",
+            "2510_22211v1_page10_text_5",
+            "2510_22211v1_page10_text_6",
+            "2510_22211v1_page10_text_7"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "page": 11,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_11.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "featureless TDE",
+              "type": "concept"
+            },
+            {
+              "term": "turn-on AGN",
+              "type": "concept"
+            },
+            {
+              "term": "blackbody luminosity",
+              "type": "metric"
+            },
+            {
+              "term": "rising timescale",
+              "type": "metric"
+            },
+            {
+              "term": "spectral index",
+              "type": "metric"
+            },
+            {
+              "term": "recently faded AGN",
+              "type": "concept"
+            },
+            {
+              "term": "EMRI+disk collision model",
+              "type": "model"
+            },
+            {
+              "term": "tidal disruption",
+              "type": "other"
+            },
+            {
+              "term": "quasi-circular EMRI",
+              "type": "other"
+            },
+            {
+              "term": "infrared echo",
+              "type": "other"
+            },
+            {
+              "term": "torus remnant",
+              "type": "other"
+            },
+            {
+              "term": "EELR",
+              "type": "other"
+            }
+          ],
+          "relations": [
+            {
+              "from": "Ansky",
+              "relation": "is",
+              "to": "a featureless TDE"
+            },
+            {
+              "from": "Ansky",
+              "relation": "has",
+              "to": "a long-delayed infrared echo"
+            },
+            {
+              "from": "Ansky",
+              "relation": "is",
+              "to": "linked to QPEs"
+            },
+            {
+              "from": "Ansky",
+              "relation": "exhibits",
+              "to": "lower blackbody luminosity"
+            },
+            {
+              "from": "Ansky",
+              "relation": "has",
+              "to": "slower rise and decline timescales"
+            },
+            {
+              "from": "Ansky",
+              "relation": "is",
+              "to": "the tidal disruption of a post-MS star"
+            },
+            {
+              "from": "Ansky",
+              "relation": "is",
+              "to": "an ideal target for IFS observation"
+            },
+            {
+              "from": "Ansky",
+              "relation": "is",
+              "to": "a candidate for a recently faded AGN"
+            },
+            {
+              "from": "Ansky",
+              "relation": "is",
+              "to": "a rare object"
+            },
+            {
+              "from": "Ansky",
+              "relation": "is",
+              "to": "the first known case linking a featureless TDE to QPEs"
+            },
+            {
+              "from": "Ansky",
+              "relation": "is",
+              "to": "a potential first QPE source linked to a turn-on AGN"
+            },
+            {
+              "from": "Ansky",
+              "relation": "is",
+              "to": "a target for future IFS observations"
+            },
+            {
+              "from": "Ansky",
+              "relation": "is",
+              "to": "a subject of comparison with other TDEs"
+            }
+          ],
+          "section_conclusions": [
+            {
+              "content": "5. CONCLUSION",
+              "bbox": [
+                0.63,
+                0.08,
+                0.77,
+                0.11
+              ]
+            }
+          ],
+          "figure_id_map": {
+            "Figure 9": "2510_22211v1_page11_figure_0"
+          },
+          "node_ids": [
+            "2510_22211v1_page11_text_0",
+            "2510_22211v1_page11_text_1",
+            "2510_22211v1_page11_text_2",
+            "2510_22211v1_page11_text_3",
+            "2510_22211v1_page11_text_4",
+            "2510_22211v1_page11_text_5",
+            "2510_22211v1_page11_text_6",
+            "2510_22211v1_page11_text_7",
+            "2510_22211v1_page11_text_8",
+            "2510_22211v1_page11_text_9",
+            "2510_22211v1_page11_figure_0",
+            "2510_22211v1_page11_conclusion_0",
+            "2510_22211v1_page10_to_page11_cross_text_0",
+            "2510_22211v1_page11_to_page12_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22211v1_page11_text_0",
+            "2510_22211v1_page11_text_1",
+            "2510_22211v1_page11_text_2",
+            "2510_22211v1_page11_text_3",
+            "2510_22211v1_page11_text_4",
+            "2510_22211v1_page11_text_5",
+            "2510_22211v1_page11_text_6",
+            "2510_22211v1_page11_text_7",
+            "2510_22211v1_page11_text_8",
+            "2510_22211v1_page11_text_9"
+          ],
+          "conclusion_node_ids": [
+            "2510_22211v1_page11_conclusion_0"
+          ]
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "page": 12,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_12.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "QPEs",
+              "type": "concept"
+            },
+            {
+              "term": "TDEs",
+              "type": "concept"
+            },
+            {
+              "term": "Type II QPEs",
+              "type": "concept"
+            },
+            {
+              "term": "AGNs",
+              "type": "concept"
+            },
+            {
+              "term": "turn-on AGNs",
+              "type": "concept"
+            },
+            {
+              "term": "Ansky",
+              "type": "location"
+            },
+            {
+              "term": "anonymous referee",
+              "type": "person"
+            },
+            {
+              "term": "SMBH accretion outbursts",
+              "type": "other"
+            },
+            {
+              "term": "astropy",
+              "type": "other"
+            },
+            {
+              "term": "HEAsoft",
+              "type": "other"
+            }
+          ],
+          "relations": [
+            {
+              "from": "SMBH accretion outbursts",
+              "relation": "associated with",
+              "to": "QPEs"
+            },
+            {
+              "from": "QPEs",
+              "relation": "tied to",
+              "to": "TDEs"
+            },
+            {
+              "from": "Type II QPEs",
+              "relation": "linked to",
+              "to": "episodic gas accretion in AGNs"
+            },
+            {
+              "from": "turn-on AGNs",
+              "relation": "alternative channel for",
+              "to": "QPEs"
+            },
+            {
+              "from": "This work",
+              "relation": "supported by",
+              "to": "National Key Research and Development Program of China"
+            },
+            {
+              "from": "This work",
+              "relation": "supported by",
+              "to": "Strategic Priority Research Program of the Chinese Academy of Sciences"
+            },
+            {
+              "from": "This work",
+              "relation": "supported by",
+              "to": "National Natural Science Foundation of China"
+            },
+            {
+              "from": "This work",
+              "relation": "supported by",
+              "to": "Hong Kong Research Grants Council"
+            },
+            {
+              "from": "This work",
+              "relation": "supported by",
+              "to": "Fundamental Research Funds for Central Universities"
+            },
+            {
+              "from": "This work",
+              "relation": "supported by",
+              "to": "China Manned Space Project"
+            },
+            {
+              "from": "The authors",
+              "relation": "appreciate support from",
+              "to": "Cyrus Chun Ying Tang Foundations"
+            }
+          ],
+          "section_conclusions": [],
+          "figure_id_map": {},
+          "node_ids": [
+            "2510_22211v1_page12_text_0",
+            "2510_22211v1_page12_text_1",
+            "2510_22211v1_page12_text_2",
+            "2510_22211v1_page12_text_3",
+            "2510_22211v1_page11_to_page12_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22211v1_page12_text_0",
+            "2510_22211v1_page12_text_1",
+            "2510_22211v1_page12_text_2",
+            "2510_22211v1_page12_text_3"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "page": 13,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_13.png",
+          "entities": [],
+          "keywords": [],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {},
+          "node_ids": [],
+          "text_node_ids": [],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "page": 14,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\073db817879b\\page_14.png",
+          "entities": [],
+          "keywords": [],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {},
+          "node_ids": [],
+          "text_node_ids": [],
+          "conclusion_node_ids": []
+        }
+      ],
+      "cross_page_links": [
+        {
+          "source": "2510.22211v1.pdf",
+          "from_page": 1,
+          "to_page": 2,
+          "from_node_id": "2510_22211v1_page1_text_0",
+          "to_node_id": "2510_22211v1_page2_text_0",
+          "cross_node_id": "2510_22211v1_page1_to_page2_cross_text_0"
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "from_page": 2,
+          "to_page": 3,
+          "from_node_id": "2510_22211v1_page2_text_5",
+          "to_node_id": "2510_22211v1_page3_text_0",
+          "cross_node_id": "2510_22211v1_page2_to_page3_cross_text_0"
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "from_page": 3,
+          "to_page": 4,
+          "from_node_id": "2510_22211v1_page3_text_11",
+          "to_node_id": "2510_22211v1_page4_text_0",
+          "cross_node_id": "2510_22211v1_page3_to_page4_cross_text_0"
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "from_page": 4,
+          "to_page": 5,
+          "from_node_id": "2510_22211v1_page4_text_10",
+          "to_node_id": "2510_22211v1_page5_text_0",
+          "cross_node_id": "2510_22211v1_page4_to_page5_cross_text_0"
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "from_page": 5,
+          "to_page": 6,
+          "from_node_id": "2510_22211v1_page5_text_8",
+          "to_node_id": "2510_22211v1_page6_text_0",
+          "cross_node_id": "2510_22211v1_page5_to_page6_cross_text_0"
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "from_page": 6,
+          "to_page": 7,
+          "from_node_id": "2510_22211v1_page6_text_6",
+          "to_node_id": "2510_22211v1_page7_text_0",
+          "cross_node_id": "2510_22211v1_page6_to_page7_cross_text_0"
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "from_page": 7,
+          "to_page": 8,
+          "from_node_id": "2510_22211v1_page7_text_4",
+          "to_node_id": "2510_22211v1_page8_text_0",
+          "cross_node_id": "2510_22211v1_page7_to_page8_cross_text_0"
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "from_page": 8,
+          "to_page": 9,
+          "from_node_id": "2510_22211v1_page8_text_12",
+          "to_node_id": "2510_22211v1_page9_text_0",
+          "cross_node_id": "2510_22211v1_page8_to_page9_cross_text_0"
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "from_page": 9,
+          "to_page": 10,
+          "from_node_id": "2510_22211v1_page9_text_6",
+          "to_node_id": "2510_22211v1_page10_text_0",
+          "cross_node_id": "2510_22211v1_page9_to_page10_cross_text_0"
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "from_page": 10,
+          "to_page": 11,
+          "from_node_id": "2510_22211v1_page10_text_7",
+          "to_node_id": "2510_22211v1_page11_text_0",
+          "cross_node_id": "2510_22211v1_page10_to_page11_cross_text_0"
+        },
+        {
+          "source": "2510.22211v1.pdf",
+          "from_page": 11,
+          "to_page": 12,
+          "from_node_id": "2510_22211v1_page11_text_9",
+          "to_node_id": "2510_22211v1_page12_text_0",
+          "cross_node_id": "2510_22211v1_page11_to_page12_cross_text_0"
+        }
+      ],
+      "document_keywords": [
+        {
+          "term": "AGN",
+          "type": "concept",
+          "count": 4,
+          "pages": [
+            2,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "term": "QPEs",
+          "type": "concept",
+          "count": 3,
+          "pages": [
+            2,
+            9,
+            12
+          ]
+        },
+        {
+          "term": "HST/STIS",
+          "type": "other",
+          "count": 3,
+          "pages": [
+            3,
+            6,
+            7
+          ]
+        },
+        {
+          "term": "Ansky",
+          "type": "other",
+          "count": 3,
+          "pages": [
+            6,
+            9,
+            12
+          ]
+        },
+        {
+          "term": "TDEs",
+          "type": "concept",
+          "count": 2,
+          "pages": [
+            2,
+            12
+          ]
+        },
+        {
+          "term": "EMRI",
+          "type": "concept",
+          "count": 2,
+          "pages": [
+            2,
+            10
+          ]
+        },
+        {
+          "term": "HST",
+          "type": "organization",
+          "count": 2,
+          "pages": [
+            2,
+            8
+          ]
+        },
+        {
+          "term": "blackbody model",
+          "type": "model",
+          "count": 2,
+          "pages": [
+            3,
+            5
+          ]
+        },
+        {
+          "term": "Heasoft",
+          "type": "other",
+          "count": 2,
+          "pages": [
+            3,
+            12
+          ]
+        },
+        {
+          "term": "ZTF",
+          "type": "other",
+          "count": 2,
+          "pages": [
+            3,
+            8
+          ]
+        },
+        {
+          "term": "CIGALE",
+          "type": "other",
+          "count": 2,
+          "pages": [
+            3,
+            4
+          ]
+        },
+        {
+          "term": "TDE",
+          "type": "concept",
+          "count": 2,
+          "pages": [
+            4,
+            9
+          ]
+        },
+        {
+          "term": "featureless TDE",
+          "type": "concept",
+          "count": 2,
+          "pages": [
+            6,
+            11
+          ]
+        },
+        {
+          "term": "rising timescale",
+          "type": "metric",
+          "count": 2,
+          "pages": [
+            7,
+            11
+          ]
+        },
+        {
+          "term": "featureless TDEs",
+          "type": "other",
+          "count": 2,
+          "pages": [
+            7,
+            10
+          ]
+        },
+        {
+          "term": "UV spectra",
+          "type": "other",
+          "count": 2,
+          "pages": [
+            7,
+            10
+          ]
+        },
+        {
+          "term": "blackbody luminosity",
+          "type": "metric",
+          "count": 2,
+          "pages": [
+            8,
+            11
+          ]
+        },
+        {
+          "term": "SMBH",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            2
+          ]
+        },
+        {
+          "term": "STIS",
+          "type": "method",
+          "count": 1,
+          "pages": [
+            2
+          ]
+        },
+        {
+          "term": "GALFIT",
+          "type": "method",
+          "count": 1,
+          "pages": [
+            2
+          ]
+        },
+        {
+          "term": "LRIS",
+          "type": "method",
+          "count": 1,
+          "pages": [
+            2
+          ]
+        },
+        {
+          "term": "Lpipe",
+          "type": "method",
+          "count": 1,
+          "pages": [
+            2
+          ]
+        },
+        {
+          "term": "Keck 10-meter telescope",
+          "type": "organization",
+          "count": 1,
+          "pages": [
+            2
+          ]
+        },
+        {
+          "term": "MAST",
+          "type": "organization",
+          "count": 1,
+          "pages": [
+            2
+          ]
+        },
+        {
+          "term": "power-law model",
+          "type": "model",
+          "count": 1,
+          "pages": [
+            3
+          ]
+        },
+        {
+          "term": "residual spectrum",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            3
+          ]
+        },
+        {
+          "term": "UVOTSOURCE",
+          "type": "task",
+          "count": 1,
+          "pages": [
+            3
+          ]
+        },
+        {
+          "term": "C IV λ1549",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            3
+          ]
+        },
+        {
+          "term": "Swift/UVOT",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            3
+          ]
+        },
+        {
+          "term": "ATLAS",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            3
+          ]
+        },
+        {
+          "term": "SUPERBOL",
+          "type": "method",
+          "count": 1,
+          "pages": [
+            4
+          ]
+        },
+        {
+          "term": "g-band",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            4
+          ]
+        },
+        {
+          "term": "r-band",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            4
+          ]
+        },
+        {
+          "term": "Lyα",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            4
+          ]
+        },
+        {
+          "term": "N V",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            4
+          ]
+        },
+        {
+          "term": "C IV",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            4
+          ]
+        },
+        {
+          "term": "HI",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            4
+          ]
+        },
+        {
+          "term": "BPT diagram",
+          "type": "model",
+          "count": 1,
+          "pages": [
+            4
+          ]
+        },
+        {
+          "term": "MPA-JHU catalogue",
+          "type": "dataset",
+          "count": 1,
+          "pages": [
+            4
+          ]
+        },
+        {
+          "term": "featureless continuum",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            5
+          ]
+        },
+        {
+          "term": "broad emission lines",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            5
+          ]
+        },
+        {
+          "term": "X-ray spectra",
+          "type": "dataset",
+          "count": 1,
+          "pages": [
+            5
+          ]
+        },
+        {
+          "term": "light curves",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            5
+          ]
+        },
+        {
+          "term": "turn-on AGN scenario",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            5
+          ]
+        },
+        {
+          "term": "power-law index=-3.0",
+          "type": "model",
+          "count": 1,
+          "pages": [
+            6
+          ]
+        },
+        {
+          "term": "blackbody T=29002K",
+          "type": "model",
+          "count": 1,
+          "pages": [
+            6
+          ]
+        },
+        {
+          "term": "X-ray stacking spectrum",
+          "type": "dataset",
+          "count": 1,
+          "pages": [
+            6
+          ]
+        },
+        {
+          "term": "ASASSN-20hx",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            6
+          ]
+        },
+        {
+          "term": "Keck/LRIS",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            6
+          ]
+        },
+        {
+          "term": "WLQs",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            6
+          ]
+        },
+        {
+          "term": "Mg IIλ2799",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            6
+          ]
+        },
+        {
+          "term": "BLR",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            6
+          ]
+        },
+        {
+          "term": "reprocessing layer",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            7
+          ]
+        },
+        {
+          "term": "blackbody spectrum",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            7
+          ]
+        },
+        {
+          "term": "luminosity",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            7
+          ]
+        },
+        {
+          "term": "MJD",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            7
+          ]
+        },
+        {
+          "term": "multiwavelength light curves",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            7
+          ]
+        },
+        {
+          "term": "double-peaked structure",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            7
+          ]
+        },
+        {
+          "term": "blackbody temperature",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            8
+          ]
+        },
+        {
+          "term": "blackbody radius",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            8
+          ]
+        },
+        {
+          "term": "rest-frame days from peak",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            8
+          ]
+        },
+        {
+          "term": "UV photometry",
+          "type": "method",
+          "count": 1,
+          "pages": [
+            8
+          ]
+        },
+        {
+          "term": "power-law decay",
+          "type": "model",
+          "count": 1,
+          "pages": [
+            8
+          ]
+        },
+        {
+          "term": "LSST",
+          "type": "organization",
+          "count": 1,
+          "pages": [
+            8
+          ]
+        },
+        {
+          "term": "WFST",
+          "type": "organization",
+          "count": 1,
+          "pages": [
+            8
+          ]
+        },
+        {
+          "term": "post-MS star",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            8
+          ]
+        },
+        {
+          "term": "post-MS TDE",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            9
+          ]
+        },
+        {
+          "term": "main-sequence TDE",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            9
+          ]
+        },
+        {
+          "term": "hydrodynamical simulation",
+          "type": "method",
+          "count": 1,
+          "pages": [
+            9
+          ]
+        },
+        {
+          "term": "reprocessing envelope",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            9
+          ]
+        },
+        {
+          "term": "AT2022gri",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            9
+          ]
+        },
+        {
+          "term": "QPE source",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            10
+          ]
+        },
+        {
+          "term": "quasar composite spectrum",
+          "type": "dataset",
+          "count": 1,
+          "pages": [
+            10
+          ]
+        },
+        {
+          "term": "weak-emission-line quasar",
+          "type": "dataset",
+          "count": 1,
+          "pages": [
+            10
+          ]
+        },
+        {
+          "term": "scaled flux",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            10
+          ]
+        },
+        {
+          "term": "rest wavelength",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            10
+          ]
+        },
+        {
+          "term": "recently faded AGNs",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            10
+          ]
+        },
+        {
+          "term": "misaligned accretion disk",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            10
+          ]
+        },
+        {
+          "term": "AGN-ionized EELRs",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            10
+          ]
+        },
+        {
+          "term": "integral field spectrograph (IFS",
+          "type": "method",
+          "count": 1,
+          "pages": [
+            10
+          ]
+        },
+        {
+          "term": "turn-on AGN",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            11
+          ]
+        },
+        {
+          "term": "spectral index",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            11
+          ]
+        },
+        {
+          "term": "recently faded AGN",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            11
+          ]
+        },
+        {
+          "term": "EMRI+disk collision model",
+          "type": "model",
+          "count": 1,
+          "pages": [
+            11
+          ]
+        },
+        {
+          "term": "tidal disruption",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            11
+          ]
+        },
+        {
+          "term": "quasi-circular EMRI",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            11
+          ]
+        },
+        {
+          "term": "infrared echo",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            11
+          ]
+        },
+        {
+          "term": "torus remnant",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            11
+          ]
+        },
+        {
+          "term": "EELR",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            11
+          ]
+        },
+        {
+          "term": "Type II QPEs",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            12
+          ]
+        },
+        {
+          "term": "AGNs",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            12
+          ]
+        },
+        {
+          "term": "turn-on AGNs",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            12
+          ]
+        },
+        {
+          "term": "anonymous referee",
+          "type": "person",
+          "count": 1,
+          "pages": [
+            12
+          ]
+        },
+        {
+          "term": "SMBH accretion outbursts",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            12
+          ]
+        },
+        {
+          "term": "astropy",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            12
+          ]
+        }
+      ]
+    }
+  ]
+}
