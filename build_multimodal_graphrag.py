@@ -570,6 +570,7 @@ def build_knowledge_base(input_file: str, force_rebuild: bool = False) -> dict[s
         api_key=settings.dashscope_api_key,
         embedding_model=settings.embedding_model,
         output_dir=settings.faiss_dir,
+        embedding_provider=settings.embedding_provider,
     )
     print(f"  FAISS索引保存至: {faiss_path}")
 

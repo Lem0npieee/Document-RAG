@@ -42,6 +42,7 @@ class MultiModalGraphRAG:
             api_key=settings.dashscope_api_key,
             embedding_model=settings.embedding_model,
             index_dir=faiss_dir,
+            embedding_provider=settings.embedding_provider,
         )
         self.graph = load_graph(graph_path)
         self.pages_dir = Path(pages_dir)
@@ -514,11 +515,20 @@ class MultiModalGraphRAG:
             "要求：回答准确、简洁；结尾给出引用页码与关键关系。"
         )
         if answer_style == "short":
-            prompt += (
-                "\n\nEvaluation output format:\n"
-                "1) Output only the final answer string.\n"
-                "2) No explanation, no citation, no extra words.\n"
-                "3) If uncertain, output your best short span from the document."
+            prompt = (
+                "根据以下文档证据，直接回答问题。只输出答案本身，不要任何解释、推理过程、引用来源或额外说明。\n\n"
+                f"问题：{question}\n\n"
+                f"图谱关系链：\n{relation_block}\n\n"
+                f"全局社区证据：\n{global_context}\n\n"
+                f"文本证据：\n{text_evidence}\n\n"
+                "【严格格式要求】\n"
+                "- 只输出最终答案，答案必须尽可能短（一个词、一个数字或一个短语）\n"
+                "- 不要输出解释、不要输出\"答案是\"、不要输出引用页码、不要输出\"根据文档\"\n"
+                "- 数字型问题只输出数字（如 95.2 或 3）\n"
+                "- 是非问题只输出 yes 或 no\n"
+                "- 人名/地名/术语只输出名称本身\n"
+                "正确示例：ResNet / 95.2% / yes / Table 3 / 第2页\n"
+                "错误示例：根据文档内容，答案是ResNet / 该实验使用了ResNet架构 / 答案：95.2%"
             )
 
         print("  Generating answer...")

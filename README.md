@@ -140,7 +140,7 @@ pip install -r requirements.txt
 3. 配置密钥：
 
 - 复制 `.env.example` 为 `.env`
-- 至少填写真实 `DASHSCOPE_API_KEY`
+- 至少填写真实 `DASHSCOPE_API_KEY`（VLM 文档解析使用）
 - 默认 `MODEL_PROVIDER=dashscope`，行为与当前主分支一致
 - 若要切到本机 CLIProxyAPI，请额外配置：
 
@@ -152,10 +152,28 @@ CLIPROXY_PROVIDER=qclaw
 CLIPROXY_VL_MODEL=modelroute
 ```
 
+**Embedding 模型选择**（两种模式）：
+
+| 模式 | 配置 | 说明 |
+|---|---|---|
+| DashScope API（默认） | `EMBEDDING_PROVIDER=dashscope` | 使用 `text-embedding-v3`，需联网和 API 费用 |
+| 本地模型 | `EMBEDDING_PROVIDER=local` | 使用 `BAAI/bge-small-zh-v1.5`，免费离线，首次自动下载约 90MB |
+
+本地模式示例 `.env`：
+```env
+MODEL_PROVIDER=cliproxyapi
+EMBEDDING_PROVIDER=local
+CLIPROXY_API_BASE_URL=http://127.0.0.1:8317
+CLIPROXY_API_KEY=sk-dummy
+CLIPROXY_PROVIDER=qclaw
+CLIPROXY_VL_MODEL=modelroute
+```
+
 说明：
-- 当前项目仍然使用 DashScope embeddings，所以即使切到 `cliproxyapi`，`DASHSCOPE_API_KEY` 也必须保留
+- VLM（文档解析与回答）始终需要 DashScope 或 CLIProxyAPI，embedding 可独立选本地
+- 切换 embedding 模式后需删除旧 FAISS 索引重建：`rm -rf outputs/faiss_index/*`
+- 也可通过 `EMBEDDING_MODEL` 指定其他本地模型，如 `BAAI/bge-base-zh-v1.5`
 - CLIProxyAPI 路径只替换 VLM，不改 FAISS / GraphRAG / 前端交互
-- 已在本机验证 `modelroute` 可跑通完整闭环；`pool-hy3-preview` 目前会返回 `auth_unavailable`，若上游鉴权恢复可再手动切回
 
 4. 构建知识库（输入PDF或图片）：
 

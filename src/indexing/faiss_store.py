@@ -7,6 +7,38 @@ from pathlib import Path
 from langchain_community.embeddings import DashScopeEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
+from langchain_core.embeddings import Embeddings
+
+
+def _create_embedding(
+    embedding_provider: str,
+    embedding_model: str,
+    dashscope_api_key: str = "",
+) -> Embeddings:
+    """Create embedding instance based on provider selection.
+
+    Args:
+        embedding_provider: "dashscope" (API) or "local" (sentence-transformers).
+        embedding_model: Model name/path.
+        dashscope_api_key: Required when embedding_provider="dashscope".
+    """
+    if embedding_provider == "local":
+        from langchain_huggingface import HuggingFaceEmbeddings
+
+        print(f"    使用本地嵌入模型: {embedding_model}")
+        return HuggingFaceEmbeddings(
+            model_name=embedding_model,
+            encode_kwargs={"normalize_embeddings": True},
+        )
+
+    # Default: dashscope
+    if not dashscope_api_key:
+        raise ValueError("DASHSCOPE_API_KEY is required when EMBEDDING_PROVIDER=dashscope.")
+    print(f"    使用 DashScope 嵌入模型: {embedding_model}")
+    return DashScopeEmbeddings(
+        model=embedding_model,
+        dashscope_api_key=dashscope_api_key,
+    )
 
 
 def _path_has_non_ascii(path: Path) -> bool:
@@ -22,10 +54,11 @@ def build_faiss_index(
     api_key: str,
     embedding_model: str,
     output_dir: str | Path,
+    embedding_provider: str = "dashscope",
 ) -> Path:
-    print(f"    正在初始化嵌入模型: {embedding_model}")
-    embedding = DashScopeEmbeddings(
-        model=embedding_model,
+    embedding = _create_embedding(
+        embedding_provider=embedding_provider,
+        embedding_model=embedding_model,
         dashscope_api_key=api_key,
     )
 
@@ -35,7 +68,7 @@ def build_faiss_index(
     print(f"    正在构建FAISS向量索引，文档数: {len(documents)}")
 
     # DashScope embedding endpoint has batch limits.
-    batch_size = 10
+    batch_size = 10 if embedding_provider == "dashscope" else 64
     total_batches = (len(documents) + batch_size - 1) // batch_size
     print(f"    将 {len(documents)} 个文档分成 {total_batches} 批进行嵌入，每批 {batch_size} 个")
 
@@ -82,9 +115,11 @@ def load_faiss_index(
     api_key: str,
     embedding_model: str,
     index_dir: str | Path,
+    embedding_provider: str = "dashscope",
 ) -> FAISS:
-    embedding = DashScopeEmbeddings(
-        model=embedding_model,
+    embedding = _create_embedding(
+        embedding_provider=embedding_provider,
+        embedding_model=embedding_model,
         dashscope_api_key=api_key,
     )
 
@@ -114,4 +149,3 @@ def load_faiss_index(
         embeddings=embedding,
         allow_dangerous_deserialization=True,
     )
-

@@ -12,11 +12,13 @@ from typing import Any
 from loader import PDFQASample, load_pdfqa_samples
 from metrics import (
     anls_score,
+    containment_match,
     evidence_page_recall,
     exact_match,
-    levenshtein_distance,
     normalize_text,
+    score_all_metrics,
     summarize_metrics,
+    token_f1,
 )
 
 
@@ -60,6 +62,12 @@ def _strip_citation_tail(text: str) -> str:
         "reference pages",
         "evidence pages",
         "keyword::",
+        "【引用",
+        "[引用",
+        "（引用",
+        "来源：",
+        "来源:",
+        "source:",
     ]
     lower = text.lower()
     cut_at = -1
@@ -72,27 +80,80 @@ def _strip_citation_tail(text: str) -> str:
     return text
 
 
+def _extract_short_answer(text: str) -> str:
+    """Try to extract the actual short answer from a verbose model response.
+
+    Only extracts when there's a clear answer marker. Otherwise returns the
+    full text so that containment/F1 metrics can handle it properly.
+    """
+    text = text.strip()
+    if not text:
+        return ""
+
+    # Already short enough — likely a direct answer
+    if len(text) <= 20:
+        return text
+
+    # Explicit answer markers: "答案是X", "Answer: X", etc.
+    # Use greedy match for numeric patterns (to capture "95.2%" not just "95"),
+    # then take only the first sentence/clause after the marker.
+    patterns = [
+        (r"答案[是为：:]\s*(.+?)(?:[。\n，;；]|$)", True),
+        (r"[Aa]nswer[:\s]+(.+?)(?:[\n,;]|$)", True),
+        (r"[Ff]inal [Aa]nswer[:\s]+(.+?)(?:[\n,;]|$)", True),
+        (r"结果[是为：:]\s*(.+?)(?:[。\n，;；]|$)", True),
+    ]
+    for pat, _ in patterns:
+        m = re.search(pat, text)
+        if m:
+            extracted = m.group(1).strip()
+            # If extracted content still has commas/periods, take the first clause
+            # This handles "95.2%, which is better than..." → "95.2%"
+            for sep in (",", "，", "；", ";"):
+                if sep in extracted:
+                    first_part = extracted.split(sep)[0].strip()
+                    # Keep only if it looks like a real answer (not too long)
+                    if len(first_part) <= 40:
+                        extracted = first_part
+                        break
+            if extracted:
+                return extracted
+
+    # No clear marker found — return as-is and let containment/F1 handle it
+    return text
+
+
 def _clean_model_answer(raw: str, max_chars: int = 0) -> str:
     text = str(raw or "").strip()
     if not text:
         return ""
 
+    # Remove code fences
     text = re.sub(r"^```[a-zA-Z]*\s*", "", text)
     text = re.sub(r"\s*```$", "", text).strip()
 
-    for prefix in ("答案：", "答案:", "answer:", "Answer:", "final answer:", "Final answer:"):
+    # Strip leading answer labels
+    for prefix in ("答案：", "答案:", "答案是", "答案为", "answer:", "Answer:", "final answer:", "Final answer:"):
         if text.startswith(prefix):
             text = text[len(prefix) :].strip()
             break
 
+    # Strip citation tails
     text = _strip_citation_tail(text)
     text = re.sub(r"\n{3,}", "\n\n", text).strip()
 
+    # Normalize yes/no answers
     lowered = text.lower()
     if lowered.startswith("yes"):
         text = "yes"
     elif lowered.startswith("no"):
         text = "no"
+
+    # Try to extract short answer from verbose output
+    text = _extract_short_answer(text)
+
+    # Strip trailing punctuation that is not part of the answer (e.g. "95.2%。" → "95.2%")
+    text = text.rstrip("。.，,；;！!？?")
 
     if max_chars and max_chars > 0 and len(text) > max_chars:
         text = text[:max_chars].rstrip()
@@ -422,15 +483,46 @@ def main() -> None:
             pred = _best_span_match(pred, answers)
             rec["prediction_best_span"] = pred
 
-        rec["anls"] = anls_score(pred, answers, threshold=args.anls_threshold)
-        rec["em"] = exact_match(pred, answers)
+        all_scores = score_all_metrics(pred, answers, threshold=args.anls_threshold)
+        rec["anls"] = all_scores["anls"]
+        rec["em"] = all_scores["em"]
+        rec["containment"] = all_scores["containment"]
+        rec["token_f1"] = all_scores["token_f1"]
+        rec["llm_judge"] = all_scores["llm_judge"]
         scored_records.append(rec)
 
     core = summarize_metrics(scored_records, threshold=args.anls_threshold)
+
+    # Compute averages for new metrics
+    n_scored = len(scored_records) or 1
+    avg_containment = round(sum(float(r.get("containment", 0)) for r in scored_records) / n_scored, 6)
+    avg_token_f1 = round(sum(float(r.get("token_f1", 0)) for r in scored_records) / n_scored, 6)
+    avg_llm_judge = round(sum(float(r.get("llm_judge", 0)) for r in scored_records) / n_scored, 6)
+
     page_recall = evidence_page_recall(scored_records)
     by_category = _group_metrics(scored_records, key="category", threshold=args.anls_threshold)
     by_dataset = _group_metrics(scored_records, key="dataset", threshold=args.anls_threshold)
     by_question_type = _group_metrics(scored_records, key="question_type", threshold=args.anls_threshold)
+
+    def _augment_group_with_new_metrics(
+        group_dict: dict[str, dict[str, float | int]],
+        records: list[dict[str, Any]],
+        key: str,
+    ) -> dict[str, dict[str, float | int]]:
+        result: dict[str, dict[str, float | int]] = {}
+        for name, sub in group_dict.items():
+            sub = dict(sub)
+            group_recs = [r for r in records if str(r.get(key, "unknown") or "unknown") == name]
+            n = len(group_recs) or 1
+            sub["containment"] = round(sum(float(r.get("containment", 0)) for r in group_recs) / n, 6)
+            sub["token_f1"] = round(sum(float(r.get("token_f1", 0)) for r in group_recs) / n, 6)
+            sub["llm_judge"] = round(sum(float(r.get("llm_judge", 0)) for r in group_recs) / n, 6)
+            result[name] = sub
+        return result
+
+    by_category = _augment_group_with_new_metrics(by_category, scored_records, "category")
+    by_dataset = _augment_group_with_new_metrics(by_dataset, scored_records, "dataset")
+    by_question_type = _augment_group_with_new_metrics(by_question_type, scored_records, "question_type")
 
     summary = {
         "updated_at": datetime.now().isoformat(),
@@ -450,6 +542,9 @@ def main() -> None:
         "anls_threshold": args.anls_threshold,
         "anls": core["anls"],
         "em": core["em"],
+        "containment": avg_containment,
+        "token_f1": avg_token_f1,
+        "llm_judge": avg_llm_judge,
         "evidence_page_recall": page_recall,
         "k": args.k,
         "max_nodes": args.max_nodes,
