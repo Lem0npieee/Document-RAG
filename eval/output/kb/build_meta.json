@@ -7,6 +7,14 @@
       "size": 1025081,
       "mtime": 1778082594.1995595,
       "added_at": "2026-05-07T23:04:17.733736"
+    },
+    {
+      "input_file": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\pdfQA\\syn-pdfQA\\01.2_Input_Files_PDF\\research articles\\2510.22218v1.pdf",
+      "source_name": "2510.22218v1.pdf",
+      "sha256": "fdf9c2552af0793f59ee0e77dd0c38909d9306d8c2fe976dcc8578de89c99c6b",
+      "size": 2016477,
+      "mtime": 1778082594.2098827,
+      "added_at": "2026-05-08T16:21:00.086908"
     }
   ]
 }

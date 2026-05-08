@@ -15,6 +15,7 @@ from metrics import (
     containment_match,
     evidence_page_recall,
     exact_match,
+    levenshtein_distance,
     normalize_text,
     score_all_metrics,
     summarize_metrics,

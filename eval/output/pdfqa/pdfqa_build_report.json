@@ -1,15 +1,18 @@
 {
-  "updated_at": "2026-05-07T23:25:04.586764",
+  "updated_at": "2026-05-08T16:22:26.164859",
   "annotations_root": "eval\\pdfQA",
   "pdfs_root": "eval\\pdfQA",
   "kb_root": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb",
   "category": "syn",
-  "total_samples": 20,
-  "total_unique_docs": 1,
+  "qa_split": "all",
+  "total_samples": 80,
+  "total_unique_docs": 2,
   "built_docs": 1,
   "skipped_docs": 0,
-  "failed_docs": 0,
-  "failed_sources": {},
+  "failed_docs": 1,
+  "failed_sources": {
+    "2510.22211v1.pdf": "SSLError: HTTPSConnectionPool(host='dashscope.aliyuncs.com', port=443): Max retries exceeded with url: /api/v1/services/aigc/multimodal-generation/generation (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1017)')))"
+  },
   "progress_file": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\pdfqa\\pdfqa_build_progress.json",
   "warnings_count": 0
 }

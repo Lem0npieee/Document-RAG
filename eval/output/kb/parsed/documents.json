@@ -1797,5 +1797,2784 @@
       "from_node_id": "2510_22211v1_page11_text_9",
       "to_node_id": "2510_22211v1_page12_text_0"
     }
+  },
+  {
+    "page_content": "Avoiding PBH overproduction in inflation model with modified dispersion relation",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 1,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_1.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page1_text_0",
+      "bbox": [
+        0.1,
+        0.04,
+        0.86,
+        0.08
+      ]
+    }
+  },
+  {
+    "page_content": "Chengrui Yang,¹,* Weixin Cai,¹,† and Taotao Qiu¹,‡",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 1,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_1.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page1_text_1",
+      "bbox": [
+        0.27,
+        0.09,
+        0.63,
+        0.12
+      ]
+    }
+  },
+  {
+    "page_content": "¹School of Physics, Huazhong University of Science and Technology",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 1,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_1.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page1_text_2",
+      "bbox": [
+        0.27,
+        0.12,
+        0.63,
+        0.15
+      ]
+    }
+  },
+  {
+    "page_content": "Wuhan, 430074, China",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 1,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_1.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page1_text_3",
+      "bbox": [
+        0.4,
+        0.15,
+        0.56,
+        0.18
+      ]
+    }
+  },
+  {
+    "page_content": "The Pulsar Timing Array (PTA) data of nano-Hertz gravitational waves released in 2023 implies that if such gravitational waves comes from the scalar perturbation induction at the end of inflation, the accompanied primordial black holes (PBHs) will be over-produced, with the fraction exceed the upper bound of unity. This is recognized as the “overproduction problem”, which calls for nontrivial features in the early universe. In this paper, we try to check out whether a modified dispersion relation (MDR) of the primordial perturbations can be helpful for solving the problem. From the constraint on PTA data, we obtain a posterior distribution of the parameters of primordial perturbation, and find that the MDR model, where the k⁴ term becomes important at later time, can give rise to a broken-power-law (BPL) power spectrum which can alleviate the overproduction problem to nearly 2σ level. However, to improve further into 1σ still needs small negative non-Gaussianity, e.g. f_nl ≈ -1. The mass distribution of the PBHs generated is also discussed.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 1,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_1.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page1_text_4",
+      "bbox": [
+        0.1,
+        0.18,
+        0.86,
+        0.27
+      ]
+    }
+  },
+  {
+    "page_content": "I. INTRODUCTION",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 1,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_1.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page1_text_5",
+      "bbox": [
+        0.4,
+        0.31,
+        0.56,
+        0.34
+      ]
+    }
+  },
+  {
+    "page_content": "The Primordial Black Holes (PBHs) [? ? ? ] are interesting in many research fields such as gravity, cosmology and astrophysics. Being generated from overdensed spacetime curvature fluctuations in the very early universe, the PBHs can escape from the constraint of Chandrasekhar limit, and thus have wider mass range than astrophysical black holes with fruitful properties. Not only is it possible for PBHs to act as 100% dark matter, but also they can produce gravitational waves and/or Hawking radiations, which can be used as a probe of the early universe. See [? ? ? ? ? ] for recent reviews and references therein.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 1,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_1.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page1_text_6",
+      "bbox": [
+        0.1,
+        0.34,
+        0.86,
+        0.42
+      ]
+    }
+  },
+  {
+    "page_content": "The latest observations of gravitational waves with the pulsar timing array (PTA) have been released almost simultaneously by NANOGrav 15yr [? ? ], PPTA [? ? ], EPTA (with InPTA) [? ? ] and CPTA [? ]. By observing a group of millisecond pulsars, they presented the signal correlations of Hellings-Downs angular pattern from 2σ to over 4σ, which indicates the evidence for stochastic gravitational wave background (SGWB). Moreover, a strain spectrum of A ~ 10⁻¹⁵ at a reference of 1yr⁻¹ (or nHz) has been found. Although sources from a population of supermassive black hole binary (SMBHB) are consistent, it shows that more exotic cosmological and astrophysical sources are more favored. As a precise example, the NANOGrav 15yr data prefers a power-law exponent of gravitational wave power spectral density γ = 3.2 ± 0.6 [? ? ? ] while the SMBHB gives rise to a more steep γ = 13/3 [? ]. For this reason, people are considering other mechanisms for this PTA signal, such as environment effects [? ], or other cosmological sources, such as primordial gravitational waves (pGWs) [? ? ], scalar-induced gravitational waves (SIGWs) [? ? ? ? ? ], first-order phase transition (FOPT) [? ? ], topological defects [? ? ? ] and so on. See [? ] for review about these sources.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 1,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_1.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page1_text_7",
+      "bbox": [
+        0.1,
+        0.42,
+        0.86,
+        0.55
+      ]
+    }
+  },
+  {
+    "page_content": "Among those candidates of PTA sources mentioned above, there is an interesting possibility that it could be gravitational waves induced by scalar primordial perturbations. It has been shown in Ref. [? ] with the model comparison Bayesian analysis that, the SIGW signal provides a better fit to the PTA data than the astrophysical counterpart. Moreover, it also provides a mechanism for PBH formation. But wait. What about the amount of the PBHs if we require the SIGW be suitable to explain the PTA data? In standard cosmology, both PBHs and its accompanying SIGWs are produced by the small-scale perturbations that are generated near the end of inflation. However, in Ref. [? ], it was claimed that for single-field inflationary scenarios without non-Gaussianity, or even with positive non-Gaussianity, the amount of PBHs will be overproduced (with its fraction f_PBH ≥ 1) when the SIGW spectrum is required to explain the PTA data. The same results are obtained in [? ] even for earlier NANOGrav 12.5yr observational data analysis. Such a tension, dubbed as the “overproduction problem”, will thus place severe constraints on inflationary models which is responsible for PBH production.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 1,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_1.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page1_text_8",
+      "bbox": [
+        0.1,
+        0.55,
+        0.86,
+        0.66
+      ]
+    }
+  },
+  {
+    "page_content": "The requirement to overcome this issue places constraints on the inflation models, which requires them to possess certain features. Naively speaking, it may be helpful to reduce the population of the formed PBHs with either a large",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 1,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_1.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page1_text_9",
+      "bbox": [
+        0.1,
+        0.66,
+        0.86,
+        0.71
+      ]
+    }
+  },
+  {
+    "page_content": "*Electronic address: ycrd@hust.edu.cn",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 1,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_1.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page1_text_10",
+      "bbox": [
+        0.1,
+        0.79,
+        0.3,
+        0.82
+      ]
+    }
+  },
+  {
+    "page_content": "†Electronic address: weixincai@hust.edu.cn",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 1,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_1.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page1_text_11",
+      "bbox": [
+        0.1,
+        0.82,
+        0.3,
+        0.85
+      ]
+    }
+  },
+  {
+    "page_content": "‡Electronic address: qiutt@hust.edu.cn; Corresponding author.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 1,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_1.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page1_text_12",
+      "bbox": [
+        0.1,
+        0.85,
+        0.45,
+        0.88
+      ]
+    }
+  },
+  {
+    "page_content": "negative non-Gaussianity [ ? ? ? ? ? ? ? ? ] or a different window function/threshold value [ ? ], but for better illustration, it is important to have a concrete model, see [ ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ]. In this work, we're particularly interested in the case where the dispersion relation of the inflaton field gets modified, with a correction of k^4 term. In some higher derivative theories or modified gravity theories interesting in cosmology, it is natural to modify the dispersion relation, while such a term will appear as a leading order correction [ ? ? ? ? ]. Moreover, this term could also allow us to get a varying sound speed c_s, which is useful to generate PBHs without violating the consistency requirement and leading to strong coupling [ ? ? ? ? ]. Note that people have considered a constant c_s different from unity during both inflation [ ? ? ] and the radiation-dominant era [ ? ? ]. The former will affect the primordial power spectrum generated during inflation, while the latter will affect the transfer function in the calculation of the SIGW. On the other hand, the case where c_s varies during the inflation era is less discussed.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_0",
+      "bbox": [
+        0.1,
+        0.06,
+        0.9,
+        0.15
+      ]
+    }
+  },
+  {
+    "page_content": "The rest of the paper is arrange as follows: In Sec. ?? we calculate the primordial perturbations of general inflation model with modified dispersion relation, and obtain the curvature power spectrum. In Sec. ?? we discuss about the gravitational waves induced by such a power spectrum, and constrain the parameters using the recent PTA data. In Sec. ?? we consider the PBHs generated at the end of inflation, and compare the fraction of PBHs to the data constraint to see whether the overproduction issue can be effectively avoided. Sec. ?? is our conclusions and discussions.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_1",
+      "bbox": [
+        0.1,
+        0.15,
+        0.9,
+        0.23
+      ]
+    }
+  },
+  {
+    "page_content": "II. PRIMORDIAL PERTURBATION WITH MODIFIED DISPERSION RELATION",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_2",
+      "bbox": [
+        0.1,
+        0.27,
+        0.86,
+        0.31
+      ]
+    }
+  },
+  {
+    "page_content": "We consider the inflation model where the dispersion relation of the inflation perturbation is modified with a k^4 correction [ ? ? ? ? ]. In general case without model specification, the Mukhanov-Sasaki equation of the curvature perturbation can be written as:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_3",
+      "bbox": [
+        0.1,
+        0.31,
+        0.9,
+        0.36
+      ]
+    }
+  },
+  {
+    "page_content": "u_k'' + [c_s^2 k^2 + α^2 k^4 τ^2 - (θ^2 - 1/4)/τ^2] u_k = 0 .",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_4",
+      "bbox": [
+        0.35,
+        0.36,
+        0.65,
+        0.4
+      ]
+    }
+  },
+  {
+    "page_content": "Here, c_s stands for the sound speed of the perturbation, τ stands for the conformal time and α is the coefficient of the k^4 term. The variable u_k is redefinition of the curvature perturbation ζ_k, with the relation",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_5",
+      "bbox": [
+        0.1,
+        0.4,
+        0.9,
+        0.44
+      ]
+    }
+  },
+  {
+    "page_content": "u_k = z ζ_k ,   z ∝ a(τ) .",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_6",
+      "bbox": [
+        0.4,
+        0.44,
+        0.6,
+        0.48
+      ]
+    }
+  },
+  {
+    "page_content": "We consider the varying sound speed as:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_7",
+      "bbox": [
+        0.1,
+        0.48,
+        0.9,
+        0.51
+      ]
+    }
+  },
+  {
+    "page_content": "c_s { ≃ 1 , τ < τ* \n     ≪ 1 , τ > τ*",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_8",
+      "bbox": [
+        0.4,
+        0.51,
+        0.6,
+        0.55
+      ]
+    }
+  },
+  {
+    "page_content": "where τ* is some pivot time [ ? ? ]. It is also convenient to dub the two regions as “slow-roll phase” and “stealth phase” respectively. Then Eq. (?) turns out to be",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_9",
+      "bbox": [
+        0.1,
+        0.55,
+        0.9,
+        0.59
+      ]
+    }
+  },
+  {
+    "page_content": "u_k^{sr}'' + [c_s^2 k^2 - (θ^2 - 1/4)/τ^2] u_k^{sr} = 0   for slow-roll phase ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_10",
+      "bbox": [
+        0.3,
+        0.59,
+        0.65,
+        0.63
+      ]
+    }
+  },
+  {
+    "page_content": "u_k^{st}'' + [α^2 k^4 τ^2 - (θ^2 - 1/4)/τ^2] u_k^{st} = 0   for stealth phase .",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_11",
+      "bbox": [
+        0.3,
+        0.63,
+        0.65,
+        0.67
+      ]
+    }
+  },
+  {
+    "page_content": "It is straightforward to get the solution in both phases, which has been done in [ ? ? ]:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_12",
+      "bbox": [
+        0.1,
+        0.67,
+        0.9,
+        0.71
+      ]
+    }
+  },
+  {
+    "page_content": "u_k^{sr}(k, τ) = √(-τ) (C_1^{sr} H_{3/2}^{(1)}(-c_s k τ) + C_2^{sr} H_{3/2}^{(2)}(-c_s k τ)) ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_13",
+      "bbox": [
+        0.25,
+        0.71,
+        0.75,
+        0.75
+      ]
+    }
+  },
+  {
+    "page_content": "u_k^{st}(k, τ) = √(-τ) [C_1^{st} H_{3/4}^{(1)}(α k^2 τ^2 / 2) + C_2^{st} H_{3/4}^{(2)}(α k^2 τ^2 / 2)] ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_14",
+      "bbox": [
+        0.25,
+        0.75,
+        0.75,
+        0.79
+      ]
+    }
+  },
+  {
+    "page_content": "where C_1^{sr}, C_2^{sr}, C_1^{st}, C_2^{st} are constant coefficients, while H^{(1)} and H^{(2)} are the first and the second Hankel functions. The coefficients of the slow-roll phase solution can be determined by the initial condition of inflation, namely Bunch-Davies vacuum solution. This gives the coefficients as:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_15",
+      "bbox": [
+        0.1,
+        0.79,
+        0.9,
+        0.83
+      ]
+    }
+  },
+  {
+    "page_content": "C_1^{sr} = √π / 2 ,   C_2^{sr} = 0 .",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page2_text_16",
+      "bbox": [
+        0.4,
+        0.83,
+        0.6,
+        0.87
+      ]
+    }
+  },
+  {
+    "page_content": "On the other hand, in order to determine the coefficients of the stealth phase solution, we impose the junction relations at the pivot time τ*:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_0",
+      "bbox": [
+        0.1,
+        0.12,
+        0.86,
+        0.18
+      ]
+    }
+  },
+  {
+    "page_content": "u_k^{sr}|_{τ=τ*} = u_k^{st}|_{τ=τ*}, \\quad u_k^{sr'}|_{τ=τ*} = u_k^{st'}|_{τ=τ*}.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_1",
+      "bbox": [
+        0.35,
+        0.18,
+        0.72,
+        0.22
+      ]
+    }
+  },
+  {
+    "page_content": "This will give rise to:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_2",
+      "bbox": [
+        0.1,
+        0.22,
+        0.48,
+        0.26
+      ]
+    }
+  },
+  {
+    "page_content": "[C_1^{st} \\ C_2^{st}] = \\frac{παk^2}{8i} C_1^{sr} τ_*^2 × [ +c_s(-αkτ_*)^{-1} H_{3/4}^{(2)}(\\frac{αk^2 τ_*^2}{2}) H_{1/2}^{(1)}(-c_skτ_*) - H_{-1/4}^{(2)}(\\frac{αk^2 τ_*^2}{2}) H_{3/2}^{(1)}(-c_skτ_*) \\ -c_s(-αkτ_*)^{-1} H_{3/4}^{(1)}(\\frac{αk^2 τ_*^2}{2}) H_{1/2}^{(1)}(-c_skτ_*) + H_{-1/4}^{(2)}(\\frac{αk^2 τ_*^2}{2}) H_{3/2}^{(1)}(-c_skτ_*) ].",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_3",
+      "bbox": [
+        0.1,
+        0.26,
+        0.9,
+        0.34
+      ]
+    }
+  },
+  {
+    "page_content": "We obtain the power spectrum of the curvature perturbations at their values at the end of inflation, namely τ → 0. In this limit, solution (??) will have the following approximate behavior:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_4",
+      "bbox": [
+        0.1,
+        0.34,
+        0.86,
+        0.4
+      ]
+    }
+  },
+  {
+    "page_content": "u_k^{st} = 2^{3/2} i π^{-1} Γ(3/4) α^{-3/4} |C_1^{st} - C_1^{sr}| k^{-3/2} (-τ)^{-1}.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_5",
+      "bbox": [
+        0.31,
+        0.4,
+        0.72,
+        0.44
+      ]
+    }
+  },
+  {
+    "page_content": "Due to the expressions (??), the behavior of Eq. (??) will be different in different scales, labeled with k. For evolutions of u_k before the pivot scale τ*, we always have αk^2τ^2/2 < -c_skτ, see Fig. 1 (right panel) in [? ]. In large scales where αk^2τ^2/2 < -c_skτ < 1, the solution becomes",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_6",
+      "bbox": [
+        0.1,
+        0.44,
+        0.9,
+        0.5
+      ]
+    }
+  },
+  {
+    "page_content": "u_k^{st} = -2i π^{-2} Γ(3/4) Γ(1/4) Γ(3/2) c_s^{-3/2} C_1^{sr} k^{-3/2} (-τ)^{-1}.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_7",
+      "bbox": [
+        0.28,
+        0.5,
+        0.72,
+        0.54
+      ]
+    }
+  },
+  {
+    "page_content": "In medium scales where αk^2τ^2/2 < 1 < -c_skτ, it becomes",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_8",
+      "bbox": [
+        0.1,
+        0.54,
+        0.58,
+        0.58
+      ]
+    }
+  },
+  {
+    "page_content": "u_k^{st} = \\frac{4}{3} 2^{-3/2} π^{-1/2} c_s^{1/2} τ_*^2 e^{-ic_skτ_*} C_1^{sr} k^{1/2} (-τ)^{-1}.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_9",
+      "bbox": [
+        0.31,
+        0.58,
+        0.72,
+        0.62
+      ]
+    }
+  },
+  {
+    "page_content": "While in small scales where 1 < αk^2τ^2/2 < -c_skτ, it becomes",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_10",
+      "bbox": [
+        0.1,
+        0.62,
+        0.58,
+        0.66
+      ]
+    }
+  },
+  {
+    "page_content": "u_k^{st} = \\sqrt{2} π^{-1} i e^{-ic_skτ_*} Γ(3/4) α^{-5/4} c_s^{1/2} (-τ_*)^{-1/2} C_1^{sr} k^{-2} (-τ)^{-1}.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_11",
+      "bbox": [
+        0.28,
+        0.66,
+        0.72,
+        0.7
+      ]
+    }
+  },
+  {
+    "page_content": "The power spectrum of the curvature perturbation is defined as follows:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_12",
+      "bbox": [
+        0.1,
+        0.7,
+        0.58,
+        0.74
+      ]
+    }
+  },
+  {
+    "page_content": "P_ζ(k) ≡ \\frac{k^3}{2π^2} |\\frac{u_k}{z}|^2.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_13",
+      "bbox": [
+        0.43,
+        0.74,
+        0.68,
+        0.78
+      ]
+    }
+  },
+  {
+    "page_content": "Thus from Eqs. (??), (??) and (??) one finds that",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_14",
+      "bbox": [
+        0.1,
+        0.78,
+        0.58,
+        0.82
+      ]
+    }
+  },
+  {
+    "page_content": "P_ζ(k) ∝ \\begin{cases} k^0 & \\text{for large scale}, \\\\ k^4 & \\text{for medium scale}, \\\\ k^{-1} & \\text{for small scale}. \\end{cases}",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_15",
+      "bbox": [
+        0.35,
+        0.82,
+        0.72,
+        0.86
+      ]
+    }
+  },
+  {
+    "page_content": "We numerically calculate the equation (??) and plot the power spectrum in Fig. ???. The figures show nice consistency with the analytical result (??), however, there also exists some oscillations on the small scales. This is due to the fact that for very large k modes which does not exit the horizon before the pivot scale τ*, the subhorizon effect will become robust. However, it can be smoothed to mimic the power-law form. Since in this work we're mainly focusing on the medium and small scales which are responsible for SIGW and PBH generation, it is useful to parametrize the power spectrum within these scales into a broken-power-law (BPL) form:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_16",
+      "bbox": [
+        0.1,
+        0.86,
+        0.9,
+        0.92
+      ]
+    }
+  },
+  {
+    "page_content": "P_ζ(k) = \\begin{cases} A (\\frac{k}{k_*})^4 & k < k_*, \\\\ A (\\frac{k}{k_*})^{-1} & k > k_*. \\end{cases}",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_17",
+      "bbox": [
+        0.35,
+        0.92,
+        0.72,
+        0.96
+      ]
+    }
+  },
+  {
+    "page_content": "where the amplitude A is related to the model parameters c_s and α in Eq. (??), while k_* is pivot scale between medium and small scales.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page3_text_18",
+      "bbox": [
+        0.1,
+        0.96,
+        0.58,
+        1.0
+      ]
+    }
+  },
+  {
+    "page_content": "FIG. 1: The power spectrum of curvature perturbation obtained from Eq. (??) with respect to k (in logarithm). Three straight lines mimicking the P_c - k relations are also shown for comparison: red line is for P_c ~ k^0, green is for P_c ~ k^4, while blue is for P_c ~ k^{-1}. The dashed line denotes the pivot scale k_* corresponding to the peak of the power spectrum. With the power spectrum in large scales around 2.0 × 10^{-9}, lg |τ_*| and lg α are set to be -4.95 and -3.86 to make the BPL parameters lg(k_*/Mpc^{-1}) and lg A to be 7.0 and -1.4.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page4_text_0",
+      "bbox": [
+        0.1,
+        0.31,
+        0.86,
+        0.37
+      ]
+    }
+  },
+  {
+    "page_content": "III. GRAVITATIONAL WAVES INDUCED FROM SCALAR PERTURBATION",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page4_text_1",
+      "bbox": [
+        0.1,
+        0.4,
+        0.86,
+        0.44
+      ]
+    }
+  },
+  {
+    "page_content": "It is well-known that the scalar and tensor perturbations decouple with each other in linear level. However, when going into non-linear level, the coupling will appear, and the scalar perturbation can be transferred into the tensor one via the scalar-tensor interaction, while the latter consists of the gravitational waves. Although it has been suppressed during most part of the inflation era, at the end of inflation where the scalar perturbation gets enlarged, such an interaction becomes important, and the induced tensor perturbation can act as a signal to be observed by the current gravitational wave observations. Here we consider the induced gravitational waves generated by the scalar perturbations given in (??).",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page4_text_2",
+      "bbox": [
+        0.1,
+        0.44,
+        0.86,
+        0.53
+      ]
+    }
+  },
+  {
+    "page_content": "The energy density fraction spectrum of the present-day SIGW is calculated in [? ? ] (see also [? ] for a review). For scalar-induced case, the equation of motion for tensor perturbations can be written as:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page4_text_3",
+      "bbox": [
+        0.1,
+        0.53,
+        0.86,
+        0.57
+      ]
+    }
+  },
+  {
+    "page_content": "h_k''(τ) + 2aH h_k'(τ) + k^2 h_k(τ) = 4S_k(τ) .",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page4_text_4",
+      "bbox": [
+        0.36,
+        0.57,
+        0.64,
+        0.59
+      ]
+    }
+  },
+  {
+    "page_content": "Here S_k(τ) is the source term from scalar perturbation:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page4_text_5",
+      "bbox": [
+        0.1,
+        0.59,
+        0.86,
+        0.62
+      ]
+    }
+  },
+  {
+    "page_content": "S_k(τ) = ∫ d^3q / ((2π)^{3/2}) ε_ij(k) q_i q_j [2Φ_q Φ_{k-q} + 4/(3(1+w)) (Φ_q + Φ_q'/H) (Φ_{k-q} + Φ_{k-q}'/H)] ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page4_text_6",
+      "bbox": [
+        0.18,
+        0.62,
+        0.82,
+        0.66
+      ]
+    }
+  },
+  {
+    "page_content": "where Φ_k is the gravitational potential, and ε_ij(k) is the polarization tensor. The solution of Eq. (??) is",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page4_text_7",
+      "bbox": [
+        0.1,
+        0.66,
+        0.86,
+        0.69
+      ]
+    }
+  },
+  {
+    "page_content": "h_k(τ) = 4/a ∫^τ dτ' G_k(τ, τ') a(τ') S_k(τ') ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page4_text_8",
+      "bbox": [
+        0.36,
+        0.69,
+        0.64,
+        0.71
+      ]
+    }
+  },
+  {
+    "page_content": "where G_k(τ, τ') is the Green function.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page4_text_9",
+      "bbox": [
+        0.1,
+        0.71,
+        0.86,
+        0.74
+      ]
+    }
+  },
+  {
+    "page_content": "After inflation ends, we assume that the universe entered into a radiation-dominated era, where everything has decayed into relativistic particles. In this era the gravitational potential satisfies the equation",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page4_text_10",
+      "bbox": [
+        0.1,
+        0.74,
+        0.86,
+        0.77
+      ]
+    }
+  },
+  {
+    "page_content": "Φ_k''(τ) + 6(1+w)/(1+3w)τ Φ_k'(τ) + wk^2 Φ_k(τ) = 0 ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page4_text_11",
+      "bbox": [
+        0.36,
+        0.77,
+        0.64,
+        0.79
+      ]
+    }
+  },
+  {
+    "page_content": "where in the radiation-dominated era, one has w = 1/3. This gives rise to the solution:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page4_text_12",
+      "bbox": [
+        0.1,
+        0.79,
+        0.86,
+        0.82
+      ]
+    }
+  },
+  {
+    "page_content": "Φ_k(τ) = Φ_0(k) T(k, τ) ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page4_text_13",
+      "bbox": [
+        0.36,
+        0.82,
+        0.64,
+        0.84
+      ]
+    }
+  },
+  {
+    "page_content": "T(k, τ) = 3 sin(kτ/√3) - (kτ/√3) cos(kτ/√3) / (kτ/√3)^3 .",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page4_text_14",
+      "bbox": [
+        0.36,
+        0.84,
+        0.64,
+        0.86
+      ]
+    }
+  },
+  {
+    "page_content": "A graph plotting the power spectrum P_c against log(k/Mpc⁻¹), showing the actual curve and three comparison lines (P_c ~ k⁰, P_c ~ k⁴, P_c ~ k⁻¹), along with the pivot scale k* marked by a dashed line.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "type": "figure",
+      "fig_id": "Figure 1",
+      "node_id": "2510_22218v1_page4_figure_0",
+      "bbox": [
+        0.1,
+        0.26,
+        0.48,
+        0.4
+      ]
+    }
+  },
+  {
+    "page_content": "The coefficient Φ₀(𝑘) is the initial condition of the solution for this era, which will be connected to the perturbations during inflation. As the Newtonian potential, it relates to the curvature perturbation ζ as",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_0",
+      "bbox": [
+        0.1,
+        0.06,
+        0.92,
+        0.13
+      ]
+    }
+  },
+  {
+    "page_content": "Φ₀(𝑘) ≃ (ε / (1 + ε)) ζₖ = ((3 + 3w) / (5 + 3w)) ζₖ .",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_1",
+      "bbox": [
+        0.41,
+        0.13,
+        0.75,
+        0.18
+      ]
+    }
+  },
+  {
+    "page_content": "The tensor spectrum is defined as:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_2",
+      "bbox": [
+        0.1,
+        0.18,
+        0.92,
+        0.21
+      ]
+    }
+  },
+  {
+    "page_content": "⟨hₖ(τ) hₖ'(τ)⟩ = δ³(𝑘 + 𝑘') (2π² / k³) Pₕ(k, τ) .",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_3",
+      "bbox": [
+        0.37,
+        0.21,
+        0.75,
+        0.25
+      ]
+    }
+  },
+  {
+    "page_content": "Meanwhile, the energy density of gravitational waves is defined as:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_4",
+      "bbox": [
+        0.1,
+        0.25,
+        0.92,
+        0.29
+      ]
+    }
+  },
+  {
+    "page_content": "ρGW(k, τ) ≡ dρGW / d ln k = (Mₚ² / (16a²)) d/d ln k ⟨hᵢⱼ,𝑘 hᵢⱼ,𝑘⟩ ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_5",
+      "bbox": [
+        0.37,
+        0.29,
+        0.75,
+        0.33
+      ]
+    }
+  },
+  {
+    "page_content": "note that here hᵢⱼ is Fourier conjugate of the hₖ(τ) in Eq. (??), and hᵢⱼ,𝑘 ≡ ∂ₖ hᵢⱼ. Therefore, the energy density fraction of the gravitational waves is written as:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_6",
+      "bbox": [
+        0.1,
+        0.33,
+        0.92,
+        0.38
+      ]
+    }
+  },
+  {
+    "page_content": "ΩGW(k, τ) ≡ ρGW(k, τ) / ρtot(τ) = (1/24) ((k / (a(τ)H(τ)))² Pₕ(k, τ) .",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_7",
+      "bbox": [
+        0.37,
+        0.38,
+        0.75,
+        0.42
+      ]
+    }
+  },
+  {
+    "page_content": "At the horizon-reentrance time τₖ when k = a(τₖ)H(τₖ), one has ΩGW^(k) = Pₕ^(k)(k)/24, where the subscript ⟨k⟩ denotes the values at reentrance time point τₖ. On the other hand, for gravitational waves generated during radiation-dominated era, ρGW(k, τ) = ΩGW(k, τ)ρtot(τ) evolves as a⁻⁴ [ ? ? ]. Thus one has:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_8",
+      "bbox": [
+        0.1,
+        0.42,
+        0.92,
+        0.48
+      ]
+    }
+  },
+  {
+    "page_content": "ΩGW^(0)(k) / ΩGW^(k)(k) = a⁴(τₖ) (ρtot^(k) / ρtot^(0)) = (g*^(k) / g*^(0)) (g*ₛ^(k) / g*ₛ^(0))⁻⁴/₃ Ωr^(0) ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_9",
+      "bbox": [
+        0.37,
+        0.48,
+        0.75,
+        0.53
+      ]
+    }
+  },
+  {
+    "page_content": "where the subscript ⟨0⟩ denotes the values at the current time, and Ωr^(0) ≡ ρr^(0) / ρtot^(0) ≃ 4.3 × 10⁻⁵ h⁻². Here we have made use of the fact that in radiation-dominated era ρtot^(k) = ρr^(k), ρr(τ) = (π²/30) g* T⁴ and the entropy s ~ g*ₛ T³ ~ a⁻³ (adiabatic condition). Then the current energy density fraction, which is to be compared to observations, is",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_10",
+      "bbox": [
+        0.1,
+        0.53,
+        0.92,
+        0.6
+      ]
+    }
+  },
+  {
+    "page_content": "ΩGW^(0)(k) = (Ωr^(0) / 24) (g*^(k) / g*^(0)) (g*ₛ^(k) / g*ₛ^(0))⁻/₃ Pₕ^(k)(k) .",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_11",
+      "bbox": [
+        0.37,
+        0.6,
+        0.75,
+        0.65
+      ]
+    }
+  },
+  {
+    "page_content": "Using Eqs. (??) and (??) and after tedious calculation, one gets the spectrum of tensor perturbation at the horizon-reentrance as",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_12",
+      "bbox": [
+        0.1,
+        0.65,
+        0.92,
+        0.7
+      ]
+    }
+  },
+  {
+    "page_content": "Pₕ^(k)(k) = 4 ∫₁^∞ dt ∫₀¹ ds [(t² - 1)(1 - s²) / (t² - s²)]² I²(t, s) Pζ(k(t-s)/2) Pζ(k(t+s)/2) ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_13",
+      "bbox": [
+        0.37,
+        0.7,
+        0.75,
+        0.75
+      ]
+    }
+  },
+  {
+    "page_content": "while the transfer function I(t, s) is given by:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_14",
+      "bbox": [
+        0.1,
+        0.75,
+        0.92,
+        0.8
+      ]
+    }
+  },
+  {
+    "page_content": "I²(t, s) = 288 (s² + t² - 6)² / (t² - s²)⁶ [ π²/4 (s² + t² - 6)² Θ(t - √3) + (t² - s² - 1/2(s² + t² - 6)) ln |(t² - 3)/(3 - s²)| ]² ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_15",
+      "bbox": [
+        0.37,
+        0.8,
+        0.75,
+        0.85
+      ]
+    }
+  },
+  {
+    "page_content": "where t ≡ (|𝑘 - 𝑞| + q)/k, s ≡ (|𝑘 - 𝑞| - q)/k.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_16",
+      "bbox": [
+        0.1,
+        0.85,
+        0.92,
+        0.9
+      ]
+    }
+  },
+  {
+    "page_content": "Since the tensor spectrum contains complicated integrations, it is then difficult to make predictions analytically, so we refer to numerical solutions as well. In Fig. ?? we plot the posterior distributions for the amplitude of curvature perturbation as well as the scales. In this plot, we use NANOGRAV 15-yr data as well as the BPL parametrization as shown in Eq. (??). The contour in Fig. ?? is not too different from previous works with BPL curvature power spectrum, which is because the result actually has weak dependence on power-law indices of curvature power spectrum, except for requiring a blue-tilt by the PTA data. Moreover, as is shown in e.g. [ ? ], the non-Gaussian property of the curvature perturbations will not alter the result too much, either.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page5_text_17",
+      "bbox": [
+        0.1,
+        0.9,
+        0.92,
+        0.96
+      ]
+    }
+  },
+  {
+    "page_content": "FIG. 2: Posterior of the parameters of the BPL model, where NANOGrav 15-yr data was used. The contours of the 2D posterior plot from dark to light corresponds to the 1σ, 2σ and 3σ confidence levels, respectively. Priors of the parameters lg(k*/Mpc⁻¹) and lg A are U ∼ (5.8, 12.8) and U ∼ (−3, 2).",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 6,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_6.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page6_text_0",
+      "bbox": [
+        0.08,
+        0.56,
+        0.92,
+        0.61
+      ]
+    }
+  },
+  {
+    "page_content": "IV. PBH PRODUCTION AND OVERPRODUCTION AVOIDANCE",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 6,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_6.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page6_text_1",
+      "bbox": [
+        0.22,
+        0.61,
+        0.78,
+        0.64
+      ]
+    }
+  },
+  {
+    "page_content": "In this section we analyze the formation of PBHs and see whether the overproduction problem will be avoided in our model. To do this, we make use of the “compaction function” approach, which was introduced in [?] has been widely discussed in [???]. In this approach, one defines the compaction function as:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 6,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_6.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page6_text_2",
+      "bbox": [
+        0.08,
+        0.65,
+        0.92,
+        0.71
+      ]
+    }
+  },
+  {
+    "page_content": "C(x, r) = 2 δM(x, r) / R(r),",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 6,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_6.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page6_text_3",
+      "bbox": [
+        0.42,
+        0.71,
+        0.58,
+        0.75
+      ]
+    }
+  },
+  {
+    "page_content": "which describes the mass excess within a sphere areal radius R centred on spatial coordinate x. The Misner-Sharp mass is defined as:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 6,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_6.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page6_text_4",
+      "bbox": [
+        0.08,
+        0.75,
+        0.92,
+        0.8
+      ]
+    }
+  },
+  {
+    "page_content": "M = ∫ 4πR²ρdR = ∫ 4πR²R,rρdr ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 6,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_6.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page6_text_5",
+      "bbox": [
+        0.37,
+        0.8,
+        0.63,
+        0.84
+      ]
+    }
+  },
+  {
+    "page_content": "Posterior distribution plots for BPL model parameters using NANOGrav 15-year data. Shows marginal distributions and a 2D contour plot with 1σ, 2σ, and 3σ confidence levels.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 6,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_6.png",
+      "type": "figure",
+      "fig_id": "Figure 2",
+      "node_id": "2510_22218v1_page6_figure_0",
+      "bbox": [
+        0.18,
+        0.26,
+        0.86,
+        0.55
+      ]
+    }
+  },
+  {
+    "page_content": "where the subscript \",r\" denotes derivative with respect to r. Therefore, the mass excess turns out to be:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_0",
+      "bbox": [
+        0.1,
+        0.06,
+        0.86,
+        0.09
+      ]
+    }
+  },
+  {
+    "page_content": "δM = 4πa³ρ₀ ∫ δr²e⁻³ζ(1−rζ,r)dr ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_1",
+      "bbox": [
+        0.35,
+        0.09,
+        0.65,
+        0.12
+      ]
+    }
+  },
+  {
+    "page_content": "= 3(1+w)/[2(5+3w)]ar²e⁻ζζ,r(2−rζ,r) ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_2",
+      "bbox": [
+        0.35,
+        0.12,
+        0.65,
+        0.15
+      ]
+    }
+  },
+  {
+    "page_content": "(34)",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_3",
+      "bbox": [
+        0.75,
+        0.15,
+        0.86,
+        0.18
+      ]
+    }
+  },
+  {
+    "page_content": "where ρ₀ is the background value of ρ, R=are⁻ζ, while the density contrast δ ≡ δρ/ρ₀ is calculated as [? ]:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_4",
+      "bbox": [
+        0.1,
+        0.18,
+        0.86,
+        0.21
+      ]
+    }
+  },
+  {
+    "page_content": "δ(x) = 2(1+w)/(5+3w) (1/aH)² e²ζ (ζ,r,r − ½ζ,r² + ⅔ζ,r) .",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_5",
+      "bbox": [
+        0.35,
+        0.21,
+        0.65,
+        0.24
+      ]
+    }
+  },
+  {
+    "page_content": "(35)",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_6",
+      "bbox": [
+        0.75,
+        0.24,
+        0.86,
+        0.27
+      ]
+    }
+  },
+  {
+    "page_content": "We assume that PBHs are generated in the radiation-dominated era, where w=1/3. Substituting Eq. (?) into Eq. (?), it is straightforward to get:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_7",
+      "bbox": [
+        0.1,
+        0.27,
+        0.86,
+        0.3
+      ]
+    }
+  },
+  {
+    "page_content": "C(r) = 4/3 rζ,r (1−½rζ,r) = Cl(r)(1−¾Cl²(r)) ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_8",
+      "bbox": [
+        0.35,
+        0.3,
+        0.65,
+        0.33
+      ]
+    }
+  },
+  {
+    "page_content": "(36)",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_9",
+      "bbox": [
+        0.75,
+        0.33,
+        0.86,
+        0.36
+      ]
+    }
+  },
+  {
+    "page_content": "where we define the linear part of C(r):",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_10",
+      "bbox": [
+        0.1,
+        0.36,
+        0.86,
+        0.39
+      ]
+    }
+  },
+  {
+    "page_content": "Cl(r) = 4/3 rζ,r .",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_11",
+      "bbox": [
+        0.45,
+        0.39,
+        0.65,
+        0.42
+      ]
+    }
+  },
+  {
+    "page_content": "(37)",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_12",
+      "bbox": [
+        0.75,
+        0.42,
+        0.86,
+        0.45
+      ]
+    }
+  },
+  {
+    "page_content": "For general non-Gaussian curvature perturbation ζ = ζ(ζG,r), the compaction function C(r) can be written as 2D function of ζG and ζG,r, or equivalently ζG and CG ≡ rζG,r [? ]. Then Cl(r) can be represented by CG(r) as:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_13",
+      "bbox": [
+        0.1,
+        0.45,
+        0.86,
+        0.48
+      ]
+    }
+  },
+  {
+    "page_content": "Cl(r) = 4/3 rζ,r = 4/3 r dζ/dζG ζG,r = 4/3 dζ/dζG CG .",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_14",
+      "bbox": [
+        0.35,
+        0.48,
+        0.65,
+        0.51
+      ]
+    }
+  },
+  {
+    "page_content": "(38)",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_15",
+      "bbox": [
+        0.75,
+        0.51,
+        0.86,
+        0.54
+      ]
+    }
+  },
+  {
+    "page_content": "Naively speaking, the non-Gaussian curvature perturbation takes the power-law form:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_16",
+      "bbox": [
+        0.1,
+        0.54,
+        0.86,
+        0.57
+      ]
+    }
+  },
+  {
+    "page_content": "ζ(ζG) = ζG + (3/5)fₙlζG² .",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_17",
+      "bbox": [
+        0.45,
+        0.57,
+        0.65,
+        0.6
+      ]
+    }
+  },
+  {
+    "page_content": "(39)",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_18",
+      "bbox": [
+        0.75,
+        0.6,
+        0.86,
+        0.63
+      ]
+    }
+  },
+  {
+    "page_content": "Thus, the 2D PDF of these two Gaussian variables is",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_19",
+      "bbox": [
+        0.1,
+        0.63,
+        0.86,
+        0.66
+      ]
+    }
+  },
+  {
+    "page_content": "P(ζG,CG) = 1/[2π√|Σ|] Exp[-½ Xᵀ Σ⁻¹ X] ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_20",
+      "bbox": [
+        0.35,
+        0.66,
+        0.65,
+        0.69
+      ]
+    }
+  },
+  {
+    "page_content": "(40)",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_21",
+      "bbox": [
+        0.75,
+        0.69,
+        0.86,
+        0.72
+      ]
+    }
+  },
+  {
+    "page_content": "with variables matrix and covariance matrix",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_22",
+      "bbox": [
+        0.1,
+        0.72,
+        0.86,
+        0.75
+      ]
+    }
+  },
+  {
+    "page_content": "X ≡ [ζG; CG], Σ ≡ [σζ² σζC; σζC σC²] ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_23",
+      "bbox": [
+        0.35,
+        0.75,
+        0.65,
+        0.78
+      ]
+    }
+  },
+  {
+    "page_content": "(41)",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_24",
+      "bbox": [
+        0.75,
+        0.78,
+        0.86,
+        0.81
+      ]
+    }
+  },
+  {
+    "page_content": "and the components of the covariance matrix",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_25",
+      "bbox": [
+        0.1,
+        0.81,
+        0.86,
+        0.84
+      ]
+    }
+  },
+  {
+    "page_content": "σζ²(rH) ≡ ⟨ζG²(x,rH)⟩ = ∫ W²(k,rH) T²(k,rH) Pζ(k) d ln k ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_26",
+      "bbox": [
+        0.2,
+        0.84,
+        0.7,
+        0.87
+      ]
+    }
+  },
+  {
+    "page_content": "(42)",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_27",
+      "bbox": [
+        0.75,
+        0.87,
+        0.86,
+        0.9
+      ]
+    }
+  },
+  {
+    "page_content": "σζC²(rH) ≡ ⟨ζG(x,rH) C(x,rH)⟩ = 4/3 rH ∫ W(k,rH) W,rH(k,rH) T²(k,rH) Pζ(k) d ln k ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_28",
+      "bbox": [
+        0.2,
+        0.9,
+        0.7,
+        0.93
+      ]
+    }
+  },
+  {
+    "page_content": "(43)",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_29",
+      "bbox": [
+        0.75,
+        0.93,
+        0.86,
+        0.96
+      ]
+    }
+  },
+  {
+    "page_content": "σC²(rH) ≡ ⟨C²(x,rH)⟩ = 16/9 rH² ∫ W,rH²(k,rH) T²(k,rH) Pζ(k) d ln k .",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_30",
+      "bbox": [
+        0.2,
+        0.96,
+        0.7,
+        0.99
+      ]
+    }
+  },
+  {
+    "page_content": "(44)",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_31",
+      "bbox": [
+        0.75,
+        0.99,
+        0.86,
+        1.0
+      ]
+    }
+  },
+  {
+    "page_content": "Here W(k,rH) = sin(krH)/(krH) is the window function, and the transfer function T(k,rH) is from Eq. (?), where we set τ=rH for calculating the variance at the horizon crossing of rH. See also [? ? ] for discussions on various choices of window functions. Generally speaking, for rH → +∞, σζ,σζC,σC → 0. For rH → 0, σζC,σC → 0 and σζ = O(A). For rH = O(k⁻¹), σζ,σζC,σC → O(A). Contours of 2D PDFs of (ζG,CG) under different rH are shown in Fig. ??.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_32"
+    }
+  },
+  {
+    "page_content": "A PBH will be formed once the compaction C is over the threshold Cth. Moreover, we restrict ourselves into the Type I perturbation where Cl < 4/3. Then the mass fraction of the PBH is given by:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_33"
+    }
+  },
+  {
+    "page_content": "β(rH) = ∫D K(C−Cth)^γM P(ζG,CG) dζG dCG ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_34"
+    }
+  },
+  {
+    "page_content": "(45)",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page7_text_35"
+    }
+  },
+  {
+    "page_content": "FIG. 3: This figure shows the contour lines of PDF of (ξG, CG) with its integral regions under different rH and fnl, where the model parameter lg A is set to −1.4. Contours from inside to outside represent P(ξG, CG) from 0 to −40. Regions between the solid and the dashed lines with the same color represent the integral regions under the corresponding value fnl.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page8_text_0",
+      "bbox": [
+        0.08,
+        0.3,
+        0.92,
+        0.36
+      ]
+    }
+  },
+  {
+    "page_content": "with integral interval D = {C > Cth, Cl < 4/3}. Eq. (??) comes into being due to the empirical formula of the PBH mass [? ? ? ]:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page8_text_1",
+      "bbox": [
+        0.08,
+        0.37,
+        0.92,
+        0.41
+      ]
+    }
+  },
+  {
+    "page_content": "MPBH = K(C − Cth)γM MH ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page8_text_2",
+      "bbox": [
+        0.39,
+        0.42,
+        0.61,
+        0.45
+      ]
+    }
+  },
+  {
+    "page_content": "where parameters K and γM depend on the equation of state w. For the radiation-dominated era where w = 1/3, we set K = 4 and γM = 0.36. The total abundance of PBHs is then given by the integral on horizon mass MH (see [? ? ]):",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page8_text_3",
+      "bbox": [
+        0.08,
+        0.45,
+        0.92,
+        0.51
+      ]
+    }
+  },
+  {
+    "page_content": "fPBH ≃ 1/ΩDM ∫+∞MH=0 d lnMH(MH/(2.8 × 10^17 M⊙))−1/2 β ,",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page8_text_4",
+      "bbox": [
+        0.3,
+        0.52,
+        0.69,
+        0.56
+      ]
+    }
+  },
+  {
+    "page_content": "while the horizon scale rH and its mass MH take the relation:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page8_text_5",
+      "bbox": [
+        0.08,
+        0.57,
+        0.92,
+        0.61
+      ]
+    }
+  },
+  {
+    "page_content": "MH ≃ 17M⊙(g*/10.75)^−1/6(rH/10−6 Mpc)^2 .",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page8_text_6",
+      "bbox": [
+        0.35,
+        0.62,
+        0.65,
+        0.65
+      ]
+    }
+  },
+  {
+    "page_content": "Although it hardly affects the SIGWs, the non-Gaussianity of the primordial power spectrum will considerably affect the β as well as fPBH via the compaction function C and the domain D. From Eqs. (??) and (??) one can see that, β and fPBH will contain an approximately power-law-like term of fnl, mainly hidden in the compaction function C. In Fig. ?? we plot the integration region and the PDF as a part of the integrand together, mainly to show the influence of fnl to fPBH. The region between each pair of solid and dashed lines of the same color is the overthreshold region, and where this region overlaps with the PDF, the PBHs are generated. One can see that both too high or too low fnl can push the integration region inward, reach a higher probability distribution and make more PBHs formation. We find fnl ≃ −1 as a representation value to avoid PBH formation as possible.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page8_text_7",
+      "bbox": [
+        0.08,
+        0.66,
+        0.92,
+        0.76
+      ]
+    }
+  },
+  {
+    "page_content": "In Fig. ?? we combine the posterior of curvature parameters from Fig. ?? and the fPBH = 1 line for various values of fnl together. This figure shows that for positive fnl, the fPBH = 1 line (blue) is below 2σ level region, indicating an overproduction problem. However, for the Gaussian case (fnl = 0), the fPBH = 1 line (green) is marginally included into the 2σ region allowed by the PTA data. Moreover, for the non-Gaussian case with negative fnl, the fPBH lines (gold, orange and red) are well within the 2σ contour, even reaching the edge of 1σ region. These results hints that both modified dispersion relation and negative non-Gaussianity are helpful in resolving the overproduction problem. This is in agreement with previous results presented in literatures such as [? ? ? ? ? ? ? ? ? ].",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page8_text_8",
+      "bbox": [
+        0.08,
+        0.77,
+        0.92,
+        0.86
+      ]
+    }
+  },
+  {
+    "page_content": "One can also obtain the mass distribution of the PBHs, namely fPBH(MPBH), with ∫ fPBH(MPBH)d ln MPBH = fPBH. To do this, one need to perform variable substitution in the integrand from (MH, CG, ξG) to (MPBH, MH, ξG).",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_8.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page8_text_9",
+      "bbox": [
+        0.08,
+        0.87,
+        0.92,
+        0.92
+      ]
+    }
+  },
+  {
+    "page_content": "Contour lines of PDF of (ξG, CG) with integral regions under different rH and fnl, with lg A = -1.4. Contours represent probability from 0 to -40. Colored regions between solid and dashed lines correspond to integral regions for specific fnl values.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 8,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_8.png",
+      "type": "figure",
+      "fig_id": "FIG. 3",
+      "node_id": "2510_22218v1_page8_figure_0",
+      "bbox": [
+        0.18,
+        0.07,
+        0.79,
+        0.28
+      ]
+    }
+  },
+  {
+    "page_content": "FIG. 4: Posterior of Fig. ?? v.s. f_PBH = 1 line for cases of different values of f_nl. Region above each line represent f_PBH > 1. The contours of the 2D posterior plot from dark to light correspond to the 1σ, 2σ, and 3σ confidence levels, respectively.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 9,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_9.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page9_text_0",
+      "bbox": [
+        0.1,
+        0.29,
+        0.86,
+        0.35
+      ]
+    }
+  },
+  {
+    "page_content": "FIG. 5: Mass fractions f_PBH(M_PBH) in logarithmic form, where M_PBH is normalized by M_⊙. The parameters of the power spectrum are set as lg(k*/Mpc⁻¹) = 7.0 and lg A = -1.4 (blue curve), which makes f_PBH ≈ 1. We also plot f_PBH(M_PBH) under lg(k*/Mpc⁻¹) = 7.0 and lg A = -1.5 (orange curve) to show that slight decrease of lg A can obviously suppress the formation of PBHs.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 9,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_9.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page9_text_1",
+      "bbox": [
+        0.1,
+        0.56,
+        0.9,
+        0.62
+      ]
+    }
+  },
+  {
+    "page_content": "Combining Eqs. (??), (??), (??) and (??), The relation between C_G and M_PBH can be represented as:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 9,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_9.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page9_text_2",
+      "bbox": [
+        0.1,
+        0.63,
+        0.86,
+        0.68
+      ]
+    }
+  },
+  {
+    "page_content": "Thus the mass distribution of PBHs is calculated as:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 9,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_9.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page9_text_3",
+      "bbox": [
+        0.1,
+        0.7,
+        0.86,
+        0.75
+      ]
+    }
+  },
+  {
+    "page_content": "where the lower bound of M_H satisfies M_H^min(M_PBH) = M_PBH/(K C_th^γ_M). In Fig. ?? we draw the logarithmic plot of f_PBH with respect to M_PBH (normalized by M_⊙). One can see that under lg(k*/Mpc⁻¹) = 7.0 and lg A = -1.4, f_PBH(M_PBH) reaches its maximum for M_PBH ≃ 2.3 × 10⁻² M_⊙, which means that the PBHs generated in this model will basically have sub-solar mass. The maximum value of f_PBH(M_PBH) can reach the value of O(1). Although such a high fraction seems not be supported by constraints from observations of microlensing [? ? ? ?], our numerical calculations found that a slight change of lg A will also significantly affect this value. For example, under lg(k*/Mpc⁻¹) = 7.0 and lg A = -1.5, lg f_PBH(M_PBH)|_max ≃ -2.63.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 9,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_9.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page9_text_4",
+      "bbox": [
+        0.1,
+        0.76,
+        0.9,
+        0.86
+      ]
+    }
+  },
+  {
+    "page_content": "A 2D posterior plot showing the relationship between lg(A) and lg(k*/Mpc⁻¹) for different values of f_nl (-3 to 1). Contours indicate 1σ, 2σ, and 3σ confidence levels.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 9,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_9.png",
+      "type": "figure",
+      "fig_id": "Figure 4",
+      "node_id": "2510_22218v1_page9_figure_0",
+      "bbox": [
+        0.1,
+        0.26,
+        0.86,
+        0.4
+      ]
+    }
+  },
+  {
+    "page_content": "Logarithmic plot of f_PBH(M_PBH) vs. lg(M_PBH/M_⊙) for two parameter sets: blue curve (lg A = -1.4) and orange curve (lg A = -1.5).",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 9,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_9.png",
+      "type": "figure",
+      "fig_id": "Figure 5",
+      "node_id": "2510_22218v1_page9_figure_1",
+      "bbox": [
+        0.1,
+        0.35,
+        0.86,
+        0.56
+      ]
+    }
+  },
+  {
+    "page_content": "V. CONCLUSIONS AND DISCUSSIONS",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_0",
+      "bbox": [
+        0.34,
+        0.05,
+        0.67,
+        0.08
+      ]
+    }
+  },
+  {
+    "page_content": "In this paper, we discuss about the effect of modified dispersion relation in inflation models on the SIGW and PBH generation, especially the problem of “overproduction”.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_1",
+      "bbox": [
+        0.1,
+        0.12,
+        0.9,
+        0.18
+      ]
+    }
+  },
+  {
+    "page_content": "We start with the very general Mukhanov-Sasaki perturbation equation for inflation models with modified dispersion relation, without denoting specific models. Moreover, c_s^2 is assumed to have a suppression at later time in order to make the k^4 correction term play an important role. After analytically solving the equation, we find that the power spectrum has a BPL form at the late time of inflation, where the maximum value and the pivot scale are critical for generating PBHs as well as SIGWs. The numerical results of the power spectrum are given in Fig. ??.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_2",
+      "bbox": [
+        0.1,
+        0.18,
+        0.9,
+        0.25
+      ]
+    }
+  },
+  {
+    "page_content": "Such scalar perturbation can induce secondary gravitational waves. With parametrized BPL power spectrum that mimics the numerical result, we obtained the parameter space constrained by the PTA data in Fig. ??. The result is not too much different from previous works, which indicate that it actually has weak dependence on the power-law indices of curvature spectrum [? ].",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_3",
+      "bbox": [
+        0.1,
+        0.25,
+        0.9,
+        0.32
+      ]
+    }
+  },
+  {
+    "page_content": "To check out whether there is an overproduction problem, we calculate the abundance of PBHs, using the compaction function approach. One can see in Fig. ?? that the overthreshold region depends on the non-Gaussian estimator f_nl. In our case, the region for f_nl near -1 is kept from being too close to the center of the PDF of (ζ_G, C_G), thus is tend to avoid the PBHs being overproduced. A too high or too low f_nl will both push the overthreshold region inward to raise the productivity of the PBHs. Moreover, the area of PDF also changes with the horizon scale r_H. When combined with the SIGW results, we can see in Fig. ?? that while f_PBH = 1 line with f_nl ≃ 0 (no non-Gaussianity) is marginally included into 2σ region, the one with f_nl ≃ -1 is well within the 2σ level. This means both modified dispersion relation and negative non-Gaussianity are helpful in resolving the overproduction problem (but the later seems to be more significant). This is in agreement with previous results.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_4",
+      "bbox": [
+        0.1,
+        0.32,
+        0.9,
+        0.4
+      ]
+    }
+  },
+  {
+    "page_content": "Moreover, we also calculate the mass distribution of the PBHs. We find that in the current case, the mostly generated PBHs can reach a sub-solar mass of O(10^{-2}) M_⊙ (shown in Fig. ??), with the maximal value of f_PBH(M_PBH) depending on parameters A. For overproduction avoidance f_PBH(M_PBH) could reach up to unity, but it can also be lower in order not to be conflicted with constraints from microlensing. Moreover, these constraints might also be released to contain higher f_PBH by PBH clustering, by which the number density of PBHs can get reduced (see e.g. [? ? ]).",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_5",
+      "bbox": [
+        0.1,
+        0.4,
+        0.9,
+        0.48
+      ]
+    }
+  },
+  {
+    "page_content": "The overproduction problem is an interesting topic about PBH and SIGW generations. It releases the signal that nowadays observations will impose more and more accurate and stringent constraints on these processes. Such constraints will bring challenges to our theoretical analysis and model constructions. However, since we're not very clear about these processes and there are large uncertainties in calculation methodologies and problems resolutions, they will also deepen our understanding and help us find more optimistic descriptions on them. Therefore, it is interesting to continue discussing about other possibilities on resolving the overproduction problem (as well as other problems), into which we will be devoting ourselves in the future works.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_6",
+      "bbox": [
+        0.1,
+        0.48,
+        0.9,
+        0.58
+      ]
+    }
+  },
+  {
+    "page_content": "Acknowledgments",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_7",
+      "bbox": [
+        0.43,
+        0.6,
+        0.58,
+        0.63
+      ]
+    }
+  },
+  {
+    "page_content": "We thank Shi Pi, Xin-zhe Zhang and Hao-Hao Li for useful discussions. This work is supported by the National Science Foundation of China (Grant No. 12575053) and the National Key Research and Development Program of China (Grant No. 2021YFC2203100).",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_8",
+      "bbox": [
+        0.1,
+        0.63,
+        0.9,
+        0.7
+      ]
+    }
+  },
+  {
+    "page_content": "Y. B. Zel'dovich and I. D. Novikov, Soviet Astron. AJ (Engl. Transl. ), 10, 602 (1967).",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_9",
+      "bbox": [
+        0.1,
+        0.7,
+        0.9,
+        0.73
+      ]
+    }
+  },
+  {
+    "page_content": "S. Hawking, Mon. Not. Roy. Astron. Soc. 152, 75 (1971).",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_10",
+      "bbox": [
+        0.1,
+        0.73,
+        0.9,
+        0.76
+      ]
+    }
+  },
+  {
+    "page_content": "B. J. Carr and S. W. Hawking, Mon. Not. Roy. Astron. Soc. 168, 399 (1974).",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_11",
+      "bbox": [
+        0.1,
+        0.76,
+        0.9,
+        0.79
+      ]
+    }
+  },
+  {
+    "page_content": "M. Sasaki, T. Suyama, T. Tanaka, and S. Yokoyama, Class. Quant. Grav. 35, 063001 (2018), arXiv:1801.05235 [astro-ph.CO].",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_12",
+      "bbox": [
+        0.1,
+        0.79,
+        0.9,
+        0.82
+      ]
+    }
+  },
+  {
+    "page_content": "C. Yuan and Q.-G. Huang, iScience 24, 102860 (2021), arXiv:2103.04739 [astro-ph.GA].",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_13",
+      "bbox": [
+        0.1,
+        0.82,
+        0.9,
+        0.85
+      ]
+    }
+  },
+  {
+    "page_content": "P. Villanueva-Domingo, O. Mena, and S. Palomares-Ruiz, Front. Astron. Space Sci. 8, 87 (2021), arXiv:2103.12087 [astro-ph.CO].",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_14",
+      "bbox": [
+        0.1,
+        0.85,
+        0.9,
+        0.88
+      ]
+    }
+  },
+  {
+    "page_content": "M. Oncins, (2022), arXiv:2205.14722 [astro-ph.CO].",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_15",
+      "bbox": [
+        0.1,
+        0.88,
+        0.9,
+        0.91
+      ]
+    }
+  },
+  {
+    "page_content": "A. Escrivà, F. Kuhnel, and Y. Tada, (2022), 10.1016/B978-0-32-395636-9.00012-8, arXiv:2211.05767 [astro-ph.CO].",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_16",
+      "bbox": [
+        0.1,
+        0.91,
+        0.9,
+        0.94
+      ]
+    }
+  },
+  {
+    "page_content": "B. Carr and F. Kuhnel, (2025), arXiv:2502.15279 [astro-ph.CO].",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_17",
+      "bbox": [
+        0.1,
+        0.94,
+        0.9,
+        0.97
+      ]
+    }
+  },
+  {
+    "page_content": "G. Agazie et al. (NANOGrav), Astrophys. J. Lett. 951, L8 (2023), arXiv:2306.16213 [astro-ph.HE].",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_18",
+      "bbox": [
+        0.1,
+        0.97,
+        0.9,
+        1.0
+      ]
+    }
+  },
+  {
+    "page_content": "A. Afzal et al. (NANOGrav), Astrophys. J. Lett. 951, L11 (2023), arXiv:2306.16219 [astro-ph.HE].",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 10,
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+      "type": "text",
+      "node_id": "2510_22218v1_page10_text_19"
+    }
+  },
+  {
+    "page_content": "‡Electronic address: qiutt@hust.edu.cn; Corresponding author.\nnegative non-Gaussianity [ ? ? ? ? ? ? ? ? ] or a different window function/threshold value [ ? ], but for better illustration, it is important to have a concrete model, see [ ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ]. In this work, we're particularly interested in the case where the dispersion relation of the inflaton field gets modified, with a correction of k^4 term. In some higher derivative theories or modified gravity theories interesting in cosmology, it is natural to modify the dispersion relation, while such a term will appear as a leading order correction [ ? ? ? ? ]. Moreover, this term could also allow us to get a varying sound speed c_s, which is useful to generate PBHs without violating the consistency requirement and leading to strong coupling [ ? ? ? ? ]. Note that people have considered a constant c_s different from unity during both inflation [ ? ? ] and the radiation-dominant era [ ? ? ]. The former will affect the primordial power spectrum generated during inflation, while the latter will affect the transfer function in the calculation of the SIGW. On the other hand, the case where c_s varies during the inflation era is less discussed.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 1,
+      "page_span": [
+        1,
+        2
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_1.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_1.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22218v1_page1_to_page2_cross_text_0",
+      "from_node_id": "2510_22218v1_page1_text_12",
+      "to_node_id": "2510_22218v1_page2_text_0"
+    }
+  },
+  {
+    "page_content": "C_1^{sr} = √π / 2 ,   C_2^{sr} = 0 .\nOn the other hand, in order to determine the coefficients of the stealth phase solution, we impose the junction relations at the pivot time τ*:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 2,
+      "page_span": [
+        2,
+        3
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22218v1_page2_to_page3_cross_text_0",
+      "from_node_id": "2510_22218v1_page2_text_16",
+      "to_node_id": "2510_22218v1_page3_text_0"
+    }
+  },
+  {
+    "page_content": "where the amplitude A is related to the model parameters c_s and α in Eq. (??), while k_* is pivot scale between medium and small scales.\nFIG. 1: The power spectrum of curvature perturbation obtained from Eq. (??) with respect to k (in logarithm). Three straight lines mimicking the P_c - k relations are also shown for comparison: red line is for P_c ~ k^0, green is for P_c ~ k^4, while blue is for P_c ~ k^{-1}. The dashed line denotes the pivot scale k_* corresponding to the peak of the power spectrum. With the power spectrum in large scales around 2.0 × 10^{-9}, lg |τ_*| and lg α are set to be -4.95 and -3.86 to make the BPL parameters lg(k_*/Mpc^{-1}) and lg A to be 7.0 and -1.4.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 3,
+      "page_span": [
+        3,
+        4
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22218v1_page3_to_page4_cross_text_0",
+      "from_node_id": "2510_22218v1_page3_text_18",
+      "to_node_id": "2510_22218v1_page4_text_0"
+    }
+  },
+  {
+    "page_content": "T(k, τ) = 3 sin(kτ/√3) - (kτ/√3) cos(kτ/√3) / (kτ/√3)^3 .\nThe coefficient Φ₀(𝑘) is the initial condition of the solution for this era, which will be connected to the perturbations during inflation. As the Newtonian potential, it relates to the curvature perturbation ζ as",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 4,
+      "page_span": [
+        4,
+        5
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22218v1_page4_to_page5_cross_text_0",
+      "from_node_id": "2510_22218v1_page4_text_14",
+      "to_node_id": "2510_22218v1_page5_text_0"
+    }
+  },
+  {
+    "page_content": "Since the tensor spectrum contains complicated integrations, it is then difficult to make predictions analytically, so we refer to numerical solutions as well. In Fig. ?? we plot the posterior distributions for the amplitude of curvature perturbation as well as the scales. In this plot, we use NANOGRAV 15-yr data as well as the BPL parametrization as shown in Eq. (??). The contour in Fig. ?? is not too different from previous works with BPL curvature power spectrum, which is because the result actually has weak dependence on power-law indices of curvature power spectrum, except for requiring a blue-tilt by the PTA data. Moreover, as is shown in e.g. [ ? ], the non-Gaussian property of the curvature perturbations will not alter the result too much, either.\nFIG. 2: Posterior of the parameters of the BPL model, where NANOGrav 15-yr data was used. The contours of the 2D posterior plot from dark to light corresponds to the 1σ, 2σ and 3σ confidence levels, respectively. Priors of the parameters lg(k*/Mpc⁻¹) and lg A are U ∼ (5.8, 12.8) and U ∼ (−3, 2).",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 5,
+      "page_span": [
+        5,
+        6
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_6.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22218v1_page5_to_page6_cross_text_0",
+      "from_node_id": "2510_22218v1_page5_text_17",
+      "to_node_id": "2510_22218v1_page6_text_0"
+    }
+  },
+  {
+    "page_content": "M = ∫ 4πR²ρdR = ∫ 4πR²R,rρdr ,\nwhere the subscript \",r\" denotes derivative with respect to r. Therefore, the mass excess turns out to be:",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 6,
+      "page_span": [
+        6,
+        7
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_6.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_6.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22218v1_page6_to_page7_cross_text_0",
+      "from_node_id": "2510_22218v1_page6_text_5",
+      "to_node_id": "2510_22218v1_page7_text_0"
+    }
+  },
+  {
+    "page_content": "(45)\nFIG. 3: This figure shows the contour lines of PDF of (ξG, CG) with its integral regions under different rH and fnl, where the model parameter lg A is set to −1.4. Contours from inside to outside represent P(ξG, CG) from 0 to −40. Regions between the solid and the dashed lines with the same color represent the integral regions under the corresponding value fnl.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 7,
+      "page_span": [
+        7,
+        8
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_8.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22218v1_page7_to_page8_cross_text_0",
+      "from_node_id": "2510_22218v1_page7_text_35",
+      "to_node_id": "2510_22218v1_page8_text_0"
+    }
+  },
+  {
+    "page_content": "One can also obtain the mass distribution of the PBHs, namely fPBH(MPBH), with ∫ fPBH(MPBH)d ln MPBH = fPBH. To do this, one need to perform variable substitution in the integrand from (MH, CG, ξG) to (MPBH, MH, ξG).\nFIG. 4: Posterior of Fig. ?? v.s. f_PBH = 1 line for cases of different values of f_nl. Region above each line represent f_PBH > 1. The contours of the 2D posterior plot from dark to light correspond to the 1σ, 2σ, and 3σ confidence levels, respectively.",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 8,
+      "page_span": [
+        8,
+        9
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_8.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_8.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_9.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22218v1_page8_to_page9_cross_text_0",
+      "from_node_id": "2510_22218v1_page8_text_9",
+      "to_node_id": "2510_22218v1_page9_text_0"
+    }
+  },
+  {
+    "page_content": "where the lower bound of M_H satisfies M_H^min(M_PBH) = M_PBH/(K C_th^γ_M). In Fig. ?? we draw the logarithmic plot of f_PBH with respect to M_PBH (normalized by M_⊙). One can see that under lg(k*/Mpc⁻¹) = 7.0 and lg A = -1.4, f_PBH(M_PBH) reaches its maximum for M_PBH ≃ 2.3 × 10⁻² M_⊙, which means that the PBHs generated in this model will basically have sub-solar mass. The maximum value of f_PBH(M_PBH) can reach the value of O(1). Although such a high fraction seems not be supported by constraints from observations of microlensing [? ? ? ?], our numerical calculations found that a slight change of lg A will also significantly affect this value. For example, under lg(k*/Mpc⁻¹) = 7.0 and lg A = -1.5, lg f_PBH(M_PBH)|_max ≃ -2.63.\nV. CONCLUSIONS AND DISCUSSIONS",
+    "metadata": {
+      "source": "2510.22218v1.pdf",
+      "page": 9,
+      "page_span": [
+        9,
+        10
+      ],
+      "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_9.png",
+      "image_paths": [
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_9.png",
+        "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png"
+      ],
+      "type": "cross_page_text",
+      "node_id": "2510_22218v1_page9_to_page10_cross_text_0",
+      "from_node_id": "2510_22218v1_page9_text_4",
+      "to_node_id": "2510_22218v1_page10_text_0"
+    }
   }
 ]

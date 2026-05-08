@@ -1,21 +1,24 @@
 {
-  "updated_at": "2026-05-08T00:18:48.232149",
+  "updated_at": "2026-05-08T16:32:44.368641",
   "annotations_root": "eval\\pdfQA",
   "pdfs_root": "eval\\pdfQA",
   "kb_root": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb",
   "predictions_file": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\pdfqa\\predictions.jsonl",
   "actual_predictions_output": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\pdfqa\\predictions.jsonl",
   "category": "syn",
-  "qa_split": "all",
-  "sample_count": 6,
-  "scored_count": 6,
-  "done_count": 6,
+  "qa_split": "raw",
+  "sample_count": 80,
+  "scored_count": 80,
+  "done_count": 80,
   "failed_count": 0,
   "warnings_count": 0,
   "skipped_by_ref_len": 0,
   "anls_threshold": 0.5,
-  "anls": 0.833333,
-  "em": 0.833333,
+  "anls": 0.327601,
+  "em": 0.2625,
+  "containment": 0.325,
+  "token_f1": 0.555696,
+  "llm_judge": 0.480625,
   "evidence_page_recall": {
     "labeled_count": 0,
     "hit_count": 0,
@@ -26,26 +29,35 @@
   "max_answer_chars": 0,
   "score_mode": "best_span",
   "max_ref_chars": 0,
-  "answer_profile": "very_short",
+  "answer_profile": "all",
   "by_category": {
     "syn": {
-      "count": 6,
-      "anls": 0.833333,
-      "em": 0.833333
+      "count": 80,
+      "anls": 0.327601,
+      "em": 0.2625,
+      "containment": 0.325,
+      "token_f1": 0.555696,
+      "llm_judge": 0.480625
     }
   },
   "by_dataset": {
     "03_Raw_Question_Answer_Data": {
-      "count": 6,
-      "anls": 0.833333,
-      "em": 0.833333
+      "count": 80,
+      "anls": 0.327601,
+      "em": 0.2625,
+      "containment": 0.325,
+      "token_f1": 0.555696,
+      "llm_judge": 0.480625
     }
   },
   "by_question_type": {
     "unknown": {
-      "count": 6,
-      "anls": 0.833333,
-      "em": 0.833333
+      "count": 80,
+      "anls": 0.327601,
+      "em": 0.2625,
+      "containment": 0.325,
+      "token_f1": 0.555696,
+      "llm_judge": 0.480625
     }
   }
 }

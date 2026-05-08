@@ -2214,6 +2214,1635 @@
           ]
         }
       ]
+    },
+    {
+      "source": "2510.22218v1.pdf",
+      "input_file": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\pdfQA\\syn-pdfQA\\01.2_Input_Files_PDF\\research articles\\2510.22218v1.pdf",
+      "sha256": "fdf9c2552af0793f59ee0e77dd0c38909d9306d8c2fe976dcc8578de89c99c6b",
+      "size": 2016477,
+      "mtime": 1778082594.2098827,
+      "page_dir": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0",
+      "added_at": "2026-05-08T16:21:00.086908",
+      "pages": [
+        {
+          "source": "2510.22218v1.pdf",
+          "page": 1,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_1.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "Pulsar Timing Array (PTA",
+              "type": "dataset"
+            },
+            {
+              "term": "nano-Hertz gravitational waves",
+              "type": "dataset"
+            },
+            {
+              "term": "Primordial Black Holes (PBHs",
+              "type": "concept"
+            },
+            {
+              "term": "modified dispersion relation (MDR",
+              "type": "model"
+            },
+            {
+              "term": "broken-power-law (BPL) power spectrum",
+              "type": "model"
+            },
+            {
+              "term": "supermassive black hole binary (SMBHB",
+              "type": "concept"
+            },
+            {
+              "term": "primordial gravitational waves (pGWs",
+              "type": "concept"
+            },
+            {
+              "term": "first-order phase transition (FOPT",
+              "type": "concept"
+            },
+            {
+              "term": "topological defects",
+              "type": "concept"
+            },
+            {
+              "term": "NANOGrav 15yr",
+              "type": "dataset"
+            },
+            {
+              "term": "PPTA",
+              "type": "dataset"
+            },
+            {
+              "term": "EPTA",
+              "type": "dataset"
+            }
+          ],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {},
+          "node_ids": [
+            "2510_22218v1_page1_text_0",
+            "2510_22218v1_page1_text_1",
+            "2510_22218v1_page1_text_2",
+            "2510_22218v1_page1_text_3",
+            "2510_22218v1_page1_text_4",
+            "2510_22218v1_page1_text_5",
+            "2510_22218v1_page1_text_6",
+            "2510_22218v1_page1_text_7",
+            "2510_22218v1_page1_text_8",
+            "2510_22218v1_page1_text_9",
+            "2510_22218v1_page1_text_10",
+            "2510_22218v1_page1_text_11",
+            "2510_22218v1_page1_text_12",
+            "2510_22218v1_page1_to_page2_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22218v1_page1_text_0",
+            "2510_22218v1_page1_text_1",
+            "2510_22218v1_page1_text_2",
+            "2510_22218v1_page1_text_3",
+            "2510_22218v1_page1_text_4",
+            "2510_22218v1_page1_text_5",
+            "2510_22218v1_page1_text_6",
+            "2510_22218v1_page1_text_7",
+            "2510_22218v1_page1_text_8",
+            "2510_22218v1_page1_text_9",
+            "2510_22218v1_page1_text_10",
+            "2510_22218v1_page1_text_11",
+            "2510_22218v1_page1_text_12"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "page": 2,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_2.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "inflation",
+              "type": "concept"
+            },
+            {
+              "term": "dispersion relation",
+              "type": "concept"
+            },
+            {
+              "term": "k^4 term",
+              "type": "concept"
+            },
+            {
+              "term": "Mukhanov-Sasaki equation",
+              "type": "concept"
+            },
+            {
+              "term": "curvature perturbation",
+              "type": "concept"
+            },
+            {
+              "term": "sound speed",
+              "type": "concept"
+            },
+            {
+              "term": "conformal time",
+              "type": "concept"
+            },
+            {
+              "term": "PBHs",
+              "type": "concept"
+            },
+            {
+              "term": "SIGW",
+              "type": "concept"
+            },
+            {
+              "term": "PTA data",
+              "type": "concept"
+            },
+            {
+              "term": "Bunch-Davies vacuum",
+              "type": "concept"
+            }
+          ],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {},
+          "node_ids": [
+            "2510_22218v1_page2_text_0",
+            "2510_22218v1_page2_text_1",
+            "2510_22218v1_page2_text_2",
+            "2510_22218v1_page2_text_3",
+            "2510_22218v1_page2_text_4",
+            "2510_22218v1_page2_text_5",
+            "2510_22218v1_page2_text_6",
+            "2510_22218v1_page2_text_7",
+            "2510_22218v1_page2_text_8",
+            "2510_22218v1_page2_text_9",
+            "2510_22218v1_page2_text_10",
+            "2510_22218v1_page2_text_11",
+            "2510_22218v1_page2_text_12",
+            "2510_22218v1_page2_text_13",
+            "2510_22218v1_page2_text_14",
+            "2510_22218v1_page2_text_15",
+            "2510_22218v1_page2_text_16",
+            "2510_22218v1_page1_to_page2_cross_text_0",
+            "2510_22218v1_page2_to_page3_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22218v1_page2_text_0",
+            "2510_22218v1_page2_text_1",
+            "2510_22218v1_page2_text_2",
+            "2510_22218v1_page2_text_3",
+            "2510_22218v1_page2_text_4",
+            "2510_22218v1_page2_text_5",
+            "2510_22218v1_page2_text_6",
+            "2510_22218v1_page2_text_7",
+            "2510_22218v1_page2_text_8",
+            "2510_22218v1_page2_text_9",
+            "2510_22218v1_page2_text_10",
+            "2510_22218v1_page2_text_11",
+            "2510_22218v1_page2_text_12",
+            "2510_22218v1_page2_text_13",
+            "2510_22218v1_page2_text_14",
+            "2510_22218v1_page2_text_15",
+            "2510_22218v1_page2_text_16"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "page": 3,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_3.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "stealth phase solution",
+              "type": "model"
+            },
+            {
+              "term": "junction relations",
+              "type": "method"
+            },
+            {
+              "term": "pivot time",
+              "type": "metric"
+            },
+            {
+              "term": "power spectrum",
+              "type": "metric"
+            },
+            {
+              "term": "curvature perturbations",
+              "type": "concept"
+            },
+            {
+              "term": "inflation",
+              "type": "task"
+            },
+            {
+              "term": "SIGW",
+              "type": "concept"
+            },
+            {
+              "term": "PBH",
+              "type": "concept"
+            },
+            {
+              "term": "broken-power-law (BPL",
+              "type": "model"
+            }
+          ],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {},
+          "node_ids": [
+            "2510_22218v1_page3_text_0",
+            "2510_22218v1_page3_text_1",
+            "2510_22218v1_page3_text_2",
+            "2510_22218v1_page3_text_3",
+            "2510_22218v1_page3_text_4",
+            "2510_22218v1_page3_text_5",
+            "2510_22218v1_page3_text_6",
+            "2510_22218v1_page3_text_7",
+            "2510_22218v1_page3_text_8",
+            "2510_22218v1_page3_text_9",
+            "2510_22218v1_page3_text_10",
+            "2510_22218v1_page3_text_11",
+            "2510_22218v1_page3_text_12",
+            "2510_22218v1_page3_text_13",
+            "2510_22218v1_page3_text_14",
+            "2510_22218v1_page3_text_15",
+            "2510_22218v1_page3_text_16",
+            "2510_22218v1_page3_text_17",
+            "2510_22218v1_page3_text_18",
+            "2510_22218v1_page2_to_page3_cross_text_0",
+            "2510_22218v1_page3_to_page4_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22218v1_page3_text_0",
+            "2510_22218v1_page3_text_1",
+            "2510_22218v1_page3_text_2",
+            "2510_22218v1_page3_text_3",
+            "2510_22218v1_page3_text_4",
+            "2510_22218v1_page3_text_5",
+            "2510_22218v1_page3_text_6",
+            "2510_22218v1_page3_text_7",
+            "2510_22218v1_page3_text_8",
+            "2510_22218v1_page3_text_9",
+            "2510_22218v1_page3_text_10",
+            "2510_22218v1_page3_text_11",
+            "2510_22218v1_page3_text_12",
+            "2510_22218v1_page3_text_13",
+            "2510_22218v1_page3_text_14",
+            "2510_22218v1_page3_text_15",
+            "2510_22218v1_page3_text_16",
+            "2510_22218v1_page3_text_17",
+            "2510_22218v1_page3_text_18"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "page": 4,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_4.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "power spectrum",
+              "type": "metric"
+            },
+            {
+              "term": "curvature perturbation",
+              "type": "concept"
+            },
+            {
+              "term": "scalar perturbation",
+              "type": "concept"
+            },
+            {
+              "term": "tensor perturbation",
+              "type": "concept"
+            },
+            {
+              "term": "gravitational potential",
+              "type": "concept"
+            },
+            {
+              "term": "polarization tensor",
+              "type": "concept"
+            },
+            {
+              "term": "BPL parameters",
+              "type": "model"
+            },
+            {
+              "term": "gravitational waves",
+              "type": "other"
+            },
+            {
+              "term": "inflation",
+              "type": "other"
+            },
+            {
+              "term": "radiation-dominated era",
+              "type": "other"
+            },
+            {
+              "term": "Green function",
+              "type": "other"
+            }
+          ],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {
+            "Figure 1": "2510_22218v1_page4_figure_0"
+          },
+          "node_ids": [
+            "2510_22218v1_page4_text_0",
+            "2510_22218v1_page4_text_1",
+            "2510_22218v1_page4_text_2",
+            "2510_22218v1_page4_text_3",
+            "2510_22218v1_page4_text_4",
+            "2510_22218v1_page4_text_5",
+            "2510_22218v1_page4_text_6",
+            "2510_22218v1_page4_text_7",
+            "2510_22218v1_page4_text_8",
+            "2510_22218v1_page4_text_9",
+            "2510_22218v1_page4_text_10",
+            "2510_22218v1_page4_text_11",
+            "2510_22218v1_page4_text_12",
+            "2510_22218v1_page4_text_13",
+            "2510_22218v1_page4_text_14",
+            "2510_22218v1_page4_figure_0",
+            "2510_22218v1_page3_to_page4_cross_text_0",
+            "2510_22218v1_page4_to_page5_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22218v1_page4_text_0",
+            "2510_22218v1_page4_text_1",
+            "2510_22218v1_page4_text_2",
+            "2510_22218v1_page4_text_3",
+            "2510_22218v1_page4_text_4",
+            "2510_22218v1_page4_text_5",
+            "2510_22218v1_page4_text_6",
+            "2510_22218v1_page4_text_7",
+            "2510_22218v1_page4_text_8",
+            "2510_22218v1_page4_text_9",
+            "2510_22218v1_page4_text_10",
+            "2510_22218v1_page4_text_11",
+            "2510_22218v1_page4_text_12",
+            "2510_22218v1_page4_text_13",
+            "2510_22218v1_page4_text_14"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "page": 5,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_5.png",
+          "entities": [],
+          "keywords": [],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {},
+          "node_ids": [
+            "2510_22218v1_page5_text_0",
+            "2510_22218v1_page5_text_1",
+            "2510_22218v1_page5_text_2",
+            "2510_22218v1_page5_text_3",
+            "2510_22218v1_page5_text_4",
+            "2510_22218v1_page5_text_5",
+            "2510_22218v1_page5_text_6",
+            "2510_22218v1_page5_text_7",
+            "2510_22218v1_page5_text_8",
+            "2510_22218v1_page5_text_9",
+            "2510_22218v1_page5_text_10",
+            "2510_22218v1_page5_text_11",
+            "2510_22218v1_page5_text_12",
+            "2510_22218v1_page5_text_13",
+            "2510_22218v1_page5_text_14",
+            "2510_22218v1_page5_text_15",
+            "2510_22218v1_page5_text_16",
+            "2510_22218v1_page5_text_17",
+            "2510_22218v1_page4_to_page5_cross_text_0",
+            "2510_22218v1_page5_to_page6_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22218v1_page5_text_0",
+            "2510_22218v1_page5_text_1",
+            "2510_22218v1_page5_text_2",
+            "2510_22218v1_page5_text_3",
+            "2510_22218v1_page5_text_4",
+            "2510_22218v1_page5_text_5",
+            "2510_22218v1_page5_text_6",
+            "2510_22218v1_page5_text_7",
+            "2510_22218v1_page5_text_8",
+            "2510_22218v1_page5_text_9",
+            "2510_22218v1_page5_text_10",
+            "2510_22218v1_page5_text_11",
+            "2510_22218v1_page5_text_12",
+            "2510_22218v1_page5_text_13",
+            "2510_22218v1_page5_text_14",
+            "2510_22218v1_page5_text_15",
+            "2510_22218v1_page5_text_16",
+            "2510_22218v1_page5_text_17"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "page": 6,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_6.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "BPL model",
+              "type": "concept"
+            },
+            {
+              "term": "NANOGrav",
+              "type": "concept"
+            },
+            {
+              "term": "posterior",
+              "type": "concept"
+            },
+            {
+              "term": "confidence levels",
+              "type": "concept"
+            },
+            {
+              "term": "compaction function",
+              "type": "concept"
+            },
+            {
+              "term": "PBH production",
+              "type": "concept"
+            },
+            {
+              "term": "overproduction avoidance",
+              "type": "concept"
+            },
+            {
+              "term": "Misner-Sharp mass",
+              "type": "concept"
+            }
+          ],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {
+            "Figure 2": "2510_22218v1_page6_figure_0"
+          },
+          "node_ids": [
+            "2510_22218v1_page6_text_0",
+            "2510_22218v1_page6_text_1",
+            "2510_22218v1_page6_text_2",
+            "2510_22218v1_page6_text_3",
+            "2510_22218v1_page6_text_4",
+            "2510_22218v1_page6_text_5",
+            "2510_22218v1_page6_figure_0",
+            "2510_22218v1_page5_to_page6_cross_text_0",
+            "2510_22218v1_page6_to_page7_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22218v1_page6_text_0",
+            "2510_22218v1_page6_text_1",
+            "2510_22218v1_page6_text_2",
+            "2510_22218v1_page6_text_3",
+            "2510_22218v1_page6_text_4",
+            "2510_22218v1_page6_text_5"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "page": 7,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_7.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "mass excess",
+              "type": "metric"
+            },
+            {
+              "term": "density contrast",
+              "type": "metric"
+            },
+            {
+              "term": "PBHs",
+              "type": "model"
+            },
+            {
+              "term": "non-Gaussian curvature perturbation",
+              "type": "concept"
+            },
+            {
+              "term": "2D PDF",
+              "type": "metric"
+            },
+            {
+              "term": "mass fraction",
+              "type": "metric"
+            },
+            {
+              "term": "radiation-dominated era",
+              "type": "other"
+            },
+            {
+              "term": "compaction function",
+              "type": "other"
+            },
+            {
+              "term": "window function",
+              "type": "other"
+            },
+            {
+              "term": "transfer function",
+              "type": "other"
+            },
+            {
+              "term": "Type I perturbation",
+              "type": "other"
+            }
+          ],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {},
+          "node_ids": [
+            "2510_22218v1_page7_text_0",
+            "2510_22218v1_page7_text_1",
+            "2510_22218v1_page7_text_2",
+            "2510_22218v1_page7_text_3",
+            "2510_22218v1_page7_text_4",
+            "2510_22218v1_page7_text_5",
+            "2510_22218v1_page7_text_6",
+            "2510_22218v1_page7_text_7",
+            "2510_22218v1_page7_text_8",
+            "2510_22218v1_page7_text_9",
+            "2510_22218v1_page7_text_10",
+            "2510_22218v1_page7_text_11",
+            "2510_22218v1_page7_text_12",
+            "2510_22218v1_page7_text_13",
+            "2510_22218v1_page7_text_14",
+            "2510_22218v1_page7_text_15",
+            "2510_22218v1_page7_text_16",
+            "2510_22218v1_page7_text_17",
+            "2510_22218v1_page7_text_18",
+            "2510_22218v1_page7_text_19",
+            "2510_22218v1_page7_text_20",
+            "2510_22218v1_page7_text_21",
+            "2510_22218v1_page7_text_22",
+            "2510_22218v1_page7_text_23",
+            "2510_22218v1_page7_text_24",
+            "2510_22218v1_page7_text_25",
+            "2510_22218v1_page7_text_26",
+            "2510_22218v1_page7_text_27",
+            "2510_22218v1_page7_text_28",
+            "2510_22218v1_page7_text_29",
+            "2510_22218v1_page7_text_30",
+            "2510_22218v1_page7_text_31",
+            "2510_22218v1_page7_text_32",
+            "2510_22218v1_page7_text_33",
+            "2510_22218v1_page7_text_34",
+            "2510_22218v1_page7_text_35",
+            "2510_22218v1_page6_to_page7_cross_text_0",
+            "2510_22218v1_page7_to_page8_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22218v1_page7_text_0",
+            "2510_22218v1_page7_text_1",
+            "2510_22218v1_page7_text_2",
+            "2510_22218v1_page7_text_3",
+            "2510_22218v1_page7_text_4",
+            "2510_22218v1_page7_text_5",
+            "2510_22218v1_page7_text_6",
+            "2510_22218v1_page7_text_7",
+            "2510_22218v1_page7_text_8",
+            "2510_22218v1_page7_text_9",
+            "2510_22218v1_page7_text_10",
+            "2510_22218v1_page7_text_11",
+            "2510_22218v1_page7_text_12",
+            "2510_22218v1_page7_text_13",
+            "2510_22218v1_page7_text_14",
+            "2510_22218v1_page7_text_15",
+            "2510_22218v1_page7_text_16",
+            "2510_22218v1_page7_text_17",
+            "2510_22218v1_page7_text_18",
+            "2510_22218v1_page7_text_19",
+            "2510_22218v1_page7_text_20",
+            "2510_22218v1_page7_text_21",
+            "2510_22218v1_page7_text_22",
+            "2510_22218v1_page7_text_23",
+            "2510_22218v1_page7_text_24",
+            "2510_22218v1_page7_text_25",
+            "2510_22218v1_page7_text_26",
+            "2510_22218v1_page7_text_27",
+            "2510_22218v1_page7_text_28",
+            "2510_22218v1_page7_text_29",
+            "2510_22218v1_page7_text_30",
+            "2510_22218v1_page7_text_31",
+            "2510_22218v1_page7_text_32",
+            "2510_22218v1_page7_text_33",
+            "2510_22218v1_page7_text_34",
+            "2510_22218v1_page7_text_35"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "page": 8,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_8.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "PBH",
+              "type": "concept"
+            },
+            {
+              "term": "SIGWs",
+              "type": "concept"
+            },
+            {
+              "term": "non-Gaussianity",
+              "type": "concept"
+            },
+            {
+              "term": "primordial power spectrum",
+              "type": "concept"
+            },
+            {
+              "term": "compaction function",
+              "type": "concept"
+            },
+            {
+              "term": "curvature parameters",
+              "type": "concept"
+            },
+            {
+              "term": "PTA data",
+              "type": "concept"
+            },
+            {
+              "term": "modified dispersion relation",
+              "type": "concept"
+            },
+            {
+              "term": "mass distribution",
+              "type": "concept"
+            },
+            {
+              "term": "variable substitution",
+              "type": "concept"
+            }
+          ],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {
+            "FIG. 3": "2510_22218v1_page8_figure_0"
+          },
+          "node_ids": [
+            "2510_22218v1_page8_text_0",
+            "2510_22218v1_page8_text_1",
+            "2510_22218v1_page8_text_2",
+            "2510_22218v1_page8_text_3",
+            "2510_22218v1_page8_text_4",
+            "2510_22218v1_page8_text_5",
+            "2510_22218v1_page8_text_6",
+            "2510_22218v1_page8_text_7",
+            "2510_22218v1_page8_text_8",
+            "2510_22218v1_page8_text_9",
+            "2510_22218v1_page8_figure_0",
+            "2510_22218v1_page7_to_page8_cross_text_0",
+            "2510_22218v1_page8_to_page9_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22218v1_page8_text_0",
+            "2510_22218v1_page8_text_1",
+            "2510_22218v1_page8_text_2",
+            "2510_22218v1_page8_text_3",
+            "2510_22218v1_page8_text_4",
+            "2510_22218v1_page8_text_5",
+            "2510_22218v1_page8_text_6",
+            "2510_22218v1_page8_text_7",
+            "2510_22218v1_page8_text_8",
+            "2510_22218v1_page8_text_9"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "page": 9,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_9.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "PBH",
+              "type": "concept"
+            },
+            {
+              "term": "f_PBH",
+              "type": "concept"
+            },
+            {
+              "term": "f_nl",
+              "type": "concept"
+            },
+            {
+              "term": "lg A",
+              "type": "concept"
+            },
+            {
+              "term": "lg(k*/Mpc⁻¹",
+              "type": "concept"
+            },
+            {
+              "term": "C_G",
+              "type": "concept"
+            },
+            {
+              "term": "M_PBH",
+              "type": "concept"
+            },
+            {
+              "term": "M_H",
+              "type": "concept"
+            },
+            {
+              "term": "power spectrum",
+              "type": "concept"
+            },
+            {
+              "term": "microlensing",
+              "type": "concept"
+            },
+            {
+              "term": "numerical calculation",
+              "type": "concept"
+            }
+          ],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {
+            "Figure 4": "2510_22218v1_page9_figure_0",
+            "Figure 5": "2510_22218v1_page9_figure_1"
+          },
+          "node_ids": [
+            "2510_22218v1_page9_text_0",
+            "2510_22218v1_page9_text_1",
+            "2510_22218v1_page9_text_2",
+            "2510_22218v1_page9_text_3",
+            "2510_22218v1_page9_text_4",
+            "2510_22218v1_page9_figure_0",
+            "2510_22218v1_page9_figure_1",
+            "2510_22218v1_page8_to_page9_cross_text_0",
+            "2510_22218v1_page9_to_page10_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22218v1_page9_text_0",
+            "2510_22218v1_page9_text_1",
+            "2510_22218v1_page9_text_2",
+            "2510_22218v1_page9_text_3",
+            "2510_22218v1_page9_text_4"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "page": 10,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_10.png",
+          "entities": [],
+          "keywords": [
+            {
+              "term": "modified dispersion relation",
+              "type": "model"
+            },
+            {
+              "term": "inflation models",
+              "type": "model"
+            },
+            {
+              "term": "Mukhanov-Sasaki perturbation equation",
+              "type": "method"
+            },
+            {
+              "term": "power spectrum",
+              "type": "metric"
+            },
+            {
+              "term": "BPL form",
+              "type": "concept"
+            },
+            {
+              "term": "PTA data",
+              "type": "dataset"
+            },
+            {
+              "term": "non-Gaussian estimator",
+              "type": "metric"
+            },
+            {
+              "term": "compaction function approach",
+              "type": "method"
+            },
+            {
+              "term": "mass distribution",
+              "type": "metric"
+            },
+            {
+              "term": "PBH clustering",
+              "type": "concept"
+            },
+            {
+              "term": "SIGW",
+              "type": "other"
+            },
+            {
+              "term": "PBH",
+              "type": "other"
+            }
+          ],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {},
+          "node_ids": [
+            "2510_22218v1_page10_text_0",
+            "2510_22218v1_page10_text_1",
+            "2510_22218v1_page10_text_2",
+            "2510_22218v1_page10_text_3",
+            "2510_22218v1_page10_text_4",
+            "2510_22218v1_page10_text_5",
+            "2510_22218v1_page10_text_6",
+            "2510_22218v1_page10_text_7",
+            "2510_22218v1_page10_text_8",
+            "2510_22218v1_page10_text_9",
+            "2510_22218v1_page10_text_10",
+            "2510_22218v1_page10_text_11",
+            "2510_22218v1_page10_text_12",
+            "2510_22218v1_page10_text_13",
+            "2510_22218v1_page10_text_14",
+            "2510_22218v1_page10_text_15",
+            "2510_22218v1_page10_text_16",
+            "2510_22218v1_page10_text_17",
+            "2510_22218v1_page10_text_18",
+            "2510_22218v1_page10_text_19",
+            "2510_22218v1_page9_to_page10_cross_text_0"
+          ],
+          "text_node_ids": [
+            "2510_22218v1_page10_text_0",
+            "2510_22218v1_page10_text_1",
+            "2510_22218v1_page10_text_2",
+            "2510_22218v1_page10_text_3",
+            "2510_22218v1_page10_text_4",
+            "2510_22218v1_page10_text_5",
+            "2510_22218v1_page10_text_6",
+            "2510_22218v1_page10_text_7",
+            "2510_22218v1_page10_text_8",
+            "2510_22218v1_page10_text_9",
+            "2510_22218v1_page10_text_10",
+            "2510_22218v1_page10_text_11",
+            "2510_22218v1_page10_text_12",
+            "2510_22218v1_page10_text_13",
+            "2510_22218v1_page10_text_14",
+            "2510_22218v1_page10_text_15",
+            "2510_22218v1_page10_text_16",
+            "2510_22218v1_page10_text_17",
+            "2510_22218v1_page10_text_18",
+            "2510_22218v1_page10_text_19"
+          ],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "page": 11,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_11.png",
+          "entities": [],
+          "keywords": [],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {},
+          "node_ids": [],
+          "text_node_ids": [],
+          "conclusion_node_ids": []
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "page": 12,
+          "image_path": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb\\pages\\fdf9c2552af0\\page_12.png",
+          "entities": [],
+          "keywords": [],
+          "relations": [],
+          "section_conclusions": [],
+          "figure_id_map": {},
+          "node_ids": [],
+          "text_node_ids": [],
+          "conclusion_node_ids": []
+        }
+      ],
+      "cross_page_links": [
+        {
+          "source": "2510.22218v1.pdf",
+          "from_page": 1,
+          "to_page": 2,
+          "from_node_id": "2510_22218v1_page1_text_12",
+          "to_node_id": "2510_22218v1_page2_text_0",
+          "cross_node_id": "2510_22218v1_page1_to_page2_cross_text_0"
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "from_page": 2,
+          "to_page": 3,
+          "from_node_id": "2510_22218v1_page2_text_16",
+          "to_node_id": "2510_22218v1_page3_text_0",
+          "cross_node_id": "2510_22218v1_page2_to_page3_cross_text_0"
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "from_page": 3,
+          "to_page": 4,
+          "from_node_id": "2510_22218v1_page3_text_18",
+          "to_node_id": "2510_22218v1_page4_text_0",
+          "cross_node_id": "2510_22218v1_page3_to_page4_cross_text_0"
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "from_page": 4,
+          "to_page": 5,
+          "from_node_id": "2510_22218v1_page4_text_14",
+          "to_node_id": "2510_22218v1_page5_text_0",
+          "cross_node_id": "2510_22218v1_page4_to_page5_cross_text_0"
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "from_page": 5,
+          "to_page": 6,
+          "from_node_id": "2510_22218v1_page5_text_17",
+          "to_node_id": "2510_22218v1_page6_text_0",
+          "cross_node_id": "2510_22218v1_page5_to_page6_cross_text_0"
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "from_page": 6,
+          "to_page": 7,
+          "from_node_id": "2510_22218v1_page6_text_5",
+          "to_node_id": "2510_22218v1_page7_text_0",
+          "cross_node_id": "2510_22218v1_page6_to_page7_cross_text_0"
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "from_page": 7,
+          "to_page": 8,
+          "from_node_id": "2510_22218v1_page7_text_35",
+          "to_node_id": "2510_22218v1_page8_text_0",
+          "cross_node_id": "2510_22218v1_page7_to_page8_cross_text_0"
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "from_page": 8,
+          "to_page": 9,
+          "from_node_id": "2510_22218v1_page8_text_9",
+          "to_node_id": "2510_22218v1_page9_text_0",
+          "cross_node_id": "2510_22218v1_page8_to_page9_cross_text_0"
+        },
+        {
+          "source": "2510.22218v1.pdf",
+          "from_page": 9,
+          "to_page": 10,
+          "from_node_id": "2510_22218v1_page9_text_4",
+          "to_node_id": "2510_22218v1_page10_text_0",
+          "cross_node_id": "2510_22218v1_page9_to_page10_cross_text_0"
+        }
+      ],
+      "document_keywords": [
+        {
+          "term": "power spectrum",
+          "type": "metric",
+          "count": 4,
+          "pages": [
+            3,
+            4,
+            9,
+            10
+          ]
+        },
+        {
+          "term": "PBH",
+          "type": "concept",
+          "count": 4,
+          "pages": [
+            3,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "term": "inflation",
+          "type": "concept",
+          "count": 3,
+          "pages": [
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "term": "SIGW",
+          "type": "concept",
+          "count": 3,
+          "pages": [
+            2,
+            3,
+            10
+          ]
+        },
+        {
+          "term": "PTA data",
+          "type": "concept",
+          "count": 3,
+          "pages": [
+            2,
+            8,
+            10
+          ]
+        },
+        {
+          "term": "compaction function",
+          "type": "concept",
+          "count": 3,
+          "pages": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "term": "curvature perturbation",
+          "type": "concept",
+          "count": 2,
+          "pages": [
+            2,
+            4
+          ]
+        },
+        {
+          "term": "PBHs",
+          "type": "concept",
+          "count": 2,
+          "pages": [
+            2,
+            7
+          ]
+        },
+        {
+          "term": "radiation-dominated era",
+          "type": "other",
+          "count": 2,
+          "pages": [
+            4,
+            7
+          ]
+        },
+        {
+          "term": "modified dispersion relation",
+          "type": "concept",
+          "count": 2,
+          "pages": [
+            8,
+            10
+          ]
+        },
+        {
+          "term": "mass distribution",
+          "type": "concept",
+          "count": 2,
+          "pages": [
+            8,
+            10
+          ]
+        },
+        {
+          "term": "Pulsar Timing Array (PTA",
+          "type": "dataset",
+          "count": 1,
+          "pages": [
+            1
+          ]
+        },
+        {
+          "term": "nano-Hertz gravitational waves",
+          "type": "dataset",
+          "count": 1,
+          "pages": [
+            1
+          ]
+        },
+        {
+          "term": "Primordial Black Holes (PBHs",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            1
+          ]
+        },
+        {
+          "term": "modified dispersion relation (MDR",
+          "type": "model",
+          "count": 1,
+          "pages": [
+            1
+          ]
+        },
+        {
+          "term": "broken-power-law (BPL) power spectrum",
+          "type": "model",
+          "count": 1,
+          "pages": [
+            1
+          ]
+        },
+        {
+          "term": "supermassive black hole binary (SMBHB",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            1
+          ]
+        },
+        {
+          "term": "primordial gravitational waves (pGWs",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            1
+          ]
+        },
+        {
+          "term": "first-order phase transition (FOPT",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            1
+          ]
+        },
+        {
+          "term": "topological defects",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            1
+          ]
+        },
+        {
+          "term": "NANOGrav 15yr",
+          "type": "dataset",
+          "count": 1,
+          "pages": [
+            1
+          ]
+        },
+        {
+          "term": "PPTA",
+          "type": "dataset",
+          "count": 1,
+          "pages": [
+            1
+          ]
+        },
+        {
+          "term": "EPTA",
+          "type": "dataset",
+          "count": 1,
+          "pages": [
+            1
+          ]
+        },
+        {
+          "term": "dispersion relation",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            2
+          ]
+        },
+        {
+          "term": "k^4 term",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            2
+          ]
+        },
+        {
+          "term": "Mukhanov-Sasaki equation",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            2
+          ]
+        },
+        {
+          "term": "sound speed",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            2
+          ]
+        },
+        {
+          "term": "conformal time",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            2
+          ]
+        },
+        {
+          "term": "Bunch-Davies vacuum",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            2
+          ]
+        },
+        {
+          "term": "stealth phase solution",
+          "type": "model",
+          "count": 1,
+          "pages": [
+            3
+          ]
+        },
+        {
+          "term": "junction relations",
+          "type": "method",
+          "count": 1,
+          "pages": [
+            3
+          ]
+        },
+        {
+          "term": "pivot time",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            3
+          ]
+        },
+        {
+          "term": "curvature perturbations",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            3
+          ]
+        },
+        {
+          "term": "broken-power-law (BPL",
+          "type": "model",
+          "count": 1,
+          "pages": [
+            3
+          ]
+        },
+        {
+          "term": "scalar perturbation",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            4
+          ]
+        },
+        {
+          "term": "tensor perturbation",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            4
+          ]
+        },
+        {
+          "term": "gravitational potential",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            4
+          ]
+        },
+        {
+          "term": "polarization tensor",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            4
+          ]
+        },
+        {
+          "term": "BPL parameters",
+          "type": "model",
+          "count": 1,
+          "pages": [
+            4
+          ]
+        },
+        {
+          "term": "gravitational waves",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            4
+          ]
+        },
+        {
+          "term": "Green function",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            4
+          ]
+        },
+        {
+          "term": "BPL model",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            6
+          ]
+        },
+        {
+          "term": "NANOGrav",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            6
+          ]
+        },
+        {
+          "term": "posterior",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            6
+          ]
+        },
+        {
+          "term": "confidence levels",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            6
+          ]
+        },
+        {
+          "term": "PBH production",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            6
+          ]
+        },
+        {
+          "term": "overproduction avoidance",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            6
+          ]
+        },
+        {
+          "term": "Misner-Sharp mass",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            6
+          ]
+        },
+        {
+          "term": "mass excess",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            7
+          ]
+        },
+        {
+          "term": "density contrast",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            7
+          ]
+        },
+        {
+          "term": "non-Gaussian curvature perturbation",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            7
+          ]
+        },
+        {
+          "term": "2D PDF",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            7
+          ]
+        },
+        {
+          "term": "mass fraction",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            7
+          ]
+        },
+        {
+          "term": "window function",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            7
+          ]
+        },
+        {
+          "term": "transfer function",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            7
+          ]
+        },
+        {
+          "term": "Type I perturbation",
+          "type": "other",
+          "count": 1,
+          "pages": [
+            7
+          ]
+        },
+        {
+          "term": "SIGWs",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            8
+          ]
+        },
+        {
+          "term": "non-Gaussianity",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            8
+          ]
+        },
+        {
+          "term": "primordial power spectrum",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            8
+          ]
+        },
+        {
+          "term": "curvature parameters",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            8
+          ]
+        },
+        {
+          "term": "variable substitution",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            8
+          ]
+        },
+        {
+          "term": "f_PBH",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            9
+          ]
+        },
+        {
+          "term": "f_nl",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            9
+          ]
+        },
+        {
+          "term": "lg A",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            9
+          ]
+        },
+        {
+          "term": "lg(k*/Mpc⁻¹",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            9
+          ]
+        },
+        {
+          "term": "C_G",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            9
+          ]
+        },
+        {
+          "term": "M_PBH",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            9
+          ]
+        },
+        {
+          "term": "M_H",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            9
+          ]
+        },
+        {
+          "term": "microlensing",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            9
+          ]
+        },
+        {
+          "term": "numerical calculation",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            9
+          ]
+        },
+        {
+          "term": "inflation models",
+          "type": "model",
+          "count": 1,
+          "pages": [
+            10
+          ]
+        },
+        {
+          "term": "Mukhanov-Sasaki perturbation equation",
+          "type": "method",
+          "count": 1,
+          "pages": [
+            10
+          ]
+        },
+        {
+          "term": "BPL form",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            10
+          ]
+        },
+        {
+          "term": "non-Gaussian estimator",
+          "type": "metric",
+          "count": 1,
+          "pages": [
+            10
+          ]
+        },
+        {
+          "term": "compaction function approach",
+          "type": "method",
+          "count": 1,
+          "pages": [
+            10
+          ]
+        },
+        {
+          "term": "PBH clustering",
+          "type": "concept",
+          "count": 1,
+          "pages": [
+            10
+          ]
+        }
+      ]
     }
   ]
 }

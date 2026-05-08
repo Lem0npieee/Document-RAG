@@ -1,9 +1,9 @@
-# pdfQA Evaluation (Backend Only)
+# pdfQA 评估（仅后端）
 
-This folder contains a complete evaluation pipeline for this project on `pdfQA`.
-It evaluates the current backend chain (`MultiModalGraphRAG`) only.
+此文件夹包含本项目针对 `pdfQA` 的完整评估流水线。
+本评估仅评估当前后端链（`MultiModalGraphRAG`）。
 
-## Folder Layout
+## 文件夹结构
 
 ```text
 eval/
@@ -14,26 +14,26 @@ eval/
     run_pdfqa_eval.py
   input/
     pdfqa/
-      annotations/        # pdfQA-Annotations (JSON files)
-      pdfs/               # pdfQA-Benchmark PDFs
+      annotations/        # pdfQA 注释（JSON 文件）
+      pdfs/               # pdfQA 基准测试的 PDF 文件
   output/
-    kb/                   # FAISS/graph/pages for evaluation
-    pdfqa/                # predictions / metrics / errors
+    kb/                   # 评估用的 FAISS/图/页面 数据
+    pdfqa/                # 预测 / 指标 / 错误
 ```
 
-## 1) Download and place data
+## 1）下载并放置数据
 
-You need both:
+您需要两项数据：
 
-1. `pdfQA-Annotations`  
+1. `pdfQA-Annotations`
    - Hugging Face: `pdfqa/pdfQA-Annotations`
-2. `pdfQA-Benchmark` (PDF files)  
+2. `pdfQA-Benchmark`（PDF 文件）
    - Hugging Face: `pdfqa/pdfQA-Benchmark`
 
-Official download scripts are listed here:
+官方下载脚本见：
 - https://github.com/tobischimanski/pdfQA
 
-Place files as:
+将文件放置为：
 
 ```text
 eval/input/pdfqa/annotations/real-pdfQA/.../*.json
@@ -42,49 +42,48 @@ eval/input/pdfqa/pdfs/real-pdfQA/.../*.pdf
 eval/input/pdfqa/pdfs/syn-pdfQA/.../*.pdf
 ```
 
-The loader scans recursively, so exact subfolders can be nested.
+加载器会递归扫描，因此子文件夹可以嵌套。
 
-## 2) Build evaluation KB
+## 2）构建评估知识库（KB）
 
 ```bash
 python eval/code/build_pdfqa_kb.py --resume --strict-docs --category real
 ```
 
-Useful args:
+有用的参数：
 
-- `--category all|real|syn` (default: `real`)
-- `--max-samples 200` (quick smoke run)
+- `--category all|real|syn`（默认：`real`）
+- `--max-samples 200`（快速 smoke 运行）
 - `--max-docs 50`
 - `--force-rebuild`
 
-This script writes KB artifacts into `eval/output/kb` by setting:
+该脚本将 KB 输出写入 `eval/output/kb`，通过设置：
 - `OUTPUT_ROOT=eval/output/kb`
 - `DOC_ROOT=eval/input/pdfqa/pdfs`
 
-## 3) Run evaluation
+## 3）运行评估
 
 ```bash
 python eval/code/run_pdfqa_eval.py --resume --strict-docs --category real --k 5 --max-nodes 24
 ```
 
-Outputs:
+输出文件：
 
 - `eval/output/pdfqa/predictions.jsonl`
 - `eval/output/pdfqa/metrics.json`
 - `eval/output/pdfqa/errors_topk.jsonl`
 
-## 4) Metrics
+## 4）指标
 
-The script reports:
+脚本会报告：
 
 - `ANLS`
 - `EM`
-- `evidence_page_recall` (only when page labels exist in annotations)
-- group metrics by category, dataset, and question type
+- `evidence_page_recall`（仅当注释中存在页面标签时）
+- 按类别、数据集和问题类型分组的指标
 
-## Notes
+## 注意事项
 
-- `source_hint` is always set to the matched PDF basename, so retrieval stays within the target source.
-- If a sample has no answer text, it is skipped by default.
-- If a JSON annotation points to a missing PDF and `--strict-docs` is set, that sample is skipped and logged as a warning.
-
+- `source_hint` 始终设置为匹配的 PDF 基本文件名，以确保检索限制在目标来源内。
+- 如果样本没有答案文本，默认会跳过该样本。
+- 如果某个 JSON 注释指向缺失的 PDF 且设置了 `--strict-docs`，该样本会被跳过并记录为警告。
