@@ -55,9 +55,7 @@ faiss_index/
 doc_graph/
 logs/
 
-# Eval temporary result dumps (repo root)
-metrics_*.json
-errors_*.jsonl
-*_fallback.json
-*_fallback.jsonl
-_write_test_root.txt
+# 评测数据与产物（体积大，通过HuggingFace获取）
+eval/output/
+eval/input/pdfqa/
+!.gitkeep
