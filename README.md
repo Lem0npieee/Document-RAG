@@ -140,17 +140,15 @@ pip install -r requirements.txt
 3. 配置密钥：
 
 - 复制 `.env.example` 为 `.env`
-- 至少填写真实 `DASHSCOPE_API_KEY`（VLM 文档解析使用）
-- 默认 `MODEL_PROVIDER=dashscope`，行为与当前主分支一致
-- 若要切到本机 CLIProxyAPI，请额外配置：
+- VLM 有三种模式可选，见下表：
 
-```env
-MODEL_PROVIDER=cliproxyapi
-CLIPROXY_API_BASE_URL=http://127.0.0.1:8317
-CLIPROXY_API_KEY=sk-dummy
-CLIPROXY_PROVIDER=qclaw
-CLIPROXY_VL_MODEL=modelroute
-```
+**VLM 模式选择**（三种模式）：
+
+| 模式 | 配置 | 说明 |
+|---|---|---|
+| DashScope API（默认） | `MODEL_PROVIDER=dashscope` | 阿里云 qwen3-vl-8b，需 API Key + 付费 |
+| 本地 Ollama | `MODEL_PROVIDER=ollama` | 免费离线，需安装 Ollama 并拉取视觉模型 |
+| CLIProxyAPI | `MODEL_PROVIDER=cliproxyapi` | 通过代理调用 |
 
 **Embedding 模型选择**（两种模式）：
 
@@ -159,7 +157,29 @@ CLIPROXY_VL_MODEL=modelroute
 | DashScope API（默认） | `EMBEDDING_PROVIDER=dashscope` | 使用 `text-embedding-v3`，需联网和 API 费用 |
 | 本地模型 | `EMBEDDING_PROVIDER=local` | 使用 `BAAI/bge-small-zh-v1.5`，免费离线，首次自动下载约 90MB |
 
-本地模式示例 `.env`：
+**全本地免费方案示例 `.env`**（Ollama VLM + 本地 Embedding）：
+```env
+MODEL_PROVIDER=ollama
+EMBEDDING_PROVIDER=local
+OLLAMA_API_BASE_URL=http://localhost:11434/v1
+OLLAMA_VL_MODEL=minicpm-v:8b
+```
+
+前提：安装 Ollama 并拉取模型（推荐 minicpm-v:8b，约5.5GB）：
+```bash
+brew install ollama        # 安装 Ollama
+ollama serve                # 启动服务（另一个终端）
+ollama pull minicpm-v:8b   # 拉取视觉模型
+```
+
+DashScope 示例 `.env`：
+```env
+MODEL_PROVIDER=dashscope
+DASHSCOPE_API_KEY=sk-你的真实密钥
+EMBEDDING_PROVIDER=dashscope
+```
+
+CLIProxyAPI 示例 `.env`：
 ```env
 MODEL_PROVIDER=cliproxyapi
 EMBEDDING_PROVIDER=local

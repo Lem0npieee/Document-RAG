@@ -18,6 +18,8 @@ class Settings:
     cliproxy_api_key: str = "sk-dummy"
     cliproxy_provider: str = "qclaw"
     cliproxy_vl_model: str = "modelroute"
+    ollama_api_base_url: str = "http://localhost:11434/v1"
+    ollama_vl_model: str = "minicpm-v:8b"
     doc_root: Path = Path("doc")
     output_root: Path = Path("outputs")
     pages_dirname: str = "pages"
@@ -50,6 +52,8 @@ class Settings:
     def active_vl_model(self) -> str:
         if self.model_provider == "cliproxyapi":
             return self.cliproxy_vl_model
+        if self.model_provider == "ollama":
+            return self.ollama_vl_model
         return self.vl_model
 
 
@@ -60,18 +64,19 @@ def _clean_env_value(value: str | None) -> str:
 
 
 def get_settings() -> Settings:
-    load_dotenv()
+    load_dotenv(override=True)
     dashscope_api_key = _clean_env_value(os.getenv("DASHSCOPE_API_KEY", ""))
 
     model_provider = _clean_env_value(os.getenv("MODEL_PROVIDER", "dashscope")).lower()
-    if model_provider not in {"dashscope", "cliproxyapi"}:
-        raise ValueError("MODEL_PROVIDER must be either 'dashscope' or 'cliproxyapi'.")
+    if model_provider not in {"dashscope", "cliproxyapi", "ollama"}:
+        raise ValueError("MODEL_PROVIDER must be either 'dashscope', 'cliproxyapi' or 'ollama'.")
 
     embedding_provider = _clean_env_value(os.getenv("EMBEDDING_PROVIDER", "dashscope")).lower()
     if embedding_provider not in {"dashscope", "local"}:
         raise ValueError("EMBEDDING_PROVIDER must be either 'dashscope' or 'local'.")
 
     # API key validation: VLM (model_provider) and embedding are independent
+    # Ollama VLM doesn't need an API key
     needs_dashscope_key = (
         model_provider == "dashscope"  # VLM uses DashScope
         or embedding_provider == "dashscope"  # embedding uses DashScope
@@ -101,6 +106,12 @@ def get_settings() -> Settings:
         cliproxy_vl_model=_clean_env_value(
             os.getenv("CLIPROXY_VL_MODEL", "modelroute")
         ),
+        ollama_api_base_url=_clean_env_value(
+            os.getenv("OLLAMA_API_BASE_URL", "http://localhost:11434/v1")
+        ),
+        ollama_vl_model=_clean_env_value(
+            os.getenv("OLLAMA_VL_MODEL", "minicpm-v:8b")
+        ),
         doc_root=Path(os.getenv("DOC_ROOT", "doc")),
         output_root=Path(os.getenv("OUTPUT_ROOT", "outputs")),
     )
@@ -114,6 +125,12 @@ def get_settings() -> Settings:
             raise ValueError("Missing CLIPROXY_PROVIDER when MODEL_PROVIDER=cliproxyapi.")
         if not settings.cliproxy_vl_model:
             raise ValueError("Missing CLIPROXY_VL_MODEL when MODEL_PROVIDER=cliproxyapi.")
+
+    if settings.model_provider == "ollama":
+        if not settings.ollama_api_base_url:
+            raise ValueError("Missing OLLAMA_API_BASE_URL when MODEL_PROVIDER=ollama.")
+        if not settings.ollama_vl_model:
+            raise ValueError("Missing OLLAMA_VL_MODEL when MODEL_PROVIDER=ollama.")
 
     settings.doc_dir.mkdir(parents=True, exist_ok=True)
     settings.output_root.mkdir(parents=True, exist_ok=True)

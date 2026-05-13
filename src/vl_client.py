@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import base64
+import http.client
 import json
 import re
 import time
@@ -307,6 +308,97 @@ class CLIProxyVLClient:
         return self._call(prompt=prompt, image_paths=image_paths)
 
 
+class OllamaVLClient:
+    """Local VLM client via Ollama's OpenAI-compatible API (http://localhost:11434/v1)."""
+
+    def __init__(self, api_base_url: str, model: str) -> None:
+        self.api_base_url = api_base_url.rstrip("/")
+        self.model = model
+
+    def _chat_payload(self, prompt: str, image_paths: list[str | Path]) -> dict[str, Any]:
+        content: list[dict[str, Any]] = [{"type": "text", "text": prompt}]
+        for image_path in image_paths:
+            content.append(
+                {
+                    "type": "image_url",
+                    "image_url": {"url": _image_to_data_uri(image_path)},
+                }
+            )
+        return {
+            "model": self.model,
+            "messages": [
+                {"role": "system", "content": "You are a helpful multimodal assistant."},
+                {"role": "user", "content": content},
+            ],
+        }
+
+    def _extract_text(self, payload: dict[str, Any]) -> str:
+        choices = payload.get("choices", [])
+        for choice in choices:
+            message = choice.get("message", {})
+            content = message.get("content", "")
+            if isinstance(content, str) and content.strip():
+                return _clean_model_text(content)
+            if isinstance(content, list):
+                parts = [str(item.get("text", "")) for item in content if isinstance(item, dict)]
+                if parts:
+                    return _clean_model_text("\n".join(parts))
+        raise RuntimeError(f"Unexpected Ollama response format: {payload}")
+
+    def _call(self, prompt: str, image_paths: list[str | Path]) -> str:
+        from urllib.parse import urlparse
+
+        body = json.dumps(self._chat_payload(prompt=prompt, image_paths=image_paths)).encode("utf-8")
+        parsed = urlparse(self.api_base_url)
+        host = parsed.hostname or "localhost"
+        port = parsed.port or 80
+        base_path = parsed.path.rstrip("/") if parsed.path else ""
+
+        print(f"      Calling Ollama API, model: {self.model}, images: {len(image_paths)}")
+
+        max_attempts = 3
+        last_error: Exception | None = None
+        for attempt in range(1, max_attempts + 1):
+            conn = None
+            try:
+                conn = http.client.HTTPConnection(host, port, timeout=300)
+                conn.request(
+                    "POST",
+                    f"{base_path}/chat/completions",
+                    body=body,
+                    headers={"Content-Type": "application/json"},
+                )
+                resp = conn.getresponse()
+                raw = resp.read()
+                if resp.status >= 400:
+                    raise RuntimeError(f"Ollama HTTP {resp.status}: {raw.decode('utf-8', errors='replace')[:500]}")
+                payload = json.loads(raw.decode("utf-8"))
+                return self._extract_text(payload)
+            except RuntimeError:
+                raise
+            except Exception as exc:
+                last_error = exc
+                if attempt >= max_attempts:
+                    break
+                sleep_s = min(4.0, 1.0 * attempt)
+                print(f"      Ollama error, retrying {attempt}/{max_attempts} after {sleep_s:.1f}s: {exc}")
+                time.sleep(sleep_s)
+            finally:
+                if conn:
+                    try:
+                        conn.close()
+                    except Exception:
+                        pass
+
+        raise RuntimeError(f"Ollama call failed after retries: {last_error}")
+
+    def extract_structured_page(self, prompt: str, image_path: str | Path) -> str:
+        return self._call(prompt=prompt, image_paths=[image_path])
+
+    def answer_question(self, prompt: str, image_paths: list[str | Path]) -> str:
+        return self._call(prompt=prompt, image_paths=image_paths)
+
+
 def create_vl_client(settings: Settings) -> VLClient:
     if settings.model_provider == "cliproxyapi":
         return CLIProxyVLClient(
@@ -314,6 +406,12 @@ def create_vl_client(settings: Settings) -> VLClient:
             api_key=settings.cliproxy_api_key,
             provider=settings.cliproxy_provider,
             model=settings.cliproxy_vl_model,
+        )
+
+    if settings.model_provider == "ollama":
+        return OllamaVLClient(
+            api_base_url=settings.ollama_api_base_url,
+            model=settings.ollama_vl_model,
         )
 
     return DashScopeVLClient(

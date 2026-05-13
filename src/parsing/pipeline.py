@@ -27,8 +27,8 @@ Analyze the page image and output ONLY a JSON object using this schema:
 
 Rules:
 1) bbox is normalized [x1, y1, x2, y2] in [0,1].
-2) If bbox is uncertain, omit bbox for that item.
-3) If a field has no content, return [].
+2) If bbox is uncertain, still keep the content with approximate bbox.
+3) If there is visible text, texts[] MUST NOT be empty. Do not return all-empty arrays unless this page is truly blank.
 4) Keywords must be high-value noun phrases (people, locations, organizations, methods, models, datasets, metrics, tasks, concepts), not generic function words.
 5) Keep keyword count concise (prefer 5-12 quality keywords per page).
 6) Return JSON only.
@@ -128,7 +128,7 @@ _TYPE_ALIASES = {
 }
 
 
-def render_pdf_to_images(pdf_path: str | Path, pages_dir: str | Path, zoom: float = 2.6) -> list[Path]:
+def render_pdf_to_images(pdf_path: str | Path, pages_dir: str | Path, zoom: float = 1.5) -> list[Path]:
     pages_output = Path(pages_dir)
     pages_output.mkdir(parents=True, exist_ok=True)
 

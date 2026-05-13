@@ -5,7 +5,12 @@ from typing import Any
 
 
 def extract_json_object(text: str) -> dict[str, Any]:
-    """Extract the first valid JSON object from a model response string."""
+    """Extract the first valid JSON object from a model response string.
+
+    When no valid JSON is found, wraps the raw text as a minimal text-only
+    document so that parsing never fails completely. This is essential for
+    smaller/quantized local models that may occasionally output non-JSON.
+    """
     decoder = json.JSONDecoder()
     for start in (idx for idx, ch in enumerate(text) if ch == "{"):
         try:
@@ -15,6 +20,20 @@ def extract_json_object(text: str) -> dict[str, Any]:
                 return obj
         except json.JSONDecodeError:
             continue
+
+    # Fallback: wrap raw text into minimal text-only structure
+    cleaned = text.strip()
+    if cleaned:
+        # Try to strip markdown code fences
+        import re
+        cleaned = re.sub(r"^```(?:json)?\s*", "", cleaned)
+        cleaned = re.sub(r"\s*```$", "", cleaned)
+        cleaned = cleaned.strip()
+
+    if cleaned and len(cleaned) >= 4:
+        print(f"      No JSON found, wrapping raw text ({len(cleaned)} chars) as fallback")
+        return {"texts": [{"content": cleaned}]}
+
     raise ValueError("No valid JSON object found in model response.")
 
 

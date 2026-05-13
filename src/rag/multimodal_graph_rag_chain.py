@@ -501,6 +501,11 @@ class MultiModalGraphRAG:
         image_paths = self._collect_image_paths(fused_node_ids, retrieved_docs)
         if not image_paths:
             image_paths = [self.pages_dir / f"page_{page}.png" for page in pages if (self.pages_dir / f"page_{page}.png").exists()]
+
+        # For short-answer mode, limit images to prevent small models from getting overloaded
+        if answer_style == "short" and len(image_paths) > 3:
+            image_paths = image_paths[:3]
+
         print(f"  Images used: {len(image_paths)}")
 
         relation_block = "\n".join(relation_lines) if relation_lines else "无显式关系"
@@ -516,19 +521,15 @@ class MultiModalGraphRAG:
         )
         if answer_style == "short":
             prompt = (
-                "根据以下文档证据，直接回答问题。只输出答案本身，不要任何解释、推理过程、引用来源或额外说明。\n\n"
+                "【关键指令：你必须只输出一个极短的答案，不要任何解释】\n"
+                "- 是非题：只输出 yes 或 no\n"
+                "- 数字题：只输出数字\n"
+                "- 名称题：只输出名称\n\n"
                 f"问题：{question}\n\n"
-                f"图谱关系链：\n{relation_block}\n\n"
-                f"全局社区证据：\n{global_context}\n\n"
+                "下面是文档证据，但不要复述证据，只根据证据给出答案：\n\n"
                 f"文本证据：\n{text_evidence}\n\n"
-                "【严格格式要求】\n"
-                "- 只输出最终答案，答案必须尽可能短（一个词、一个数字或一个短语）\n"
-                "- 不要输出解释、不要输出\"答案是\"、不要输出引用页码、不要输出\"根据文档\"\n"
-                "- 数字型问题只输出数字（如 95.2 或 3）\n"
-                "- 是非问题只输出 yes 或 no\n"
-                "- 人名/地名/术语只输出名称本身\n"
-                "正确示例：ResNet / 95.2% / yes / Table 3 / 第2页\n"
-                "错误示例：根据文档内容，答案是ResNet / 该实验使用了ResNet架构 / 答案：95.2%"
+                f"图谱关系链：\n{relation_block}\n\n"
+                "重申：你的回复只能包含答案本身，不能有任何其他文字。"
             )
 
         print("  Generating answer...")
