@@ -210,7 +210,7 @@ def token_f1(pred: str, refs: list[str]) -> float:
     return round(best_f1, 6)
 
 
-def llm_judge_score(pred: str, refs: list[str], threshold: float = 0.5) -> float:
+def heuristic_judge_score(pred: str, refs: list[str], threshold: float = 0.5) -> float:
     """Compute an approximate LLM-judge score using heuristics when LLM call is unavailable.
 
     Rules:
@@ -253,6 +253,6 @@ def score_all_metrics(pred: str, refs: list[str], threshold: float = 0.5) -> dic
         "em": exact_match(pred, refs),
         "containment": containment_match(pred, refs),
         "token_f1": token_f1(pred, refs),
-        "llm_judge": llm_judge_score(pred, refs, threshold=threshold),
+        "heuristic_judge": heuristic_judge_score(pred, refs, threshold=threshold),
     }
 

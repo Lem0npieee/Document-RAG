@@ -213,12 +213,20 @@ class MultiModalGraphRAG:
         }
         return (priority_map.get(node_type, 5), -int(self.graph.degree(nid)))
 
-    def _expand_with_graph(self, seed_node_ids: list[str], max_nodes: int = 18) -> list[str]:
+    def _expand_with_graph(
+        self, seed_node_ids: list[str], max_nodes: int = 18, source_hint: str | None = None
+    ) -> list[str]:
         selected: list[str] = []
         seen = set()
 
+        def _same_source(nid: str) -> bool:
+            if not source_hint:
+                return True
+            node_source = str(self.graph.nodes[nid].get("source", ""))
+            return self._canonical_source_name(node_source) == self._canonical_source_name(source_hint)
+
         for node_id in seed_node_ids:
-            if node_id in self.graph and node_id not in seen:
+            if node_id in self.graph and node_id not in seen and _same_source(node_id):
                 selected.append(node_id)
                 seen.add(node_id)
 
@@ -232,7 +240,10 @@ class MultiModalGraphRAG:
                     continue
                 near = list(self.graph.successors(nid)) + list(self.graph.predecessors(nid))
                 acc.extend(near)
-            uniq = [n for n in dict.fromkeys(acc) if n in self.graph and n not in seen]
+            uniq = [
+                n for n in dict.fromkeys(acc)
+                if n in self.graph and n not in seen and _same_source(n)
+            ]
             uniq.sort(key=self._neighbor_rank)
             return uniq
 
@@ -247,7 +258,7 @@ class MultiModalGraphRAG:
         if len(selected) >= max_nodes:
             return selected
 
-        # Hop-2 bridge expansion via entity/keyword hubs to improve cross-document linking.
+        # Hop-2 bridge expansion via entity/keyword hubs.
         bridge_nodes = [
             nid
             for nid in selected
@@ -418,6 +429,22 @@ class MultiModalGraphRAG:
             return ""
         return Path(str(value)).name.strip().lower()
 
+    def _graph_keyword_seeds(self, question: str, max_seeds: int = 24) -> list[str]:
+        """Find seed nodes from the knowledge graph using keyword matching (no vector index)."""
+        q_tokens = self._query_tokens(question)
+        scored: list[tuple[int, str]] = []
+        for nid in self.graph.nodes:
+            node = self.graph.nodes[nid]
+            if str(node.get("type", "")) != "keyword":
+                continue
+            name = str(node.get("name", "")).lower()
+            content = str(node.get("content", "")).lower()
+            hits = sum(1 for t in q_tokens if t and (t in name or t in content))
+            if hits > 0:
+                scored.append((hits, nid))
+        scored.sort(key=lambda x: x[0], reverse=True)
+        return [nid for _, nid in scored[:max_seeds]]
+
     def _retrieve_docs(self, question: str, k: int, source_hint: str | None = None) -> list[Document]:
         if k <= 0:
             return []
@@ -455,19 +482,31 @@ class MultiModalGraphRAG:
         max_nodes: int = 18,
         source_hint: str | None = None,
         answer_style: str = "detailed",
+        ablation: str | None = None,
     ) -> GraphRAGResult:
         print(f"\n[GraphRAG] Question: {question}")
-        print(f"  Retrieval params: k={k}, max_nodes={max_nodes}")
+        print(f"  Retrieval params: k={k}, max_nodes={max_nodes}, ablation={ablation or 'full'}")
         if source_hint:
             print(f"  Source hint: {source_hint}")
 
-        retrieved_docs = self._retrieve_docs(question=question, k=k, source_hint=source_hint)
-        print(f"  Retrieved docs: {len(retrieved_docs)}")
+        if ablation == "graph_only":
+            # Skip vector retrieval, use graph keyword lookup only
+            retrieved_docs = []
+            seed_node_ids = self._graph_keyword_seeds(question, max_seeds=max_nodes)
+            expanded_node_ids = self._expand_with_graph(seed_node_ids, max_nodes=max_nodes, source_hint=source_hint)
+        else:
+            retrieved_docs = self._retrieve_docs(question=question, k=k, source_hint=source_hint)
+            print(f"  Retrieved docs: {len(retrieved_docs)}")
 
-        seed_node_ids = [str(doc.metadata.get("node_id")) for doc in retrieved_docs if doc.metadata.get("node_id")]
-        print(f"  Seed nodes: {len(seed_node_ids)}")
+            seed_node_ids = [str(doc.metadata.get("node_id")) for doc in retrieved_docs if doc.metadata.get("node_id")]
+            print(f"  Seed nodes: {len(seed_node_ids)}")
 
-        expanded_node_ids = self._expand_with_graph(seed_node_ids, max_nodes=max_nodes)
+            if ablation == "vector_only":
+                # Skip graph expansion, use retrieval results directly
+                expanded_node_ids = list(dict.fromkeys(seed_node_ids))
+            else:
+                expanded_node_ids = self._expand_with_graph(seed_node_ids, max_nodes=max_nodes, source_hint=source_hint)
+
         print(f"  Expanded nodes: {len(expanded_node_ids)}")
 
         global_profiles = self._select_global_profiles(
@@ -522,7 +561,7 @@ class MultiModalGraphRAG:
         if answer_style == "short":
             prompt = (
                 "【关键指令：你必须只输出一个极短的答案，不要任何解释】\n"
-                "- 是非题：只输出 yes 或 no\n"
+                "- 是非题：只输出 yes 或 no。若文档证据中未明确提到问题所问内容，回答 no\n"
                 "- 数字题：只输出数字\n"
                 "- 名称题：只输出名称\n\n"
                 f"问题：{question}\n\n"
@@ -544,11 +583,15 @@ class MultiModalGraphRAG:
             relations=relation_lines,
         )
 
-    def ask_eval(self, question: str, source_hint: str | None = None, k: int = 5, max_nodes: int = 24) -> GraphRAGResult:
+    def ask_eval(
+        self, question: str, source_hint: str | None = None,
+        k: int = 5, max_nodes: int = 24, ablation: str | None = None,
+    ) -> GraphRAGResult:
         return self.ask(
             question=question,
             k=k,
             max_nodes=max_nodes,
             source_hint=source_hint,
             answer_style="short",
+            ablation=ablation,
         )

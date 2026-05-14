@@ -329,6 +329,8 @@ def parse_args() -> argparse.Namespace:
         help="filter evaluation set by answer type",
     )
     parser.add_argument("--recompute-only", action="store_true", help="do not call model, only rescore existing predictions")
+    parser.add_argument("--ablation", type=str, default=None, choices=[None, "vector_only", "graph_only"], help="ablation mode")
+    parser.add_argument("--baseline", type=str, default=None, choices=[None, "always_no", "always_yes"], help="simple baseline")
     return parser.parse_args()
 
 
@@ -366,11 +368,15 @@ def main() -> None:
 
     samples = [s for s in samples if _keep_sample(s)]
 
+    project_root = Path(__file__).resolve().parents[2]
+    if str(project_root) not in sys.path:
+        sys.path.insert(0, str(project_root))
+
     existing = _load_existing_predictions(args.predictions_file) if args.resume else {}
     chain = None
     append_target = args.predictions_file
 
-    if not args.recompute_only:
+    if not args.recompute_only and not args.baseline:
         _configure_environment(kb_root=args.kb_root, doc_root=args.pdfs_root)
 
         expected_faiss = args.kb_root / "faiss_index" / "index.faiss"
@@ -389,10 +395,6 @@ def main() -> None:
                 "KB artifacts not found. Please build KB first. Missing: "
                 + ", ".join(missing)
             )
-
-        project_root = Path(__file__).resolve().parents[2]
-        if str(project_root) not in sys.path:
-            sys.path.insert(0, str(project_root))
 
         from src.config import get_settings
         from src.rag.multimodal_graph_rag_chain import MultiModalGraphRAG
@@ -438,12 +440,22 @@ def main() -> None:
             continue
 
         try:
-            result = chain.ask_eval(
-                question=sample.question,
-                source_hint=sample.source_hint,
-                k=args.k,
-                max_nodes=args.max_nodes,
-            )
+            if args.baseline:
+                # Simple baseline: always return a fixed answer
+                from src.rag.multimodal_graph_rag_chain import GraphRAGResult
+                baseline_answer = "no" if args.baseline == "always_no" else "yes"
+                result = GraphRAGResult(
+                    answer=baseline_answer,
+                    node_ids=[], pages=[], image_paths=[], relations=[],
+                )
+            else:
+                result = chain.ask_eval(
+                    question=sample.question,
+                    source_hint=sample.source_hint,
+                    k=args.k,
+                    max_nodes=args.max_nodes,
+                    ablation=args.ablation,
+                )
             record = _record_from_result(sample, result, max_answer_chars=args.max_answer_chars)
             append_target = _append_jsonl(append_target, record)
             existing[sample.question_id] = record
@@ -489,7 +501,7 @@ def main() -> None:
         rec["em"] = all_scores["em"]
         rec["containment"] = all_scores["containment"]
         rec["token_f1"] = all_scores["token_f1"]
-        rec["llm_judge"] = all_scores["llm_judge"]
+        rec["heuristic_judge"] = all_scores["heuristic_judge"]
         scored_records.append(rec)
 
     core = summarize_metrics(scored_records, threshold=args.anls_threshold)
@@ -498,7 +510,7 @@ def main() -> None:
     n_scored = len(scored_records) or 1
     avg_containment = round(sum(float(r.get("containment", 0)) for r in scored_records) / n_scored, 6)
     avg_token_f1 = round(sum(float(r.get("token_f1", 0)) for r in scored_records) / n_scored, 6)
-    avg_llm_judge = round(sum(float(r.get("llm_judge", 0)) for r in scored_records) / n_scored, 6)
+    avg_heuristic_judge = round(sum(float(r.get("heuristic_judge", 0)) for r in scored_records) / n_scored, 6)
 
     page_recall = evidence_page_recall(scored_records)
     by_category = _group_metrics(scored_records, key="category", threshold=args.anls_threshold)
@@ -517,7 +529,7 @@ def main() -> None:
             n = len(group_recs) or 1
             sub["containment"] = round(sum(float(r.get("containment", 0)) for r in group_recs) / n, 6)
             sub["token_f1"] = round(sum(float(r.get("token_f1", 0)) for r in group_recs) / n, 6)
-            sub["llm_judge"] = round(sum(float(r.get("llm_judge", 0)) for r in group_recs) / n, 6)
+            sub["heuristic_judge"] = round(sum(float(r.get("heuristic_judge", 0)) for r in group_recs) / n, 6)
             result[name] = sub
         return result
 
@@ -545,7 +557,7 @@ def main() -> None:
         "em": core["em"],
         "containment": avg_containment,
         "token_f1": avg_token_f1,
-        "llm_judge": avg_llm_judge,
+        "heuristic_judge": avg_heuristic_judge,
         "evidence_page_recall": page_recall,
         "k": args.k,
         "max_nodes": args.max_nodes,
