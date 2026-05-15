@@ -421,64 +421,16 @@ function initGraph(graph) {
     network.fit({ animation: false });
   });
 
-  // Double-click page node to expand its content nodes
-  network.on("doubleClick", (params) => {
-    if (params.nodes.length === 0) return;
-    const pageNode = nodes.find(n => n.id === params.nodes[0]);
-    if (!pageNode || pageNode.type !== "page") return;
-    const childIds = pageNode._childNodeIds;
-    if (!childIds || childIds.length === 0) return;
-
-    if (pageNode._expanded) {
-      // Collapse: remove child nodes and edges
-      const toRemove = childIds.map((cid, i) => cid);
-      data.nodes.remove(toRemove);
-      data.edges.remove(toRemove);
-      pageNode._expanded = false;
-      return;
-    }
-
-    // Expand: add child nodes
-    const childNodes = [];
-    const childEdges = [];
-    const nm = window._graphNodeMap || {};
-    childIds.forEach((nodeId, idx) => {
-      const detail = nm[nodeId] || {};
-      const nodeType = detail.type || "text";
-      const snippet = detail.snippet || "";
-      const figId = detail.fig_id || "";
-      const label = figId || (snippet ? snippet.replace(/\s+/g, " ").slice(0, 28) + (snippet.length > 28 ? "..." : "") : nodeId.replace(/_/g, " "));
-      const color = colorMap[nodeType] || colorMap.default;
-      const size = tokenToNodeSize(estimateTokenCount(snippet || label));
-      childNodes.push({
-        id: nodeId,
-        label,
-        shape: "dot",
-        size,
-        color: { background: color, border: color, highlight: { background: color, border: "#0f172a" }, hover: { background: color, border: "#0f172a" } },
-        borderWidth: 0,
-        borderWidthSelected: 1.5,
-        font: { color: "#0f172a", face: "Space Grotesk", size: 13, vadjust: size + 8 },
-        labelHighlightBold: false,
-        shadow: false,
-        selectable: true,
-        data: { id: nodeId, label, type: nodeType, snippet, content: snippet, source: detail.source || pageNode.source, page: detail.page, fig_id: figId, bbox: detail.bbox, image_path: detail.image_path, image_url: detail.image_url },
-        x: pageNode.x + (Math.cos(idx * 2.4) * (80 + Math.random() * 60)),
-        y: pageNode.y + (Math.sin(idx * 2.4) * (80 + Math.random() * 60)),
-      });
-      childEdges.push({ id: `expand_${nodeId}`, from: pageNode.id, to: nodeId, color: { color: "rgba(100,116,139,0.3)" }, smooth: true, selectable: false });
-    });
-    data.nodes.add(childNodes);
-    data.edges.add(childEdges);
-    pageNode._expanded = true;
-  });
+  // Store refs for expand/collapse
+  window._visData = data;
+  window._visNodes = nodes;
 
   network.on("click", (params) => {
     const nodeId = params.nodes?.[0];
     if (nodeId) {
       const node = nodes.find((item) => item.id === nodeId);
       if (node) {
-        renderInspector(node.data);
+        renderInspector(node.data, node);
       }
       return;
     }
@@ -493,9 +445,13 @@ function initGraph(graph) {
   });
 }
 
-function renderInspector(data, isEdge = false) {
+function renderInspector(data, visNodeOrEdge = false) {
   if (!data) return;
   nodeInspector.className = "inspector-body";
+
+  // visNodeOrEdge === true means edge; object means the vis node
+  const isEdge = visNodeOrEdge === true;
+  const visNode = (visNodeOrEdge && typeof visNodeOrEdge === "object") ? visNodeOrEdge : null;
 
   if (isEdge) {
     nodeInspector.innerHTML = `
@@ -515,7 +471,8 @@ function renderInspector(data, isEdge = false) {
   const keywordType = data.keyword_type
     ? `<p><strong>Keyword Type:</strong> ${escapeHtml(data.keyword_type)}</p>`
     : "";
-  const nodeId = escapeHtml(data.id || "-");
+  const rawId = data.id || "-";
+  const nodeId = escapeHtml(rawId);
   const figId = data.fig_id ? `<p><strong>Figure ID:</strong> ${escapeHtml(data.fig_id)}</p>` : "";
   const content = String(data.content || "").trim();
   const imageUrl = normalizeImageUrl(data.image_url || data.image_path);
@@ -559,6 +516,13 @@ function renderInspector(data, isEdge = false) {
           : ""
       }
       ${previewUnavailable}
+      ${
+        visNode && visNode.data.type === "page" && (visNode.data._childNodeIds || []).length > 0
+          ? `<button class="btn btn-primary" style="margin-top:10px" onclick="togglePageExpand('${rawId.replace(/'/g, \"\\'\")}')">${
+              visNode.data._expanded ? "Collapse Content Nodes" : "Expand Content Nodes"
+            } (${visNode.data._childNodeIds.length} nodes)</button>`
+          : ""
+      }
     </div>
   `;
 
@@ -566,6 +530,51 @@ function renderInspector(data, isEdge = false) {
     const canvas = document.getElementById(cropCanvasId);
     drawCropPreview(canvas, imageUrl, bbox);
   }
+}
+
+function togglePageExpand(nodeId) {
+  const nodes = window._visNodes || [];
+  const pageNode = nodes.find(n => n.id === nodeId);
+  if (!pageNode || !pageNode.data._childNodeIds || pageNode.data._childNodeIds.length === 0) return;
+
+  const visData = window._visData;
+  if (!visData) return;
+
+  const childIds = pageNode.data._childNodeIds;
+
+  if (pageNode.data._expanded) {
+    visData.nodes.remove(childIds);
+    visData.edges.remove(childIds);
+    pageNode.data._expanded = false;
+  } else {
+    const childNodes = [];
+    const childEdges = [];
+    const nm = window._graphNodeMap || {};
+    childIds.forEach((cId, idx) => {
+      const detail = nm[cId] || {};
+      const nType = detail.type || "text";
+      const snip = detail.snippet || "";
+      const fig = detail.fig_id || "";
+      const lbl = fig || (snip ? snip.replace(/\s+/g, " ").slice(0, 28) + (snip.length > 28 ? "..." : "") : cId.replace(/_/g, " "));
+      const col = colorMap[nType] || colorMap.default;
+      const sz = tokenToNodeSize(estimateTokenCount(snip || lbl));
+      childNodes.push({
+        id: cId, label: lbl, shape: "dot", size: sz,
+        color: { background: col, border: col, highlight: { background: col, border: "#0f172a" }, hover: { background: col, border: "#0f172a" } },
+        borderWidth: 0, borderWidthSelected: 1.5, font: { color: "#0f172a", face: "Space Grotesk", size: 13, vadjust: sz + 8 },
+        labelHighlightBold: false, shadow: false, selectable: true,
+        data: { id: cId, label: lbl, type: nType, snippet: snip, content: snip, source: detail.source, page: detail.page, fig_id: fig, bbox: detail.bbox, image_path: detail.image_path, image_url: detail.image_url },
+        x: pageNode.x + (Math.cos(idx * 2.4) * (80 + Math.random() * 60)),
+        y: pageNode.y + (Math.sin(idx * 2.4) * (80 + Math.random() * 60)),
+      });
+      childEdges.push({ id: `expand_${cId}`, from: nodeId, to: cId, color: { color: "rgba(100,116,139,0.3)" }, smooth: true, selectable: false });
+    });
+    data.nodes.add(childNodes);
+    data.edges.add(childEdges);
+    pageNode.data._expanded = true;
+  }
+  // Re-render inspector with updated state
+  renderInspector(pageNode.data, pageNode);
 }
 
 function parseGraphData(raw) {

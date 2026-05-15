@@ -190,7 +190,7 @@ def graph_data() -> Any:
             }
 
     # Keep only essential fields for graph structure visualization
-    _graph_page_keep = {"page", "image_path", "image_url", "node_ids"}
+    _graph_page_keep = {"page", "image_path", "image_url", "node_ids", "keywords", "relations"}
     _graph_doc_keep = {"source", "pages", "cross_page_links"}
 
     documents = payload.get("documents", []) if isinstance(payload, dict) else []
