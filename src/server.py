@@ -8,7 +8,10 @@ import uuid
 from pathlib import Path
 from typing import Any
 
-from flask import Flask, jsonify, request, send_from_directory
+import gzip
+import io
+
+from flask import Flask, after_this_request, jsonify, request, send_from_directory
 from werkzeug.utils import secure_filename
 
 APP_ROOT = Path(__file__).resolve().parents[1]
@@ -31,6 +34,24 @@ UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 # Disable Flask built-in static route to avoid shadowing custom routes
 # such as /outputs/<path:filename>.
 app = Flask(__name__, static_folder=None)
+
+
+@app.after_request
+def _compress_json(response):
+    """Gzip JSON responses > 1KB to reduce graph data transfer."""
+    if (response.content_type == "application/json"
+            and response.content_length is not None
+            and response.content_length > 1024):
+        accept_encoding = request.headers.get("Accept-Encoding", "")
+        if "gzip" not in accept_encoding:
+            return response
+        gzip_buf = io.BytesIO()
+        with gzip.GzipFile(fileobj=gzip_buf, mode="wb") as gz:
+            gz.write(response.get_data())
+        response.set_data(gzip_buf.getvalue())
+        response.headers["Content-Encoding"] = "gzip"
+        response.headers["Content-Length"] = str(len(response.get_data()))
+    return response
 
 _chain_cache: MultiModalGraphRAG | None = None
 _chain_mtime: float | None = None
@@ -150,6 +171,10 @@ def graph_data() -> Any:
                 continue
 
             image_path = str(metadata.get("image_path", "")).strip()
+            content_raw = str(item.get("page_content", ""))
+            # Only send a short snippet for graph display; full content via /node/<id>
+            snippet = content_raw.replace("\n", " ").strip()[:60]
+
             node_map[node_id] = {
                 "id": node_id,
                 "type": str(metadata.get("type", "text")),
@@ -157,28 +182,73 @@ def graph_data() -> Any:
                 "page": metadata.get("page"),
                 "page_span": metadata.get("page_span", []),
                 "fig_id": str(metadata.get("fig_id", "")),
-                "content": str(item.get("page_content", "")),
+                "snippet": snippet,
                 "bbox": metadata.get("bbox"),
                 "image_path": image_path,
                 "image_paths": metadata.get("image_paths", []),
                 "image_url": _to_outputs_url(image_path),
             }
 
+    # Keep only essential fields for graph structure visualization
+    _graph_page_keep = {"page", "image_path", "image_url", "node_ids"}
+    _graph_doc_keep = {"source", "pages", "cross_page_links"}
+
     documents = payload.get("documents", []) if isinstance(payload, dict) else []
+    slim_docs = []
     for doc in documents:
+        if not isinstance(doc, dict):
+            continue
+        slim_doc = {k: v for k, v in doc.items() if k in _graph_doc_keep}
         pages = doc.get("pages", []) if isinstance(doc, dict) else []
+        slim_pages = []
         for page in pages:
             if not isinstance(page, dict):
                 continue
             image_path = str(page.get("image_path", "")).strip()
             page["image_url"] = _to_outputs_url(image_path)
+            slim_page = {k: v for k, v in page.items() if k in _graph_page_keep}
+            slim_pages.append(slim_page)
+        slim_doc["pages"] = slim_pages
+        slim_docs.append(slim_doc)
 
     if isinstance(payload, dict):
         payload["node_map"] = node_map
+        payload["documents"] = slim_docs
     else:
-        payload = {"documents": [], "node_map": node_map}
+        payload = {"documents": slim_docs, "node_map": node_map}
 
     return jsonify(payload)
+
+
+# In-memory cache for node content (loaded once from documents.json)
+_node_content_cache: dict[str, str] | None = None
+
+
+def _load_node_content_cache() -> dict[str, str]:
+    global _node_content_cache
+    if _node_content_cache is not None:
+        return _node_content_cache
+    cache: dict[str, str] = {}
+    docs_path = _documents_path()
+    if docs_path.exists():
+        docs = json.loads(docs_path.read_text(encoding="utf-8"))
+        for item in docs:
+            metadata = item.get("metadata", {}) if isinstance(item, dict) else {}
+            node_id = str(metadata.get("node_id", "")).strip()
+            if node_id:
+                cache[node_id] = str(item.get("page_content", ""))
+    _node_content_cache = cache
+    return cache
+
+
+@app.get("/node/<node_id>")
+def node_detail(node_id: str) -> Any:
+    """Return full content for a single node, loaded on demand by the inspector."""
+    cache = _load_node_content_cache()
+    content = cache.get(node_id, "")
+    if not content:
+        return jsonify({"node_id": node_id, "content": ""})
+    return jsonify({"node_id": node_id, "content": content})
 
 
 @app.post("/ingest")

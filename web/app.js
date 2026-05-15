@@ -330,6 +330,8 @@ function withInitialSpreadPositions(nodes) {
 
 function initGraph(graph) {
   graphState = graph;
+  // Store global nodeMap so expandPageNode can look up content nodes
+  window._graphNodeMap = graph.nodeMap || {};
 
   const rawNodes = graph.nodes.map((node) => {
     const color = colorMap[node.type] || colorMap.default;
@@ -387,31 +389,13 @@ function initGraph(graph) {
     interaction: {
       hover: true,
       multiselect: true,
-      // Prevent selecting connected edges when clicking a node.
       selectConnectedEdges: false,
+      doubleClick: false,  // disable built-in zoom-on-dblclick, use our expand handler
     },
-    // Re-enable physics and increase repulsion so nodes spread further apart.
+    // Physics disabled — 6000+ nodes with pre-computed spiral positions.
+    // Enabling physics causes multi-second freezes on every interaction.
     physics: {
-      enabled: true,
-      solver: "forceAtlas2Based",
-      stabilization: {
-        enabled: true,
-        iterations: 300,
-        updateInterval: 20,
-        fit: true,
-      },
-      forceAtlas2Based: {
-        gravitationalConstant: -200,
-        centralGravity: 0.002,
-        // Stronger edge attraction.
-        springLength: 125,
-        springConstant: 0.2,
-        damping: 0.85,
-        avoidOverlap: 0.8,
-      },
-      minVelocity: 0.2,
-      maxVelocity: 30,
-      timestep: 0.35,
+      enabled: false,
     },
     layout: {
       improvedLayout: false,
@@ -435,6 +419,58 @@ function initGraph(graph) {
   network = new vis.Network(graphCanvas, data, options);
   network.once("afterDrawing", () => {
     network.fit({ animation: false });
+  });
+
+  // Double-click page node to expand its content nodes
+  network.on("doubleClick", (params) => {
+    if (params.nodes.length === 0) return;
+    const pageNode = nodes.find(n => n.id === params.nodes[0]);
+    if (!pageNode || pageNode.type !== "page") return;
+    const childIds = pageNode._childNodeIds;
+    if (!childIds || childIds.length === 0) return;
+
+    if (pageNode._expanded) {
+      // Collapse: remove child nodes and edges
+      const toRemove = childIds.map((cid, i) => cid);
+      data.nodes.remove(toRemove);
+      data.edges.remove(toRemove);
+      pageNode._expanded = false;
+      return;
+    }
+
+    // Expand: add child nodes
+    const childNodes = [];
+    const childEdges = [];
+    const nm = window._graphNodeMap || {};
+    childIds.forEach((nodeId, idx) => {
+      const detail = nm[nodeId] || {};
+      const nodeType = detail.type || "text";
+      const snippet = detail.snippet || "";
+      const figId = detail.fig_id || "";
+      const label = figId || (snippet ? snippet.replace(/\s+/g, " ").slice(0, 28) + (snippet.length > 28 ? "..." : "") : nodeId.replace(/_/g, " "));
+      const color = colorMap[nodeType] || colorMap.default;
+      const size = tokenToNodeSize(estimateTokenCount(snippet || label));
+      childNodes.push({
+        id: nodeId,
+        label,
+        shape: "dot",
+        size,
+        color: { background: color, border: color, highlight: { background: color, border: "#0f172a" }, hover: { background: color, border: "#0f172a" } },
+        borderWidth: 0,
+        borderWidthSelected: 1.5,
+        font: { color: "#0f172a", face: "Space Grotesk", size: 13, vadjust: size + 8 },
+        labelHighlightBold: false,
+        shadow: false,
+        selectable: true,
+        data: { id: nodeId, label, type: nodeType, snippet, content: snippet, source: detail.source || pageNode.source, page: detail.page, fig_id: figId, bbox: detail.bbox, image_path: detail.image_path, image_url: detail.image_url },
+        x: pageNode.x + (Math.cos(idx * 2.4) * (80 + Math.random() * 60)),
+        y: pageNode.y + (Math.sin(idx * 2.4) * (80 + Math.random() * 60)),
+      });
+      childEdges.push({ id: `expand_${nodeId}`, from: pageNode.id, to: nodeId, color: { color: "rgba(100,116,139,0.3)" }, smooth: true, selectable: false });
+    });
+    data.nodes.add(childNodes);
+    data.edges.add(childEdges);
+    pageNode._expanded = true;
   });
 
   network.on("click", (params) => {
@@ -547,42 +583,20 @@ function parseGraphData(raw) {
     pages.forEach((page) => {
       const pageLabel = `${source} p${page.page}`;
       const pageId = `${source}_page_${page.page}`;
+      const childNodeIds = (page.node_ids || []).slice();
+
       nodes.push({
         id: pageId,
         label: pageLabel,
         type: "page",
-        tokens: Math.max(16, (page.node_ids || []).length * 3),
+        tokens: Math.max(16, childNodeIds.length * 3),
         source,
         page: page.page,
         content: "",
         image_path: page.image_path || "",
         image_url: page.image_url || "",
-      });
-
-      (page.node_ids || []).forEach((nodeId) => {
-        const detail = nodeMap[nodeId] || {};
-        const nodeType = detail.type || "text";
-        const content = detail.content || "";
-        const figId = detail.fig_id || "";
-        const label =
-          figId ||
-          (content
-            ? content.replace(/\s+/g, " ").slice(0, 28) + (content.length > 28 ? "..." : "")
-            : nodeId.replace(/_/g, " "));
-        nodes.push({
-          id: nodeId,
-          label,
-          type: nodeType,
-          tokens: estimateTokenCount(content || label),
-          source: detail.source || source,
-          page: detail.page || page.page,
-          fig_id: figId,
-          bbox: detail.bbox || null,
-          content,
-          image_path: detail.image_path || page.image_path || "",
-          image_url: detail.image_url || page.image_url || "",
-        });
-        edges.push({ from: pageId, to: nodeId, relation: "contains" });
+        _childNodeIds: childNodeIds,
+        _expanded: false,
       });
 
       (page.keywords || []).forEach((keyword) => {
@@ -645,7 +659,7 @@ function parseGraphData(raw) {
   });
 
   const uniqueNodes = Array.from(new Map(nodes.map((n) => [n.id, n])).values());
-  return { nodes: uniqueNodes, edges };
+  return { nodes: uniqueNodes, edges, nodeMap: raw.node_map || {} };
 }
 
 sendBtn.addEventListener("click", () => {
