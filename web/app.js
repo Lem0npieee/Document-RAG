@@ -390,7 +390,6 @@ function initGraph(graph) {
       hover: true,
       multiselect: true,
       selectConnectedEdges: false,
-      doubleClick: false,  // disable built-in zoom-on-dblclick, use our expand handler
     },
     // Physics disabled — 6000+ nodes with pre-computed spiral positions.
     // Enabling physics causes multi-second freezes on every interaction.
@@ -404,12 +403,11 @@ function initGraph(graph) {
     nodes: {
       shape: "dot",
       shadow: false,
-      selectable: true,
       borderWidth: 0,
       labelHighlightBold: false,
       font: { face: "Space Grotesk", size: 13, color: "#0f172a", vadjust: 12 },
     },
-    edges: { smooth: true, selectable: false },
+    edges: { smooth: true },
   };
 
   if (network) {
@@ -473,6 +471,7 @@ function renderInspector(data, visNodeOrEdge = false) {
     : "";
   const rawId = data.id || "-";
   const nodeId = escapeHtml(rawId);
+  const escapedRawId = rawId.replace(/'/g, "\\'");
   const figId = data.fig_id ? `<p><strong>Figure ID:</strong> ${escapeHtml(data.fig_id)}</p>` : "";
   const content = String(data.content || "").trim();
   const imageUrl = normalizeImageUrl(data.image_url || data.image_path);
@@ -518,7 +517,7 @@ function renderInspector(data, visNodeOrEdge = false) {
       ${previewUnavailable}
       ${
         visNode && visNode.data.type === "page" && (visNode.data._childNodeIds || []).length > 0
-          ? `<button class="btn btn-primary" style="margin-top:10px" onclick="togglePageExpand('${rawId.replace(/'/g, \"\\'\")}')">${
+          ? `<button class="btn btn-primary" style="margin-top:10px" onclick="togglePageExpand('${escapedRawId}')">${
               visNode.data._expanded ? "Collapse Content Nodes" : "Expand Content Nodes"
             } (${visNode.data._childNodeIds.length} nodes)</button>`
           : ""

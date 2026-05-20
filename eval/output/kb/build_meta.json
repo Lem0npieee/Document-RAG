@@ -1,20 +1,100 @@
 {
   "documents": [
     {
-      "input_file": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\pdfQA\\syn-pdfQA\\01.2_Input_Files_PDF\\research articles\\2510.22211v1.pdf",
-      "source_name": "2510.22211v1.pdf",
-      "sha256": "073db817879b901b155ef5e59d2b5767f4bfab0579516460be4f4fde621699a6",
-      "size": 1025081,
-      "mtime": 1778082594.1995595,
-      "added_at": "2026-05-07T23:04:17.733736"
+      "input_file": "/Users/lianglihang/Downloads/Document-RAG/eval/input/pdfqa/pdfs/real-pdfQA/01.2_Input_Files_PDF/ClimRetrieve/2022 Microsoft Environmental Sustainability Report.pdf",
+      "source_name": "2022 Microsoft Environmental Sustainability Report.pdf",
+      "sha256": "8687c3f59763b588fb7a57340f9063898a52d7a055832ce2dc02b5f21b716f50",
+      "size": 17917999,
+      "mtime": 1778502915.1965892,
+      "added_at": "2026-05-13T23:16:08.586596"
     },
     {
-      "input_file": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\pdfQA\\syn-pdfQA\\01.2_Input_Files_PDF\\research articles\\2510.22218v1.pdf",
-      "source_name": "2510.22218v1.pdf",
-      "sha256": "fdf9c2552af0793f59ee0e77dd0c38909d9306d8c2fe976dcc8578de89c99c6b",
-      "size": 2016477,
-      "mtime": 1778082594.2098827,
-      "added_at": "2026-05-08T16:21:00.086908"
+      "input_file": "/Users/lianglihang/Downloads/Document-RAG/eval/input/pdfqa/pdfs/real-pdfQA/01.2_Input_Files_PDF/ClimRetrieve/AT&T 2022 Sustainability Summary.pdf",
+      "source_name": "AT&T 2022 Sustainability Summary.pdf",
+      "sha256": "116d46eb48a9e863a9af4ad311c091aa9f041908d9cb93d95ff5206644143378",
+      "size": 13450262,
+      "mtime": 1778502918.3342035,
+      "added_at": "2026-05-13T23:24:00.804555"
+    },
+    {
+      "input_file": "/Users/lianglihang/Downloads/Document-RAG/eval/input/pdfqa/pdfs/real-pdfQA/01.2_Input_Files_PDF/ClimRetrieve/AstraZeneca Sustainability Report 2023.pdf",
+      "source_name": "AstraZeneca Sustainability Report 2023.pdf",
+      "sha256": "89964a17450f776ac68a07e42ed8d8eab9903531b47193a28dd42125b29d2110",
+      "size": 4468814,
+      "mtime": 1778502921.0716853,
+      "added_at": "2026-05-13T23:35:05.121747"
+    },
+    {
+      "input_file": "/Users/lianglihang/Downloads/Document-RAG/eval/input/pdfqa/pdfs/real-pdfQA/01.2_Input_Files_PDF/ClimRetrieve/Boeing 2023 Sustainability Report.pdf",
+      "source_name": "Boeing 2023 Sustainability Report.pdf",
+      "sha256": "a86a78f6125ac8cf5cf4628abe69dd7bc058c188fe177a7755f995e4a12a21f4",
+      "size": 5252538,
+      "mtime": 1778502924.1156285,
+      "added_at": "2026-05-14T00:00:12.225240"
+    },
+    {
+      "input_file": "/Users/lianglihang/Downloads/Document-RAG/eval/input/pdfqa/pdfs/real-pdfQA/01.2_Input_Files_PDF/ClimRetrieve/CT REIT 2022 ESG Report.pdf",
+      "source_name": "CT REIT 2022 ESG Report.pdf",
+      "sha256": "b850d80fcea07578106fa281b255f3d4f9b170430a2d1a77e44bb228764b75c3",
+      "size": 1545416,
+      "mtime": 1778502926.7184472,
+      "added_at": "2026-05-14T00:07:15.805796"
+    },
+    {
+      "input_file": "/Users/lianglihang/Downloads/Document-RAG/eval/input/pdfqa/pdfs/real-pdfQA/01.2_Input_Files_PDF/ClimRetrieve/Coca-Cola Business Sustainability Report 2022.pdf",
+      "source_name": "Coca-Cola Business Sustainability Report 2022.pdf",
+      "sha256": "0f3f9766014aa554ae3ea391ac2434d43f989ed7b3d9f30fb826938e2b5d8425",
+      "size": 24166157,
+      "mtime": 1778502931.1834235,
+      "added_at": "2026-05-14T00:28:31.929391"
+    },
+    {
+      "input_file": "/Users/lianglihang/Downloads/Document-RAG/eval/input/pdfqa/pdfs/real-pdfQA/01.2_Input_Files_PDF/ClimRetrieve/CostCo Climate Action Plan.pdf",
+      "source_name": "CostCo Climate Action Plan.pdf",
+      "sha256": "215925168d042971b667987011bb474fe34756b2846909a372886734b1208d36",
+      "size": 3368162,
+      "mtime": 1778502933.726617,
+      "added_at": "2026-05-14T00:31:40.874986"
+    },
+    {
+      "input_file": "/Users/lianglihang/Downloads/Document-RAG/eval/input/pdfqa/pdfs/real-pdfQA/01.2_Input_Files_PDF/ClimRetrieve/JP Morgan Climate Report 2022.pdf",
+      "source_name": "JP Morgan Climate Report 2022.pdf",
+      "sha256": "987fb0558f224b7e83d7b89c0714b0fb5e40d73f630ce3b1e7f6dd21f475aedf",
+      "size": 6190461,
+      "mtime": 1778502939.1897476,
+      "added_at": "2026-05-14T00:54:52.170763"
+    },
+    {
+      "input_file": "/Users/lianglihang/Downloads/Document-RAG/eval/input/pdfqa/pdfs/real-pdfQA/01.2_Input_Files_PDF/ClimRetrieve/Meta 2023 Sustainability Report.pdf",
+      "source_name": "Meta 2023 Sustainability Report.pdf",
+      "sha256": "068a0cbd8db0684c00dae6de57732216c63d658f9d8eafe13c064f62ab0aece6",
+      "size": 10245112,
+      "mtime": 1778502942.5570607,
+      "added_at": "2026-05-14T01:08:33.805351"
+    },
+    {
+      "input_file": "/Users/lianglihang/Downloads/Document-RAG/eval/input/pdfqa/pdfs/real-pdfQA/01.2_Input_Files_PDF/ClimRetrieve/Veolia ESG Report 2023.pdf",
+      "source_name": "Veolia ESG Report 2023.pdf",
+      "sha256": "6fbfed4100c88a928e20acbcb770a21fb4028bbf7153ada2668136e2c6262ed5",
+      "size": 4267908,
+      "mtime": 1778502948.1852915,
+      "added_at": "2026-05-14T01:15:47.101626"
+    },
+    {
+      "input_file": "/Users/lianglihang/Downloads/Document-RAG/eval/input/pdfqa/pdfs/real-pdfQA/01.2_Input_Files_PDF/ClimRetrieve/Walmart ESG Highlights 2023.pdf",
+      "source_name": "Walmart ESG Highlights 2023.pdf",
+      "sha256": "8dd814e83427b50786113ebc49981027bd3eb3051c0e9ce4166ddfdb92d225c0",
+      "size": 4700060,
+      "mtime": 1778502950.722842,
+      "added_at": "2026-05-14T01:24:34.657813"
+    },
+    {
+      "input_file": "/Users/lianglihang/Downloads/Document-RAG/eval/input/pdfqa/pdfs/real-pdfQA/01.2_Input_Files_PDF/ClimRetrieve/Westpac 2023 climate report.pdf",
+      "source_name": "Westpac 2023 climate report.pdf",
+      "sha256": "cf188e150b79a01e0dd5825c771ac222b92778301d673301758c013dd2e696db",
+      "size": 9889211,
+      "mtime": 1778502954.1821835,
+      "added_at": "2026-05-14T01:50:19.048139"
     }
   ]
 }

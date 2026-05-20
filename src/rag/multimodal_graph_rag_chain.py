@@ -541,9 +541,11 @@ class MultiModalGraphRAG:
         if not image_paths:
             image_paths = [self.pages_dir / f"page_{page}.png" for page in pages if (self.pages_dir / f"page_{page}.png").exists()]
 
-        # For short-answer mode, limit images to prevent small models from getting overloaded
-        if answer_style == "short" and len(image_paths) > 3:
-            image_paths = image_paths[:3]
+        # Limit images to prevent oversized payloads from timing out the VLM API.
+        # Each page image is ~500KB; base64-encoded it's ~700KB, so 18 images ≈ 12MB.
+        max_images = 3 if answer_style == "short" else 5
+        if len(image_paths) > max_images:
+            image_paths = image_paths[:max_images]
 
         print(f"  Images used: {len(image_paths)}")
 
