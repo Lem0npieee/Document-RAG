@@ -1,0 +1,20 @@
+[
+    {
+        "question": "Does the company report the methodology used to identify the dependencies and impact of its business activities on the environment?",
+        "answer": "no",
+        "sources": [
+            "Each of Veolia’s activities is dependent on ecosystem services: \n→ Drinking water production correlates directly with correct functioning of the large water cycle and the capacity of natural environments to purify themselves; \n→ Sanitation activities depend on ecological factors: microbial activity and the capacity of aquatic environments to assimilate residual loads are critical to wastewater purification; \n→ For energy, biomass activity requires a sustainable supply of fuelwood or plant waste"
+        ],
+        "num_sources_used": 1,
+        "file_name": "Veolia ESG Report 2023"
+    },
+    {
+        "question": "Does the company encourage downstream partners to carry out climate-related risk assessments?",
+        "answer": "no",
+        "sources": [
+            "To combine corporate social responsibility (CSR) and commercial challenges, and to suggest a shared goal for collective action: these are the challenges facing the “+1, the ecology turned into actions” initiative. Half think-tank, half do-tank, this Veolia initiative, launched in 2021, brings together Group stakeholders from different backgrounds - employees, customers, shareholders, society, and planet - to hold frank discussions and foster new interactions. This is a way of amplifying cooperation and ideas to create more concerted solutions for ecological transformation."
+        ],
+        "num_sources_used": 1,
+        "file_name": "Veolia ESG Report 2023"
+    }
+]

@@ -61,6 +61,8 @@ eval/output/*
 !eval/output/kb/
 eval/input/pdfqa/*
 !eval/input/pdfqa/pdfs/
+!eval/input/pdfqa/annotations/
+eval/input/pdfqa/annotations/.cache/
 !.gitkeep
 
 # Claude Code 本地配置

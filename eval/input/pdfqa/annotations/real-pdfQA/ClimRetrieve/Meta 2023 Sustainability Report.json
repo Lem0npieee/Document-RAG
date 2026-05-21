@@ -1,0 +1,14 @@
+[
+    {
+        "question": "Does the company report the methodology used to identify the dependencies and impact of its business activities on the environment?",
+        "answer": "no",
+        "sources": [
+            "Rapid climate change threatens the rich variety of living organisms on our planet. The loss of biodiversity has critical implications for humanity, from the collapse of food chains and health systems to the disruption of entire supply chains. We promote biodiverse habitats in all phases of data center development through minimizing our footprint, consolidating construction to preserve sensitive or ecologically unique habitats, and intentionally restoring and enhancing native habitats in landscape design.",
+            "We are committed to becoming water positive by 2030, when we will restore more water to the environment than we consume for our global operations. To achieve this goal, Meta will restore 200% of the water we consume in high water-stressed areas, and 100% of the water we consume in medium water-stressed area",
+            "For our data centers, we determine our water consumption via two methods: 1. Calculating the difference between water withdrawal and wastewater discharge 2. Calculating consumption based on cycles of concentration from our cooling systems For our offices, we estimate our water consumption based on industry averages. All of our wastewater is discharged to local wastewater facilities.",
+            "Data center water efficiency \nWater is a key resource used in operating our data centers and is used primarily for evaporative cooling during summers and humidification during winters. Relative humidity, temperature and airflow are three key factors to maintaining an ideal operating environment for servers. In 2022, we tested increasing our data hall temperature from 85°F to 90°F at select pilot campuses. The preliminary results indicate a reduction of over 50% of our water use over the summer season, with little to no impact↗ to our data center operations."
+        ],
+        "num_sources_used": 4,
+        "file_name": "Meta 2023 Sustainability Report"
+    }
+]

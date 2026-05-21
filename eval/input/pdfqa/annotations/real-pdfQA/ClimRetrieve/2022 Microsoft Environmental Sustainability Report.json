@@ -1,0 +1,12 @@
+[
+    {
+        "question": "Does the company report a plan to engage with downstream partners on water consumption or water pollution?",
+        "answer": "no",
+        "sources": [
+            "Reducing our water footprint \nWe take a holistic approach to water reduction across our campuses and datacenters from design to efficiency in existing systems, recycling and repurposing, and innovating new technologies. We measure and report the global water use of our campuses and datacenters to drive efficiency and reuse.",
+            "Our approach \nIn 2020, we made a commitment to be water positive by 2030 and co-founded the Water Resilience Coalition (WRC), an industry-driven, CEO-led coalition of the UN Global Compact CEO Water Mandate to reduce water stress by 2050. For Microsoft, being net water positive means we will reduce water consumption across our global operations, replenish more water than we use, provide people across the globe with access to water and sanitation services, drive innovation, and engage in water policy. \nOur internal water fee, modeled after our carbon fee, plays a critical role in enabling our progress against our water commitment. The fee was established in FY20 and is used to fund replenishment and access projects around the globe. It is charged to business groups based on annual water consumption projections at a rate that was determined with historical data and guidance from experts on the cost of replenishment projects. The objectives of the fee are to incentivize businesses across Microsoft to take steps to reduce water use and to raise internal awareness of our water positive commitment."
+        ],
+        "num_sources_used": 2,
+        "file_name": "2022 Microsoft Environmental Sustainability Report"
+    }
+]
