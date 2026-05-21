@@ -59,5 +59,6 @@ logs/
 # 仅保留 kb/ 目录用于共享预构建知识库
 eval/output/*
 !eval/output/kb/
-eval/input/pdfqa/
+eval/input/pdfqa/*
+!eval/input/pdfqa/pdfs/
 !.gitkeep
