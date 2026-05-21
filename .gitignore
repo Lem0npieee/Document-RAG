@@ -1,5 +1,5 @@
 # 系统文件
-.DS_Store
+**/.DS_Store
 
 # 环境变量与本地配置
 .env
@@ -62,3 +62,13 @@ eval/output/*
 eval/input/pdfqa/*
 !eval/input/pdfqa/pdfs/
 !.gitkeep
+
+# Claude Code 本地配置
+.claude/
+
+# 临时实验产物
+tmp/
+
+# 演示文稿（体积大，不走 Git）
+presentation/
+开题报告答辩.pptx
