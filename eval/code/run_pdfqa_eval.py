@@ -331,6 +331,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--recompute-only", action="store_true", help="do not call model, only rescore existing predictions")
     parser.add_argument("--ablation", type=str, default=None, choices=[None, "vector_only", "graph_only"], help="ablation mode")
     parser.add_argument("--baseline", type=str, default=None, choices=[None, "always_no", "always_yes"], help="simple baseline")
+    parser.add_argument("--exclude-docs", type=str, default="", help="comma-separated doc names to exclude from eval")
+    parser.add_argument("--kb-docs-only", action="store_true", help="auto-exclude samples whose doc is not in KB")
     return parser.parse_args()
 
 
@@ -367,6 +369,26 @@ def main() -> None:
         return True
 
     samples = [s for s in samples if _keep_sample(s)]
+
+    if args.exclude_docs:
+        exclude_set = {name.strip() for name in args.exclude_docs.split(",") if name.strip()}
+        before = len(samples)
+        samples = [s for s in samples if s.doc_name not in exclude_set]
+        print(f"Excluded {before - len(samples)} samples by --exclude-docs (remaining {len(samples)})")
+
+    if args.kb_docs_only:
+        docs_json = args.kb_root / "parsed" / "documents.json"
+        if docs_json.exists():
+            docs_list = json.loads(docs_json.read_text(encoding="utf-8"))
+            kb_sources = {str(d.get("metadata", {}).get("source", "")) for d in docs_list if isinstance(d, dict)}
+            kb_sources.discard("")
+            if kb_sources:
+                before = len(samples)
+                excluded = [s for s in samples if s.doc_name not in kb_sources]
+                samples = [s for s in samples if s.doc_name in kb_sources]
+                print(f"--kb-docs-only: dropped {before - len(samples)} samples (remaining {len(samples)})")
+                for s in excluded:
+                    print(f"  SKIP {s.doc_name} — not in KB")
 
     project_root = Path(__file__).resolve().parents[2]
     if str(project_root) not in sys.path:
