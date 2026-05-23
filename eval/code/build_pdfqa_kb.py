@@ -51,6 +51,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--progress-file", type=Path, default=None)
     parser.add_argument("--category", type=str, default="real", choices=["all", "real", "syn"])
     parser.add_argument("--qa-split", type=str, default="all", choices=["all", "raw", "vf", "cf"])
+    parser.add_argument("--doc-name", type=str, default="", help="Only build PDFs with this file name or stem")
     parser.add_argument("--max-samples", type=int, default=0, help="0 means all samples")
     parser.add_argument("--max-docs", type=int, default=0, help="0 means all docs")
     parser.add_argument("--force-rebuild", action="store_true")
@@ -63,6 +64,10 @@ def main() -> None:
     args = parse_args()
     args.report_root.mkdir(parents=True, exist_ok=True)
     progress_file = args.progress_file or (args.report_root / "pdfqa_build_progress.json")
+    os.environ["MODEL_PROVIDER"] = "dashscope"
+    os.environ["EMBEDDING_PROVIDER"] = "dashscope"
+    os.environ["EMBEDDING_MODEL"] = "text-embedding-v3"
+    os.environ["DOCRAG_FORCE_DASHSCOPE_API"] = "1"
 
     samples, warnings = load_pdfqa_samples(
         annotations_root=args.annotations_root,
@@ -78,6 +83,16 @@ def main() -> None:
     for sample in samples:
         unique_docs[str(sample.doc_path.resolve())] = sample.doc_path.resolve()
     doc_paths = sorted(unique_docs.values())
+    if args.doc_name:
+        requested = Path(args.doc_name).name.lower()
+        requested_stem = Path(requested).stem.lower()
+        doc_paths = [
+            p
+            for p in doc_paths
+            if p.name.lower() == requested or p.stem.lower() == requested_stem
+        ]
+        if not doc_paths:
+            raise FileNotFoundError(f"No PDF matched --doc-name {args.doc_name!r}")
     if args.max_docs and args.max_docs > 0:
         doc_paths = doc_paths[: args.max_docs]
 
@@ -99,6 +114,8 @@ def main() -> None:
     print(f"kb_root: {args.kb_root}")
     print(f"category: {args.category}")
     print(f"qa_split: {args.qa_split}")
+    if args.doc_name:
+        print(f"doc_name: {args.doc_name}")
     print(f"samples: {len(samples)}, unique docs: {len(doc_paths)}")
     if warnings:
         print(f"warnings: {len(warnings)} (first 20)")
@@ -143,6 +160,7 @@ def main() -> None:
         "kb_root": str(args.kb_root),
         "category": args.category,
         "qa_split": args.qa_split,
+        "doc_name": args.doc_name,
         "total_samples": len(samples),
         "total_unique_docs": len(doc_paths),
         "built_docs": built,

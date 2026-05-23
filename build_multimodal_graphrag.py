@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 from datetime import datetime
 from pathlib import Path
 
@@ -17,6 +18,14 @@ from src.parsing.pipeline import (
     save_parsing_outputs,
 )
 from src.vl_client import create_vl_client
+
+
+def _force_dashscope_api_settings(settings):
+    if os.getenv("DOCRAG_FORCE_DASHSCOPE_API", "").strip() == "1":
+        settings.model_provider = "dashscope"
+        settings.embedding_provider = "dashscope"
+        settings.embedding_model = "text-embedding-v3"
+    return settings
 
 
 def _resolve_input_path(input_file: str | Path, settings) -> Path:
@@ -143,7 +152,7 @@ def _legacy_artifact_match(
 
 def check_knowledge_base_status(input_file: str | Path) -> dict[str, str | bool | float]:
     """Check whether input document is already indexed in the global KB."""
-    settings = get_settings()
+    settings = _force_dashscope_api_settings(get_settings())
     paths = _artifact_paths(settings)
     signature = _compute_file_signature(input_file)
 
@@ -382,7 +391,7 @@ def _save_merged_outputs(
 
 
 def check_existing_knowledge_base() -> dict[str, str | bool | float]:
-    settings = get_settings()
+    settings = _force_dashscope_api_settings(get_settings())
     paths = _artifact_paths(settings)
     registry = _load_registry(paths["meta"])
     registry_docs = registry.get("documents", []) if isinstance(registry.get("documents"), list) else []
@@ -423,7 +432,7 @@ def check_existing_knowledge_base() -> dict[str, str | bool | float]:
 
 
 def build_knowledge_base(input_file: str, force_rebuild: bool = False) -> dict[str, str | float]:
-    settings = get_settings()
+    settings = _force_dashscope_api_settings(get_settings())
     resolved_input = _resolve_input_path(input_file, settings)
     source_name = resolved_input.name
     paths = _artifact_paths(settings)

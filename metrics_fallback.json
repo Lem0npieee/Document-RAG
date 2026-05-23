@@ -1,0 +1,63 @@
+{
+  "updated_at": "2026-05-08T15:16:56.731232",
+  "annotations_root": "eval\\pdfQA",
+  "pdfs_root": "eval\\pdfQA",
+  "kb_root": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb",
+  "predictions_file": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\pdfqa\\predictions.jsonl",
+  "actual_predictions_output": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\pdfqa\\predictions.jsonl",
+  "category": "syn",
+  "qa_split": "raw",
+  "sample_count": 1,
+  "scored_count": 1,
+  "done_count": 1,
+  "failed_count": 0,
+  "warnings_count": 0,
+  "skipped_by_ref_len": 0,
+  "anls_threshold": 0.5,
+  "anls": 0.0,
+  "em": 0.0,
+  "containment": 0.0,
+  "token_f1": 0.657997,
+  "llm_judge": 0.5,
+  "evidence_page_recall": {
+    "labeled_count": 0,
+    "hit_count": 0,
+    "recall": 0.0
+  },
+  "k": 5,
+  "max_nodes": 24,
+  "max_answer_chars": 0,
+  "score_mode": "best_span",
+  "max_ref_chars": 0,
+  "answer_profile": "all",
+  "by_category": {
+    "syn": {
+      "count": 1,
+      "anls": 0.0,
+      "em": 0.0,
+      "containment": 0.0,
+      "token_f1": 0.657997,
+      "llm_judge": 0.5
+    }
+  },
+  "by_dataset": {
+    "03_Raw_Question_Answer_Data": {
+      "count": 1,
+      "anls": 0.0,
+      "em": 0.0,
+      "containment": 0.0,
+      "token_f1": 0.657997,
+      "llm_judge": 0.5
+    }
+  },
+  "by_question_type": {
+    "unknown": {
+      "count": 1,
+      "anls": 0.0,
+      "em": 0.0,
+      "containment": 0.0,
+      "token_f1": 0.657997,
+      "llm_judge": 0.5
+    }
+  }
+}
