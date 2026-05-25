@@ -12,6 +12,7 @@ eval/
     metrics.py
     build_pdfqa_kb.py
     run_pdfqa_eval.py
+    run_token_eval.py
   input/
     pdfqa/
       annotations/        # pdfQA 注释（JSON 文件）
@@ -81,6 +82,52 @@ python eval/code/run_pdfqa_eval.py --resume --strict-docs --category real --k 5 
 - `EM`
 - `evidence_page_recall`（仅当注释中存在页面标签时）
 - 按类别、数据集和问题类型分组的指标
+
+## 5）运行 Token 成本评估
+
+`run_token_eval.py` 用于比较两种问答方式的 token 消耗：
+
+- `DocRAG`：使用已构建好的知识图谱检索相关上下文，再调用 API 回答。
+- `Full upload`：每个问题直接把目标 PDF 文档上传给 API 回答。
+
+运行前需要保证已经存在评估知识库：
+
+```text
+eval/output/kb
+```
+
+真实 `real-pdfQA / ClimRetrieve` 数据的标注文件通常不是 `*_rawQA.json` 命名，因此建议使用 `--qa-split all`：
+
+```bash
+python -B eval/code/run_token_eval.py --category real --qa-split all --answer-profile all --max-samples 20 --mode both --full-upload-scope target_doc
+```
+
+如果只想先做小样本测试，可以降低样本数：
+
+```bash
+python -B eval/code/run_token_eval.py --category real --qa-split all --answer-profile all --max-samples 5 --mode both --full-upload-scope target_doc
+```
+
+如果只想测试某一篇 PDF，可以指定文档名：
+
+```bash
+python -B eval/code/run_token_eval.py --category real --qa-split all --doc-name "2022 Microsoft Environmental Sustainability Report.pdf" --answer-profile all --max-samples 5 --mode both --full-upload-scope target_doc
+```
+
+输出文件：
+
+- `eval/output/pdfqa/token_eval.jsonl`
+- `eval/output/pdfqa/token_eval_metrics.json`
+
+主要关注指标：
+
+- `docrag_usage.input_tokens`：DocRAG 方案上传给模型的输入 token。
+- `full_upload_usage.input_tokens`：整篇 PDF 上传方案的输入 token。
+- `savings.input_token_saved_percent`：输入 token 节省比例，也可理解为 upload token 节省比例。
+- `savings.total_token_saved_percent`：总 token 节省比例。
+- `done_count` / `failed_count`：成功和失败样本数。若 full-upload API 触发额度或限流，可能出现部分失败。
+
+当前脚本默认使用 `.env` 中的 DashScope API 配置，并使用 API embedding，不使用本地 embedding 模型。
 
 ## 注意事项
 
