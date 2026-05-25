@@ -455,6 +455,29 @@ def _keep_sample(sample: PDFQASample, profile: str) -> bool:
     return True
 
 
+def _filter_samples_to_kb_docs(
+    samples: list[PDFQASample],
+    kb_root: Path,
+) -> tuple[list[PDFQASample], list[PDFQASample]]:
+    docs_json = kb_root / "parsed" / "documents.json"
+    if not docs_json.exists():
+        raise FileNotFoundError(f"--kb-docs-only requires KB documents file: {docs_json}")
+
+    docs_list = json.loads(docs_json.read_text(encoding="utf-8"))
+    kb_sources = {
+        str(d.get("metadata", {}).get("source", ""))
+        for d in docs_list
+        if isinstance(d, dict)
+    }
+    kb_sources.discard("")
+    if not kb_sources:
+        raise ValueError(f"No KB source names found in {docs_json}")
+
+    kept = [s for s in samples if s.doc_name in kb_sources]
+    dropped = [s for s in samples if s.doc_name not in kb_sources]
+    return kept, dropped
+
+
 def parse_args() -> argparse.Namespace:
     defaults = _default_paths()
     parser = argparse.ArgumentParser(
@@ -490,6 +513,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--strict-docs", action="store_true")
+    parser.add_argument("--kb-docs-only", action="store_true", help="auto-exclude samples whose doc is not in KB")
     parser.add_argument("--log-every", type=int, default=5)
     return parser.parse_args()
 
@@ -530,6 +554,13 @@ def main() -> None:
     samples = [s for s in samples if _keep_sample(s, args.answer_profile)]
     if args.doc_name and args.max_samples and args.max_samples > 0:
         samples = samples[: args.max_samples]
+    kb_dropped_samples: list[PDFQASample] = []
+    if args.kb_docs_only:
+        before = len(samples)
+        samples, kb_dropped_samples = _filter_samples_to_kb_docs(samples, args.kb_root)
+        print(f"--kb-docs-only: dropped {before - len(samples)} samples (remaining {len(samples)})")
+        for sample in kb_dropped_samples:
+            print(f"  SKIP {sample.doc_name} - not in KB")
 
     settings = get_settings()
     settings.model_provider = "dashscope"
@@ -690,6 +721,9 @@ def main() -> None:
         "qa_split": args.qa_split,
         "doc_name": args.doc_name,
         "answer_profile": args.answer_profile,
+        "kb_docs_only": bool(args.kb_docs_only),
+        "kb_docs_dropped_count": len(kb_dropped_samples),
+        "kb_docs_dropped": sorted({s.doc_name for s in kb_dropped_samples}),
         "full_upload_model": args.full_upload_model if args.mode in {"both", "full_upload"} else "",
         "full_upload_scope": args.full_upload_scope if args.mode in {"both", "full_upload"} else "",
         "sample_count": len(samples),
