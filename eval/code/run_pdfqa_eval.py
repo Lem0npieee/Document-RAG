@@ -329,7 +329,7 @@ def parse_args() -> argparse.Namespace:
         help="filter evaluation set by answer type",
     )
     parser.add_argument("--recompute-only", action="store_true", help="do not call model, only rescore existing predictions")
-    parser.add_argument("--ablation", type=str, default=None, choices=[None, "vector_only", "graph_only"], help="ablation mode")
+    parser.add_argument("--ablation", type=str, default=None, choices=[None, "vector_only", "graph_only", "no_image"], help="ablation mode")
     parser.add_argument("--baseline", type=str, default=None, choices=[None, "always_no", "always_yes"], help="simple baseline")
     parser.add_argument("--exclude-docs", type=str, default="", help="comma-separated doc names to exclude from eval")
     parser.add_argument("--kb-docs-only", action="store_true", help="auto-exclude samples whose doc is not in KB")
