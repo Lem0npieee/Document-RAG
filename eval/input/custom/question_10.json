@@ -109,5 +109,16 @@
     ],
     "difficulty": "hard",
     "doc_name": "Veolia ESG Report 2023.pdf"
+  },
+  {
+    "question": "Veolia's decarbonization strategy has two complementary tracks: reducing its own emissions (Scopes 1, 2, 3) and helping customers avoid emissions through circular economy solutions. Across pages 15 and 17, describe how Veolia's own emission targets (coal phase-out, methane capture, net-zero) and its circular economy activities (plastic recycling, waste-to-energy, wastewater reuse) work together toward the 2050 net-zero goal. Include specific metrics and targets from both pages.",
+    "answers": [
+      "Own emissions (page 15): Coal phase-out from European operations by 2030 with €1.5 billion investment (€382M already invested by 2022); methane capture target 55% by 2023; 30% reduction in carbon intensity since 2018; net-zero trajectory definition in 2024-2027 strategic plan for 2050. Scope 1 emissions: 28.6 MtCO2 eq. (45% heat/electricity, 33% waste storage methane, 18% waste incineration). Customer avoidance (pages 15, 17): Circular economy solutions helped customers avoid 14 MtCO2 eq. in 2022 (target 15 MtCO2 eq. by 2023); plastics recycling grew from 350kt (2019) to 490kt (2022) with 610kt target (2023); wastewater reuse grew from 401M m³ (2019) to 989M m³ (2022); circular economy revenue reached €8.4B in 2022. Together, Scope 1/2 reductions and customer emissions avoidance create a dual decarbonization pathway toward net-zero.",
+      "Two tracks: (1) Own emissions — coal exit by 2030 (€1.5B), 55% methane capture, Scope 1 at 28.6 MtCO2; (2) Customer avoidance — 14 MtCO2 avoided in 2022 via circular solutions, 490kt plastics recycled, 989M m³ wastewater reused, €8.4B circular revenue. Both tracks target net-zero 2050."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [15, 17],
+    "difficulty": "medium",
+    "doc_name": "Veolia ESG Report 2023.pdf"
   }
 ]
