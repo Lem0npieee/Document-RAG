@@ -1,0 +1,11 @@
+{
+  "question": "According to Walmart's U.S. representation data on page 14, what percentage of the U.S. workforce and U.S. management are women and people of color?",
+  "answers": [
+    "U.S. workforce: 52% women, 49% people of color. U.S. management: 44% women, 41% people of color. U.S. officers: 37% women, 28% people of color. U.S. total management promotions earned: 40% women, 43% people of color. U.S. hourly-to-hourly promotions earned: 54% women, 50% people of color.",
+    "Workforce: 52% women, 49% POC. Management: 44% women, 41% POC. Officers: 37% women, 28% POC. Management promotions: 40% women, 43% POC."
+  ],
+  "question_type": "table_qa",
+  "evidence_pages": [14],
+  "difficulty": "easy",
+  "doc_name": "Walmart ESG Highlights 2023.pdf"
+}

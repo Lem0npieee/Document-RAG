@@ -1,0 +1,11 @@
+{
+  "question": "What is Westpac's climate ambition and what are the three areas of action outlined in its Climate Change Position Statement (CCPS)?",
+  "answers": [
+    "Westpac's climate ambition is to become a net-zero, climate resilient bank, which includes transitioning its operational and financed emissions and aligning its lending portfolio to net-zero by 2050 consistent with a 1.5°C pathway. The three areas of action are: (1) Net-zero, climate resilient operations — reducing scope 1, 2 and scope 3 upstream emissions; (2) Supporting customers' transition to net-zero — partnering with customers on their transition plans and mobilizing capital; (3) Collaborate for impact — working with governments, businesses, communities and industry bodies on initiatives towards net-zero and climate resilience.",
+    "Climate ambition: become a net-zero, climate resilient bank, aligning lending portfolio to net-zero by 2050 (1.5°C pathway). Three areas: (1) Net-zero operations; (2) Supporting customers' transition; (3) Collaborating for impact."
+  ],
+  "question_type": "text_location",
+  "evidence_pages": [14, 15],
+  "difficulty": "easy",
+  "doc_name": "Westpac 2023 climate report.pdf"
+}

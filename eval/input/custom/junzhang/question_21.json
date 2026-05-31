@@ -1,0 +1,11 @@
+{
+  "question": "Describe Walmart's nature conservation targets: what are the acreage and ocean area goals by 2030, and what progress had been made through the Acres for America program by FY2023?",
+  "answers": [
+    "Walmart aims to protect, more sustainably manage, or restore at least 50 million acres of land and 1 million square miles of ocean by 2030. Through the Acres for America program, Walmart reached a milestone of over 2 million acres conserved since 2005. In FY2023, Walmart engaged through business or philanthropy in efforts to protect, more sustainably manage, or restore more than 30 million acres of land and more than 1.4 million square miles of ocean. The company also pursued seven place-based commodity sourcing initiatives and launched a nature portal to connect suppliers to conservation opportunities.",
+    "2030 targets: 50 million acres of land + 1 million sq miles of ocean. Acres for America: 2M+ acres conserved since 2005. FY2023: >30M acres land + >1.4M sq miles ocean engaged. 7 place-based sourcing initiatives launched."
+  ],
+  "question_type": "cross_page",
+  "evidence_pages": [21],
+  "difficulty": "medium",
+  "doc_name": "Walmart ESG Highlights 2023.pdf"
+}
