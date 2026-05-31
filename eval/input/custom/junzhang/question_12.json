@@ -1,11 +1,123 @@
-{
-  "question": "Veolia's governance ties ESG performance to executive compensation. According to the report, what were the 2022 compensation criteria for the CEO, and what percentage was allocated to quantitative non-financial metrics?",
-  "answers": [
-    "The CEO's 2022 annual variable compensation criteria were: Quantitative (financial) 50%, Qualitative 20%, and Quantitative (non-financial) 30%+. Long-term compensation also included a CSR criterion weighted at 20%. The Board of Directors validates the multifaceted performance objectives and controls their application through a dedicated Purpose Committee.",
-    "CEO 2022 compensation: 50% quantitative financial, 20% qualitative, 30%+ quantitative non-financial. Long-term compensation includes 20% CSR criterion. Purpose Committee oversees ESG objectives."
-  ],
-  "question_type": "chart_understanding",
-  "evidence_pages": [6],
-  "difficulty": "medium",
-  "doc_name": "Veolia ESG Report 2023.pdf"
-}
+[
+  {
+    "question": "What is Westpac's climate ambition and what are the three areas of action outlined in its Climate Change Position Statement (CCPS)?",
+    "answers": [
+      "Westpac's climate ambition is to become a net-zero, climate resilient bank, which includes transitioning its operational and financed emissions and aligning its lending portfolio to net-zero by 2050 consistent with a 1.5°C pathway. The three areas of action are: (1) Net-zero, climate resilient operations — reducing scope 1, 2 and scope 3 upstream emissions; (2) Supporting customers' transition to net-zero — partnering with customers on their transition plans and mobilizing capital; (3) Collaborate for impact — working with governments, businesses, communities and industry bodies on initiatives towards net-zero and climate resilience.",
+      "Climate ambition: become a net-zero, climate resilient bank, aligning lending portfolio to net-zero by 2050 (1.5°C pathway). Three areas: (1) Net-zero operations; (2) Supporting customers' transition; (3) Collaborating for impact."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [
+      14,
+      15
+    ],
+    "difficulty": "easy",
+    "doc_name": "Westpac 2023 climate report.pdf"
+  },
+  {
+    "question": "Describe Westpac's pilot framework for assessing customer transition plans. What are the five framework components and what were the key findings from the initial assessments?",
+    "answers": [
+      "Westpac's five-component pilot framework for assessing customer transition plans includes: (1) Targets — short and long-term emission reduction commitments across scope 1, 2 and 3, with commitment to net-zero by 2050; (2) Governance — board and management oversight of climate risks and opportunities; (3) Strategy — integration of climate into business strategy and capital planning; (4) Risk Management — processes for identifying, assessing, and managing climate risks; (5) Metrics and Performance — disclosure of emissions data and progress against targets. Key findings: many customers have net-zero commitments but lack detailed short-term milestones; governance and oversight of climate is increasing; and detailed transition plans with capital allocation remain a work in progress for most customers.",
+      "Five components: (1) Targets — emission reduction commitments; (2) Governance — board oversight; (3) Strategy — climate integration; (4) Risk Management — risk processes; (5) Metrics & Performance — emissions disclosure. Findings: many customers have net-zero commitments but lack detailed short-term plans."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [
+      33
+    ],
+    "difficulty": "medium",
+    "doc_name": "Westpac 2023 climate report.pdf"
+  },
+  {
+    "question": "According to Westpac's report, on which pages are the Board oversight of climate risks (Table 2), the NZBA sector lending targets (Table 12), and the sector-specific positions on fossil fuels (Table 13) located? What does Table 12 show for the thermal coal and upstream oil and gas sectors?",
+    "answers": [
+      "Board oversight of climate-related risks (Table 2) is on pages 11-12. NZBA 2030 sector lending targets (Table 12) is on page 30. Sector-specific positions on fossil fuels (Table 13) is on page 31. Table 12 shows: for Thermal Coal mining — a 100% reduction target by 2030 (with 23% progress in FY22, decline due to reduction in customer exposure); for Upstream Oil and Gas — a 23% reduction target by 2030 (with 18% progress in FY22, decline also due to reduction in customer exposure). Table 13 further notes Westpac will not provide project finance or bond facilitation for development of new greenfield or expansion oil and gas fields, subject to national energy security.",
+      "Page 11-12: Table 2 (Board oversight). Page 30: Table 12 (NZBA targets) — thermal coal 100% reduction target (23% FY22 progress), upstream oil & gas 23% target (18% FY22 progress). Page 31: Table 13 (sector positions) — no new greenfield oil & gas project finance."
+    ],
+    "question_type": "citation_tracking",
+    "evidence_pages": [
+      11,
+      12,
+      30,
+      31
+    ],
+    "difficulty": "medium",
+    "doc_name": "Westpac 2023 climate report.pdf"
+  },
+  {
+    "question": "What is Westpac's approach to carbon offsetting, and what certifications do its Australian and New Zealand operations hold? How long has Westpac been purchasing carbon credits?",
+    "answers": [
+      "Westpac's Australian operations are certified under the Australian Government's Climate Active Carbon Neutral Standard for Organisations, and its New Zealand operations are certified under the Toitū net carbonzero programme. Westpac has purchased carbon credits to offset residual emissions as required for its certifications since 2012. Westpac NZ has also offset its operational emissions since 2019. The priority remains reducing direct emissions first, with carbon credits playing a role for residual emissions.",
+      "Australia: Climate Active Carbon Neutral certified. New Zealand: Toitū net carbonzero certified. Purchasing carbon credits since 2012 (NZ since 2019). Priority is reducing direct emissions, with offsets for residual."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [
+      23
+    ],
+    "difficulty": "medium",
+    "doc_name": "Westpac 2023 climate report.pdf"
+  },
+  {
+    "question": "According to Westpac's NZBA progress table on page 9 and sector targets table on page 30, how many NZBA sector lending targets has Westpac set, across how many sectors, and what are the specific targets for thermal coal mining and power generation?",
+    "answers": [
+      "Westpac has set 12 NZBA 2030 sector lending targets across 8 of the 9 NZBA carbon-intensive sectors (up from 5 targets across 5 sectors in September 2022). For thermal coal mining: zero lending to institutional customers with a high portion (≥15%) coming directly from thermal coal mining by 30 September 2025. For power generation: 84% of electricity generation lending exposure is to renewable energy (based on TCE). Westpac's sustainable finance targets by 2030 include $55 billion in lending and $40 billion in bond facilitation.",
+      "12 NZBA 2030 targets across 8 of 9 sectors (up from 5 in 5 sectors). Thermal coal: zero lending to ≥15% coal customers by Sep 2025. Power generation: 84% exposure to renewable energy. Sustainable finance: $55B lending + $40B bond facilitation by 2030."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [
+      9,
+      26,
+      30
+    ],
+    "difficulty": "medium",
+    "doc_name": "Westpac 2023 climate report.pdf"
+  },
+  {
+    "question": "According to Westpac's financed emissions data on page 29, what is the estimated absolute financed emissions total, and which five sectors account for the largest share? Also, what proportion of total emissions do direct operational emissions represent versus financed emissions?",
+    "answers": [
+      "In FY23, Westpac's absolute financed emissions of total assessed lending is estimated at 39.4 MtCO₂-e (sum of scope 1 and 2 at 26.1 MtCO₂-e and scope 3 at 13.3 MtCO₂-e). The five sectors accounting for the largest share are: Manufacturing, Mining, Agriculture, Utilities, and Residential Mortgages. Direct operational emissions are minimal — Westpac's own scope 1 and 2 emissions represent less than 0.1% of total emissions, with financed emissions accounting for over 99% of Westpac's carbon footprint.",
+      "Financed emissions: 39.4 MtCO₂-e total (scope 1&2: 26.1 Mt, scope 3: 13.3 Mt). Top sectors: Manufacturing, Mining, Agriculture, Utilities, Residential Mortgages. Direct operations: <0.1% of total; financed emissions: >99%."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [
+      17,
+      29
+    ],
+    "difficulty": "medium",
+    "doc_name": "Westpac 2023 climate report.pdf"
+  },
+  {
+    "question": "According to Westpac's FY23 highlights, what progress was made on reducing Scope 1 and 2 emissions, and what renewable energy milestone was achieved in Australia?",
+    "answers": [
+      "In FY23, Westpac reduced its scope 1 and 2 emissions by 52% in the year and by 66% relative to its 2021 baseline, surpassing its 2025 target of a 64% reduction two years ahead of schedule. From April 2023, Westpac achieved a significant milestone by sourcing the equivalent of 100% of its Australian electricity demand from renewables. Scope 3 upstream emissions were also reduced by 4% through property consolidation and working with suppliers.",
+      "Scope 1&2 emissions reduced by 52% in FY23, 66% from 2021 baseline (surpassed 2025 target of 64% by two years). 100% of Australian electricity from renewables from April 2023."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [
+      8,
+      21
+    ],
+    "difficulty": "medium",
+    "doc_name": "Westpac 2023 climate report.pdf"
+  },
+  {
+    "question": "Westpac's climate strategy spans three pillars: Net-Zero Operations, Supporting Customers' Transition, and Collaborating for Impact. Synthesize the headline target and key FY23 progress metric for each pillar, and explain how the Sustainable Finance Framework supports the overall strategy.",
+    "answers": [
+      "Pillar 1 — Net-Zero Operations: Target of 64% Scope 1&2 reduction by 2025 and 76% by 2030 from 2021 baseline. FY23 progress: 66% reduction already achieved (surpassed 2025 target), 100% Australian electricity from renewables from April 2023 (pages 8, 15, 21). Pillar 2 — Supporting Customers: Set 12 NZBA 2030 sector lending targets across 8 of 9 carbon-intensive sectors. FY23 progress: 3% reduction in estimated financed emissions, now covering up to 48% of scope 1&2 financed emissions. Sustainable finance targets of $55B lending and $40B bond facilitation by 2030 (pages 9, 26, 27). Pillar 3 — Collaborating for Impact: Engaged with industry bodies, co-convened the Australian Industry Energy Transitions Initiative. FY23 progress: launched first Natural Capital Position Statement, committed to no deforestation from Dec 2025 for agricultural customers (pages 7, 38, 39). The Sustainable Finance Framework (page 37) underpins the strategy by defining how Westpac classifies sustainable lending and bond facilitation, aligned with global standards to give customers clarity on what is green, transition, or social financing.",
+      "Three pillars: (1) Net-Zero Ops — 66% Scope 1&2 reduction (surpassed 2025 target), 100% AU renewables; (2) Supporting Customers — 12 NZBA targets across 8 sectors, $55B+$40B sustainable finance by 2030, 3% financed emissions reduction; (3) Collaborate — NCPS launched, no deforestation from Dec 2025, ETI co-convened. Sustainable Finance Framework defines green/transition/social financing classifications."
+    ],
+    "question_type": "multi_hop",
+    "evidence_pages": [
+      7,
+      8,
+      9,
+      15,
+      21,
+      26,
+      27,
+      37,
+      38,
+      39
+    ],
+    "difficulty": "hard",
+    "doc_name": "Westpac 2023 climate report.pdf"
+  }
+]

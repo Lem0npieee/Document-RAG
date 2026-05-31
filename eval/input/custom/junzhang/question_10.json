@@ -1,11 +1,113 @@
-{
-  "question": "According to Veolia's circular economy data on page 17, what was the revenue linked to the circular economy from 2020 to 2022, and what is the 2023 target? Also, how did the volume of plastics recycled change from 2019 to 2022?",
-  "answers": [
-    "Circular economy revenue: €5.2 billion in 2020, €6 billion in 2021, €8.4 billion in 2022, with a 2023 target of €6.3 billion. Plastics recycled: 350,000 tonnes in 2019, 391,000 tonnes in 2020, 476,000 tonnes in 2021, 490,000 tonnes in 2022, with a 2023 target of 610,000 tonnes.",
-    "Revenue: 2020 €5.2B → 2021 €6B → 2022 €8.4B (2023 target €6.3B). Plastics recycled: 350kt (2019) → 391kt (2020) → 476kt (2021) → 490kt (2022), 2023 target 610kt."
-  ],
-  "question_type": "table_qa",
-  "evidence_pages": [17],
-  "difficulty": "easy",
-  "doc_name": "Veolia ESG Report 2023.pdf"
-}
+[
+  {
+    "question": "According to Veolia's circular economy data on page 17, what was the revenue linked to the circular economy from 2020 to 2022, and what is the 2023 target? Also, how did the volume of plastics recycled change from 2019 to 2022?",
+    "answers": [
+      "Circular economy revenue: €5.2 billion in 2020, €6 billion in 2021, €8.4 billion in 2022, with a 2023 target of €6.3 billion. Plastics recycled: 350,000 tonnes in 2019, 391,000 tonnes in 2020, 476,000 tonnes in 2021, 490,000 tonnes in 2022, with a 2023 target of 610,000 tonnes.",
+      "Revenue: 2020 €5.2B → 2021 €6B → 2022 €8.4B (2023 target €6.3B). Plastics recycled: 350kt (2019) → 391kt (2020) → 476kt (2021) → 490kt (2022), 2023 target 610kt."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [
+      17
+    ],
+    "difficulty": "easy",
+    "doc_name": "Veolia ESG Report 2023.pdf"
+  },
+  {
+    "question": "According to the Veolia ESG Report, how many employees does Veolia have, in which sectors does it operate, and what is its stated Purpose?",
+    "answers": [
+      "Veolia has nearly 220,000 employees working in water, waste, and energy on five continents. Its stated Purpose is 'Ecological transformation' — acting to reconcile human progress and environmental protection through decarbonizing, saving and regenerating resources, and depolluting.",
+      "Nearly 220,000 employees across five continents in water, waste, and energy. Purpose: Ecological transformation — decarbonizing, saving and regenerating resources, and depolluting."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [
+      4,
+      5
+    ],
+    "difficulty": "easy",
+    "doc_name": "Veolia ESG Report 2023.pdf"
+  },
+  {
+    "question": "Veolia's governance ties ESG performance to executive compensation. According to the report, what were the 2022 compensation criteria for the CEO, and what percentage was allocated to quantitative non-financial metrics?",
+    "answers": [
+      "The CEO's 2022 annual variable compensation criteria were: Quantitative (financial) 50%, Qualitative 20%, and Quantitative (non-financial) 30%+. Long-term compensation also included a CSR criterion weighted at 20%. The Board of Directors validates the multifaceted performance objectives and controls their application through a dedicated Purpose Committee.",
+      "CEO 2022 compensation: 50% quantitative financial, 20% qualitative, 30%+ quantitative non-financial. Long-term compensation includes 20% CSR criterion. Purpose Committee oversees ESG objectives."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [
+      6
+    ],
+    "difficulty": "medium",
+    "doc_name": "Veolia ESG Report 2023.pdf"
+  },
+  {
+    "question": "According to Veolia's HR performance data on page 21, what were the average training hours per employee from 2019 to 2022, and what was the percentage of women among managers and in external management recruitment over the same period? Cite the exact page where this data is reported.",
+    "answers": [
+      "Average training hours per employee: 18h (2019), 17h (2020), 21h (2021), 26h (2022), with a 2023 target of 23h (page 21). Women among managers: 21.1% (2019), 21.4% (2020), 21.7% (2021), 22.3% (2022). Women in external recruitment of managers on permanent contracts: 27.3% (2019), 28.3% (2020), 29% (2021), 30% (2022). The data tables are displayed on page 21 of the report.",
+      "Training hours: 18h (2019) → 17h (2020) → 21h (2021) → 26h (2022), 2023 target 23h. Women managers: 21.1% → 21.4% → 21.7% → 22.3%. Women in external management recruitment: 27.3% → 28.3% → 29% → 30%. All on page 21."
+    ],
+    "question_type": "citation_tracking",
+    "evidence_pages": [
+      21
+    ],
+    "difficulty": "medium",
+    "doc_name": "Veolia ESG Report 2023.pdf"
+  },
+  {
+    "question": "Veolia's waste management operations treat 61.3 Mt of waste annually. What was the material recovery rate in 2022, what is the sludge recovery rate target for 2023, and what is the ash recovery rate from incineration?",
+    "answers": [
+      "In 2022, Veolia treated 61.3 Mt of waste with a material recovery rate of 17% (12 Mt). The ash recovery rate from incineration was 91.1% in 2022 (target of 90% for 2023), and the sludge recovery rate from wastewater treatment was 72.6% in 2022 with a 2023 target of over 75%.",
+      "61.3 Mt waste treated in 2022, 17% material recovery rate (12 Mt). Ash recovery: 91.1% in 2022 (2023 target: 90%). Sludge recovery: 72.6% in 2022 (2023 target: >75%)."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [
+      17
+    ],
+    "difficulty": "medium",
+    "doc_name": "Veolia ESG Report 2023.pdf"
+  },
+  {
+    "question": "What is Veolia's commitment regarding coal in its European operations, and what investment has been made toward this goal? What is Veolia's overarching net-zero target year?",
+    "answers": [
+      "Veolia has committed to eliminate coal from its European operations by 2030, at an estimated cost of €1.5 billion, with €382 million already invested as of 2022. This is part of a broader effort to reduce GHG emissions across Scopes 1, 2 and 3. Veolia aims for net-zero emissions by 2050.",
+      "Eliminate coal from European operations by 2030 at a cost of €1.5 billion (€382 million invested as of 2022). Net-zero target: 2050."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [
+      15
+    ],
+    "difficulty": "medium",
+    "doc_name": "Veolia ESG Report 2023.pdf"
+  },
+  {
+    "question": "Describe Veolia's 'multifaceted performance' framework. What are the five performance areas, and how is the framework implemented at the local level?",
+    "answers": [
+      "The five performance areas are: commercial, economic/financial, environmental, human resources, and social. Each multifaceted performance objective is co-managed by two people: an Executive Committee sponsor who supports the objectives at the highest level, and a Group Objective key expert who defines the attainment strategy, proposes cascading methods, and participates in designing action plans and monitoring indicators.",
+      "Five areas: commercial, economic/financial, environmental, human resources, social. Each objective co-managed by an Executive Committee sponsor and a Group Objective key expert. Implemented locally through cascading strategies and action plans."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [
+      7,
+      8
+    ],
+    "difficulty": "medium",
+    "doc_name": "Veolia ESG Report 2023.pdf"
+  },
+  {
+    "question": "Veolia's ESG strategy spans four priority areas (Climate, Circular Economy, Depollution/Biodiversity, and Social/Human Resources). Synthesize the headline target, one key metric, and the governance mechanism for each area.",
+    "answers": [
+      "Climate: Eliminate coal from European operations by 2030 (€1.5B investment), net-zero by 2050. Key metric: €382M already invested by 2022 (page 15). Circular Economy: Increase recycled plastics to 610kt by 2023. Key metric: 490kt recycled in 2022, €8.4B circular economy revenue (page 17). Depollution/Biodiversity: Over 100 priority sites identified for biodiversity action plans, extending zero-pesticide policies. Key metric: 91.1% ash recovery and 72.6% sludge recovery (pages 17-18). Social/Human Resources: 23 hours training per employee target, engagement rate above 80%. Key metric: 5.3 million training hours delivered, 91% of employees trained in 2022 (page 21). Governance: Purpose Committee at Board level, CEO compensation tied 30%+ to non-financial metrics (page 6).",
+      "Four priorities: (1) Climate — coal elimination by 2030, net-zero by 2050, €382M invested; (2) Circular Economy — 610kt plastics target, €8.4B revenue; (3) Depollution/Biodiversity — 100+ priority sites, 91.1% ash recovery; (4) Social/HR — 23h training target, 91% trained. Governance via Purpose Committee and 30%+ CEO compensation tied to ESG."
+    ],
+    "question_type": "multi_hop",
+    "evidence_pages": [
+      6,
+      7,
+      15,
+      17,
+      18,
+      21
+    ],
+    "difficulty": "hard",
+    "doc_name": "Veolia ESG Report 2023.pdf"
+  }
+]

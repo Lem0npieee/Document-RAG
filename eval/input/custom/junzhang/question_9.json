@@ -1,11 +1,117 @@
-{
-  "question": "According to the Veolia ESG Report, how many employees does Veolia have, in which sectors does it operate, and what is its stated Purpose?",
-  "answers": [
-    "Veolia has nearly 220,000 employees working in water, waste, and energy on five continents. Its stated Purpose is 'Ecological transformation' — acting to reconcile human progress and environmental protection through decarbonizing, saving and regenerating resources, and depolluting.",
-    "Nearly 220,000 employees across five continents in water, waste, and energy. Purpose: Ecological transformation — decarbonizing, saving and regenerating resources, and depolluting."
-  ],
-  "question_type": "text_location",
-  "evidence_pages": [4, 5],
-  "difficulty": "easy",
-  "doc_name": "Veolia ESG Report 2023.pdf"
-}
+[
+  {
+    "question": "According to Meta's 2022 carbon footprint table on page 10, what are the three scopes of emissions and their respective percentages and metric tons of CO2e? Which category within Scope 3 is the largest?",
+    "answers": [
+      "Scope 1 accounts for 1% (66,934 mt CO2e), Scope 2 accounts for less than 1% (273 mt CO2e), and Scope 3 accounts for 99% (8,466,264 mt CO2e). Within Scope 3, Capital Goods is the largest category at 63% (5,346,583 mt CO2e), followed by Purchased Goods & Services at 30% (2,545,466 mt CO2e).",
+      "Scope 1: 1% (66,934 mt CO2e), Scope 2: <1% (273 mt CO2e), Scope 3: 99% (8,466,264 mt CO2e). Largest Scope 3 category: Capital Goods at 63% (5,346,583 mt CO2e)."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [
+      10
+    ],
+    "difficulty": "easy",
+    "doc_name": "Meta 2023 Sustainability Report.pdf"
+  },
+  {
+    "question": "What is Meta's net zero commitment and what progress has been made in reducing operational emissions since 2017?",
+    "answers": [
+      "Meta has maintained net zero emissions in its global operations since 2020, reducing operational emissions by 94% from a 2017 baseline. The company supported its data centers and offices with 100% renewable energy, and its renewable energy commitments have reduced GHG emissions by more than 12.3 million metric tons of CO2e since 2018.",
+      "Net zero in global operations since 2020, 94% reduction from 2017 baseline, 100% renewable energy, 12.3 million metric tons CO2e reduced since 2018."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [
+      10
+    ],
+    "difficulty": "easy",
+    "doc_name": "Meta 2023 Sustainability Report.pdf"
+  },
+  {
+    "question": "According to the report, why did Meta's emissions increase by 46% in 2022, and what does this reveal about the challenge of decarbonization during business growth?",
+    "answers": [
+      "Meta's emissions increased 46% in 2022 due to employees returning to offices and because business growth accelerated at a faster pace than the company could scale decarbonization measures. However, Meta's market-based emissions were 39% smaller than location-based emissions, demonstrating that renewable energy procurement and sustainable aviation fuel purchases are already having tangible results. This underscores the need to drive innovative solutions across the business and in collaboration with suppliers.",
+      "46% increase in 2022 due to: (1) employees returning to offices, (2) business growth outpacing decarbonization. However, market-based emissions were 39% smaller than location-based, showing the effectiveness of renewable energy procurement."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [
+      11
+    ],
+    "difficulty": "medium",
+    "doc_name": "Meta 2023 Sustainability Report.pdf"
+  },
+  {
+    "question": "According to the Meta report, on which specific pages are the detailed breakdowns of Scope 3 emissions categories, operational GHG emissions by facility, and water withdrawal by facility located? What data does the Scope 3 table on page 50 show for Purchased Goods & Services and Capital Goods?",
+    "answers": [
+      "Scope 3 emissions category breakdowns are on page 50 (Value chain GHG emissions table), operational GHG emissions by facility are on pages 47-48, and water withdrawal by facility is on page 53. The Scope 3 table on page 50 shows Purchased Goods & Services at 2,545,466 mt CO2e (30% of total) and Capital Goods at 5,346,583 mt CO2e (63% of total) for 2022. The environmental data spans pages 46-55 with detailed tables across all environmental metrics.",
+      "Scope 3 categories: page 50. Operational GHG by facility: pages 47-48. Water withdrawal by facility: page 53. At page 50: Purchased Goods & Services = 2,545,466 mt CO2e (30%), Capital Goods = 5,346,583 mt CO2e (63%)."
+    ],
+    "question_type": "citation_tracking",
+    "evidence_pages": [
+      46,
+      47,
+      48,
+      50,
+      53
+    ],
+    "difficulty": "medium",
+    "doc_name": "Meta 2023 Sustainability Report.pdf"
+  },
+  {
+    "question": "What is Meta's water positive commitment and what progress was made in 2022? Include the specific restoration ratio targets for different water stress levels.",
+    "answers": [
+      "Meta is committed to becoming water positive by 2030, meaning it will restore more water to the environment than it consumes for its global operations. To achieve this, Meta will restore 200% of the water it consumes in high water-stressed areas, and 100% of the water it consumes in medium water-stressed areas. In 2022, Meta's water restoration projects returned 621 million gallons of water to high and medium water-stressed regions. Meta's total water consumption in 2022 was 4,893,023 cubic meters.",
+      "Water positive by 2030: restore 200% of water consumed in high water-stressed areas, 100% in medium water-stressed areas. In 2022, restored 621 million gallons to stressed regions. Total consumption: 4.89 million cubic meters."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [
+      38,
+      53,
+      54
+    ],
+    "difficulty": "medium",
+    "doc_name": "Meta 2023 Sustainability Report.pdf"
+  },
+  {
+    "question": "According to Meta's data center sustainability metrics, what were the Power Usage Effectiveness (PUE) values from 2017 to 2022, and what percentage of data centers and offices were covered by green building standards in 2022?",
+    "answers": [
+      "Meta's PUE improved from 1.10 in 2017 to 1.08 in 2022, with values of 1.11 in 2018-2019, 1.10 in 2020, and 1.09 in 2021. By 2022, 99% of total square footage was covered by green building standards and/or Energy Management Systems (EnMS), up from 98% in 2021. Data centers are required to achieve LEED Gold or higher certification.",
+      "PUE values: 2017-1.10, 2018-1.11, 2019-1.11, 2020-1.10, 2021-1.09, 2022-1.08. Green building coverage: 99% in 2022 (vs 98% in 2021). Data centers require LEED Gold or higher."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [
+      52
+    ],
+    "difficulty": "medium",
+    "doc_name": "Meta 2023 Sustainability Report.pdf"
+  },
+  {
+    "question": "Describe Meta's renewable energy portfolio: how much contracted capacity does Meta have, and what makes Meta's position unique in the U.S. market?",
+    "answers": [
+      "Meta's portfolio includes more than 10,000 MW of contracted renewable energy projects, making it one of the largest corporate buyers of renewable energy globally. It is the corporation with the largest operating portfolio in the U.S., with more than 5,500 MW online. Meta also partners with utilities to support efforts to decarbonize electricity beyond its own procurement and invests in infrastructure that supports job creation.",
+      "10,000+ MW contracted renewable energy; largest operating portfolio in the U.S. with 5,500+ MW online. One of the largest corporate buyers globally."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [
+      13
+    ],
+    "difficulty": "medium",
+    "doc_name": "Meta 2023 Sustainability Report.pdf"
+  },
+  {
+    "question": "Meta's sustainability strategy encompasses four major environmental areas: Net Zero, Water, Biodiversity, and Circularity. Synthesize the headline target, the key metric, and one specific example for each area from the report.",
+    "answers": [
+      "Net Zero: Maintained net zero in global operations since 2020, reduced operational emissions by 94% from 2017; 10,000+ MW renewable energy portfolio. Example: market-based emissions 39% smaller than location-based through renewable procurement (page 11). Water: Water positive by 2030 restoring 200% in high-stress and 100% in medium-stress areas. In 2022, restored 621 million gallons to stressed regions (page 38). Biodiversity: Preserved and planned over 3,400 acres of native habitat across 20 North American data centers, representing 58% of data center fleet footprint (page 27). Circularity: Prioritizes post-consumer recycled plastics and recycled metal in hardware; reused components showing excellent results with oldest racks at two years of age performing well (page 24).",
+      "Four pillars: (1) Net Zero — 94% reduction from 2017, 10,000+ MW renewables; (2) Water Positive by 2030 — 200%/100% restoration targets, 621M gallons restored in 2022; (3) Biodiversity — 3,400+ acres preserved across 20 data centers (58% of footprint); (4) Circularity — PCR plastics, recycled metals, reused components performing well at 2 years."
+    ],
+    "question_type": "multi_hop",
+    "evidence_pages": [
+      10,
+      11,
+      13,
+      24,
+      27,
+      38
+    ],
+    "difficulty": "hard",
+    "doc_name": "Meta 2023 Sustainability Report.pdf"
+  }
+]
