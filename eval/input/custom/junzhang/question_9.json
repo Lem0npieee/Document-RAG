@@ -1,0 +1,11 @@
+{
+  "question": "According to the Veolia ESG Report, how many employees does Veolia have, in which sectors does it operate, and what is its stated Purpose?",
+  "answers": [
+    "Veolia has nearly 220,000 employees working in water, waste, and energy on five continents. Its stated Purpose is 'Ecological transformation' — acting to reconcile human progress and environmental protection through decarbonizing, saving and regenerating resources, and depolluting.",
+    "Nearly 220,000 employees across five continents in water, waste, and energy. Purpose: Ecological transformation — decarbonizing, saving and regenerating resources, and depolluting."
+  ],
+  "question_type": "text_location",
+  "evidence_pages": [4, 5],
+  "difficulty": "easy",
+  "doc_name": "Veolia ESG Report 2023.pdf"
+}

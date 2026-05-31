@@ -1,0 +1,11 @@
+{
+  "question": "According to the report, why did Meta's emissions increase by 46% in 2022, and what does this reveal about the challenge of decarbonization during business growth?",
+  "answers": [
+    "Meta's emissions increased 46% in 2022 due to employees returning to offices and because business growth accelerated at a faster pace than the company could scale decarbonization measures. However, Meta's market-based emissions were 39% smaller than location-based emissions, demonstrating that renewable energy procurement and sustainable aviation fuel purchases are already having tangible results. This underscores the need to drive innovative solutions across the business and in collaboration with suppliers.",
+    "46% increase in 2022 due to: (1) employees returning to offices, (2) business growth outpacing decarbonization. However, market-based emissions were 39% smaller than location-based, showing the effectiveness of renewable energy procurement."
+  ],
+  "question_type": "chart_understanding",
+  "evidence_pages": [11],
+  "difficulty": "medium",
+  "doc_name": "Meta 2023 Sustainability Report.pdf"
+}

@@ -1,0 +1,11 @@
+{
+  "question": "What is Meta's net zero commitment and what progress has been made in reducing operational emissions since 2017?",
+  "answers": [
+    "Meta has maintained net zero emissions in its global operations since 2020, reducing operational emissions by 94% from a 2017 baseline. The company supported its data centers and offices with 100% renewable energy, and its renewable energy commitments have reduced GHG emissions by more than 12.3 million metric tons of CO2e since 2018.",
+    "Net zero in global operations since 2020, 94% reduction from 2017 baseline, 100% renewable energy, 12.3 million metric tons CO2e reduced since 2018."
+  ],
+  "question_type": "text_location",
+  "evidence_pages": [10],
+  "difficulty": "easy",
+  "doc_name": "Meta 2023 Sustainability Report.pdf"
+}

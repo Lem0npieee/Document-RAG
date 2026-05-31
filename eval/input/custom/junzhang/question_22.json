@@ -1,0 +1,11 @@
+{
+  "question": "What progress did Walmart make in FY2023 toward its zero waste goal? Include metrics on food waste reduction, packaging recyclability, and plastic waste elimination.",
+  "answers": [
+    "FY2023 waste progress: Reduced food waste by 12% versus 2016 baseline; diverted more than 900 million lbs of food waste to composting, animal feed, anaerobic digestion, and biochemical processing; donated more than 760 million lbs of food globally. 63% of global private-brand packaging is recyclable, reusable, or industrially compostable, a 5% increase over FY2022. Walmart also eliminated free single-use plastic bags across several markets.",
+    "Food waste: 12% reduction vs 2016 baseline, 900M+ lbs diverted, 760M+ lbs donated. Packaging: 63% recyclable/reusable/compostable (+5% vs FY2022). Plastic: eliminated free single-use bags in several markets."
+  ],
+  "question_type": "chart_understanding",
+  "evidence_pages": [22],
+  "difficulty": "medium",
+  "doc_name": "Walmart ESG Highlights 2023.pdf"
+}

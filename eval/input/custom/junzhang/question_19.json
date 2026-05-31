@@ -1,0 +1,11 @@
+{
+  "question": "What is Walmart's climate target for its global operations emissions, and what was the reduction in combined Scope 1 & 2 emissions versus the 2015 baseline as reported in FY2023?",
+  "answers": [
+    "Walmart aims to achieve zero emissions in its global operations by 2040. As of FY2023 (through 2021 data), Walmart achieved a 23.2% reduction in combined Scope 1 & 2 emissions versus the 2015 baseline. Through Project Gigaton, suppliers have reduced or avoided more than 750 million metric tons of CO2e since 2017.",
+    "Zero emissions in global operations by 2040. Combined Scope 1&2 emissions reduced by 23.2% vs 2015 baseline (through 2021). Suppliers reduced/avoided 750M+ MT CO2e since 2017 via Project Gigaton."
+  ],
+  "question_type": "text_location",
+  "evidence_pages": [17, 19],
+  "difficulty": "medium",
+  "doc_name": "Walmart ESG Highlights 2023.pdf"
+}

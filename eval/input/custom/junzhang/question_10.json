@@ -1,0 +1,11 @@
+{
+  "question": "According to Veolia's circular economy data on page 17, what was the revenue linked to the circular economy from 2020 to 2022, and what is the 2023 target? Also, how did the volume of plastics recycled change from 2019 to 2022?",
+  "answers": [
+    "Circular economy revenue: €5.2 billion in 2020, €6 billion in 2021, €8.4 billion in 2022, with a 2023 target of €6.3 billion. Plastics recycled: 350,000 tonnes in 2019, 391,000 tonnes in 2020, 476,000 tonnes in 2021, 490,000 tonnes in 2022, with a 2023 target of 610,000 tonnes.",
+    "Revenue: 2020 €5.2B → 2021 €6B → 2022 €8.4B (2023 target €6.3B). Plastics recycled: 350kt (2019) → 391kt (2020) → 476kt (2021) → 490kt (2022), 2023 target 610kt."
+  ],
+  "question_type": "table_qa",
+  "evidence_pages": [17],
+  "difficulty": "easy",
+  "doc_name": "Veolia ESG Report 2023.pdf"
+}
