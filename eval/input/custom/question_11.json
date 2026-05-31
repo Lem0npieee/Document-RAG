@@ -112,5 +112,33 @@
     ],
     "difficulty": "hard",
     "doc_name": "Walmart ESG Highlights 2023.pdf"
+  },
+  {
+    "question": "How did Walmart respond to Hurricane Ian in September 2022? Describe the preparations before the storm, the coordination during the crisis, and the community support provided afterward.",
+    "answers": [
+      "Before the storm, Walmart associates conducted facilities walks and roof checks, aired hurricane preparedness videos on store TVs, and pre-staged resources and mobile generators at facilities in the storm's expected path. During the crisis, the Walmart team worked closely with the state of Florida's Emergency Operations Center, remaining embedded there for more than a week to coordinate with local facilities, emergency responders, and local leaders. The storm brought historic flooding and rainfall, affecting hundreds of Walmart stores, clubs, and distribution centers. Walmart played a significant role in disaster response by providing essential resources, services, and support to affected communities.",
+      "Preparations: facility checks, preparedness videos, pre-staged generators. During: embedded with Florida Emergency Operations Center for over a week. After: essential resources, services, and support to hundreds of affected stores and communities."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [
+      28,
+      29
+    ],
+    "difficulty": "easy",
+    "doc_name": "Walmart ESG Highlights 2023.pdf"
+  },
+  {
+    "question": "Walmart's human rights due diligence and responsible sourcing programs span both supply chain workers and migrant workers. What were the key FY2023 metrics for facility audits, and what specific initiative was launched for migrant workers in the U.S.-Mexico agriculture corridor?",
+    "answers": [
+      "FY2023 responsible sourcing metrics: assessed approximately 13,100 third-party responsible sourcing facility audit reports; over 90% of assessed audit reports were rated green or yellow (indicating acceptable or low-risk conditions). Over 400 suppliers set goals and/or reported progress on responsible recruitment through Walmart's Supplier Leadership Program on People. For migrant workers: Walmart financially supported the creation of a data ecosystem and engagement channels to empower and promote the responsible recruitment of migrant workers in the U.S.-Mexico agriculture corridor.",
+      "13,100+ facility audits assessed; 90%+ rated green/yellow; 400+ suppliers in Supplier Leadership Program on People. Migrant worker initiative: data ecosystem and engagement channels in U.S.-Mexico agriculture corridor."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [
+      23,
+      37
+    ],
+    "difficulty": "medium",
+    "doc_name": "Walmart ESG Highlights 2023.pdf"
   }
 ]

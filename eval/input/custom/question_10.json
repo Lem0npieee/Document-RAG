@@ -117,8 +117,24 @@
       "Two tracks: (1) Own emissions — coal exit by 2030 (€1.5B), 55% methane capture, Scope 1 at 28.6 MtCO2; (2) Customer avoidance — 14 MtCO2 avoided in 2022 via circular solutions, 490kt plastics recycled, 989M m³ wastewater reused, €8.4B circular revenue. Both tracks target net-zero 2050."
     ],
     "question_type": "cross_page",
-    "evidence_pages": [15, 17],
+    "evidence_pages": [
+      15,
+      17
+    ],
     "difficulty": "medium",
+    "doc_name": "Veolia ESG Report 2023.pdf"
+  },
+  {
+    "question": "According to Veolia's local economic impact data on page 19, what percentage of expenditure was reinvested locally, how many jobs were sustained, and what proportion of suppliers had sustainable development clauses in their contracts in 2022?",
+    "answers": [
+      "In 2022, 91% of Veolia's expenditure was reinvested locally (2023 target: 80%). The Group sustained 1,147,238 full-time equivalent jobs. 93% of suppliers signed a contract containing sustainable development clauses. Additionally, 12.1 million euros was earmarked for local development via spending with the protected workers' sector in France, and more than 40,000 SMEs and midcap companies benefit from Veolia activity in France.",
+      "91% expenditure reinvested locally (2023 target 80%); 1,147,238 FTE jobs sustained; 93% suppliers with sustainable development clauses; 12.1M euros for protected workers' sector in France; 40,000+ SMEs benefit."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [
+      19
+    ],
+    "difficulty": "easy",
     "doc_name": "Veolia ESG Report 2023.pdf"
   }
 ]

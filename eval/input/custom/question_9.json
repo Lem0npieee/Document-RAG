@@ -113,5 +113,34 @@
     ],
     "difficulty": "hard",
     "doc_name": "Meta 2023 Sustainability Report.pdf"
+  },
+  {
+    "question": "How many acres of native habitat has Meta preserved across its data centers, what percentage of the data center fleet footprint does this represent, and where are these habitats located geographically?",
+    "answers": [
+      "Meta has preserved and planned over 3,400 acres of native habitat across 20 North American data centers, representing 58% of its existing data center fleet footprint. These landscapes also provide inexpensive carbon sinks, soil stabilization, and water-efficient benefits beyond habitat protection.",
+      "3,400+ acres across 20 North American data centers, 58% of fleet footprint. Benefits include carbon sinks, soil stabilization, and water efficiency."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [
+      27
+    ],
+    "difficulty": "easy",
+    "doc_name": "Meta 2023 Sustainability Report.pdf"
+  },
+  {
+    "question": "Meta runs a Responsible Supply Chain (RSC) program and a $1 million Climate Misinformation Grant. Describe the RSC program's core focus areas (pages 16-17) and the grant's purpose, partners, and outcomes (pages 31-32). How do these two initiatives together demonstrate Meta's approach to tackling sustainability beyond its own operations?",
+    "answers": [
+      "RSC program (pages 16-17): Focuses on empowering workers and protecting the environment through open communication with suppliers, understanding core sustainability issues, and initiatives for safe/healthy/fair working conditions. Uses a risk-based continuous improvement model with third-party audits, supplier questionnaires, and on-site assessments aligned with the RBA Code of Conduct. The Worker Well-being program uses mobile surveys to understand worker sentiment. Climate Misinformation Grant (pages 31-32): A $1 million grant in partnership with the International Fact-Checking Network (IFCN) and an independent six-member judging panel of climate domain experts. Of 30 global semifinalists representing 71 entities, nine grantees were selected in 2022. The grant funds fact-checkers, climate organizations, and solution providers working to combat false and misleading climate information. Together, these show Meta addressing sustainability through both supply chain operations (direct business impact) and platform influence (public discourse on climate).",
+      "RSC: risk-based supplier assessment, RBA Code of Conduct, Worker Well-being program with mobile surveys. Climate Grant: $1M with IFCN, 9 grantees from 30 semifinalists (71 entities globally). Together address internal supply chain AND external information ecosystem."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [
+      16,
+      17,
+      31,
+      32
+    ],
+    "difficulty": "hard",
+    "doc_name": "Meta 2023 Sustainability Report.pdf"
   }
 ]

@@ -119,5 +119,35 @@
     ],
     "difficulty": "hard",
     "doc_name": "Westpac 2023 climate report.pdf"
+  },
+  {
+    "question": "Westpac's Board and executive management oversee climate-related risks through a multi-layered governance structure. According to pages 11-13, what role does the Board play, what committees are involved, and which departments are responsible for day-to-day climate management?",
+    "answers": [
+      "Board role (page 11): Approves key climate policies (CCPS, NCPS) and receives regular reports from the CEO, Group Executives, and risk functions. In FY23, the Board considered items including sustainability strategy updates, fossil fuels sector, Sustainable Finance Framework, and NZBA sector targets. Committees (page 12): A range of committees help assess climate matters including the Executive Risk Committee, Sustainability Council, and other risk/strategy committees that support executive management decision-making. Day-to-day management (pages 12-13): Delegated to teams across the Group including the Sustainability team, Risk division, Corporate Affairs, and business units, with key responsibilities for integrating climate assessment into operations and ensuring staff understand their role in meeting climate ambitions.",
+      "Board: approves CCPS/NCPS, receives CEO reports, considered NZBA targets. Committees: Executive Risk Committee, Sustainability Council. Day-to-day: Sustainability team, Risk division, Corporate Affairs, business units."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [
+      11,
+      12,
+      13
+    ],
+    "difficulty": "easy",
+    "doc_name": "Westpac 2023 climate report.pdf"
+  },
+  {
+    "question": "Westpac has updated its sector-specific positions on fossil fuel financing. According to pages 9, 30, and 31, what are the specific restrictions on upstream oil and gas and thermal coal financing, and how do these positions complement the NZBA 2030 targets?",
+    "answers": [
+      "Upstream oil and gas (page 31): Subject to national energy security, Westpac will not provide project finance or bond facilitation for the development of new (greenfield) or expansion oil and gas fields, including new associated dedicated infrastructure. Thermal coal mining (page 9): Zero lending to institutional customers with a high portion (15% or more) coming directly from thermal coal mining by 30 September 2025. These sector positions operationalize the NZBA targets: the thermal coal zero-lending policy by 2025 complements the 100% NZBA reduction target by 2030 (23% progress in FY22); the oil and gas project finance restrictions complement the 23% NZBA reduction target (18% progress in FY22). Sector positions provide explicit financing restrictions, while NZBA targets measure portfolio-level emission reduction trajectories.",
+      "Oil & gas: no project finance/bond for new/expansion greenfield fields. Thermal coal: zero lending to >=15% coal customers by Sep 2025. These complement NZBA: coal zero-lending aligns with 100% reduction target; oil/gas restrictions support 23% reduction target."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [
+      9,
+      30,
+      31
+    ],
+    "difficulty": "medium",
+    "doc_name": "Westpac 2023 climate report.pdf"
   }
 ]
