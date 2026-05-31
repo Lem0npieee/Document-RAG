@@ -1,0 +1,112 @@
+[
+  {
+    "question": "What is Microsoft's carbon negative commitment? State the two target years and what each entails.",
+    "answers": [
+      "Microsoft commits to be carbon negative by 2030, and by 2050 remove from the atmosphere an equivalent amount of all carbon dioxide the company has emitted either directly or by electricity consumption since its founding in 1975.",
+      "Carbon negative by 2030 means reducing Scope 1 and 2 emissions to near zero and halving Scope 3 from a 2020 baseline; by 2050, remove all historical CO2 emitted since 1975."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [12],
+    "difficulty": "easy",
+    "doc_name": "2022 Microsoft Environmental Sustainability Report"
+  },
+  {
+    "question": "Explain Microsoft's '100/100/0' carbon-free energy commitment. What does each number mean and by what target year?",
+    "answers": [
+      "By 2030, 100 percent of Microsoft's electricity consumption will be matched by zero carbon energy purchases 100 percent of the time. 100/100/0 means 100% electricity, 100% of the time, zero carbon sources.",
+      "100% of electricity consumption matched by zero-carbon energy, 100% of the time (24/7), by 2030."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [12],
+    "difficulty": "medium",
+    "doc_name": "2022 Microsoft Environmental Sustainability Report"
+  },
+  {
+    "question": "What was Microsoft's operational solid waste diversion rate in FY22, and how did it trend compared to FY20 and FY21 according to Waste Table 1?",
+    "answers": [
+      "FY22 diversion rate was 84.9%, compared to 82.2% in FY20 and 80.7% in FY21. The rate dipped in FY21 but recovered and reached a new high in FY22.",
+      "84.9% in FY22, up from 82.2% (FY20) and 80.7% (FY21)."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [39],
+    "difficulty": "easy",
+    "doc_name": "2022 Microsoft Environmental Sustainability Report"
+  },
+  {
+    "question": "According to the report's packaging data, by what percentage did Microsoft reduce single-use plastics in product packaging in FY22, and what was the change in plastic weight per package?",
+    "answers": [
+      "Single-use plastics were reduced by more than 29% (from 4.7% to 3.3% by weight on average per package). Overall product packaging recyclability reached over 94% in FY22.",
+      "Reduced by over 29% (or 29.8% for device packaging specifically), from 4.7% to 3.3% by weight. Packaging recyclability exceeded 94%."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [38, 40, 42],
+    "difficulty": "medium",
+    "doc_name": "2022 Microsoft Environmental Sustainability Report"
+  },
+  {
+    "question": "What proportion of Microsoft's total emissions comes from Scope 3, and what are the three largest contributing categories within Scope 3?",
+    "answers": [
+      "Scope 3 accounts for more than 96% of Microsoft's total emissions. The three largest categories are Purchased Goods and Services (Category 1), Capital Goods (Category 2), and Use of Sold Products (Category 11).",
+      "Over 96% of total emissions are Scope 3, driven primarily by Purchased Goods and Services (Category 1), Capital Goods (Category 2), and Use of Sold Products (Category 11)."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [14],
+    "difficulty": "medium",
+    "doc_name": "2022 Microsoft Environmental Sustainability Report"
+  },
+  {
+    "question": "Looking at the emissions trend charts on page 13, Microsoft's Scope 3 emissions increased by only 0.5% from FY21 to FY22 despite a 25% increase in purchased goods and services. What does this decoupling suggest about Microsoft's decarbonization strategy?",
+    "answers": [
+      "This suggests that Microsoft's efforts in supply chain efficiency, circular design, and supplier engagement are beginning to decouple emissions growth from business growth. The 0.5% increase in Scope 3 despite 25% growth in purchased goods indicates that carbon intensity per unit of procurement is decreasing.",
+      "The decoupling indicates that Scope 3 emissions are not growing proportionally with business expansion, suggesting that efficiency measures, low-carbon materials, and supplier decarbonization initiatives are having an impact."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [12, 13, 14],
+    "difficulty": "hard",
+    "doc_name": "2022 Microsoft Environmental Sustainability Report"
+  },
+  {
+    "question": "Describe Microsoft's water positive commitment: what are the specific targets, how much water did Microsoft consume in FY22, and what progress was made on replenishment and access?",
+    "answers": [
+      "Microsoft's water positive commitment by 2030 includes: replenishing more water than consumed in water-stressed regions and providing 1.5 million people with access to clean water and sanitation. In FY22, Microsoft consumed nearly 6.4 million m³ of water, contracted for replenishment projects estimated to provide over 15.6 million m³ in volumetric water benefit, and provided over 550,000 people with water access across Brazil, India, Indonesia, and Mexico.",
+      "By 2030: replenish more water than consumed and provide 1.5M people with water/sanitation access. FY22 progress: 6.4M m³ consumed, 15.6M m³ replenishment contracted, 550K+ people reached."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [27, 28, 29],
+    "difficulty": "medium",
+    "doc_name": "2022 Microsoft Environmental Sustainability Report"
+  },
+  {
+    "question": "Microsoft's zero waste strategy has five specific commitments with different target years. List all five commitments with their target years, and describe the FY22 progress for at least three of them.",
+    "answers": [
+      "The five commitments are: (1) 90% diversion of operational waste at datacenters and campuses by 2030 — FY22 achieved 84.9%; (2) 75% diversion for construction and demolition projects by 2030 — FY22 focused on improving data collection; (3) 90% of servers and components reused and recycled by 2025 — FY22 achieved 82%; (4) Eliminate single-use plastics in primary product packaging and IT asset packaging by 2025 — FY22 reduced plastics by over 29%; (5) 100% recyclable Surface devices, Xbox products, and packaging in OECD countries by 2030 — FY22 achieved over 94% packaging recyclability.",
+      "1) 90% operational waste diversion by 2030 — 84.9% in FY22; 2) 75% construction/demolition diversion by 2030; 3) 90% server/component reuse and recycling by 2025 — 82% in FY22; 4) Eliminate single-use plastics in packaging by 2025 — 29%+ reduction in FY22; 5) 100% recyclable products/packaging in OECD by 2030 — 94% recyclability in FY22."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [37, 38, 39, 40],
+    "difficulty": "hard",
+    "doc_name": "2022 Microsoft Environmental Sustainability Report"
+  },
+  {
+    "question": "Microsoft's sustainability strategy rests on four major environmental pillars: Carbon, Water, Waste, and Ecosystems. For each pillar, state the headline commitment, its target year, and one specific FY22 progress metric with its numerical value.",
+    "answers": [
+      "Carbon: Carbon negative by 2030 (halve Scope 3 from 2020 baseline). Progress: Scope 3 emissions increased only 0.5% despite 25% growth in purchased goods. Water: Water positive by 2030 (replenish more than consumed). Progress: 15.6 million m³ replenishment contracted in FY22. Waste: Zero waste by 2030 (90% diversion). Progress: 84.9% diversion rate achieved in FY22. Ecosystems: Protect more land than used by 2025. Progress: 17,268 acres contracted for protection, >50% more than the 11,000 acres used.",
+      "1) Carbon negative by 2030 — Scope 3 up only 0.5% despite 25% business growth. 2) Water positive by 2030 — 15.6M m³ replenishment contracted. 3) Zero waste by 2030 — 84.9% diversion rate. 4) Protect more land than used by 2025 — 17,268 acres protected, exceeding 11,000 acres used."
+    ],
+    "question_type": "multi_hop",
+    "evidence_pages": [12, 27, 38, 47],
+    "difficulty": "hard",
+    "doc_name": "2022 Microsoft Environmental Sustainability Report"
+  },
+  {
+    "question": "According to the report's ecosystems section, how many total acres has Microsoft contracted to protect, and what are the specific acreage breakdowns by country (Belize vs. United States)? Cite the exact page numbers and figure/table references where these data points are reported.",
+    "answers": [
+      "Microsoft has contracted to protect 17,268 acres of land in total, as shown in Ecosystems Chart 1 (page 47). The breakdown is: 12,270 acres permanently protected in Belize (page 47), with another 4,998 acres in the United States contracted for future protection through conservation easements (page 47). Partnerships are detailed on page 48: NFWF manages the US projects and TNC manages global projects including the Belize Maya Forest. Additionally, Microsoft contributed to protecting an additional 236,000 acres of the Belize Maya Forest through TNC (page 48).",
+      "17,268 total acres (Ecosystems Chart 1, page 47). Belize: 12,270 acres permanently protected (page 47). United States: 4,998 acres contracted (page 47). Partners NFWF and TNC (page 48). Additional 236,000 acres Belize Maya Forest (page 48)."
+    ],
+    "question_type": "citation_tracking",
+    "evidence_pages": [47, 48],
+    "difficulty": "medium",
+    "doc_name": "2022 Microsoft Environmental Sustainability Report"
+  }
+]

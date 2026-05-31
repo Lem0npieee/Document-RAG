@@ -1,0 +1,90 @@
+[
+  {
+    "question": "What is AT&T's carbon neutral commitment and what is the target year? By what percentage have Scope 1 and 2 emissions been reduced since 2015?",
+    "answers": [
+      "AT&T is committed to being carbon neutral across its global operations by year-end 2035, targeting net zero Scope 1 and 2 GHG emissions. Since 2015, AT&T has reduced Scope 1 and 2 emissions by more than 41% as of end of 2022 (and 45% as highlighted in the 2022 overview).",
+      "Carbon neutral by 2035 (net zero Scope 1 and 2). Emissions reduced by 45% (or more than 41%) since 2015 baseline."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [4, 25],
+    "difficulty": "easy",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "What is AT&T's 'Gigaton Goal' and what progress had been made toward it by the end of 2022?",
+    "answers": [
+      "The Gigaton Goal is a commitment to help AT&T's business customers collectively reduce 1 billion metric tons (1 gigaton) of GHG emissions by year-end 2035, using a 2018 baseline. By the end of 2022, AT&T had supported 149.2 million metric tons of customer emissions reductions — approximately 15% of the goal. This is achieved through AT&T Smart Climate Solutions such as IoT, 5G, and fiber connectivity.",
+      "Help customers reduce 1 billion metric tons of GHG emissions by 2035 (2018 baseline). 149.2 million metric tons achieved by end of 2022 (~15% of goal)."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [27],
+    "difficulty": "medium",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "According to AT&T's 2022 Highlights, what were the key workforce diversity metrics regarding open positions and internal promotions?",
+    "answers": [
+      "75% of open positions were filled by women and/or people of color candidates, and 69% of internal promotions were filled by women and/or people of color candidates.",
+      "75% open positions filled by women/POC; 69% internal promotions filled by women/POC."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [4],
+    "difficulty": "easy",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "AT&T has committed $2 billion to closing the digital divide. What are the specific targets and initiatives under this commitment, and what progress was reported in 2022?",
+    "answers": [
+      "The $2 billion commitment focuses on three areas: affordable high-speed internet access, digital skills, and community resources. Key targets include: passing more than 30 million fiber locations (including business locations); reaching 1 million people in need with digital resources by year-end 2025 (290,000+ reached by end of 2022); and establishing 50+ Connected Learning Centers by 2024. The Access from AT&T program, established in 2016, provides low-cost internet for qualifying low-income households and was expanded in 2022 to all households qualifying for the federal Affordable Connectivity Program (ACP).",
+      "$2B commitment: 30M+ fiber locations target; 1M people with digital resources by 2025 (290K+ reached); 50+ Connected Learning Centers by 2024; Access from AT&T expanded to all ACP-eligible households in 2022."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [11, 12],
+    "difficulty": "medium",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "AT&T reports a 45% reduction in Scope 1 and 2 emissions since 2015. What is the scale of AT&T's renewable energy portfolio supporting this reduction, and what key network investment metrics contextualize this achievement?",
+    "answers": [
+      "AT&T's U.S. renewable energy portfolio has an annual energy production of 2.9 million MWh. The company has invested more than $140 billion over the past 5 years primarily in U.S. wireless and wireline networks. In 2022, capital investment was $24.3 billion, wireless network coverage increased by approximately 100,000 square miles, and fiber laid increased by more than 60,000 miles. The network covered more than 285 million people with 5G and passed approximately 24 million fiber locations across 100+ U.S. metro areas. Network reliability exceeded 99.5%.",
+      "2.9M MWh annual renewable energy production. $140B+ invested over 5 years; $24.3B capital investment in 2022; 285M+ people 5G coverage; ~24M fiber locations; >99.5% network reliability."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [4, 6, 7, 8],
+    "difficulty": "medium",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "AT&T's climate strategy includes both reducing its own operational emissions and helping customers reduce theirs. Compare and contrast AT&T's own carbon neutral target with its customer-facing Gigaton Goal — what are the target years, scopes, baselines, and reported progress for each?",
+    "answers": [
+      "AT&T's carbon neutral target: net zero Scope 1 and 2 GHG emissions for global operations by year-end 2035 (2015 baseline), with 45% reduction achieved by end of 2022. AT&T's Gigaton Goal: help customers collectively reduce 1 billion metric tons of GHG emissions by year-end 2035 (2018 baseline), with 149.2 million metric tons (~15%) achieved by end of 2022. The carbon neutral target focuses on AT&T's own operations while the Gigaton Goal leverages AT&T's connectivity solutions (IoT, 5G, fiber) to enable emissions reductions at customer sites.",
+      "Own operations: net zero Scope 1&2 by 2035 (2015 baseline), 45% reduced. Customer goal: 1B metric tons reductions by 2035 (2018 baseline), 149.2M metric tons achieved. Different scopes — internal operations vs customer enablement."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [4, 25, 27],
+    "difficulty": "medium",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "AT&T's 2022 Sustainability Summary reports stakeholder outcomes across five dimensions: Employees, Shareholders & Customers, Environment, Communities, and Suppliers. Synthesize the key metric from each dimension into a coherent picture of AT&T's overall sustainability performance in 2022.",
+    "answers": [
+      "Employees: 75% open positions filled by women/POC, 69% internal promotions women/POC, 82% employee engagement score. Shareholders & Customers: $9.9B dividends returned, >99.5% network reliability, $24.3B capital investment. Environment: 45% Scope 1&2 emissions reduction since 2015, 2.9M MWh annual renewable energy production. Communities: 50+ Connected Learning Centers committed through 2024, ~4.4M FirstNet connections, $2B committed to closing the digital divide. Suppliers: 53% suppliers by spend have set science-based targets, $16.3B spend with diverse suppliers.",
+      "Five dimensions: (1) Employees — 75% hires women/POC, 82% engagement; (2) Shareholders — $9.9B dividends, >99.5% reliability; (3) Environment — 45% emissions cut, 2.9M MWh renewables; (4) Communities — $2B digital divide commitment, 4.4M FirstNet; (5) Suppliers — 53% have SBTs, $16.3B diverse spend."
+    ],
+    "question_type": "multi_hop",
+    "evidence_pages": [4, 11, 17, 25],
+    "difficulty": "hard",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "According to AT&T's Environment and Climate sections, what specific target has AT&T set for reducing waste to landfill, and on which pages are the baseline year and the quantitative target stated? Cite your sources.",
+    "answers": [
+      "AT&T has set a target to reduce the amount of U.S. waste sent to landfill by 30% by year-end 2030, with a 2019 baseline (page 28). AT&T's broader environmental targets are also tracked against its carbon neutral goal of net zero Scope 1&2 emissions by 2035 (page 25). The company achieved a 41%+ emissions reduction from the 2015 baseline by end of 2022 (page 25).",
+      "30% reduction in U.S. waste to landfill by 2030 (2019 baseline), stated on page 28. Carbon neutral by 2035 target on page 25."
+    ],
+    "question_type": "citation_tracking",
+    "evidence_pages": [25, 28],
+    "difficulty": "medium",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  }
+]

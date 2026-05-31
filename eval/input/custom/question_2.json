@@ -1,0 +1,90 @@
+[
+  {
+    "question": "What are AstraZeneca's three interconnected sustainability priorities and how many material focus areas fall under them?",
+    "answers": [
+      "The three priorities are: Access to healthcare, Environmental protection, and Ethics and transparency. There are nine material focus areas in total, each with their own targets, grouped under these three priorities.",
+      "Access to healthcare, Environmental protection, Ethics and transparency — with 9 material focus areas."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [7],
+    "difficulty": "easy",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "What is AstraZeneca's Ambition Zero Carbon commitment and what progress has been made on Scope 1 and 2 GHG emissions reduction since 2015?",
+    "answers": [
+      "AstraZeneca's Ambition Zero Carbon aims to achieve net zero across the value chain through avoiding GHG emissions, optimizing energy efficiency, shifting to renewable energy, transitioning to a battery electric vehicle fleet, and investing in nature-based removals. Since 2015, Scope 1 and 2 GHG emissions have been reduced by 67.6%, a reduction of 420 kilotonnes CO2e from a 2015 baseline of 621 ktCO2e.",
+      "Ambition Zero Carbon targets net zero across the value chain. Scope 1&2 emissions reduced by 67.6% (420 ktCO2e) from 2015 baseline of 621 ktCO2e."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [15, 17],
+    "difficulty": "medium",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "According to AstraZeneca's employee data, what is the total global workforce and how are employees distributed across reporting regions?",
+    "answers": [
+      "AstraZeneca has 89,900 employees worldwide. By reporting region: Emerging markets 38%, Europe 35%, US 20%, Established rest of the world 7%. The company has an active presence in 85 countries and sells products in more than 125 countries.",
+      "89,900 employees globally: 38% Emerging markets, 35% Europe, 20% US, 7% Established rest of world. Active in 85 countries, selling in 125+ countries."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [5],
+    "difficulty": "easy",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "Describe AstraZeneca's Natural Resource Efficiency Fund (NREF): how much has been invested since 2015 and what specific energy efficiency and renewable energy projects were undertaken in 2023?",
+    "answers": [
+      "Since 2015, NREF has invested approximately $175 million in environmental efficiency projects, with an additional $36.6 million spent in 2023 including 72 new projects. In 2023, AstraZeneca invested $33.7 million in energy efficiency and on-site renewable energy. Key projects include: a 10-year PPA with Statkraft for 200 GWh/year from a Swedish wind farm (covering ~80% of Gothenburg/Södertälje electricity needs); a 15-year agreement with Future Biogas for 100+ GWh of biomethane in the UK; and a collaboration with Vanguard Renewables to deliver up to 190 GWh/year of RNG to US sites by 2026 (equivalent to 36% of total global gas consumption).",
+      "$175M total since 2015 via NREF, $36.6M in 2023 (72 new projects). Three major renewable deals: Statkraft wind PPA (200 GWh/yr, Sweden), Future Biogas (100+ GWh biomethane, UK), Vanguard RNG (190 GWh/yr, US by 2026)."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [16, 18],
+    "difficulty": "medium",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "What is AstraZeneca's renewable energy target and what major renewable energy agreements were signed in 2023? Name the partners, energy volumes, and locations for at least two of them.",
+    "answers": [
+      "AstraZeneca aims to use 100% renewable energy across all operations by the end of 2025. In 2023, three major agreements were signed: (1) A 10-year PPA with Statkraft for 200 GWh/year from a new wind farm in Sweden, covering ~80% of electricity needs at Gothenburg and Södertälje sites; (2) A 15-year agreement with Future Biogas to supply 100+ GWh of biomethane to UK sites (Macclesfield, Cambridge, Luton, Speke); (3) Collaboration with Vanguard Renewables to deliver RNG to all US sites by 2026, enabling up to 190 GWh/year — equivalent to 36% of total global gas consumption.",
+      "100% renewable energy by end of 2025. Key deals: Statkraft wind 200 GWh/yr (Sweden), Future Biogas 100+ GWh biomethane (UK), Vanguard RNG 190 GWh/yr (US by 2026)."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [18],
+    "difficulty": "medium",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "AstraZeneca's Access to healthcare priority encompasses three focus areas: Equitable access, Affordability and pricing, and Health system resilience. What were the key 2023 performance metrics for these areas?",
+    "answers": [
+      "Key 2023 metrics: 66.4 million people reached by access to healthcare programmes (cumulative); 13.6 million people reached by patient assistance programmes (cumulative); 127,384 healthcare workers trained (cumulative); 4,157 health facilities activated (cumulative); $4,778.8 million in product donations through patient assistance programmes; 862,632 people reached by patient access programmes. Additionally, the Healthy Heart Africa programme aims to reach 10 million people with elevated blood pressure across Africa by 2025.",
+      "66.4M people reached via access programmes; 13.6M via patient assistance; 127,384 healthcare workers trained; 4,157 health facilities activated; $4,778.8M in product donations. Healthy Heart Africa targets 10M people by 2025."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [9, 12, 14],
+    "difficulty": "medium",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "AstraZeneca's sustainability strategy integrates three pillars: Access to healthcare, Environmental protection, and Ethics and transparency. How are the Environmental protection priorities interconnected with the company's business growth, and what governance mechanisms ensure accountability? Use specific examples from the Board composition and sustainability committee structure.",
+    "answers": [
+      "AstraZeneca manages Environmental protection through three interconnected focus areas: Ambition Zero Carbon, Product sustainability, and Natural resources. The company demonstrates that emission reductions (67.6% Scope 1&2 since 2015) can be achieved alongside business growth. Governance: the Board has 46% female and 31% ethnic minority representation. The Sustainability Committee was established in 2021 and held two formal meetings in 2023, overseeing sustainability reporting, product sustainability, and the double materiality assessment. In 2023, a new internal Sustainability Steering Committee was created, and Ambition Zero Carbon performance is included in executive compensation via the Performance Share Plan (PSP). The CEO's incentives are also linked to access initiatives.",
+      "Environmental protection spans Ambition Zero Carbon, Product sustainability, and Natural resources — all managed to decouple emissions from business growth (67.6% reduction since 2015). Board: 46% female, 31% minority. Sustainability Committee (est. 2021) + new Sustainability Steering Committee (2023). Ambition Zero Carbon tied to executive compensation (PSP)."
+    ],
+    "question_type": "multi_hop",
+    "evidence_pages": [6, 7, 15, 16],
+    "difficulty": "hard",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "According to AstraZeneca's governance section, describe the Board's Sustainability Committee structure and its responsibilities. Which pages detail the committee's formation year, meeting frequency, and the topics it considered in 2023?",
+    "answers": [
+      "The Sustainability Committee was established in 2021 (page 6). It assesses progress on the sustainability strategy, oversees communication of sustainability activities with stakeholders, provides input to the Board and other Board Committees, and helps ensure the company moves forward in the most impactful way. In 2023, the Committee held two formal meetings and considered topics including sustainability reporting, product sustainability, development of the health equity strategy, the ongoing double materiality assessment, and the company's investment in sustainability (page 6). A new Sustainability Steering Committee was also established in 2023, reporting to the Audit and Sustainability Committees (page 6).",
+      "Sustainability Committee est. 2021, held 2 formal meetings in 2023 (page 6). Topics: sustainability reporting, product sustainability, health equity strategy, double materiality assessment. New Sustainability Steering Committee established 2023 (page 6)."
+    ],
+    "question_type": "citation_tracking",
+    "evidence_pages": [6],
+    "difficulty": "medium",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  }
+]

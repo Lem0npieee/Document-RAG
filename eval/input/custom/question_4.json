@@ -1,0 +1,90 @@
+[
+  {
+    "question": "What are Boeing's four strategies to advance sustainable aerospace together, as described in the Sustainability Report?",
+    "answers": [
+      "Boeing's four strategies are: (1) Fleet Renewal — deploying the latest generation of fuel-efficient airplanes; (2) Operational Efficiency — optimizing air traffic management and flight operations; (3) Renewable Energy — scaling up Sustainable Aviation Fuel (SAF), green hydrogen, and other renewable energy sources; (4) Advanced Technology — investing in new aircraft designs and propulsion technologies like the ecoDemonstrator program.",
+      "Fleet Renewal, Operational Efficiency, Renewable Energy, and Advanced Technology."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [34],
+    "difficulty": "easy",
+    "doc_name": "Boeing 2023 Sustainability Report"
+  },
+  {
+    "question": "How much does each new generation of commercial airplanes reduce fuel use and emissions, and what is the single largest Boeing airplane order mentioned in the 2023 report?",
+    "answers": [
+      "Historically, each new generation of Boeing airplanes reduces fuel use and emissions by 15%-25%. In December 2022, United Airlines placed an order for 100 787 Dreamliner airplanes with the option to purchase 100 more — the largest 787 order in Boeing's history. United also ordered 100 737 MAX jets.",
+      "Each new generation reduces fuel use and emissions by 15-25%. United Airlines: 100 787 Dreamliners (+ 100 options) — largest 787 order in Boeing history, plus 100 737 MAX."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [35],
+    "difficulty": "medium",
+    "doc_name": "Boeing 2023 Sustainability Report"
+  },
+  {
+    "question": "According to Boeing's Global Supply Chain data, how many Tier-1 suppliers does Boeing have globally and how are they distributed by region?",
+    "answers": [
+      "Boeing has over 11,000 Tier-1 suppliers globally. Distribution: U.S. 8,800+, Asia 215+, Australia 900+, Europe 570+, North America (Non-U.S.) 515+, Middle East 40+, Africa 5+, South America 1.",
+      "11,000+ Tier-1 suppliers: U.S. 8,800+, Australia 900+, Europe 570+, North America (Non-U.S.) 515+, Asia 215+, Middle East 40+, Africa 5+, South America 1."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [63],
+    "difficulty": "easy",
+    "doc_name": "Boeing 2023 Sustainability Report"
+  },
+  {
+    "question": "Boeing's operational sustainability targets are tracked against specific 2025 waypoints and 2030 goals. What are the five performance areas tracked, and what does the operational targets table compare them against?",
+    "answers": [
+      "The five performance areas are: Greenhouse Gas Emissions, Energy, Water, Solid Waste, and Hazardous Waste. The operational targets table on page 53 compares 2025 targets versus a 2017 baseline, shows 2022 progress toward these targets, and outlines the drivers and 2030 targets for each area. Boeing achieved net-zero GHG emissions at manufacturing and other work sites and in business travel in 2022 for the third consecutive year.",
+      "Five areas: GHG Emissions, Energy, Water, Solid Waste, Hazardous Waste. 2025 targets vs 2017 baseline with 2030 goals. Boeing achieved net-zero at manufacturing sites for 3rd consecutive year in 2022."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [53, 54],
+    "difficulty": "medium",
+    "doc_name": "Boeing 2023 Sustainability Report"
+  },
+  {
+    "question": "What percentage of global carbon emissions does commercial aviation represent, and how does Boeing frame the significance of fleet renewal for emissions reduction?",
+    "answers": [
+      "Commercial aviation generates about 2.5% of the world's carbon emissions and 12% of transport emissions (page 5). Fleet renewal is one of Boeing's four key strategies — historically each new generation reduces fuel use and emissions by 15-25%, making the deployment of the latest generation of airplanes one of the most significant contributions to CO2 emissions reduction available over the next decade (page 35).",
+      "Commercial aviation: ~2.5% of world carbon emissions, 12% of transport emissions. Fleet renewal — each new generation reduces fuel/emissions 15-25%, described as one of the most significant near-term CO2 reduction levers."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [5, 35],
+    "difficulty": "medium",
+    "doc_name": "Boeing 2023 Sustainability Report"
+  },
+  {
+    "question": "Describe Boeing's approach to Sustainable Aviation Fuel (SAF). Include the 2030 compatibility target, examples of SAF usage in demonstration flights, and partnerships to scale SAF production.",
+    "answers": [
+      "Boeing has set a 2030 goal to make all current and future commercial airplanes 100% SAF-compatible (page 14). Examples: Boeing's 737 MAX and 777X flew to the 2022 Farnborough International Airshow on a 30/70 SAF blend and used the same blend for daily flying displays (page 36); the 2022 ecoDemonstrator arrived at EAA AirVenture on a 30/70 SAF blend (page 36). For SAF scaling: Boeing participated in the UAE 'Power-to-Liquids Roadmap' study examining financial, economic and environmental benefits of decarbonizing aviation with emerging SAF technology (page 39).",
+      "2030 goal: 100% SAF-compatible commercial airplanes. 737 MAX/777X flew to Farnborough 2022 on 30/70 SAF blend. Boeing ecoDemonstrator also used 30/70 SAF. UAE Power-to-Liquids Roadmap study for SAF production scaling."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [14, 36, 39],
+    "difficulty": "medium",
+    "doc_name": "Boeing 2023 Sustainability Report"
+  },
+  {
+    "question": "Boeing's sustainability report covers three major pillars: People (Safety/EDI), Products & Services (Decarbonization/SAF), and Operations (Emissions/Waste). Synthesize the key 2030 goal or headline commitment from each pillar with specific progress data reported in 2022/2023.",
+    "answers": [
+      "People: 10 years of Go for Zero safety initiative — significant reductions in serious accidents and injuries since 2013 (page 94). Products & Services: Four strategies for sustainable aerospace with 2030 goal of 100% SAF-compatible airplanes; each new generation reduces fuel/emissions 15-25%; United ordered 200 airplanes in largest 787 deal ever (pages 34-35). Operations: Net-zero GHG at manufacturing sites and business travel achieved for 3rd consecutive year in 2022; 2025 waypoints toward 2030 targets across GHG, energy, water, solid waste, and hazardous waste vs 2017 baseline (pages 53-54). Community giving: $185.7M in 2022 with 366,000 volunteer hours (page 78).",
+      "Three pillars: (1) People — Go for Zero safety 10 years, significant injury reductions; (2) Products — 4 strategies including 100% SAF-compatible by 2030, fleet renewal 15-25% efficiency gains; (3) Operations — net-zero manufacturing 3rd consecutive year, 2025 waypoints toward 2030 goals. $185.7M community giving, 366K volunteer hours."
+    ],
+    "question_type": "multi_hop",
+    "evidence_pages": [34, 35, 53, 54, 78, 94],
+    "difficulty": "hard",
+    "doc_name": "Boeing 2023 Sustainability Report"
+  },
+  {
+    "question": "According to Boeing's report, what specific operational targets does Boeing track for GHG emissions, energy, water, solid waste, and hazardous waste? On which page numbers are the 2025 targets, 2030 goals, and 2022 progress data presented?",
+    "answers": [
+      "Boeing tracks five operational performance areas with 2025 targets versus a 2017 baseline and 2030 goals, all detailed on page 53 (Operational Targets Progress table). The 2030 goals include net-zero emissions and significant reductions in GHG emissions, energy consumption, water withdrawal, solid waste, and hazardous waste (page 53). Boeing achieved net-zero GHG at manufacturing sites and business travel for the 3rd consecutive year in 2022 (page 54). Water withdrawal data (2020-2022) is on page 75, waste generation data on pages 75-76, and environmental data tables on pages 76-77.",
+      "Five areas tracked on page 53: GHG, energy, water, solid waste, hazardous waste. 2025 targets vs 2017 baseline. 2030 goals include net-zero emissions. Water/waste data on pages 75-77. Net-zero achieved 3rd consecutive year (page 54)."
+    ],
+    "question_type": "citation_tracking",
+    "evidence_pages": [53, 54, 75, 76],
+    "difficulty": "medium",
+    "doc_name": "Boeing 2023 Sustainability Report"
+  }
+]
