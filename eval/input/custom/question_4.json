@@ -86,5 +86,27 @@
     "evidence_pages": [53, 54, 75, 76],
     "difficulty": "medium",
     "doc_name": "Boeing 2023 Sustainability Report"
+  },
+  {
+    "question": "According to Boeing's workplace safety data on pages 19 and 20, what improvements has the 'Go for Zero' program achieved since 2013, and what are Boeing's seven Lifesaving Rules designed to address?",
+    "answers": [
+      "Go for Zero improvements since 2013 (page 19): 26% decrease in serious injuries since 2015; 39% decrease in recordable injuries since 2013; 71% decrease in ergonomic injuries since 2013. Note: there was a 31% increase in lost workday cases since 2013 (including COVID-19 cases). The seven Lifesaving Rules (page 20) address High Hazard Processes: pedestrian/vehicle safety, chemical processing, crane operations, machine operations, aircraft towing, hazardous energy control, and working at heights. 2022 safety metrics: 44:1 near miss to hazard ratio, 98% found/fixed metric, 1,096 health and safety training courses available.",
+      "Go for Zero (2013-2022): serious injuries -26%, recordable injuries -39%, ergonomic injuries -71%. Seven Lifesaving Rules: pedestrian/vehicle safety, chemical processing, crane operations, machine operations, aircraft towing, hazardous energy control, working at heights."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [19, 20],
+    "difficulty": "easy",
+    "doc_name": "Boeing 2023 Sustainability Report"
+  },
+  {
+    "question": "Describe Boeing's ethics and compliance governance structure as described on page 16. What oversight role does the Board play, how does the anti-corruption program work, and what protections are provided to whistleblowers?",
+    "answers": [
+      "Board oversight: The Audit Committee and full Board oversee compliance and ethics programs through collaboration with Boeing's Chief Compliance Officer and periodic reviews of program metrics, providing visibility into significant risks and specific cases (page 16). The Board fosters a corporate culture prioritizing safety, quality, integrity and sustainability. Code of Conduct: All new employees sign the Code of Conduct and complete Recommitment training; all employees reaffirm annually. Anti-corruption program: Boeing strictly forbids bribery and corruption; the program includes extensive controls, rigorous policies and procedures, and an annual risk assessment to ensure effectiveness. Whistleblower protections: Boeing makes employees aware of federally protected whistleblower rights designed to protect against retaliation for reporting potential wrongdoing. In 2022, 47% of investigated requests were substantiated.",
+      "Board/Audit Committee oversees compliance via Chief Compliance Officer with periodic reviews. Anti-corruption: extensive controls, annual risk assessment. Whistleblowers: federally protected rights against retaliation. Code of Conduct signed by all employees annually. 47% of investigated requests substantiated in 2022."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [16],
+    "difficulty": "medium",
+    "doc_name": "Boeing 2023 Sustainability Report"
   }
 ]

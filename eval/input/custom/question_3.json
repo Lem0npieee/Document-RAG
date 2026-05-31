@@ -86,5 +86,27 @@
     "evidence_pages": [25, 28],
     "difficulty": "medium",
     "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "According to AT&T's employee data on page 18, what was the employee engagement score in 2022, how has it trended since 2020, and how many employees does AT&T have globally?",
+    "answers": [
+      "The 2022 AT&T Employee Survey recorded an employee engagement score of 82%. The trend: 77% in 2020, 80% in 2021, 82% in 2022 — showing consistent year-over-year improvement. AT&T has approximately 163,000 employees across 50 states and 55+ countries.",
+      "82% engagement in 2022, up from 77% (2020) and 80% (2021). ~163,000 employees across 50 states and 55+ countries."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [18],
+    "difficulty": "easy",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "Describe AT&T's digital divide initiatives. Across pages 10 and 14, what are the Connected Learning Centers, The Achievery platform, and the Digital Navigator program, and what specific 2022 outcomes were achieved for each?",
+    "answers": [
+      "Connected Learning Centers (page 10): AT&T committed to establishing 50+ Connected Learning Centers by 2024, with 20 operational by 2022. These provide free access to computers, high-speed internet, and digital learning resources. The Achievery (page 14): A free online distance learning platform offering educational videos, lessons and activities aligned with academic standards. In 2022, more than 78,000 students participated. Digital Navigator program (page 14): AT&T invested $2.5 million to launch this program, training community members to help others develop digital skills. Also in 2022, AT&T collaborated with the Public Library Association to bring bilingual digital literacy workshops to 160 libraries, with 91% of participants intending to apply what they learned.",
+      "Three initiatives: (1) Connected Learning Centers — 20 centers in 2022, 50+ by 2024; (2) The Achievery — 78,000+ students in 2022; (3) Digital Navigator program — $2.5M investment, plus 160 library workshops with PLA, 91% participants intend to apply skills."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [10, 14],
+    "difficulty": "medium",
+    "doc_name": "AT&T 2022 Sustainability Summary"
   }
 ]

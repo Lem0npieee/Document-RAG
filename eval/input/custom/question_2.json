@@ -86,5 +86,27 @@
     "evidence_pages": [6],
     "difficulty": "medium",
     "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "According to AstraZeneca's stakeholder engagement section on page 8, who are the key stakeholder groups, and how does the company engage with each?",
+    "answers": [
+      "Key stakeholder groups: (1) Patients and patient communities/advocacy groups — foremost stakeholders; (2) Governments — particularly on access to healthcare and health systems; (3) Investor community — on ESG matters; (4) Healthcare professionals (HCPs) — on development and delivery of medicines; (5) Academia and R&D partners — across healthcare and environmental fields; (6) Industry peers — through global forums and collaborations; (7) Suppliers — key to achieving environmental targets and ethical commitments; (8) Local communities — through collaborations; (9) Employees — critical to achievement of sustainability goals, through extensive communication and engagement.",
+      "Nine groups: patients, governments, investors, HCPs, academia/R&D partners, industry peers, suppliers, local communities, and employees. Engagement via global forums, collaborations, direct communication, and annual reporting."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [8],
+    "difficulty": "easy",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "According to pages 20 and 22, how does AstraZeneca integrate circular economy principles and product sustainability into its operations? Describe the Product Sustainability Index (PSI), the life cycle stages covered, and the biodiversity sourcing commitment with its target year.",
+    "answers": [
+      "Product Sustainability Index (PSI): An internal tool to understand environmental impacts of products and inform improvement plans (page 20). Life cycle stages: API production and formulation, device production, packaging, patient use, distribution, and disposal (page 20). Circular economy approach (page 22): incorporate circular economy principles into all process/product design; develop metrics to monitor progress; maximize waste recycling and aim to eliminate waste to landfill; minimize materials required; increase reused/recycled content. Biodiversity commitment: systematically assess biodiversity risks and dependencies across value chain during 2024; ensure all agricultural, forestry and marine-derived materials are sustainably sourced by 2028; demonstrate key forest risk commodities are free from deforestation.",
+      "PSI evaluates environmental impacts across 6 life cycle stages (API, device, packaging, patient use, distribution, disposal). Circular economy: maximize recycling, minimize materials, increase recycled content. Biodiversity commitment: sustainable sourcing by 2028, deforestation-free forest commodities."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [20, 22],
+    "difficulty": "medium",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
   }
 ]
