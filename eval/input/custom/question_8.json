@@ -1,0 +1,112 @@
+[
+  {
+    "question": "What is JPMorgan Chase's $2.5 trillion Sustainable Development Target, and what are the three areas it is organized around?",
+    "answers": [
+      "JPMorgan Chase aims to finance and facilitate more than $2.5 trillion over 10 years, from 2021 through the end of 2030. The target is organized around Green, Development Finance, and Community Development.",
+      "It is a 2021-to-2030 goal to finance and facilitate over $2.5 trillion, divided into Green initiatives, Development Finance, and Community Development."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [12],
+    "difficulty": "easy",
+    "doc_name": "JP Morgan Climate Report 2022"
+  },
+  {
+    "question": "Which sectors did JPMorgan Chase first set 2030 portfolio-level emissions intensity targets for, which three new sectors were later added, and what key principles guide the target-setting methodology?",
+    "answers": [
+      "The first targets covered Oil & Gas, Electric Power, and Auto Manufacturing. The later added sectors were Iron & Steel, Cement, and Aviation. The methodology is science-based, sector-specific, decision-useful, and uses the best available data.",
+      "JPMorgan Chase initially set targets for Oil & Gas, Electric Power, and Auto Manufacturing, then added Iron & Steel, Cement, and Aviation. Its approach emphasizes science-based, sector-specific, decision-useful metrics using the best available data."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [14, 15],
+    "difficulty": "medium",
+    "doc_name": "JP Morgan Climate Report 2022"
+  },
+  {
+    "question": "In the progress table for existing 2030 targets, which sector had the largest reported emissions-intensity reduction from the 2019 baseline, and what was that reduction?",
+    "answers": [
+      "Electric Power had the largest reported reduction, with a 22% decrease from its 2019 baseline.",
+      "The Electric Power sector showed the biggest progress, declining 22% from the 2019 baseline."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [32],
+    "difficulty": "easy",
+    "doc_name": "JP Morgan Climate Report 2022"
+  },
+  {
+    "question": "According to the operational sustainability tables, what were JPMorgan Chase's 2021 total Scope 1 and Scope 2 location-based emissions, and what renewable energy progress was reported for that year?",
+    "answers": [
+      "In 2021, total Scope 1 and Scope 2 location-based emissions were 840,425 mtCO2e. The report also shows 100% of power use from renewable sources and 23% progress toward satisfying the renewable energy goal with onsite renewable energy or long-term contracts.",
+      "The 2021 Scope 1 plus Scope 2 location-based total was 840,425 mtCO2e. JPMorgan Chase reported 100% renewable power use and 23% progress toward its onsite or long-term-contract renewable energy target."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [34],
+    "difficulty": "medium",
+    "doc_name": "JP Morgan Climate Report 2022"
+  },
+  {
+    "question": "How does the firmwide climate-related governance diagram organize responsibility from the Board down to implementation teams?",
+    "answers": [
+      "The diagram places the Board of Directors at the top, supported by committees such as the Board Risk Committee, Public Responsibility Committee, Corporate Governance & Nominating Committee, and Audit Committee. Below that are relevant Operating Committee members, senior sustainability leaders, and then firmwide corporate teams and client-facing teams that implement climate-related work.",
+      "Responsibility flows from the Board of Directors and its committees to Operating Committee members, senior sustainability leaders, and finally to firmwide corporate teams and client-facing teams responsible for execution."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [8],
+    "difficulty": "medium",
+    "doc_name": "JP Morgan Climate Report 2022"
+  },
+  {
+    "question": "How do the report's climate-risk visuals connect scenario assumptions with the physical risks JPMorgan Chase analyzes?",
+    "answers": [
+      "The report uses scenarios such as NGFS Current Policies, NGFS Divergent Net Zero, IPCC RCP 4.5, and IPCC RCP 8.5 to frame transition and physical risk. The physical-risk visuals then apply these assumptions to examples such as increased U.S. flood damage by 2050 under RCP 8.5 and global heat exposure for major office locations, measured by days above 35 degrees Celsius.",
+      "Scenario assumptions define the severity and pathway of climate risk, while the visuals translate those scenarios into concrete hazards, including U.S. flood-risk increases and heat-stress exposure at JPMorgan Chase office locations under RCP 8.5."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [18, 25, 27],
+    "difficulty": "hard",
+    "doc_name": "JP Morgan Climate Report 2022"
+  },
+  {
+    "question": "Across its consumer, investor, and wholesale-client businesses, what examples does the report give of climate-related products or advisory services?",
+    "answers": [
+      "The report cites sustainable investing through Asset Management and the Global Private Bank, EV-related consumer support such as the Chase Auto EV Education Center and EV financing relationships, Green Economy Banking for sectors such as renewable energy and sustainable finance, Center for Carbon Transition advisory work, sustainable bond underwriting, and ESG Solutions support for capital markets and M&A clients.",
+      "Examples include sustainable investing offerings, electric-vehicle education and financing, Green Economy Banking, Center for Carbon Transition advice, sustainable bond financing, and ESG Solutions advisory work for clients."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [12, 13, 14],
+    "difficulty": "medium",
+    "doc_name": "JP Morgan Climate Report 2022"
+  },
+  {
+    "question": "How do the report's employee, supplier, and operational examples together show progress on JPMorgan Chase's own environmental footprint?",
+    "answers": [
+      "The report describes employee engagement through GoGreen activities such as cleanups, tree planting, e-waste disposal days, and sustainability learning sessions. It also gives a supplier example of recycling more than 16.5 million pounds of paper, saving an estimated 57 million gallons of water and avoiding more than 8,000 mtCO2e. Operationally, it reports targets already met for carbon neutral operations, 100% renewable power, 100% e-waste diversion, and certified paper sourcing, while other reduction targets remain in progress.",
+      "JPMorgan Chase shows operational progress through GoGreen employee programs, a paper-recycling supplier case with water and emissions benefits, and operational targets such as carbon neutral operations, renewable power, e-waste diversion, certified paper sourcing, and continuing Scope 1/2, water, paper-use, and long-term renewable-energy goals."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [24, 33],
+    "difficulty": "hard",
+    "doc_name": "JP Morgan Climate Report 2022"
+  },
+  {
+    "question": "How does JPMorgan Chase's climate strategy link its historical commitments, client financing target, portfolio emissions targets, and operational sustainability metrics?",
+    "answers": [
+      "The strategy links a timeline of climate actions, including renewable energy and carbon-neutral operations goals, to a $2.5 trillion sustainable development target and a $1 trillion climate action and green component. It also includes Paris-aligned portfolio emissions intensity targets for key sectors, progress tracking for sectors such as Electric Power and Auto Manufacturing, and operational metrics such as 100% renewable power use and a 17% reduction in Scope 1 and Scope 2 location-based emissions from the 2017 baseline by 2021.",
+      "JPMorgan Chase connects past climate commitments with a large sustainable-finance target, sector-level emissions intensity targets, measured portfolio progress, and its own operational indicators, including renewable electricity use and Scope 1 and Scope 2 emissions reductions."
+    ],
+    "question_type": "multi_hop",
+    "evidence_pages": [6, 12, 14, 32, 34],
+    "difficulty": "hard",
+    "doc_name": "JP Morgan Climate Report 2022"
+  },
+  {
+    "question": "What caveats or data limitations should be considered when interpreting JPMorgan Chase's climate-risk scenarios and emissions-target progress?",
+    "answers": [
+      "The report notes that climate-risk analysis depends on scenario assumptions, such as NGFS and IPCC pathways, and that emissions-target progress is affected by data challenges including estimation rather than direct measurement, data lag, methodological comparability, and lack of data on emerging decarbonization technologies. It also states that some baselines may be revised as data improves, such as the Oil & Gas Operational baseline.",
+      "The results should be read with caution because scenario choices shape the risk analysis, while portfolio-target metrics face data limitations such as estimated emissions, reporting lags, inconsistent methodologies, limited emerging-technology data, and possible baseline revisions."
+    ],
+    "question_type": "citation_tracking",
+    "evidence_pages": [18, 32, 33, 34],
+    "difficulty": "medium",
+    "doc_name": "JP Morgan Climate Report 2022"
+  }
+]

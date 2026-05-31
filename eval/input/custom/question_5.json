@@ -1,0 +1,112 @@
+[
+  {
+    "question": "What are the three goals of Coca-Cola's 2030 Water Security Strategy, and how does the 2022 global water replenishment result show progress toward that strategy?",
+    "answers": [
+      "The three goals are: achieve 100% regenerative water use across 175 facilities facing high water stress by 2030; improve the health of 60 critical watersheds by 2030; and return a cumulative total of 2 trillion liters of water to nature and communities globally between 2021 and 2030. In 2022, Coca-Cola reported replenishing 159% of the water used in finished beverages, equal to 291 billion liters returned to nature and communities.",
+      "By 2030, Coca-Cola aims for 100% regenerative water use at 175 high-stress facilities and improved health of 60 critical watersheds; from 2021 to 2030, it aims to return 2 trillion liters of water to nature and communities. The 2022 progress result was 159% replenishment, or 291 billion liters returned."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [24, 25],
+    "difficulty": "easy",
+    "doc_name": "Coca-Cola Business Sustainability Report 2022"
+  },
+  {
+    "question": "In the Sustainable Agriculture section, how does Coca-Cola define Leader, Mover, and Improver under its Principles for Sustainable Agriculture framework, and what overall 2022 priority ingredient result is reported?",
+    "answers": [
+      "Leader means supply volume is verified to company-approved standards with third-party assurance aligned with the PSA. Mover means supply volume is sourced from farms using other agricultural farming standards that identify and address key sustainability issues and advance sustainable practices. Improver means supply volume is sourced from smallholder or small-scale producers participating in a support program to continuously improve priority sustainability practices. In 2022, 64% of global priority ingredient volumes were sustainably sourced to the Leader standard.",
+      "Leader uses company-approved, third-party assured standards aligned with PSA; Mover uses other farming standards to address sustainability issues; Improver covers smallholder or small-scale producers in support programs for continuous improvement. The reported 2022 result was 64% of global priority ingredient volumes sourced to the Leader standard."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [47, 48, 80],
+    "difficulty": "medium",
+    "doc_name": "Coca-Cola Business Sustainability Report 2022"
+  },
+  {
+    "question": "Using the Water appendix table, compare Coca-Cola's 2014 and 2022 water use ratio, then state the 2022 water returned percentage and amount. What trend does the table show?",
+    "answers": [
+      "The water use ratio improved from 2.03 liters of water per liter of product in 2014 to 1.79 in 2022. In 2022, water returned to nature and communities was 159%, equal to 291 billion liters. The table shows long-term improvement in water-use efficiency while maintaining replenishment above 100%.",
+      "The ratio decreased from 2.03 in 2014 to 1.79 in 2022; 2022 water returned was 159% and 291 billion liters. This indicates better efficiency and continued over-100% replenishment."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [77],
+    "difficulty": "easy",
+    "doc_name": "Coca-Cola Business Sustainability Report 2022"
+  },
+  {
+    "question": "Read the Greenhouse Gas Emissions & Waste appendix table. What were the 2022 values for HFC-free refrigeration equipment placed, HFC-free share of all coolers introduced, total waste generated, and waste recovered percentage?",
+    "answers": [
+      "In 2022, Coca-Cola placed 1,070,739 pieces of HFC-free refrigeration equipment; 88% of all coolers introduced were HFC-free; total waste generated was 1,749.6 million kilograms; and waste recovered percentage was 90.7%.",
+      "The 2022 table values are 1,070,739 HFC-free coolers placed, 88% HFC-free share, 1,749.6 million kg total waste generated, and 90.7% waste recovered."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [79],
+    "difficulty": "medium",
+    "doc_name": "Coca-Cola Business Sustainability Report 2022"
+  },
+  {
+    "question": "On the 'At a Glance' page, use both the bar chart and the map. What was total company unit case volume in 2022, and which operating segment had the largest share of 2022 global unit case volume?",
+    "answers": [
+      "The bar chart shows total company unit cases of 32.7 billion in 2022. The map shows Europe, Middle East & Africa as the largest operating segment share at 28%, followed by Latin America at 27%, Asia Pacific at 24%, North America at 17%, and Global Ventures at 4%.",
+      "2022 unit case volume was 32.7 billion, and Europe, Middle East & Africa had the largest share at 28%."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [13],
+    "difficulty": "medium",
+    "doc_name": "Coca-Cola Business Sustainability Report 2022"
+  },
+  {
+    "question": "On the climate page's visual breakdown, what are the five carbon-footprint action categories and their percentage ranges, and how do they relate to the Scope 1/2/3 chart below?",
+    "answers": [
+      "The action categories are Packaging at 30-35%, Ingredients at 10-15%, Manufacturing & Other Facilities at 10-15%, Distribution at 5-10%, and Refrigeration at 30-35%. The Scope chart below shows Scope 1 at 7%, Scope 2 at 5%, and Scope 3 at 88%, so most emissions are upstream and downstream value-chain sources rather than direct operations.",
+      "The five categories are Packaging 30-35%, Ingredients 10-15%, Manufacturing & Other Facilities 10-15%, Distribution 5-10%, and Refrigeration 30-35%. The scope chart shows 7% Scope 1, 5% Scope 2, and 88% Scope 3, meaning value-chain emissions dominate."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [44],
+    "difficulty": "medium",
+    "doc_name": "Coca-Cola Business Sustainability Report 2022"
+  },
+  {
+    "question": "How does Coca-Cola's packaging strategy connect to climate mitigation? Use the Packaging section's explanation and the climate carbon-footprint breakdown to support your answer.",
+    "answers": [
+      "The Packaging section explains that packaging accounts for approximately 30% of Coca-Cola's carbon footprint and that lightweighting packaging, incorporating recycled and bio-based material, investing in local recycling programs, and increasing reusable packaging can reduce both waste and greenhouse gas emissions. The climate visual similarly shows packaging as a 30-35% carbon-footprint category, confirming that circular packaging is a major climate lever.",
+      "Packaging is tied to climate because it represents about 30-35% of the carbon footprint. Coca-Cola says lightweighting, recycled or bio-based materials, recycling programs, and reusable packaging reduce both waste and GHG emissions."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [37, 44],
+    "difficulty": "hard",
+    "doc_name": "Coca-Cola Business Sustainability Report 2022"
+  },
+  {
+    "question": "Connect Coca-Cola's global water replenishment result with its nature-based solution example in the Philippines. What global 2022 water result is reported, and what benefits did the Ipo Watershed project provide?",
+    "answers": [
+      "Globally in 2022, Coca-Cola replenished 159% of the water used in its finished beverages and returned 291 billion liters of water to nature and communities. In the Philippines, the Ipo Watershed project reforested 165 hectares of degraded land and provided benefits including about 400 million liters of water replenishment per year, about 2,500 metric tons of CO2e sequestration per year, and household gardens that helped address food insecurity.",
+      "The global result was 159% replenishment, or 291 billion liters returned. The Ipo Watershed project restored 165 hectares and generated roughly 400 million liters of water replenishment annually, 2,500 metric tons CO2e sequestration annually, and food-supply benefits through household gardens."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [24, 30],
+    "difficulty": "medium",
+    "doc_name": "Coca-Cola Business Sustainability Report 2022"
+  },
+  {
+    "question": "Using the report's visual summaries and supporting sections, describe how Coca-Cola's sustainability strategy spans at least five areas. For each area, give one numeric metric.",
+    "answers": [
+      "Water: 159% of water used in finished beverages returned to nature and communities. Portfolio: 900,000+ tons of added sugar removed or 29% of 2022 volume low/no-calorie. Packaging: 90% of packaging recyclable globally or 61% collected for recycling. Climate: 7% decline in absolute emissions since 2015 or 21% renewable electricity usage. Sustainable Agriculture: 64% of global priority ingredient volumes sustainably sourced to Leader standard. People can also be represented by 39% of senior leadership positions held by women.",
+      "Example metrics are water 159% replenishment, portfolio 900,000+ tons added sugar removed, packaging 90% recyclable, climate 7% emissions decline or 21% renewable electricity, agriculture 64% Leader-standard sourcing, and people 39% women in senior leadership."
+    ],
+    "question_type": "multi_hop",
+    "evidence_pages": [8, 9, 43, 47, 80],
+    "difficulty": "hard",
+    "doc_name": "Coca-Cola Business Sustainability Report 2022"
+  },
+  {
+    "question": "For the packaging status table, identify the footnoted qualifications needed to interpret the 90%, 25%, 15%, 3 million metric tons, and 61% figures correctly, and connect those qualifications to the report's packaging strategy.",
+    "answers": [
+      "The table notes that recyclable packaging is recyclable only where infrastructure exists; the recycled material figure includes select primary consumer packaging materials; virgin plastic reduction is measured from historical usage modeled with 2018-2020 data; and the collection rate is a weighted average of national collection rates, collected-for-recycling rates, or refillable rates by packaging type relative to Coca-Cola system sales in units. These qualifications matter because the packaging strategy emphasizes design, collection systems, recycled content, and reusable packaging rather than a single isolated metric.",
+      "The footnotes qualify that 90% recyclable depends on infrastructure, 25% recycled material covers select primary consumer packaging materials, the 3 million metric ton reduction target is measured from modeled 2018-2020 historical usage, and the 61% collection rate is a weighted average across collection/recycling/refillable rates by packaging type. This matches the strategy's focus on circular packaging through better design, collection, recycled inputs, and reuse."
+    ],
+    "question_type": "citation_tracking",
+    "evidence_pages": [9, 37],
+    "difficulty": "hard",
+    "doc_name": "Coca-Cola Business Sustainability Report 2022"
+  }
+]

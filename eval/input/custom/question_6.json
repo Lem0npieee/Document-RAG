@@ -1,0 +1,112 @@
+[
+  {
+    "question": "What are Costco's Scope 1 and Scope 2 reduction targets, including the baseline year and target years?",
+    "answers": [
+      "Costco committed to a 39% absolute reduction in Scope 1 and Scope 2 emissions by 2030 compared with its 2020 base year, and committed to power its operations with 100% clean energy by 2035.",
+      "The targets are a 39% absolute Scope 1 and 2 emissions reduction by 2030 from a 2020 baseline, plus 100% clean energy for operations by 2035."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [6],
+    "difficulty": "easy",
+    "doc_name": "CostCo Climate Action Plan"
+  },
+  {
+    "question": "How does Costco describe its climate disclosure approach, and what supplier-related disclosure action did it report for the past year?",
+    "answers": [
+      "Costco says it provides transparent disclosure by measuring progress, sharing lessons with stakeholders, disclosing to CDP-Climate and CDP-Forests, and providing detailed information through its Sustainability Commitment website. It also reported participating in CDP Supply Chain, which requests its top 500 suppliers to disclose Scope 1, 2 and 3 emissions to CDP.",
+      "The report says Costco discloses through CDP-Climate, CDP-Forests and its Sustainability Commitment website. For suppliers, it participated in CDP Supply Chain and asked its top 500 suppliers to disclose their Scope 1, 2 and 3 emissions."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [3, 4],
+    "difficulty": "medium",
+    "doc_name": "CostCo Climate Action Plan"
+  },
+  {
+    "question": "Using the Scope 1, 2, and 3 absolute emissions table, what were Costco's FY22 Scope 1 emissions, Scope 2 market-based emissions, Scope 3 emissions, and total market-based emissions?",
+    "answers": [
+      "In FY22, Scope 1 emissions were 1,405,640 MT CO2e, Scope 2 market-based emissions were 1,375,183 MT CO2e, Scope 3 emissions were 171,274,463 MT CO2e, and total market-based emissions were 174,055,286 MT CO2e.",
+      "FY22 values were 1,405,640 MT CO2e for Scope 1, 1,375,183 MT CO2e for Scope 2 market-based, 171,274,463 MT CO2e for Scope 3, and 174,055,286 MT CO2e total market-based emissions."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [5],
+    "difficulty": "easy",
+    "doc_name": "CostCo Climate Action Plan"
+  },
+  {
+    "question": "In the Scope 3 breakdown by business segment table, which FY22 segment was largest, what was its value, and what categories are excluded or out of scope according to the table note?",
+    "answers": [
+      "The largest FY22 Scope 3 segment was Upstream, Categories 1 and 4, at 94,836,137 MT CO2e. The note says Categories 8 and 13 were considered out of scope due to materiality; Categories 10, 14 and 15 were excluded because they were not applicable to Costco's business; and Category 12 was excluded due to lack of data.",
+      "Upstream emissions, Categories 1 and 4, were the largest at 94,836,137 MT CO2e in FY22. The table note excludes Categories 8 and 13 for materiality, Categories 10, 14 and 15 for lack of applicability, and Category 12 for lack of data."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [12],
+    "difficulty": "medium",
+    "doc_name": "CostCo Climate Action Plan"
+  },
+  {
+    "question": "According to the governance structure diagram, which groups provide strategic oversight, and which groups support implementation, reporting and compliance?",
+    "answers": [
+      "The diagram shows strategic oversight from the Board of Directors, the Nominating & Governance Committee, the Executive Committee, and the ESG Executive Advisory Council. Implementation, reporting and compliance are supported by the Global Sustainability & Compliance Department, Global Energy Task Force, Merchandising Task Force, ESG Reporting Department, and Sustainability IT.",
+      "Strategic oversight sits with the Board of Directors, Nominating & Governance Committee, Executive Committee, and ESG Executive Advisory Council. Implementation/reporting/compliance includes Global Sustainability & Compliance, the Global Energy Task Force, Merchandising Task Force, ESG Reporting Department, and Sustainability IT."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [2],
+    "difficulty": "medium",
+    "doc_name": "CostCo Climate Action Plan"
+  },
+  {
+    "question": "Looking across the emissions tables, what does the FY22 data suggest about the relative scale of Costco's Scope 3 emissions compared with Scope 1 and Scope 2, and which Scope 3 business segments are the largest?",
+    "answers": [
+      "The FY22 tables show that Scope 3 dominates Costco's footprint: Scope 3 emissions were 171,274,463 MT CO2e, far larger than Scope 1 at 1,405,640 MT CO2e and Scope 2 market-based at 1,375,183 MT CO2e. Within Scope 3, the largest segments were Upstream Categories 1 and 4 at 94,836,137 MT CO2e and Downstream Categories 9 and 11 at 74,503,763 MT CO2e.",
+      "Scope 3 is overwhelmingly larger than Scope 1 and 2, with 171.3 million MT CO2e in FY22 versus about 1.4 million MT CO2e each for Scope 1 and Scope 2 market-based. The biggest Scope 3 segments are Upstream CAT 1 and 4, followed by Downstream CAT 9 and 11."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [5, 12],
+    "difficulty": "hard",
+    "doc_name": "CostCo Climate Action Plan"
+  },
+  {
+    "question": "Connect Costco's Scope 1 and Scope 2 targets with its FY23 progress highlights. What targets are stated, and what examples of progress are reported?",
+    "answers": [
+      "Costco targets a 39% absolute Scope 1 and 2 emissions reduction by 2030 from a 2020 baseline and 100% clean energy for operations by 2035. Progress examples include clean energy reaching 19% of total supply by the end of calendar year 2022, contracting certified 24/7 clean power for 124 warehouses across nine states, expanding Mira Loma onsite generation to 3.3 MW, replacing over 2.4 million gallons of diesel with renewable diesel, completing 38 refrigeration retrofits, and deploying LED lighting to 167 U.S. warehouses.",
+      "The targets are 39% Scope 1 and 2 absolute reduction by 2030 and 100% clean energy by 2035. FY23 examples include 19% clean energy supply, 124 warehouses with certified 24/7 clean power contracts, a 3.3 MW Mira Loma solar canopy and battery system, 2.4 million gallons of diesel replaced, 38 refrigeration retrofits, and LED lighting in 167 warehouses."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [4, 6, 8],
+    "difficulty": "medium",
+    "doc_name": "CostCo Climate Action Plan"
+  },
+  {
+    "question": "What are Costco's five Scope 3 action pillars, and how do the agriculture, livestock, energy-efficient items, and packaging sections explain those pillars?",
+    "answers": [
+      "The five Scope 3 pillars are supplier energy transition, regenerative and deforestation-free agriculture, sustainable livestock, energy efficient items, and sustainable packaging. The report explains that regenerative agriculture can protect soils, water and biodiversity while reducing carbon; sustainable livestock focuses on collaboration and avoiding high-deforestation-risk beef sourcing; energy-efficient items use supplier work and certifications such as EnergyStar to reduce Category 11 emissions; and sustainable packaging focuses on reducing unnecessary packaging, reuse models, lightweight packaging, and recycled content.",
+      "The pillars are supplier energy transition, regenerative and deforestation-free agriculture, sustainable livestock, energy efficient items, and sustainable packaging. Supporting sections describe regenerative agriculture pilots and traceability, livestock collaboration and deforestation-risk controls, EnergyStar-style efficiency for sold products, and packaging improvements through reduction, reuse, lightweighting and recycled content."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [9, 10, 11],
+    "difficulty": "hard",
+    "doc_name": "CostCo Climate Action Plan"
+  },
+  {
+    "question": "Summarize Costco's fuel transition approach across upstream fuel supply, fuel-station operations, and downstream member transportation, giving at least one concrete metric for each area.",
+    "answers": [
+      "Upstream, Costco focuses on procuring lower-carbon-intensity fuels and estimates about 20% of fuel Scope 3 emissions stem from its fuel supply; it also offers R99 renewable diesel at all California fuel retail sites and reports renewable diesel has up to a 65% lower carbon intensity than petroleum diesel. At the fuel station, it uses measures such as 393 vapor management systems, estimated to reduce 1.5k tons of VOCs, 4.6k tons of CO2 and 522k gallons of gasoline, plus dripless/spitless nozzles that yield a 90% spill reduction. Downstream, it offers EV charging at over 50 warehouses, plans fast chargers at 20-plus warehouses, supports charging speeds from 7 to 350 kWh, and reports approximately 90,000 EV purchases through the Costco Auto Program.",
+      "The plan spans fuel supply, station operations and member transportation. Metrics include about 20% of fuel Scope 3 tied to fuel supply, R99 renewable diesel with up to 65% lower carbon intensity, 393 vapor management systems reducing 1.5k tons VOCs and 4.6k tons CO2, 90% spill reduction from nozzles, EV charging at 50-plus warehouses, fast chargers planned at 20-plus warehouses, and about 90,000 EVs purchased through Costco Auto Program."
+    ],
+    "question_type": "multi_hop",
+    "evidence_pages": [12, 14, 15],
+    "difficulty": "hard",
+    "doc_name": "CostCo Climate Action Plan"
+  },
+  {
+    "question": "Identify the key footnoted qualifications needed to interpret Costco's climate plan, including science-based targets, Scope 3 category exclusions, gasoline additive testing, and renewable diesel carbon intensity.",
+    "answers": [
+      "The report notes that Costco has not adopted Science Based Targets but actively considers SBTi guidance and other frameworks. The Scope 3 table note says Categories 8 and 13 were considered out of scope due to materiality, Categories 10, 14 and 15 were excluded due to lack of applicability, and Category 12 was excluded due to lack of data. The gasoline additive footnote defines LAC as Lowest Allowable Concentration and says outcomes vary by driving behavior, engine type and maintenance. The renewable diesel claim cites California Air Resources Board LCFS pathway certified carbon intensities and DOE.",
+      "Important qualifications are: Costco has not adopted SBTi targets, though it considers SBTi and other guidance; Scope 3 excludes Categories 8, 13, 10, 14, 15 and 12 for stated materiality, applicability or data reasons; LAC means Lowest Allowable Concentration and gasoline test results can vary; and the renewable diesel carbon-intensity statement relies on CARB LCFS pathway certified carbon intensities and DOE."
+    ],
+    "question_type": "citation_tracking",
+    "evidence_pages": [2, 12, 13, 14],
+    "difficulty": "medium",
+    "doc_name": "CostCo Climate Action Plan"
+  }
+]

@@ -1,0 +1,112 @@
+[
+  {
+    "question": "What climate-related assessment did CT REIT conduct after the release of the TCFD recommendations, and how does the report say the results are used?",
+    "answers": [
+      "CT REIT worked with a third-party consultant to better understand the potential implications of climate change on its portfolio and conducted a climate risk and opportunity assessment. The exercise included scenario analyses, which now inform CT REIT's decision-making regarding investments on an ongoing basis.",
+      "After the TCFD recommendations, CT REIT used a third-party consultant to conduct a climate risk and opportunity assessment with scenario analyses; those analyses inform ongoing investment decisions."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [10],
+    "difficulty": "easy",
+    "doc_name": "CT REIT 2022 ESG Report"
+  },
+  {
+    "question": "What assurance and data-coverage limitations should a reader keep in mind when interpreting CT REIT's environmental data?",
+    "answers": [
+      "CT REIT received third-party limited assurance only for certain 2022 data in Appendix 1 - Environmental Data, and did not seek external assurance for other information. The Appendix data covers areas where CT REIT has Operational Control, while Scope 3 data comes from tenant information provided voluntarily, includes estimates, and represents 89% of total GLA.",
+      "The report says only certain 2022 Appendix 1 environmental data received third-party limited assurance. Energy, water, waste and Scope 1 and 2 data cover operationally controlled areas, while Scope 3 is tenant-provided, partly estimated, and covers 89% of GLA."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [6, 29],
+    "difficulty": "medium",
+    "doc_name": "CT REIT 2022 ESG Report"
+  },
+  {
+    "question": "Using the About CT REIT table, how many total properties and total GLA did CT REIT report, and which asset class had the largest number of properties?",
+    "answers": [
+      "CT REIT reported 370 total properties and 30,078,518 ft2 of total GLA. Retail was the largest asset class by number of properties, with 365 properties, 99.3% occupancy, and 25,594,741 ft2 of GLA.",
+      "The table shows 370 total properties and 30,078,518 ft2 of GLA. Retail had by far the most properties, with 365."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [4],
+    "difficulty": "easy",
+    "doc_name": "CT REIT 2022 ESG Report"
+  },
+  {
+    "question": "According to the EV charging stations appendix table, how did CT REIT's cumulative EV charging infrastructure change from 2020 to 2022?",
+    "answers": [
+      "Total EV chargers increased from 154 chargers at 38 properties in 2020 to 386 chargers at 92 properties in 2022. Level 2 chargers rose from 20 at 13 properties to 50 at 43 properties, and Level 3 chargers rose from 134 at 38 properties to 336 at 92 properties.",
+      "The total grew from 154 chargers across 38 properties in 2020 to 386 chargers across 92 properties in 2022; Level 2 reached 50 chargers at 43 properties and Level 3 reached 336 chargers at 92 properties."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [34],
+    "difficulty": "medium",
+    "doc_name": "CT REIT 2022 ESG Report"
+  },
+  {
+    "question": "In the ESG Topics visual, what topics are listed under Environmental, Social, and Governance?",
+    "answers": [
+      "The Environmental topics are Climate Change, Sustainable Building Design, and Operational Efficiency. The Social topics are Community Impact, Diversity, Inclusion & Belonging, and Talent & Culture. The Governance topics are Business Ethics, Risk Management, and Privacy & Data Security.",
+      "Environmental includes climate change, sustainable building design and operational efficiency; Social includes community impact, diversity/inclusion/belonging and talent/culture; Governance includes business ethics, risk management and privacy/data security."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [8],
+    "difficulty": "medium",
+    "doc_name": "CT REIT 2022 ESG Report"
+  },
+  {
+    "question": "Reading the environmental performance charts, what changed in 2022 for energy use, GHG emissions, water consumption, and controlled waste diversion?",
+    "answers": [
+      "In 2022, total energy consumption rose to 16.8 million eMWh and total GHG emissions rose to 1,817.8 tCO2e; like-for-like energy consumption rose to 8.5 million eMWh and like-for-like GHG emissions rose to 643.2 tCO2e. Total water consumption rose to 78.5 thousand m3 and like-for-like water consumption rose to 61.4 thousand m3. Controlled waste diversion was 43.9%, slightly below 44.8% in 2021 and above 43.7% in 2020.",
+      "The charts show higher 2022 energy and GHG values: total energy 16.8 million eMWh, total GHG 1,817.8 tCO2e, like-for-like energy 8.5 million eMWh and like-for-like GHG 643.2 tCO2e. Water also increased to 78.5 thousand m3 total and 61.4 thousand m3 like-for-like, while controlled waste diversion was 43.9%."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [13, 14],
+    "difficulty": "hard",
+    "doc_name": "CT REIT 2022 ESG Report"
+  },
+  {
+    "question": "How does CT REIT's sustainable building design strategy connect to its net zero Calgary distribution centre and green building certification results?",
+    "answers": [
+      "CT REIT says it pursues green building certifications such as LEED, Net Zero Carbon and Net Zero Energy, and beginning in 2024 intends with CTC to build new Canadian Tire stores to CTC's net zero ready prototype. Its Calgary distribution centre began construction in 2022, is expected to be one of Canada's first net zero energy and carbon industrial properties, and received CaGBC Zero Carbon Building - Design Standard certification. The certification charts show cumulative certified GLA increasing to 5.6 million ft2 and cumulative certified projects reaching 21 by 2023.",
+      "The strategy links green certifications and net zero ready design to concrete projects: the Calgary distribution centre started in 2022, received CaGBC Zero Carbon Building - Design Standard certification, and is expected to be net zero energy and carbon. By 2023, CT REIT showed 5.6 million ft2 of cumulative certified GLA and 21 cumulative certified projects."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [10, 11],
+    "difficulty": "medium",
+    "doc_name": "CT REIT 2022 ESG Report"
+  },
+  {
+    "question": "Connect CT REIT's community impact activities across the Community Impact pages. What monetary, volunteer, cleanup, and property-based examples are reported?",
+    "answers": [
+      "CT REIT committed more than $100,000 per year for two years to Jumpstart, helping support inclusive play spaces, and reported raising nearly $120,000 for charities including Jumpstart and others. It launched Community Changemakers in 2022, offering employees up to 10 hours of paid time off per year for volunteering. It also held an Earth Day cleanup where teams collected 60 bags of debris totaling about 900 pounds, and it established an urban beekeeping program at seven locations that generates about 100 jars of honey annually.",
+      "Examples include over $100,000 per year for two years to Jumpstart, nearly $120,000 raised for several charities, Community Changemakers with up to 10 paid volunteer hours per employee, an Earth Day cleanup collecting 60 bags or about 900 pounds of debris, and beekeeping at seven properties producing about 100 jars of honey each year."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [16, 17],
+    "difficulty": "hard",
+    "doc_name": "CT REIT 2022 ESG Report"
+  },
+  {
+    "question": "Using the report's overview, ESG topic visual, environmental charts, social pages, and governance page, summarize CT REIT's ESG profile with at least one metric for each area.",
+    "answers": [
+      "Overview: CT REIT reported 370 properties and 30,078,518 ft2 of GLA. Environmental: its 2022 charts show 16.8 million eMWh of total energy consumption and 78.5 thousand m3 of total water consumption. Social: it reported nearly $120,000 raised for community organizations and up to 10 paid volunteer hours per employee through Community Changemakers. Governance: five of eight trustees, or 63%, are independent, and four of eight trustees, or 50%, self-identify as women.",
+      "A concise ESG profile is: 370 properties and 30.1 million ft2 GLA; environmental focus areas such as climate change, sustainable building design and operational efficiency, with 2022 total energy at 16.8 million eMWh; social programs including nearly $120,000 raised and paid volunteer hours; and governance metrics of 63% board independence and 50% gender diversity."
+    ],
+    "question_type": "multi_hop",
+    "evidence_pages": [4, 8, 13, 16, 24],
+    "difficulty": "hard",
+    "doc_name": "CT REIT 2022 ESG Report"
+  },
+  {
+    "question": "What qualifications or footnotes are needed to interpret the environmental appendix tables and the current-year data symbols?",
+    "answers": [
+      "The report explains that Like-for-Like data includes assets owned and managed from January 1, 2020 to December 31, 2022, while Total data includes assets owned and managed partly or wholly during the same period without adjustments. Energy, water, waste and Scope 1 and 2 GHG data represent areas under Operational Control. Scope 3 data is voluntarily provided by tenants, includes estimates, and represents 89% of total GLA. The black symbol in the Appendix identifies third-party limited assurance of current-year data.",
+      "Key qualifications are that Like-for-Like and Total use different asset coverage definitions, operational-control data covers energy, water, waste and Scope 1 and 2 emissions, Scope 3 is voluntary tenant-provided estimated data covering 89% of GLA, and the symbol marks third-party limited assurance for current-year data."
+    ],
+    "question_type": "citation_tracking",
+    "evidence_pages": [6, 29, 33, 34],
+    "difficulty": "medium",
+    "doc_name": "CT REIT 2022 ESG Report"
+  }
+]
