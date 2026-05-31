@@ -108,5 +108,269 @@
     "evidence_pages": [47, 48],
     "difficulty": "medium",
     "doc_name": "2022 Microsoft Environmental Sustainability Report"
+  },
+  {
+    "question": "What are AstraZeneca's three interconnected sustainability priorities and how many material focus areas fall under them?",
+    "answers": [
+      "The three priorities are: Access to healthcare, Environmental protection, and Ethics and transparency. There are nine material focus areas in total, each with their own targets, grouped under these three priorities.",
+      "Access to healthcare, Environmental protection, Ethics and transparency — with 9 material focus areas."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [7],
+    "difficulty": "easy",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "What is AstraZeneca's Ambition Zero Carbon commitment and what progress has been made on Scope 1 and 2 GHG emissions reduction since 2015?",
+    "answers": [
+      "AstraZeneca's Ambition Zero Carbon aims to achieve net zero across the value chain through avoiding GHG emissions, optimizing energy efficiency, shifting to renewable energy, transitioning to a battery electric vehicle fleet, and investing in nature-based removals. Since 2015, Scope 1 and 2 GHG emissions have been reduced by 67.6%, a reduction of 420 kilotonnes CO2e from a 2015 baseline of 621 ktCO2e.",
+      "Ambition Zero Carbon targets net zero across the value chain. Scope 1&2 emissions reduced by 67.6% (420 ktCO2e) from 2015 baseline of 621 ktCO2e."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [15, 17],
+    "difficulty": "medium",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "According to AstraZeneca's employee data, what is the total global workforce and how are employees distributed across reporting regions?",
+    "answers": [
+      "AstraZeneca has 89,900 employees worldwide. By reporting region: Emerging markets 38%, Europe 35%, US 20%, Established rest of the world 7%. The company has an active presence in 85 countries and sells products in more than 125 countries.",
+      "89,900 employees globally: 38% Emerging markets, 35% Europe, 20% US, 7% Established rest of world. Active in 85 countries, selling in 125+ countries."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [5],
+    "difficulty": "easy",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "Describe AstraZeneca's Natural Resource Efficiency Fund (NREF): how much has been invested since 2015 and what specific energy efficiency and renewable energy projects were undertaken in 2023?",
+    "answers": [
+      "Since 2015, NREF has invested approximately $175 million in environmental efficiency projects, with an additional $36.6 million spent in 2023 including 72 new projects. In 2023, AstraZeneca invested $33.7 million in energy efficiency and on-site renewable energy. Key projects include: a 10-year PPA with Statkraft for 200 GWh/year from a Swedish wind farm (covering ~80% of Gothenburg/Södertälje electricity needs); a 15-year agreement with Future Biogas for 100+ GWh of biomethane in the UK; and a collaboration with Vanguard Renewables to deliver up to 190 GWh/year of RNG to US sites by 2026 (equivalent to 36% of total global gas consumption).",
+      "$175M total since 2015 via NREF, $36.6M in 2023 (72 new projects). Three major renewable deals: Statkraft wind PPA (200 GWh/yr, Sweden), Future Biogas (100+ GWh biomethane, UK), Vanguard RNG (190 GWh/yr, US by 2026)."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [16, 18],
+    "difficulty": "medium",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "What is AstraZeneca's renewable energy target and what major renewable energy agreements were signed in 2023? Name the partners, energy volumes, and locations for at least two of them.",
+    "answers": [
+      "AstraZeneca aims to use 100% renewable energy across all operations by the end of 2025. In 2023, three major agreements were signed: (1) A 10-year PPA with Statkraft for 200 GWh/year from a new wind farm in Sweden, covering ~80% of electricity needs at Gothenburg and Södertälje sites; (2) A 15-year agreement with Future Biogas to supply 100+ GWh of biomethane to UK sites (Macclesfield, Cambridge, Luton, Speke); (3) Collaboration with Vanguard Renewables to deliver RNG to all US sites by 2026, enabling up to 190 GWh/year — equivalent to 36% of total global gas consumption.",
+      "100% renewable energy by end of 2025. Key deals: Statkraft wind 200 GWh/yr (Sweden), Future Biogas 100+ GWh biomethane (UK), Vanguard RNG 190 GWh/yr (US by 2026)."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [18],
+    "difficulty": "medium",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "AstraZeneca's Access to healthcare priority encompasses three focus areas: Equitable access, Affordability and pricing, and Health system resilience. What were the key 2023 performance metrics for these areas?",
+    "answers": [
+      "Key 2023 metrics: 66.4 million people reached by access to healthcare programmes (cumulative); 13.6 million people reached by patient assistance programmes (cumulative); 127,384 healthcare workers trained (cumulative); 4,157 health facilities activated (cumulative); $4,778.8 million in product donations through patient assistance programmes; 862,632 people reached by patient access programmes. Additionally, the Healthy Heart Africa programme aims to reach 10 million people with elevated blood pressure across Africa by 2025.",
+      "66.4M people reached via access programmes; 13.6M via patient assistance; 127,384 healthcare workers trained; 4,157 health facilities activated; $4,778.8M in product donations. Healthy Heart Africa targets 10M people by 2025."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [9, 12, 14],
+    "difficulty": "medium",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "AstraZeneca's sustainability strategy integrates three pillars: Access to healthcare, Environmental protection, and Ethics and transparency. How are the Environmental protection priorities interconnected with the company's business growth, and what governance mechanisms ensure accountability? Use specific examples from the Board composition and sustainability committee structure.",
+    "answers": [
+      "AstraZeneca manages Environmental protection through three interconnected focus areas: Ambition Zero Carbon, Product sustainability, and Natural resources. The company demonstrates that emission reductions (67.6% Scope 1&2 since 2015) can be achieved alongside business growth. Governance: the Board has 46% female and 31% ethnic minority representation. The Sustainability Committee was established in 2021 and held two formal meetings in 2023, overseeing sustainability reporting, product sustainability, and the double materiality assessment. In 2023, a new internal Sustainability Steering Committee was created, and Ambition Zero Carbon performance is included in executive compensation via the Performance Share Plan (PSP). The CEO's incentives are also linked to access initiatives.",
+      "Environmental protection spans Ambition Zero Carbon, Product sustainability, and Natural resources — all managed to decouple emissions from business growth (67.6% reduction since 2015). Board: 46% female, 31% minority. Sustainability Committee (est. 2021) + new Sustainability Steering Committee (2023). Ambition Zero Carbon tied to executive compensation (PSP)."
+    ],
+    "question_type": "multi_hop",
+    "evidence_pages": [6, 7, 15, 16],
+    "difficulty": "hard",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "According to AstraZeneca's governance section, describe the Board's Sustainability Committee structure and its responsibilities. Which pages detail the committee's formation year, meeting frequency, and the topics it considered in 2023?",
+    "answers": [
+      "The Sustainability Committee was established in 2021 (page 6). It assesses progress on the sustainability strategy, oversees communication of sustainability activities with stakeholders, provides input to the Board and other Board Committees, and helps ensure the company moves forward in the most impactful way. In 2023, the Committee held two formal meetings and considered topics including sustainability reporting, product sustainability, development of the health equity strategy, the ongoing double materiality assessment, and the company's investment in sustainability (page 6). A new Sustainability Steering Committee was also established in 2023, reporting to the Audit and Sustainability Committees (page 6).",
+      "Sustainability Committee est. 2021, held 2 formal meetings in 2023 (page 6). Topics: sustainability reporting, product sustainability, health equity strategy, double materiality assessment. New Sustainability Steering Committee established 2023 (page 6)."
+    ],
+    "question_type": "citation_tracking",
+    "evidence_pages": [6],
+    "difficulty": "medium",
+    "doc_name": "AstraZeneca Sustainability Report 2023"
+  },
+  {
+    "question": "What is AT&T's carbon neutral commitment and what is the target year? By what percentage have Scope 1 and 2 emissions been reduced since 2015?",
+    "answers": [
+      "AT&T is committed to being carbon neutral across its global operations by year-end 2035, targeting net zero Scope 1 and 2 GHG emissions. Since 2015, AT&T has reduced Scope 1 and 2 emissions by more than 41% as of end of 2022 (and 45% as highlighted in the 2022 overview).",
+      "Carbon neutral by 2035 (net zero Scope 1 and 2). Emissions reduced by 45% (or more than 41%) since 2015 baseline."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [4, 25],
+    "difficulty": "easy",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "What is AT&T's 'Gigaton Goal' and what progress had been made toward it by the end of 2022?",
+    "answers": [
+      "The Gigaton Goal is a commitment to help AT&T's business customers collectively reduce 1 billion metric tons (1 gigaton) of GHG emissions by year-end 2035, using a 2018 baseline. By the end of 2022, AT&T had supported 149.2 million metric tons of customer emissions reductions — approximately 15% of the goal. This is achieved through AT&T Smart Climate Solutions such as IoT, 5G, and fiber connectivity.",
+      "Help customers reduce 1 billion metric tons of GHG emissions by 2035 (2018 baseline). 149.2 million metric tons achieved by end of 2022 (~15% of goal)."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [27],
+    "difficulty": "medium",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "According to AT&T's 2022 Highlights, what were the key workforce diversity metrics regarding open positions and internal promotions?",
+    "answers": [
+      "75% of open positions were filled by women and/or people of color candidates, and 69% of internal promotions were filled by women and/or people of color candidates.",
+      "75% open positions filled by women/POC; 69% internal promotions filled by women/POC."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [4],
+    "difficulty": "easy",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "AT&T has committed $2 billion to closing the digital divide. What are the specific targets and initiatives under this commitment, and what progress was reported in 2022?",
+    "answers": [
+      "The $2 billion commitment focuses on three areas: affordable high-speed internet access, digital skills, and community resources. Key targets include: passing more than 30 million fiber locations (including business locations); reaching 1 million people in need with digital resources by year-end 2025 (290,000+ reached by end of 2022); and establishing 50+ Connected Learning Centers by 2024. The Access from AT&T program, established in 2016, provides low-cost internet for qualifying low-income households and was expanded in 2022 to all households qualifying for the federal Affordable Connectivity Program (ACP).",
+      "$2B commitment: 30M+ fiber locations target; 1M people with digital resources by 2025 (290K+ reached); 50+ Connected Learning Centers by 2024; Access from AT&T expanded to all ACP-eligible households in 2022."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [11, 12],
+    "difficulty": "medium",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "AT&T reports a 45% reduction in Scope 1 and 2 emissions since 2015. What is the scale of AT&T's renewable energy portfolio supporting this reduction, and what key network investment metrics contextualize this achievement?",
+    "answers": [
+      "AT&T's U.S. renewable energy portfolio has an annual energy production of 2.9 million MWh. The company has invested more than $140 billion over the past 5 years primarily in U.S. wireless and wireline networks. In 2022, capital investment was $24.3 billion, wireless network coverage increased by approximately 100,000 square miles, and fiber laid increased by more than 60,000 miles. The network covered more than 285 million people with 5G and passed approximately 24 million fiber locations across 100+ U.S. metro areas. Network reliability exceeded 99.5%.",
+      "2.9M MWh annual renewable energy production. $140B+ invested over 5 years; $24.3B capital investment in 2022; 285M+ people 5G coverage; ~24M fiber locations; >99.5% network reliability."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [4, 6, 7, 8],
+    "difficulty": "medium",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "AT&T's climate strategy includes both reducing its own operational emissions and helping customers reduce theirs. Compare and contrast AT&T's own carbon neutral target with its customer-facing Gigaton Goal — what are the target years, scopes, baselines, and reported progress for each?",
+    "answers": [
+      "AT&T's carbon neutral target: net zero Scope 1 and 2 GHG emissions for global operations by year-end 2035 (2015 baseline), with 45% reduction achieved by end of 2022. AT&T's Gigaton Goal: help customers collectively reduce 1 billion metric tons of GHG emissions by year-end 2035 (2018 baseline), with 149.2 million metric tons (~15%) achieved by end of 2022. The carbon neutral target focuses on AT&T's own operations while the Gigaton Goal leverages AT&T's connectivity solutions (IoT, 5G, fiber) to enable emissions reductions at customer sites.",
+      "Own operations: net zero Scope 1&2 by 2035 (2015 baseline), 45% reduced. Customer goal: 1B metric tons reductions by 2035 (2018 baseline), 149.2M metric tons achieved. Different scopes — internal operations vs customer enablement."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [4, 25, 27],
+    "difficulty": "medium",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "AT&T's 2022 Sustainability Summary reports stakeholder outcomes across five dimensions: Employees, Shareholders & Customers, Environment, Communities, and Suppliers. Synthesize the key metric from each dimension into a coherent picture of AT&T's overall sustainability performance in 2022.",
+    "answers": [
+      "Employees: 75% open positions filled by women/POC, 69% internal promotions women/POC, 82% employee engagement score. Shareholders & Customers: $9.9B dividends returned, >99.5% network reliability, $24.3B capital investment. Environment: 45% Scope 1&2 emissions reduction since 2015, 2.9M MWh annual renewable energy production. Communities: 50+ Connected Learning Centers committed through 2024, ~4.4M FirstNet connections, $2B committed to closing the digital divide. Suppliers: 53% suppliers by spend have set science-based targets, $16.3B spend with diverse suppliers.",
+      "Five dimensions: (1) Employees — 75% hires women/POC, 82% engagement; (2) Shareholders — $9.9B dividends, >99.5% reliability; (3) Environment — 45% emissions cut, 2.9M MWh renewables; (4) Communities — $2B digital divide commitment, 4.4M FirstNet; (5) Suppliers — 53% have SBTs, $16.3B diverse spend."
+    ],
+    "question_type": "multi_hop",
+    "evidence_pages": [4, 11, 17, 25],
+    "difficulty": "hard",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "According to AT&T's Environment and Climate sections, what specific target has AT&T set for reducing waste to landfill, and on which pages are the baseline year and the quantitative target stated? Cite your sources.",
+    "answers": [
+      "AT&T has set a target to reduce the amount of U.S. waste sent to landfill by 30% by year-end 2030, with a 2019 baseline (page 28). AT&T's broader environmental targets are also tracked against its carbon neutral goal of net zero Scope 1&2 emissions by 2035 (page 25). The company achieved a 41%+ emissions reduction from the 2015 baseline by end of 2022 (page 25).",
+      "30% reduction in U.S. waste to landfill by 2030 (2019 baseline), stated on page 28. Carbon neutral by 2035 target on page 25."
+    ],
+    "question_type": "citation_tracking",
+    "evidence_pages": [25, 28],
+    "difficulty": "medium",
+    "doc_name": "AT&T 2022 Sustainability Summary"
+  },
+  {
+    "question": "What are Boeing's four strategies to advance sustainable aerospace together, as described in the Sustainability Report?",
+    "answers": [
+      "Boeing's four strategies are: (1) Fleet Renewal — deploying the latest generation of fuel-efficient airplanes; (2) Operational Efficiency — optimizing air traffic management and flight operations; (3) Renewable Energy — scaling up Sustainable Aviation Fuel (SAF), green hydrogen, and other renewable energy sources; (4) Advanced Technology — investing in new aircraft designs and propulsion technologies like the ecoDemonstrator program.",
+      "Fleet Renewal, Operational Efficiency, Renewable Energy, and Advanced Technology."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [34],
+    "difficulty": "easy",
+    "doc_name": "Boeing 2023 Sustainability Report"
+  },
+  {
+    "question": "How much does each new generation of commercial airplanes reduce fuel use and emissions, and what is the single largest Boeing airplane order mentioned in the 2023 report?",
+    "answers": [
+      "Historically, each new generation of Boeing airplanes reduces fuel use and emissions by 15%-25%. In December 2022, United Airlines placed an order for 100 787 Dreamliner airplanes with the option to purchase 100 more — the largest 787 order in Boeing's history. United also ordered 100 737 MAX jets.",
+      "Each new generation reduces fuel use and emissions by 15-25%. United Airlines: 100 787 Dreamliners (+ 100 options) — largest 787 order in Boeing history, plus 100 737 MAX."
+    ],
+    "question_type": "text_location",
+    "evidence_pages": [35],
+    "difficulty": "medium",
+    "doc_name": "Boeing 2023 Sustainability Report"
+  },
+  {
+    "question": "According to Boeing's Global Supply Chain data, how many Tier-1 suppliers does Boeing have globally and how are they distributed by region?",
+    "answers": [
+      "Boeing has over 11,000 Tier-1 suppliers globally. Distribution: U.S. 8,800+, Asia 215+, Australia 900+, Europe 570+, North America (Non-U.S.) 515+, Middle East 40+, Africa 5+, South America 1.",
+      "11,000+ Tier-1 suppliers: U.S. 8,800+, Australia 900+, Europe 570+, North America (Non-U.S.) 515+, Asia 215+, Middle East 40+, Africa 5+, South America 1."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [63],
+    "difficulty": "easy",
+    "doc_name": "Boeing 2023 Sustainability Report"
+  },
+  {
+    "question": "Boeing's operational sustainability targets are tracked against specific 2025 waypoints and 2030 goals. What are the five performance areas tracked, and what does the operational targets table compare them against?",
+    "answers": [
+      "The five performance areas are: Greenhouse Gas Emissions, Energy, Water, Solid Waste, and Hazardous Waste. The operational targets table on page 53 compares 2025 targets versus a 2017 baseline, shows 2022 progress toward these targets, and outlines the drivers and 2030 targets for each area. Boeing achieved net-zero GHG emissions at manufacturing and other work sites and in business travel in 2022 for the third consecutive year.",
+      "Five areas: GHG Emissions, Energy, Water, Solid Waste, Hazardous Waste. 2025 targets vs 2017 baseline with 2030 goals. Boeing achieved net-zero at manufacturing sites for 3rd consecutive year in 2022."
+    ],
+    "question_type": "table_qa",
+    "evidence_pages": [53, 54],
+    "difficulty": "medium",
+    "doc_name": "Boeing 2023 Sustainability Report"
+  },
+  {
+    "question": "What percentage of global carbon emissions does commercial aviation represent, and how does Boeing frame the significance of fleet renewal for emissions reduction?",
+    "answers": [
+      "Commercial aviation generates about 2.5% of the world's carbon emissions and 12% of transport emissions (page 5). Fleet renewal is one of Boeing's four key strategies — historically each new generation reduces fuel use and emissions by 15-25%, making the deployment of the latest generation of airplanes one of the most significant contributions to CO2 emissions reduction available over the next decade (page 35).",
+      "Commercial aviation: ~2.5% of world carbon emissions, 12% of transport emissions. Fleet renewal — each new generation reduces fuel/emissions 15-25%, described as one of the most significant near-term CO2 reduction levers."
+    ],
+    "question_type": "chart_understanding",
+    "evidence_pages": [5, 35],
+    "difficulty": "medium",
+    "doc_name": "Boeing 2023 Sustainability Report"
+  },
+  {
+    "question": "Describe Boeing's approach to Sustainable Aviation Fuel (SAF). Include the 2030 compatibility target, examples of SAF usage in demonstration flights, and partnerships to scale SAF production.",
+    "answers": [
+      "Boeing has set a 2030 goal to make all current and future commercial airplanes 100% SAF-compatible (page 14). Examples: Boeing's 737 MAX and 777X flew to the 2022 Farnborough International Airshow on a 30/70 SAF blend and used the same blend for daily flying displays (page 36); the 2022 ecoDemonstrator arrived at EAA AirVenture on a 30/70 SAF blend (page 36). For SAF scaling: Boeing participated in the UAE 'Power-to-Liquids Roadmap' study examining financial, economic and environmental benefits of decarbonizing aviation with emerging SAF technology (page 39).",
+      "2030 goal: 100% SAF-compatible commercial airplanes. 737 MAX/777X flew to Farnborough 2022 on 30/70 SAF blend. Boeing ecoDemonstrator also used 30/70 SAF. UAE Power-to-Liquids Roadmap study for SAF production scaling."
+    ],
+    "question_type": "cross_page",
+    "evidence_pages": [14, 36, 39],
+    "difficulty": "medium",
+    "doc_name": "Boeing 2023 Sustainability Report"
+  },
+  {
+    "question": "Boeing's sustainability report covers three major pillars: People (Safety/EDI), Products & Services (Decarbonization/SAF), and Operations (Emissions/Waste). Synthesize the key 2030 goal or headline commitment from each pillar with specific progress data reported in 2022/2023.",
+    "answers": [
+      "People: 10 years of Go for Zero safety initiative — significant reductions in serious accidents and injuries since 2013 (page 94). Products & Services: Four strategies for sustainable aerospace with 2030 goal of 100% SAF-compatible airplanes; each new generation reduces fuel/emissions 15-25%; United ordered 200 airplanes in largest 787 deal ever (pages 34-35). Operations: Net-zero GHG at manufacturing sites and business travel achieved for 3rd consecutive year in 2022; 2025 waypoints toward 2030 targets across GHG, energy, water, solid waste, and hazardous waste vs 2017 baseline (pages 53-54). Community giving: $185.7M in 2022 with 366,000 volunteer hours (page 78).",
+      "Three pillars: (1) People — Go for Zero safety 10 years, significant injury reductions; (2) Products — 4 strategies including 100% SAF-compatible by 2030, fleet renewal 15-25% efficiency gains; (3) Operations — net-zero manufacturing 3rd consecutive year, 2025 waypoints toward 2030 goals. $185.7M community giving, 366K volunteer hours."
+    ],
+    "question_type": "multi_hop",
+    "evidence_pages": [34, 35, 53, 54, 78, 94],
+    "difficulty": "hard",
+    "doc_name": "Boeing 2023 Sustainability Report"
+  },
+  {
+    "question": "According to Boeing's report, what specific operational targets does Boeing track for GHG emissions, energy, water, solid waste, and hazardous waste? On which page numbers are the 2025 targets, 2030 goals, and 2022 progress data presented?",
+    "answers": [
+      "Boeing tracks five operational performance areas with 2025 targets versus a 2017 baseline and 2030 goals, all detailed on page 53 (Operational Targets Progress table). The 2030 goals include net-zero emissions and significant reductions in GHG emissions, energy consumption, water withdrawal, solid waste, and hazardous waste (page 53). Boeing achieved net-zero GHG at manufacturing sites and business travel for the 3rd consecutive year in 2022 (page 54). Water withdrawal data (2020-2022) is on page 75, waste generation data on pages 75-76, and environmental data tables on pages 76-77.",
+      "Five areas tracked on page 53: GHG, energy, water, solid waste, hazardous waste. 2025 targets vs 2017 baseline. 2030 goals include net-zero emissions. Water/waste data on pages 75-77. Net-zero achieved 3rd consecutive year (page 54)."
+    ],
+    "question_type": "citation_tracking",
+    "evidence_pages": [53, 54, 75, 76],
+    "difficulty": "medium",
+    "doc_name": "Boeing 2023 Sustainability Report"
   }
 ]
