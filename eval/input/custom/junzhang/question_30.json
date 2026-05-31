@@ -1,0 +1,11 @@
+{
+  "question": "Describe Westpac's pilot framework for assessing customer transition plans. What are the five framework components and what were the key findings from the initial assessments?",
+  "answers": [
+    "Westpac's five-component pilot framework for assessing customer transition plans includes: (1) Targets — short and long-term emission reduction commitments across scope 1, 2 and 3, with commitment to net-zero by 2050; (2) Governance — board and management oversight of climate risks and opportunities; (3) Strategy — integration of climate into business strategy and capital planning; (4) Risk Management — processes for identifying, assessing, and managing climate risks; (5) Metrics and Performance — disclosure of emissions data and progress against targets. Key findings: many customers have net-zero commitments but lack detailed short-term milestones; governance and oversight of climate is increasing; and detailed transition plans with capital allocation remain a work in progress for most customers.",
+    "Five components: (1) Targets — emission reduction commitments; (2) Governance — board oversight; (3) Strategy — climate integration; (4) Risk Management — risk processes; (5) Metrics & Performance — emissions disclosure. Findings: many customers have net-zero commitments but lack detailed short-term plans."
+  ],
+  "question_type": "chart_understanding",
+  "evidence_pages": [33],
+  "difficulty": "medium",
+  "doc_name": "Westpac 2023 climate report.pdf"
+}

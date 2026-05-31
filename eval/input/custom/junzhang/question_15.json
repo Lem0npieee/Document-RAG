@@ -1,0 +1,11 @@
+{
+  "question": "Veolia's ESG strategy spans four priority areas (Climate, Circular Economy, Depollution/Biodiversity, and Social/Human Resources). Synthesize the headline target, one key metric, and the governance mechanism for each area.",
+  "answers": [
+    "Climate: Eliminate coal from European operations by 2030 (€1.5B investment), net-zero by 2050. Key metric: €382M already invested by 2022 (page 15). Circular Economy: Increase recycled plastics to 610kt by 2023. Key metric: 490kt recycled in 2022, €8.4B circular economy revenue (page 17). Depollution/Biodiversity: Over 100 priority sites identified for biodiversity action plans, extending zero-pesticide policies. Key metric: 91.1% ash recovery and 72.6% sludge recovery (pages 17-18). Social/Human Resources: 23 hours training per employee target, engagement rate above 80%. Key metric: 5.3 million training hours delivered, 91% of employees trained in 2022 (page 21). Governance: Purpose Committee at Board level, CEO compensation tied 30%+ to non-financial metrics (page 6).",
+    "Four priorities: (1) Climate — coal elimination by 2030, net-zero by 2050, €382M invested; (2) Circular Economy — 610kt plastics target, €8.4B revenue; (3) Depollution/Biodiversity — 100+ priority sites, 91.1% ash recovery; (4) Social/HR — 23h training target, 91% trained. Governance via Purpose Committee and 30%+ CEO compensation tied to ESG."
+  ],
+  "question_type": "multi_hop",
+  "evidence_pages": [6, 7, 15, 17, 18, 21],
+  "difficulty": "hard",
+  "doc_name": "Veolia ESG Report 2023.pdf"
+}

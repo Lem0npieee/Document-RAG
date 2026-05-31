@@ -1,0 +1,11 @@
+{
+  "question": "Veolia's governance ties ESG performance to executive compensation. According to the report, what were the 2022 compensation criteria for the CEO, and what percentage was allocated to quantitative non-financial metrics?",
+  "answers": [
+    "The CEO's 2022 annual variable compensation criteria were: Quantitative (financial) 50%, Qualitative 20%, and Quantitative (non-financial) 30%+. Long-term compensation also included a CSR criterion weighted at 20%. The Board of Directors validates the multifaceted performance objectives and controls their application through a dedicated Purpose Committee.",
+    "CEO 2022 compensation: 50% quantitative financial, 20% qualitative, 30%+ quantitative non-financial. Long-term compensation includes 20% CSR criterion. Purpose Committee oversees ESG objectives."
+  ],
+  "question_type": "chart_understanding",
+  "evidence_pages": [6],
+  "difficulty": "medium",
+  "doc_name": "Veolia ESG Report 2023.pdf"
+}

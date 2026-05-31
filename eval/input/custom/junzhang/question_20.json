@@ -1,0 +1,11 @@
+{
+  "question": "Walmart's ESG strategy is built on four pillars: Opportunity, Sustainability, Community, and Ethics & Integrity. For the Opportunity pillar, what were the key FY2023 metrics regarding associate compensation, internal promotions, and diverse supplier spending?",
+  "answers": [
+    "Key FY2023 metrics for Opportunity: $21.75 U.S. associate average total hourly compensation; 68% full-time U.S. hourly associates; over 34,000 associates enrolled in Live Better U; $47 billion cumulative total purchases supporting American jobs (2021 through FY2023); more than 180,000 U.S. associates received promotions with 88% of roles above entry level filled internally; and more than $13 billion sourced from approximately 2,400 diverse suppliers to U.S. businesses.",
+    "$21.75 avg hourly total compensation; 68% full-time; 34,000+ in Live Better U; $47B supporting American jobs; 180,000+ promotions (88% internal fill rate); $13B+ from ~2,400 diverse suppliers."
+  ],
+  "question_type": "table_qa",
+  "evidence_pages": [11, 12],
+  "difficulty": "medium",
+  "doc_name": "Walmart ESG Highlights 2023.pdf"
+}

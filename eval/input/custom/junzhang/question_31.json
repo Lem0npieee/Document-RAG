@@ -1,0 +1,11 @@
+{
+  "question": "Westpac's climate strategy spans three pillars: Net-Zero Operations, Supporting Customers' Transition, and Collaborating for Impact. Synthesize the headline target and key FY23 progress metric for each pillar, and explain how the Sustainable Finance Framework supports the overall strategy.",
+  "answers": [
+    "Pillar 1 — Net-Zero Operations: Target of 64% Scope 1&2 reduction by 2025 and 76% by 2030 from 2021 baseline. FY23 progress: 66% reduction already achieved (surpassed 2025 target), 100% Australian electricity from renewables from April 2023 (pages 8, 15, 21). Pillar 2 — Supporting Customers: Set 12 NZBA 2030 sector lending targets across 8 of 9 carbon-intensive sectors. FY23 progress: 3% reduction in estimated financed emissions, now covering up to 48% of scope 1&2 financed emissions. Sustainable finance targets of $55B lending and $40B bond facilitation by 2030 (pages 9, 26, 27). Pillar 3 — Collaborating for Impact: Engaged with industry bodies, co-convened the Australian Industry Energy Transitions Initiative. FY23 progress: launched first Natural Capital Position Statement, committed to no deforestation from Dec 2025 for agricultural customers (pages 7, 38, 39). The Sustainable Finance Framework (page 37) underpins the strategy by defining how Westpac classifies sustainable lending and bond facilitation, aligned with global standards to give customers clarity on what is green, transition, or social financing.",
+    "Three pillars: (1) Net-Zero Ops — 66% Scope 1&2 reduction (surpassed 2025 target), 100% AU renewables; (2) Supporting Customers — 12 NZBA targets across 8 sectors, $55B+$40B sustainable finance by 2030, 3% financed emissions reduction; (3) Collaborate — NCPS launched, no deforestation from Dec 2025, ETI co-convened. Sustainable Finance Framework defines green/transition/social financing classifications."
+  ],
+  "question_type": "multi_hop",
+  "evidence_pages": [7, 8, 9, 15, 21, 26, 27, 37, 38, 39],
+  "difficulty": "hard",
+  "doc_name": "Westpac 2023 climate report.pdf"
+}

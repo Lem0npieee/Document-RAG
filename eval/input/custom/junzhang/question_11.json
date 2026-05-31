@@ -1,0 +1,11 @@
+{
+  "question": "What is Veolia's commitment regarding coal in its European operations, and what investment has been made toward this goal? What is Veolia's overarching net-zero target year?",
+  "answers": [
+    "Veolia has committed to eliminate coal from its European operations by 2030, at an estimated cost of €1.5 billion, with €382 million already invested as of 2022. This is part of a broader effort to reduce GHG emissions across Scopes 1, 2 and 3. Veolia aims for net-zero emissions by 2050.",
+    "Eliminate coal from European operations by 2030 at a cost of €1.5 billion (€382 million invested as of 2022). Net-zero target: 2050."
+  ],
+  "question_type": "text_location",
+  "evidence_pages": [15],
+  "difficulty": "medium",
+  "doc_name": "Veolia ESG Report 2023.pdf"
+}
