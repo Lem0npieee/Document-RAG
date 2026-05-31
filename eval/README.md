@@ -12,6 +12,7 @@ eval/
     metrics.py
     build_pdfqa_kb.py
     run_pdfqa_eval.py
+    run_ablation.py
     run_token_eval.py
   input/
     pdfqa/
@@ -89,7 +90,43 @@ python eval/code/run_pdfqa_eval.py --resume --strict-docs --kb-docs-only --categ
 - `evidence_page_recall`（仅当注释中存在页面标签时）
 - 按类别、数据集和问题类型分组的指标
 
-## 5）运行 Token 成本评估
+## 5）运行消融实验
+
+统一入口是 `eval/code/run_ablation.py`。直接运行后，按数字选择组别：
+
+```bash
+python -B eval/code/run_ablation.py
+```
+
+组别含义：
+
+- `1. None组`：不使用 FAISS，不使用知识图谱，不上传页面总览图。
+- `2. vector_only组`：只使用 FAISS 向量库，不使用知识图谱。
+- `3. graph_only组`：只使用知识图谱，不使用 FAISS 向量库。
+- `4. no_image组`：使用 FAISS 和知识图谱，但不上传 PDF 每页总览图。
+- `5. full组`：完整流程，使用 FAISS、知识图谱和页面总览图。
+
+该脚本会调用 `run_pdfqa_eval.py`，并把不同组的结果分别写入：
+
+```text
+eval/output/pdfqa/ablation/
+```
+
+如果要一次运行全部组别：
+
+```bash
+python -B eval/code/run_ablation.py --all
+```
+
+如果仍需非交互式指定单组，也可以使用：
+
+```bash
+python -B eval/code/run_ablation.py --group full
+```
+
+底层 `run_pdfqa_eval.py` 仍保留 `--ablation full|none|vector_only|graph_only|no_image` 参数，便于脚本化调用。
+
+## 6）运行 Token 成本评估
 
 `run_token_eval.py` 用于比较两种问答方式的 token 消耗：
 

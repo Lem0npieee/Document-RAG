@@ -43,6 +43,22 @@ def _configure_environment(kb_root: Path, doc_root: Path) -> None:
     os.environ["DOC_ROOT"] = str(doc_root)
 
 
+def _normalize_ablation_group(value: str | None) -> str:
+    return value or "full"
+
+
+def _ablation_components(group: str) -> dict[str, bool]:
+    if group == "none":
+        return {"vectorstore": False, "graph": False, "images": False}
+    if group == "vector_only":
+        return {"vectorstore": True, "graph": False, "images": True}
+    if group == "graph_only":
+        return {"vectorstore": False, "graph": True, "images": True}
+    if group == "no_image":
+        return {"vectorstore": True, "graph": True, "images": False}
+    return {"vectorstore": True, "graph": True, "images": True}
+
+
 def _safe_write_text(path: Path, content: str, fallback_name: str) -> Path:
     try:
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -329,7 +345,13 @@ def parse_args() -> argparse.Namespace:
         help="filter evaluation set by answer type",
     )
     parser.add_argument("--recompute-only", action="store_true", help="do not call model, only rescore existing predictions")
-    parser.add_argument("--ablation", type=str, default=None, choices=[None, "vector_only", "graph_only", "no_image"], help="ablation mode")
+    parser.add_argument(
+        "--ablation",
+        type=str,
+        default="full",
+        choices=["full", "none", "vector_only", "graph_only", "no_image"],
+        help="ablation group: full, none, vector_only, graph_only, or no_image",
+    )
     parser.add_argument("--baseline", type=str, default=None, choices=[None, "always_no", "always_yes"], help="simple baseline")
     parser.add_argument("--exclude-docs", type=str, default="", help="comma-separated doc names to exclude from eval")
     parser.add_argument("--kb-docs-only", action="store_true", help="auto-exclude samples whose doc is not in KB")
@@ -339,6 +361,9 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     args.output_root.mkdir(parents=True, exist_ok=True)
+    ablation_group = _normalize_ablation_group(args.ablation)
+    components = _ablation_components(ablation_group)
+    chain_ablation = None if ablation_group == "full" else ablation_group
 
     samples, warnings = load_pdfqa_samples(
         annotations_root=args.annotations_root,
@@ -407,11 +432,11 @@ def main() -> None:
             args.kb_root / "graph" / "graph.pkl",
         ]
         graph_found = next((p for p in expected_graph_candidates if p.exists()), None)
-        if not expected_faiss.exists() or graph_found is None:
+        if (components["vectorstore"] and not expected_faiss.exists()) or (components["graph"] and graph_found is None):
             missing: list[str] = []
-            if not expected_faiss.exists():
+            if components["vectorstore"] and not expected_faiss.exists():
                 missing.append(str(expected_faiss))
-            if graph_found is None:
+            if components["graph"] and graph_found is None:
                 missing.extend(str(p) for p in expected_graph_candidates)
             raise FileNotFoundError(
                 "KB artifacts not found. Please build KB first. Missing: "
@@ -425,8 +450,11 @@ def main() -> None:
         chain = MultiModalGraphRAG(
             settings=settings,
             faiss_dir=settings.faiss_dir,
-            graph_path=settings.graph_dir / "graph.pkl",
+            graph_path=graph_found or settings.graph_dir / "graph.pkl",
             pages_dir=settings.pages_dir,
+            use_vectorstore=components["vectorstore"],
+            use_graph=components["graph"],
+            use_images=components["images"],
         )
 
     done = 0
@@ -442,6 +470,11 @@ def main() -> None:
     print(f"qa_split: {args.qa_split}")
     print(f"samples: {len(samples)}")
     print(f"answer_profile: {args.answer_profile}")
+    print(f"ablation_group: {ablation_group}")
+    print(
+        "components: "
+        f"faiss={components['vectorstore']}, graph={components['graph']}, images={components['images']}"
+    )
     if warnings:
         print(f"warnings: {len(warnings)} (first 20)")
         for item in warnings[:20]:
@@ -476,7 +509,7 @@ def main() -> None:
                     source_hint=sample.source_hint,
                     k=args.k,
                     max_nodes=args.max_nodes,
-                    ablation=args.ablation,
+                    ablation=chain_ablation,
                 )
             record = _record_from_result(sample, result, max_answer_chars=args.max_answer_chars)
             append_target = _append_jsonl(append_target, record)
@@ -587,6 +620,12 @@ def main() -> None:
         "score_mode": args.score_mode,
         "max_ref_chars": args.max_ref_chars,
         "answer_profile": args.answer_profile,
+        "ablation_group": ablation_group,
+        "components": {
+            "faiss": components["vectorstore"],
+            "graph": components["graph"],
+            "images": components["images"],
+        },
         "by_category": by_category,
         "by_dataset": by_dataset,
         "by_question_type": by_question_type,

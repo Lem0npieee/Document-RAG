@@ -36,17 +36,25 @@ class MultiModalGraphRAG:
         faiss_dir: str | Path,
         graph_path: str | Path,
         pages_dir: str | Path,
+        use_vectorstore: bool = True,
+        use_graph: bool = True,
+        use_images: bool = True,
     ) -> None:
         self.vl_client = create_vl_client(settings)
-        self.vectorstore = load_faiss_index(
-            api_key=settings.dashscope_api_key,
-            embedding_model=settings.embedding_model,
-            index_dir=faiss_dir,
-            embedding_provider=settings.embedding_provider,
+        self.vectorstore = (
+            load_faiss_index(
+                api_key=settings.dashscope_api_key,
+                embedding_model=settings.embedding_model,
+                index_dir=faiss_dir,
+                embedding_provider=settings.embedding_provider,
+            )
+            if use_vectorstore
+            else None
         )
-        self.graph = load_graph(graph_path)
+        self.graph = load_graph(graph_path) if use_graph else nx.DiGraph()
         self.pages_dir = Path(pages_dir)
-        self.community_profiles = self._build_community_profiles()
+        self.use_images = use_images
+        self.community_profiles = self._build_community_profiles() if use_graph else []
 
     def _build_community_profiles(self) -> list[dict[str, Any]]:
         if self.graph.number_of_nodes() == 0:
@@ -429,13 +437,21 @@ class MultiModalGraphRAG:
             return ""
         return Path(str(value)).name.strip().lower()
 
-    def _graph_keyword_seeds(self, question: str, max_seeds: int = 24) -> list[str]:
+    def _graph_keyword_seeds(
+        self,
+        question: str,
+        max_seeds: int = 24,
+        source_hint: str | None = None,
+    ) -> list[str]:
         """Find seed nodes from the knowledge graph using keyword matching (no vector index)."""
         q_tokens = self._query_tokens(question)
+        source_key = self._canonical_source_name(source_hint)
         scored: list[tuple[int, str]] = []
         for nid in self.graph.nodes:
             node = self.graph.nodes[nid]
             if str(node.get("type", "")) != "keyword":
+                continue
+            if source_key and self._canonical_source_name(str(node.get("source", ""))) != source_key:
                 continue
             name = str(node.get("name", "")).lower()
             content = str(node.get("content", "")).lower()
@@ -447,6 +463,8 @@ class MultiModalGraphRAG:
 
     def _retrieve_docs(self, question: str, k: int, source_hint: str | None = None) -> list[Document]:
         if k <= 0:
+            return []
+        if self.vectorstore is None:
             return []
 
         source_key = self._canonical_source_name(source_hint)
@@ -489,10 +507,14 @@ class MultiModalGraphRAG:
         if source_hint:
             print(f"  Source hint: {source_hint}")
 
-        if ablation == "graph_only":
+        if ablation == "none":
+            retrieved_docs = []
+            seed_node_ids = []
+            expanded_node_ids = []
+        elif ablation == "graph_only":
             # Skip vector retrieval, use graph keyword lookup only
             retrieved_docs = []
-            seed_node_ids = self._graph_keyword_seeds(question, max_seeds=max_nodes)
+            seed_node_ids = self._graph_keyword_seeds(question, max_seeds=max_nodes, source_hint=source_hint)
             expanded_node_ids = self._expand_with_graph(seed_node_ids, max_nodes=max_nodes, source_hint=source_hint)
         else:
             retrieved_docs = self._retrieve_docs(question=question, k=k, source_hint=source_hint)
@@ -509,11 +531,14 @@ class MultiModalGraphRAG:
 
         print(f"  Expanded nodes: {len(expanded_node_ids)}")
 
-        global_profiles = self._select_global_profiles(
-            question=question,
-            preferred_node_ids=expanded_node_ids,
-            top_n=4,
-        )
+        if ablation in {"none", "vector_only"}:
+            global_profiles = []
+        else:
+            global_profiles = self._select_global_profiles(
+                question=question,
+                preferred_node_ids=expanded_node_ids,
+                top_n=4,
+            )
         global_context = self._render_global_context(global_profiles)
         if len(global_context) > self.MAX_GLOBAL_CONTEXT_CHARS:
             global_context = global_context[: self.MAX_GLOBAL_CONTEXT_CHARS].rstrip() + "..."
@@ -530,21 +555,21 @@ class MultiModalGraphRAG:
             f"  Global communities: {len(global_profiles)}, global supplement nodes: {len(global_node_ids)}, fused nodes: {len(fused_node_ids)}"
         )
 
-        relation_lines = self._collect_relations(fused_node_ids)
+        relation_lines = [] if ablation in {"none", "vector_only"} else self._collect_relations(fused_node_ids)
         print(f"  Relations found: {len(relation_lines)}")
 
         text_evidence = self._collect_text_evidence(fused_node_ids, retrieved_docs)
         pages = self._collect_pages(fused_node_ids, retrieved_docs)
         print(f"  Related pages: {pages}")
 
-        image_paths = self._collect_image_paths(fused_node_ids, retrieved_docs)
-        if not image_paths:
-            image_paths = [self.pages_dir / f"page_{page}.png" for page in pages if (self.pages_dir / f"page_{page}.png").exists()]
-
-        if ablation == "no_image":
+        if not self.use_images or ablation in {"none", "no_image"}:
             # No-Image 消融：关闭页面原图输入，仅用文本证据+关系链+社区摘要回答
             image_paths = []
         else:
+            image_paths = self._collect_image_paths(fused_node_ids, retrieved_docs)
+            if not image_paths:
+                image_paths = [self.pages_dir / f"page_{page}.png" for page in pages if (self.pages_dir / f"page_{page}.png").exists()]
+
             # Limit images to prevent oversized payloads from timing out the VLM API.
             # Each page image is ~500KB; base64-encoded it's ~700KB, so 18 images ≈ 12MB.
             max_images = 3 if answer_style == "short" else 5
