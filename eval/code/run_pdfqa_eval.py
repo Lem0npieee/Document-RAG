@@ -33,6 +33,7 @@ def _default_paths() -> dict[str, Path]:
         "kb_root": eval_root / "output" / "kb",
         "output_root": output_root,
         "predictions": output_root / "predictions.jsonl",
+        "answers": output_root / "answers.json",
         "metrics": output_root / "metrics.json",
         "errors": output_root / "errors_topk.jsonl",
     }
@@ -196,12 +197,20 @@ def _best_span_match(pred: str, refs: list[str]) -> str:
     if not refs_clean:
         return pred
 
+    # Best-span matching is useful for very short answers, but it can become
+    # quadratic and extremely slow for custom long-form QA. Fall back to raw
+    # prediction when either side is too long.
+    if len(pred) > 500 or max(len(ref) for ref in refs_clean) > 500:
+        return pred
+
     candidates: list[str] = [pred]
     sentences = [s.strip() for s in re.split(r"[.!?;\n]+", pred) if s.strip()]
     candidates.extend(sentences)
 
     tokens = pred.split()
     if tokens:
+        if len(tokens) > 120:
+            return pred
         ref_lens = [max(1, len(r.split())) for r in refs_clean]
         target_len = max(1, min(ref_lens))
         min_len = max(1, int(target_len * 0.6))
@@ -323,9 +332,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--kb-root", type=Path, default=defaults["kb_root"])
     parser.add_argument("--output-root", type=Path, default=defaults["output_root"])
     parser.add_argument("--predictions-file", type=Path, default=defaults["predictions"])
+    parser.add_argument("--answers-file", type=Path, default=defaults["answers"])
     parser.add_argument("--metrics-file", type=Path, default=defaults["metrics"])
     parser.add_argument("--errors-file", type=Path, default=defaults["errors"])
-    parser.add_argument("--category", type=str, default="real", choices=["all", "real", "syn"])
+    parser.add_argument("--category", type=str, default="real", choices=["all", "real", "syn", "custom"])
     parser.add_argument("--qa-split", type=str, default="all", choices=["all", "raw", "vf", "cf"])
     parser.add_argument("--max-samples", type=int, default=0, help="0 means all samples")
     parser.add_argument("--k", type=int, default=5)
@@ -337,6 +347,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-answer-chars", type=int, default=0, help="0 means no truncation")
     parser.add_argument("--score-mode", type=str, default="best_span", choices=["raw", "best_span"])
     parser.add_argument("--max-ref-chars", type=int, default=0, help="0 means evaluate all answers")
+    parser.add_argument("--generate-only", action="store_true", help="only generate answers; skip scoring metrics")
     parser.add_argument(
         "--answer-profile",
         type=str,
@@ -447,6 +458,8 @@ def main() -> None:
         from src.rag.multimodal_graph_rag_chain import MultiModalGraphRAG
 
         settings = get_settings()
+        settings.embedding_provider = "dashscope"
+        settings.embedding_model = "text-embedding-v3"
         chain = MultiModalGraphRAG(
             settings=settings,
             faiss_dir=settings.faiss_dir,
@@ -530,6 +543,66 @@ def main() -> None:
         if rec:
             ordered_records.append(rec)
 
+    answer_rows = [
+        {
+            "index": idx,
+            "question_id": rec.get("question_id", ""),
+            "doc_name": rec.get("doc_name", ""),
+            "question_type": rec.get("question_type", ""),
+            "evidence_pages": rec.get("evidence_pages", []),
+            "question": rec.get("question", ""),
+            "prediction": rec.get("prediction", ""),
+            "raw_answer": rec.get("raw_answer", ""),
+            "reference_answers": rec.get("answers", []),
+            "retrieved_pages": rec.get("pages", []),
+            "error": rec.get("error", ""),
+        }
+        for idx, rec in enumerate(ordered_records, start=1)
+    ]
+
+    if args.generate_only:
+        summary = {
+            "updated_at": datetime.now().isoformat(),
+            "mode": "generate_only",
+            "annotations_root": str(args.annotations_root),
+            "pdfs_root": str(args.pdfs_root),
+            "kb_root": str(args.kb_root),
+            "predictions_file": str(args.predictions_file),
+            "answers_file": str(args.answers_file),
+            "actual_predictions_output": str(append_target),
+            "category": args.category,
+            "qa_split": args.qa_split,
+            "sample_count": len(samples),
+            "generated_count": len(ordered_records),
+            "done_count": done,
+            "failed_count": failed,
+            "warnings_count": len(warnings),
+            "answer_profile": args.answer_profile,
+            "ablation_group": ablation_group,
+            "components": {
+                "faiss": components["vectorstore"],
+                "graph": components["graph"],
+                "images": components["images"],
+            },
+        }
+        answers_written = _safe_write_text(
+            args.answers_file,
+            json.dumps(answer_rows, ensure_ascii=False, indent=2),
+            fallback_name="answers_fallback.json",
+        )
+        metrics_written = _safe_write_text(
+            args.metrics_file,
+            json.dumps(summary, ensure_ascii=False, indent=2),
+            fallback_name="metrics_fallback.json",
+        )
+        print("============================================================")
+        print("Answer generation done.")
+        print(json.dumps(summary, ensure_ascii=False, indent=2))
+        print(f"answers_file: {answers_written}")
+        print(f"summary_file: {metrics_written}")
+        print("============================================================")
+        return
+
     scored_records: list[dict[str, Any]] = []
     for rec in ordered_records:
         raw_answer = str(rec.get("raw_answer", "")).strip()
@@ -598,6 +671,7 @@ def main() -> None:
         "pdfs_root": str(args.pdfs_root),
         "kb_root": str(args.kb_root),
         "predictions_file": str(args.predictions_file),
+        "answers_file": str(args.answers_file),
         "actual_predictions_output": str(append_target),
         "category": args.category,
         "qa_split": args.qa_split,
@@ -637,6 +711,12 @@ def main() -> None:
         fallback_name="metrics_fallback.json",
     )
 
+    answers_written = _safe_write_text(
+        args.answers_file,
+        json.dumps(answer_rows, ensure_ascii=False, indent=2),
+        fallback_name="answers_fallback.json",
+    )
+
     hard_cases = sorted(scored_records, key=lambda x: (float(x.get("anls", 0.0)), float(x.get("em", 0.0))))
     errors_payload = "".join(json.dumps(item, ensure_ascii=False) + "\n" for item in hard_cases[:200])
     errors_written = _safe_write_text(
@@ -648,6 +728,7 @@ def main() -> None:
     print("============================================================")
     print("Evaluation done.")
     print(json.dumps(summary, ensure_ascii=False, indent=2))
+    print(f"answers_file: {answers_written}")
     print(f"metrics_file: {metrics_written}")
     print(f"errors_file: {errors_written}")
     print("============================================================")

@@ -49,7 +49,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--kb-root", type=Path, default=defaults["kb_root"])
     parser.add_argument("--report-root", type=Path, default=defaults["report_root"])
     parser.add_argument("--progress-file", type=Path, default=None)
-    parser.add_argument("--category", type=str, default="real", choices=["all", "real", "syn"])
+    parser.add_argument("--category", type=str, default="real", choices=["all", "real", "syn", "custom"])
     parser.add_argument("--qa-split", type=str, default="all", choices=["all", "raw", "vf", "cf"])
     parser.add_argument("--doc-name", type=str, default="", help="Only build PDFs with this file name or stem")
     parser.add_argument("--max-samples", type=int, default=0, help="0 means all samples")

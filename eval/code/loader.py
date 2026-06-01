@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -24,6 +25,11 @@ class PDFQASample:
 def _read_json(path: Path) -> Any:
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def _natural_sort_key(path: Path) -> list[Any]:
+    rel = path.as_posix().lower()
+    return [int(part) if part.isdigit() else part for part in re.split(r"(\d+)", rel)]
 
 
 def _as_records(payload: Any) -> list[dict[str, Any]]:
@@ -170,6 +176,8 @@ def _category_from_path(path: Path, annotations_root: Path) -> tuple[str, str]:
     lower_parts = [x.lower() for x in rel_parts]
 
     category = "unknown"
+    if annotations_root.name.lower() == "custom" or "custom" in lower_parts:
+        category = "custom"
     for token in lower_parts:
         if token in {"real-pdfqa", "real"}:
             category = "real"
@@ -179,7 +187,9 @@ def _category_from_path(path: Path, annotations_root: Path) -> tuple[str, str]:
             break
 
     dataset = "unknown"
-    if len(rel_parts) >= 2:
+    if category == "custom":
+        dataset = "custom"
+    elif len(rel_parts) >= 2:
         dataset = rel_parts[1]
     return category, dataset
 
@@ -202,7 +212,10 @@ def load_pdfqa_samples(
     if annotations_root.is_file():
         annotation_files = [annotations_root.resolve()]
     elif annotations_root.exists():
-        annotation_files = sorted(p.resolve() for p in annotations_root.rglob("*.json"))
+        annotation_files = sorted(
+            (p.resolve() for p in annotations_root.rglob("*.json")),
+            key=_natural_sort_key,
+        )
     else:
         raise FileNotFoundError(f"annotations root not found: {annotations_root}")
 

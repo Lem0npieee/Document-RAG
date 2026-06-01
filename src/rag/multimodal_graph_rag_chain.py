@@ -602,6 +602,22 @@ class MultiModalGraphRAG:
                 "重申：你的回复只能包含答案本身，不能有任何其他文字。"
             )
 
+        if answer_style == "short":
+            prompt = (
+                "You are a document question-answering assistant. Answer the question from the provided evidence.\n"
+                "Rules:\n"
+                "- Give a concise natural-language answer. Include necessary metrics, years, entities, and relationships.\n"
+                "- Do not answer only yes/no unless the question itself is explicitly a yes/no question.\n"
+                "- If the question asks to describe, explain, compare, or synthesize, answer in 1-3 short sentences.\n"
+                "- Do not include citations, page numbers, node ids, reasoning steps, or extra commentary.\n"
+                "- If there is no usable evidence, give the best brief answer possible from the question itself; "
+                "if it truly cannot be determined, answer: Insufficient evidence.\n\n"
+                f"Question: {question}\n\n"
+                f"Text evidence:\n{text_evidence}\n\n"
+                f"Graph relations:\n{relation_block}\n\n"
+                "Answer:"
+            )
+
         print("  Generating answer...")
         answer = self.vl_client.answer_question(prompt=prompt, image_paths=image_paths)
         print(f"  Answer generated: {len(answer)} chars")

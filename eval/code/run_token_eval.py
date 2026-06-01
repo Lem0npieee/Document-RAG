@@ -489,7 +489,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-root", type=Path, default=defaults["output_root"])
     parser.add_argument("--records-file", type=Path, default=defaults["records"])
     parser.add_argument("--metrics-file", type=Path, default=defaults["metrics"])
-    parser.add_argument("--category", type=str, default="real", choices=["all", "real", "syn"])
+    parser.add_argument("--category", type=str, default="real", choices=["all", "real", "syn", "custom"])
     parser.add_argument("--qa-split", type=str, default="all", choices=["all", "raw", "vf", "cf"])
     parser.add_argument("--doc-name", type=str, default="", help="Only evaluate samples from this PDF file name or stem")
     parser.add_argument("--answer-profile", type=str, default="very_short", choices=["all", "binary", "very_short", "short"])

@@ -40,7 +40,7 @@ def _default_paths() -> dict[str, Path]:
     output_root = eval_root / "output" / "pdfqa" / "ablation"
     return {
         "eval_root": eval_root,
-        "annotations_root": eval_root / "input" / "pdfqa" / "annotations",
+        "annotations_root": eval_root / "input" / "custom",
         "pdfs_root": eval_root / "input" / "pdfqa" / "pdfs",
         "kb_root": eval_root / "output" / "kb",
         "output_root": output_root,
@@ -71,15 +71,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--pdfs-root", type=Path, default=defaults["pdfs_root"])
     parser.add_argument("--kb-root", type=Path, default=defaults["kb_root"])
     parser.add_argument("--output-root", type=Path, default=defaults["output_root"])
-    parser.add_argument("--category", type=str, default="real", choices=["all", "real", "syn"])
+    parser.add_argument("--category", type=str, default="custom", choices=["all", "real", "syn", "custom"])
     parser.add_argument("--qa-split", type=str, default="all", choices=["all", "raw", "vf", "cf"])
-    parser.add_argument("--answer-profile", type=str, default="very_short", choices=["all", "binary", "very_short", "short"])
-    parser.add_argument("--max-samples", type=int, default=20, help="0 means all samples")
+    parser.add_argument("--answer-profile", type=str, default="all", choices=["all", "binary", "very_short", "short"])
+    parser.add_argument("--max-samples", type=int, default=0, help="0 means all samples")
     parser.add_argument("--k", type=int, default=5)
     parser.add_argument("--max-nodes", type=int, default=24)
     parser.add_argument("--resume", action="store_true")
-    parser.add_argument("--no-strict-docs", action="store_true", help="do not require matching PDFs")
-    parser.add_argument("--no-kb-docs-only", action="store_true", help="do not filter samples to docs present in KB")
+    parser.add_argument("--score", action="store_true", help="also compute automatic metrics after answer generation")
+    parser.add_argument("--strict-docs", action="store_true", help="require matching PDFs")
+    parser.add_argument("--kb-docs-only", action="store_true", help="filter samples to docs present in KB")
     return parser.parse_args()
 
 
@@ -87,10 +88,11 @@ def _build_command(args: argparse.Namespace, group: str) -> list[str]:
     output_root = args.output_root
     output_root.mkdir(parents=True, exist_ok=True)
     predictions_file = output_root / f"{group}_predictions.jsonl"
+    answers_file = output_root / f"{group}_answers.json"
     metrics_file = output_root / f"{group}_metrics.json"
     errors_file = output_root / f"{group}_errors_topk.jsonl"
     if not args.resume:
-        for path in (predictions_file, metrics_file, errors_file):
+        for path in (predictions_file, answers_file, metrics_file, errors_file):
             if path.exists():
                 path.unlink()
 
@@ -109,6 +111,8 @@ def _build_command(args: argparse.Namespace, group: str) -> list[str]:
         str(output_root),
         "--predictions-file",
         str(predictions_file),
+        "--answers-file",
+        str(answers_file),
         "--metrics-file",
         str(metrics_file),
         "--errors-file",
@@ -119,21 +123,25 @@ def _build_command(args: argparse.Namespace, group: str) -> list[str]:
         args.qa_split,
         "--answer-profile",
         args.answer_profile,
-        "--max-samples",
-        str(args.max_samples),
         "--k",
         str(args.k),
         "--max-nodes",
         str(args.max_nodes),
+        "--score-mode",
+        "raw",
         "--ablation",
         group,
     ]
 
+    if not args.score:
+        command.append("--generate-only")
     if args.resume:
         command.append("--resume")
-    if not args.no_strict_docs:
+    if args.max_samples > 0:
+        command.extend(["--max-samples", str(args.max_samples)])
+    if args.strict_docs:
         command.append("--strict-docs")
-    if not args.no_kb_docs_only:
+    if args.kb_docs_only:
         command.append("--kb-docs-only")
 
     return command
