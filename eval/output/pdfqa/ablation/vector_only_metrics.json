@@ -1,0 +1,110 @@
+{
+  "updated_at": "2026-06-02T23:51:21.903004",
+  "annotations_root": "D:\\大学\\学习\\大三下\\多模态\\Document-RAG\\eval\\input\\custom",
+  "pdfs_root": "D:\\大学\\学习\\大三下\\多模态\\Document-RAG\\eval\\input\\pdfqa\\pdfs",
+  "kb_root": "D:\\大学\\学习\\大三下\\多模态\\Document-RAG\\eval\\output\\kb",
+  "predictions_file": "D:\\大学\\学习\\大三下\\多模态\\Document-RAG\\eval\\output\\pdfqa\\ablation\\vector_only_predictions.jsonl",
+  "answers_file": "D:\\大学\\学习\\大三下\\多模态\\Document-RAG\\eval\\output\\pdfqa\\ablation\\vector_only_answers.json",
+  "actual_predictions_output": "D:\\大学\\学习\\大三下\\多模态\\Document-RAG\\eval\\output\\pdfqa\\ablation\\vector_only_predictions.jsonl",
+  "category": "custom",
+  "qa_split": "all",
+  "sample_count": 120,
+  "scored_count": 120,
+  "done_count": 120,
+  "failed_count": 0,
+  "warnings_count": 0,
+  "skipped_by_ref_len": 0,
+  "anls_threshold": 0.5,
+  "anls": 0.054863,
+  "em": 0.0,
+  "containment": 0.0,
+  "token_f1": 0.570443,
+  "heuristic_judge": 0.440833,
+  "evidence_page_recall": {
+    "labeled_count": 120,
+    "hit_count": 105,
+    "recall": 0.875
+  },
+  "k": 5,
+  "max_nodes": 24,
+  "max_answer_chars": 0,
+  "score_mode": "raw",
+  "max_ref_chars": 0,
+  "answer_profile": "all",
+  "ablation_group": "vector_only",
+  "components": {
+    "faiss": true,
+    "graph": false,
+    "images": true
+  },
+  "by_category": {
+    "custom": {
+      "count": 120,
+      "anls": 0.054863,
+      "em": 0.0,
+      "containment": 0.0,
+      "token_f1": 0.570443,
+      "heuristic_judge": 0.440833
+    }
+  },
+  "by_dataset": {
+    "custom": {
+      "count": 120,
+      "anls": 0.054863,
+      "em": 0.0,
+      "containment": 0.0,
+      "token_f1": 0.570443,
+      "heuristic_judge": 0.440833
+    }
+  },
+  "by_question_type": {
+    "chart_understanding": {
+      "count": 17,
+      "anls": 0.093067,
+      "em": 0.0,
+      "containment": 0.0,
+      "token_f1": 0.620631,
+      "heuristic_judge": 0.505882
+    },
+    "citation_tracking": {
+      "count": 12,
+      "anls": 0.091671,
+      "em": 0.0,
+      "containment": 0.0,
+      "token_f1": 0.560072,
+      "heuristic_judge": 0.416667
+    },
+    "cross_page": {
+      "count": 22,
+      "anls": 0.02309,
+      "em": 0.0,
+      "containment": 0.0,
+      "token_f1": 0.583737,
+      "heuristic_judge": 0.454545
+    },
+    "multi_hop": {
+      "count": 12,
+      "anls": 0.0,
+      "em": 0.0,
+      "containment": 0.0,
+      "token_f1": 0.560846,
+      "heuristic_judge": 0.458333
+    },
+    "table_qa": {
+      "count": 27,
+      "anls": 0.020977,
+      "em": 0.0,
+      "containment": 0.0,
+      "token_f1": 0.470522,
+      "heuristic_judge": 0.351852
+    },
+    "text_location": {
+      "count": 30,
+      "anls": 0.094234,
+      "em": 0.0,
+      "containment": 0.0,
+      "token_f1": 0.630171,
+      "heuristic_judge": 0.476667
+    }
+  }
+}
