@@ -1,0 +1,53 @@
+% !TeX encoding = UTF-8
+% !TeX program = xelatex
+% !TeX spellcheck = zh_CN
+
+\documentclass[
+    fontset=fandol,
+    degree=bachelor,
+    openany
+]{sysuthesis}
+
+\input{sysusetup.tex}
+
+\begin{document}
+
+\makeatletter
+\newgeometry{margin=2.54cm}
+\pagenumbering{Alph}
+\pagestyle{empty}
+\sysu@title@pagetrue
+\sysu@cover
+\clearpage
+\restoregeometry
+\pagestyle{plain}
+\sysu@title@pagefalse
+\makeatother
+
+% 摘要
+\input{docs/abstract.tex}
+\clearpage
+
+\pagenumbering{roman}
+% 目录
+\tableofcontents
+\clearpage
+
+\pagenumbering{arabic}
+
+\pagenumbering{arabic}
+
+% 正文各章
+\input{docs/ch1-intro.tex}
+\input{docs/ch2-related.tex}
+\input{docs/ch3-system.tex}
+\input{docs/ch4-experiments.tex}
+\input{docs/ch5-conclusion.tex}
+
+% 参考文献
+\bibliography{reference}
+
+% 致谢
+\input{docs/acknowledgment.tex}
+
+\end{document}

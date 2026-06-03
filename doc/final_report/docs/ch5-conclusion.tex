@@ -1,0 +1,29 @@
+% !TeX root = ./main.tex
+
+\chapter{总结与展望}\label{ch:conclusion}
+
+\section{主要工作总结}
+
+本文设计并实现了一个完整的多模态 GraphRAG 文档问答系统，主要工作包括：
+
+\begin{enumerate}
+\item \textbf{多模态文档解析流水线}：基于 qwen3-vl-8b-instruct 的页面图像结构化抽取，支持七字段 JSON 输出（文本、表格、图表、结论、关键词、实体、关系），含 repair prompt 重试和 text-only 兜底机制。
+\item \textbf{异构文档知识图谱}：设计了面向文档问答的异构文档图，将 text、table、figure、conclusion、keyword 等组织为节点，通过 same\_page、keyword\_hit、continuation 等六类边连接，捕获版面结构、跨页延续和图表-文本对应关系。
+\item \textbf{GraphRAG 多阶段检索与多模态生成}：实现``FAISS 语义召回 → 图谱邻域扩展 → 社区全局补充''的检索策略，将文本证据、关系路径和页面原图融合为多模态 prompt 驱动 VLM 生成可追溯答案。
+\item \textbf{完整系统原型}：实现 Flask 后端（\texttt{/ingest}、\texttt{/chat}、\texttt{/graph} 等 API）和 vis-network 图谱可视化前端，支持文档上传、交互式问答和证据追溯。
+\item \textbf{系统性实验评测}：构建 120 题六类型自建测试集，通过五组消融实验验证了``向量检索 + 图谱扩展 + 多模态融合''路线的有效性，完整系统在全部指标上最优（ANLS 0.084、Token F1 0.619、Heuristic Judge 0.481、Page Recall 0.925）。
+\end{enumerate}
+
+\section{局限性与未来展望}
+
+当前系统存在以下局限：VLM 抽取的语义关系边存在噪声，多跳推理链条不够稳定；跨页延续边权重为二值化，缺乏语义连续性强度的精细度量；答案格式控制不足导致 ANLS 偏低；图谱在入库后为静态结构，未根据查询动态调整。未来可从以下方向改进：
+
+\begin{enumerate}
+\item \textbf{动态图谱检索}：借鉴 Query-Driven GraphRAG~\cite{bu2025query}，在查询时根据问题动态激活图谱相关区域。
+\item \textbf{语义级评测}：引入 BERTScore 和 LLM 自动评判，弥补 ANLS/EM 对长答案的评分盲区。
+\item \textbf{VLM LoRA 微调}：在文档特定任务（表格理解、图表推理、引用格式输出）上微调以提升表现。
+\item \textbf{幻觉检测与归因}：建立答案断言与检索证据的对应关系，实现细粒度证据归因。
+\item \textbf{多文档联合推理}：通过跨文档图谱桥接支持跨文档的比较与综合型问题。
+\end{enumerate}
+
+本项目证明了``向量检索 + 异构图谱 + 多模态 VLM''技术路线在文档问答场景中的可行性和有效性，消融实验清晰揭示了各组件的贡献权重，为后续研究提供了定量参考。

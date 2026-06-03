@@ -57,8 +57,8 @@ logs/
 
 # 评测数据与产物（体积大，通过HuggingFace获取）
 # 仅保留 kb/ 目录用于共享预构建知识库
-eval/output/*
-!eval/output/kb/
+# eval/output/*
+# !eval/output/kb/
 eval/input/pdfqa/*
 !eval/input/pdfqa/pdfs/
 !eval/input/pdfqa/annotations/

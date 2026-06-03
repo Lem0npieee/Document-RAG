@@ -1,0 +1,93 @@
+\begin{thebibliography}{12}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
+
+\bibitem[Lewis et~al.(2020)Lewis, Perez, Piktus, Petroni, Karpukhin, Goyal,
+  K{\"u}ttler, Lewis, Yih, Rockt{\"a}schel, Riedel, and Kiela]{lewis2020rag}
+Lewis P, Perez E, Piktus A, et~al.
+\newblock Retrieval-augmented generation for knowledge-intensive {NLP}
+  tasks\allowbreak[C].
+\newblock Advances in Neural Information Processing Systems (NeurIPS): Vol.~33.
+\newblock 2020: 9459-9474.
+
+\bibitem[Edge et~al.(2024)Edge, Trinh, Cheng, Bradley, Chao, Mody, Truitt, and
+  Larson]{edge2024graphrag}
+Edge D, Trinh H, Cheng N, et~al.
+\newblock From local to global: A graph {RAG} approach to query-focused
+  summarization\allowbreak[A].
+\newblock 2024.
+
+\bibitem[{Qwen Team}(2025)]{qwen2025qwen3vl}
+{Qwen Team}.
+\newblock {Qwen3-VL} official repository and {Qwen3-VL-8B-Instruct} model
+  card\allowbreak[Z].
+\newblock 2025.
+
+\bibitem[Johnson et~al.(2019)Johnson, Douze, and J{\'e}gou]{johnson2019faiss}
+Johnson J, Douze M, J{\'e}gou H.
+\newblock Billion-scale similarity search with {GPUs}\allowbreak[J].
+\newblock IEEE Transactions on Big Data, 2019, 7\allowbreak (3): 535-547.
+
+\bibitem[{Microsoft}(2025)]{microsoft2025graphrag}
+{Microsoft}.
+\newblock {Microsoft GraphRAG} documentation: Query engine overview and
+  indexing overview\allowbreak[Z].
+\newblock 2025.
+
+\bibitem[Bu et~al.(2025)Bu, Jiang, Xu, Wang, Sun, Li, and Wang]{bu2025query}
+Bu C, Jiang Y, Xu J, et~al.
+\newblock Query-driven multimodal {GraphRAG}: Dynamic local knowledge graph
+  construction for online reasoning\allowbreak[C].
+\newblock Findings of the Association for Computational Linguistics (ACL).
+\newblock 2025.
+
+\bibitem[Mathew et~al.(2021)Mathew, Karatzas, and Jawahar]{mathew2021docvqa}
+Mathew M, Karatzas D, Jawahar C~V.
+\newblock {DocVQA}: A dataset for {VQA} on document images\allowbreak[C].
+\newblock IEEE/CVF Winter Conference on Applications of Computer Vision (WACV).
+\newblock 2021: 2200-2209.
+
+\bibitem[Masry et~al.(2022)Masry, Long, Tan, Joty, and Hoque]{masry2022chartqa}
+Masry A, Long D~X, Tan J~Q, et~al.
+\newblock {ChartQA}: A benchmark for question answering about charts with
+  visual and logical reasoning\allowbreak[C].
+\newblock Findings of the Association for Computational Linguistics (ACL).
+\newblock 2022.
+
+\bibitem[Faysse et~al.(2024)Faysse, Colombo, Piccardi, Claveau, and
+  Hudelot]{faysse2024colpali}
+Faysse M, Colombo P, Piccardi T, et~al.
+\newblock {ColPali}: Efficient document retrieval with vision language
+  models\allowbreak[A].
+\newblock 2024.
+
+\bibitem[Dong et~al.(2025)Dong, Zhao, Xu, Fan, Ding, Li, Ning, Li, and
+  Zhao]{dong2025mmdocrag}
+Dong K, Zhao Y, Xu W, et~al.
+\newblock Benchmarking retrieval-augmented multimodal generation for document
+  question answering\allowbreak[A].
+\newblock 2025.
+
+\bibitem[Liu et~al.(2023)Liu, Li, Wu, and Lee]{liu2023llava}
+Liu H, Li C, Wu Q, et~al.
+\newblock Visual instruction tuning\allowbreak[C].
+\newblock Advances in Neural Information Processing Systems (NeurIPS).
+\newblock 2023.
+
+\bibitem[Zhu et~al.(2024)Zhu, Chen, Shen, Li, and Elhoseiny]{zhu2023minigpt4}
+Zhu D, Chen J, Shen X, et~al.
+\newblock {MiniGPT-4}: Enhancing vision-language understanding with advanced
+  large language models\allowbreak[C].
+\newblock International Conference on Learning Representations (ICLR).
+\newblock 2024.
+
+\end{thebibliography}
