@@ -29,11 +29,18 @@
 
 \subsection{整体性能}
 
-五组消融实验结果如表~\ref{tab:ablation-results} 所示。完整系统在所有指标上均取得最优。
+五组消融实验的整体结果如图~\ref{fig:ablation-metrics} 和表~\ref{tab:ablation-results} 所示。完整系统在所有四项指标上均取得最优成绩。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio]{ablation_metrics.png}
+\caption{五组消融实验四项核心指标对比}
+\label{fig:ablation-metrics}
+\end{figure}
 
 \begin{table}[htbp]
 \centering
-\caption{五组消融实验整体指标对比}
+\caption{五组消融实验整体指标数值}
 \label{tab:ablation-results}
 \begin{tabular}{@{}lrrrrr@{}}
 \toprule
@@ -49,19 +56,33 @@ Evidence Page Recall & 0.0000 & 0.8917 & 0.8750 & 0.9167 & \textbf{0.9250} \\
 
 \subsection{消融分析}\label{sec:exp-ablation-analysis}
 
+图~\ref{fig:waterfall} 以瀑布图形式展示了各组件的增量贡献（以 ANLS 为指标），核心发现如下：
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth,keepaspectratio]{waterfall.png}
+\caption{组件增量贡献（ANLS 瀑布图）}
+\label{fig:waterfall}
+\end{figure}
+
 \textbf{（1）FAISS 向量检索是最关键的组件。} vector\_only 的 ANLS（0.0549）是 graph\_only（0.0044）的 12.5 倍，Token F1 和 Heuristic Judge 也显著领先。仅有图谱关键词匹配无法提供足够的语义覆盖，FAISS 的稠密语义召回是不可替代的基础。
 
 \textbf{（2）图谱扩展提供额外增益。} 对比 full 与 vector\_only，引入图谱后 ANLS 提升 53.1\%（0.0549 $\rightarrow$ 0.0840），Token F1 提升 8.4\%，Evidence Page Recall 提升 5.7\%。图谱邻域扩展增强了语义证据广度，提升了页面定位准确性。
 
-\textbf{（3）页面图像有正向贡献但幅度较小。} 移除图像后 ANLS 下降 6.0\%，Token F1 下降 1.8\%，说明当前系统中文档的文本抽取质量较高，图像主要对图表理解和视觉细节问题发挥作用。
+\textbf{（3）页面图像有正向贡献但幅度较小。} 移除图像后 ANLS 下降 6.0\%，Token F1 下降 1.8\%，说明当前文档的文本抽取质量较高，图像主要对图表理解和视觉细节问题发挥作用。
 
-\textbf{（4）无检索基线完全失效。} none 组的 ANLS 仅为 0.0088，证据页面召回率为 0，反衬出检索增强在文档问答中的必要性。
-
-\textbf{（5）graph\_only 的``高召回、低准确''现象值得关注。} graph\_only 的 Evidence Page Recall（0.8917）与 vector\_only（0.8750）相当，但 ANLS 仅为 0.0044。图谱可通过关键词找到正确页面，但从页面提取的文本证据质量不足，导致模型``看对了地方''却``答不对问题''。
+\textbf{（4）graph\_only 的``高召回、低准确''现象值得关注。} graph\_only 的 Evidence Page Recall（0.8917）与 vector\_only（0.8750）相当，但 ANLS 仅为 0.0044。图谱可通过关键词找到正确页面，但从页面提取的文本证据质量不足，导致模型``看对了地方''却``答不对问题''。
 
 \subsection{按问题类型分析}
 
-表~\ref{tab:by-type} 展示了完整系统在六种问题类型上的性能分布。text\_location 和 table\_qa 表现最好（ANLS 0.15 和 0.12，Heuristic Judge 约 0.50），说明 FAISS 检索能准确定位单页内的文本和表格信息。cross\_page 和 chart\_understanding 居中（ANLS 0.02--0.10），跨页证据合并和图表视觉推理仍有改进空间。multi\_hop 和 citation\_tracking 的 ANLS 为零，但 Token F1 约 0.59，说明回答语义上存在重叠——零 ANLS 主要因长答案多等价表述导致编辑距离评分失效。
+图~\ref{fig:by-type} 和表~\ref{tab:by-type} 展示了完整系统在六种问题类型上的性能分布。text\_location 和 table\_qa 表现最好（ANLS 0.15 和 0.12，Heuristic Judge 约 0.50），FAISS 检索能准确定位单页内的文本和表格信息。cross\_page 和 chart\_understanding 居中，跨页证据合并和图表视觉推理仍有改进空间。multi\_hop 和 citation\_tracking 的 ANLS 为零，但 Token F1 约 0.59，说明回答语义上存在重叠——零 ANLS 主要因长答案多等价表述导致编辑距离评分失效。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio]{by_question_type.png}
+\caption{完整系统按问题类型的 ANLS 与 Token F1 对比}
+\label{fig:by-type}
+\end{figure}
 
 \begin{table}[htbp]
 \centering
@@ -83,7 +104,14 @@ citation\_tracking & 12 & 0.0000 & 0.5976 & 0.4583 \\
 
 \section{Token 成本分析}\label{sec:exp-token}
 
-DocRAG 每次问答仅向 VLM 发送检索筛选后的相关页面（通常 3--5 页）和文本证据，而非整个文档。以一篇 60 页 ESG 报告为例：DocRAG 每次输入约 3000--5000 等效 token，而全量上传需 50000--80000 等效 token，估算输入 token 节省率约 \textbf{94\%}。这一优势在多轮对话和批量评测场景下尤为显著。
+DocRAG 每次问答仅向 VLM 发送检索筛选后的相关页面（通常 3--5 页）和文本证据，而非整个文档。以一篇 60 页 ESG 报告为例：DocRAG 每次输入约 3000--5000 等效 token，而全量上传需 50000--80000 等效 token。图~\ref{fig:token} 直观展示了估算的输入 token 节省比例——DocRAG 相比全量上传可节省约 \textbf{94\%} 的输入 token。这一优势在多轮对话和批量评测场景下尤为显著。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.55\textwidth,keepaspectratio]{token_savings.png}
+\caption{DocRAG vs 全量上传：估算输入 Token 节省率}
+\label{fig:token}
+\end{figure}
 
 \section{错误分析}\label{sec:exp-error}
 

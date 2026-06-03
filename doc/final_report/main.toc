@@ -27,17 +27,17 @@
 \contentsline {subsection}{\numberline {4.1.3}消融方案}{9}{subsection.4.1.3}%
 \contentsline {section}{\numberline {4.2}实验结果}{9}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}整体性能}{9}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}消融分析}{10}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}按问题类型分析}{10}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Token 成本分析}{11}{section.4.3}%
-\contentsline {section}{\numberline {4.4}错误分析}{11}{section.4.4}%
-\contentsline {section}{\numberline {4.5}实验小结}{11}{section.4.5}%
+\contentsline {subsection}{\numberline {4.2.2}消融分析}{11}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}按问题类型分析}{11}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Token 成本分析}{12}{section.4.3}%
+\contentsline {section}{\numberline {4.4}错误分析}{12}{section.4.4}%
+\contentsline {section}{\numberline {4.5}实验小结}{13}{section.4.5}%
 \addvspace {12bp}
-\contentsline {chapter}{\numberline {5}总结与展望}{12}{chapter.5}%
-\contentsline {section}{\numberline {5.1}主要工作总结}{12}{section.5.1}%
-\contentsline {section}{\numberline {5.2}局限性与未来展望}{12}{section.5.2}%
+\contentsline {chapter}{\numberline {5}总结与展望}{14}{chapter.5}%
+\contentsline {section}{\numberline {5.1}主要工作总结}{14}{section.5.1}%
+\contentsline {section}{\numberline {5.2}局限性与未来展望}{14}{section.5.2}%
 \addvspace {12bp}
-\contentsline {chapter}{参考文献}{14}{chapter*.8}%
+\contentsline {chapter}{参考文献}{16}{chapter*.12}%
 \addvspace {12bp}
-\contentsline {chapter}{致谢}{15}{chapter*.9}%
+\contentsline {chapter}{致谢}{17}{chapter*.13}%
 \contentsfinish 
