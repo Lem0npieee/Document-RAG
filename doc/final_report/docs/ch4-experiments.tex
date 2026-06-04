@@ -12,7 +12,7 @@
 
 \subsection{评测指标}
 
-\begin{enumerate}
+\begin{enumerate}[label=（\arabic*）]
 \item \textbf{ANLS}：DocVQA 官方指标，归一化编辑距离（阈值 0.5）。
 \item \textbf{Token F1}：基于字符 bigram 的 F1 分数，对中文友好。
 \item \textbf{Heuristic Judge}：规则组合评分，EM=1.0、Containment=0.9、Token F1$\ge$0.8=0.8、Token F1$\ge$0.5=0.5、Token F1$\ge$0.3=0.25、其余 0。
@@ -23,7 +23,17 @@
 
 \subsection{消融方案}
 
-五组消融实验设计如下：\textbf{full}（FAISS + 图谱 + 图像，完整系统）、\textbf{vector\_only}（仅 FAISS + 图像）、\textbf{graph\_only}（仅图谱 + 图像）、\textbf{no\_image}（FAISS + 图谱，无图像）、\textbf{none}（无检索基线）。所有实验使用相同的 120 题和 qwen3-vl-8b-instruct 模型，仅检索配置不同。
+五组消融实验设计如下：
+
+\begin{enumerate}[label=（\arabic*）]
+\item \textbf{none}：该组不使用 FAISS 向量检索、异构文档图和页面图像证据，用于观察模型在缺少外部文档证据时的基线表现。
+\item \textbf{vector\_only}：该组仅使用 FAISS 向量检索定位相关文本证据，用于检验纯语义召回在多页文档问答中的作用。
+\item \textbf{graph\_only}：该组仅使用异构文档图进行证据扩展，用于检验结构关系和跨页关联对回答生成的贡献。
+\item \textbf{no\_image}：该组同时使用 FAISS 向量检索和异构文档图，但不输入页面图像证据，用于分析视觉信息对表格、图表和版式相关问题的影响。
+\item \textbf{full}：该组完整使用 FAISS 向量检索、异构文档图和页面图像证据，用于代表系统的完整多模态 GraphRAG 流程。
+\end{enumerate}
+
+所有实验使用相同的 120 道问题和 qwen3-vl-8b-instruct 模型，仅改变证据召回和输入配置，以保证不同组别之间具有可比性。
 
 \section{实验结果}\label{sec:exp-results}
 
@@ -56,7 +66,7 @@ Evidence Page Recall & 0.0000 & 0.8917 & 0.8750 & 0.9167 & \textbf{0.9250} \\
 
 \subsection{消融分析}\label{sec:exp-ablation-analysis}
 
-图~\ref{fig:waterfall} 以瀑布图形式展示了各组件的增量贡献（以 ANLS 为指标），核心发现如下：
+图~\ref{fig:waterfall} 展示了各组件的增量贡献（以 ANLS 为指标），核心发现如下：
 
 \begin{figure}[htbp]
 \centering
@@ -117,7 +127,7 @@ DocRAG 每次问答仅向 VLM 发送检索筛选后的相关页面（通常 3--5
 
 通过人工审查低分样本，归纳四类主要错误模式：
 
-\begin{enumerate}
+\begin{enumerate}[label=（\arabic*）]
 \item \textbf{检索跨度不足}：FAISS 召回可能仅命中跨页起止页中的一页，continuation 边未将另一端文本引入证据集。
 \item \textbf{答案格式冗长}：VLM 即使 short 模式也输出大量铺垫，导致与简洁标准答案的 ANLS/EM 偏低。
 \item \textbf{图表视觉推理脱节}：模型有时仅依赖文本形式的图表描述，忽略页面原图中的视觉细节（趋势线斜率、柱状图相对高度）。

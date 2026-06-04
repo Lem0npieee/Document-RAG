@@ -1,10 +1,8 @@
-% !TeX root = ./main.tex
-
 \chapter{系统设计与实现}\label{ch:system}
 
 \section{总体架构}\label{sec:sys-arch}
 
-系统围绕``知识库构建''和``在线问答''两条链路展开，总体架构如图~\ref{fig:architecture} 所示。
+本系统面向多页 PDF 文档中的多模态问答任务，整体上由知识库构建和在线问答两条链路组成。知识库构建链路负责将原始文档转化为可检索、可关联、可追溯的多模态知识表示；在线问答链路则根据用户问题从知识库中定位相关证据，并结合视觉语言模型生成最终回答。系统总体架构如图~\ref{fig:architecture} 所示。
 
 \begin{figure}[htbp]
 \centering
@@ -13,36 +11,47 @@
 \label{fig:architecture}
 \end{figure}
 
-\textbf{知识库构建链路}通过 Flask \texttt{/ingest} 接口接收文件后，调用 \texttt{build\_multimodal\_graphrag.py} 执行入库：PyMuPDF 将 PDF 渲染为页面图像，qwen3-vl-8b-instruct 进行结构化抽取得到文本、表格、图表、结论、关键词和关系，封装为 LangChain \texttt{Document} 对象。同一批内容被分别写入 DashScope \texttt{text-embedding-v3} 生成的 FAISS 向量索引和 networkx 异构文档图。FAISS 索引、图谱和页面原图通过 \texttt{node\_id}、\texttt{page}、\texttt{source}、\texttt{bbox} 等元数据对齐，形成统一的多模态证据空间。
+在知识库构建阶段，系统首先使用 PyMuPDF 将 PDF 按页转换为图像，以保留页面中的版式、图表、表格和视觉上下文。随后，系统调用 Qwen3-VL-8B-Instruct 对每一页进行结构化理解，抽取正文段落、表格内容、图表说明、页面结论、关键词以及语义关系。经过规范化处理后，这些内容同时进入基于 FAISS 的向量索引和基于 NetworkX 的异构文档图中。向量索引用于支持语义相似度检索，文档图用于表达页面内部和页面之间的结构关系，页面图像则作为后续回答阶段的重要视觉证据。三类信息共同构成系统的多模态知识库。
 
-\textbf{在线问答链路}从 \texttt{/chat} 接口进入 \texttt{MultiModalGraphRAG.ask()}：FAISS 语义召回种子节点 → 图谱邻域扩展与二跳桥接 → 社区 profile 全局补充 → 融合文本证据、关系路径与页面原图为多模态 prompt → VLM 生成可追溯答案。前端提供 Chat Workspace、vis-network 图谱可视化和 Node Inspector 三个核心交互区域。
+在在线问答阶段，系统并不直接把整篇 PDF 交给模型处理，而是先根据用户问题进行证据筛选。系统先利用 DashScope text-embedding-v3 生成问题向量，并在 FAISS 索引中获得语义相关的候选内容，再借助文档图扩展同页内容、关键词关联、跨页延续和图文对应关系，最后选取少量相关页面图像与文本证据共同输入 Qwen3-VL-8B-Instruct。这样既能减少长文档输入带来的 token 开销，也能提高证据定位的可解释性。
 
 \section{文档解析与结构化抽取}\label{sec:sys-parsing}
 
-系统使用 PyMuPDF 将 PDF 页面以 2.0 倍缩放渲染为 PNG，调用 qwen3-vl-8b-instruct 进行七字段结构化抽取：\texttt{texts}（正文/标题/图注，含 bbox）、\texttt{tables}（Markdown 表格）、\texttt{figures}（图表编号/描述/bbox）、\texttt{section\_conclusions}（页面结论）、\texttt{entities}（命名实体）、\texttt{keywords}（方法/模型/指标等关键词）、\texttt{relations}（三元组语义关系）。
+多页 PDF 文档往往同时包含正文、表格、图表、脚注、标题层级和跨页延续内容。若只依赖纯文本抽取，表格结构、图表含义和版面关系很容易丢失。因此，本系统在文档解析阶段保留页面图像，并利用 Qwen3-VL-8B-Instruct 直接理解页面整体内容。该模型不仅识别页面中的文字，还会根据版面位置和视觉线索判断不同内容块之间的关系。
 
-解析模块包含三类鲁棒性策略：抽取稀疏时自动使用高召回 repair prompt 重试；仍缺少文本块时调用 text-only prompt 兜底；JSON 解析使用字符串扫描定位对象边界配合 \texttt{raw\_decode} 容错，非法 JSON 时包装为最小化 text-only Document。所有片段被赋予稳定的 \texttt{node\_id}（基于文档哈希、页码和类型），保留完整元数据用于检索、引用和可视化。
+解析结果会被统一整理为若干类文档元素，包括文本片段、表格、图表、页面级结论以及关键词信息。对于表格，系统保留其行列结构和主要数值；对于图表，系统保留图表编号、主题描述和视觉含义；对于正文内容，系统保留其页码来源和上下文位置。这样处理后，文档不再只是连续的纯文本，而是由多个带有来源信息的多模态证据单元组成。
+
+为了提高解析稳定性，系统在抽取结果过于稀疏或格式不完整时会进行补充解析，并对异常结果进行容错处理。其目的不是追求复杂的工程细节，而是保证每一页至少能够形成可检索的基本内容表示。最终，所有文档元素都会带有稳定的来源信息，使系统能够在回答时追溯到具体文档和页面。
 
 \section{知识图谱构建}\label{sec:sys-graph}
 
-本系统的图谱是面向文档问答定制设计的\textbf{异构文档图}。节点类型包括：内容节点（text、table、figure、conclusion、cross\_page\_text）和关键词节点（以 method/model/dataset/metric/task 等分类前缀组织）。边类型包括：same\_page（同页上下文）、keyword\_hit（关键词与内容锚定）、cooccurrence（同页关键词共现）、continuation（相邻页文本延续）、cross\_page\_merge（跨页合并联系）和 VLM 抽取的语义关系边。
+系统采用向量索引和异构文档图共同组织知识。向量索引由 text-embedding-v3 和 FAISS 构成，适合处理语义相似的召回问题，例如用户问题和某段正文表述并不完全一致时，仍然可以通过语义匹配找到相关内容。异构文档图由 NetworkX 进行组织，用于表达文档内部更明确的结构关系，例如同一页中的图文邻近关系、关键词与内容之间的锚定关系、相邻页面之间的文本延续关系，以及由模型抽取出的语义关联。
 
-这种设计使图谱不仅能支撑多跳推理，还能捕获版面结构、跨页延续和图表-文本对应关系。系统故意弱化不稳定的实体节点，优先使用关键词和内容锚点作为图骨架。图谱构建后使用 greedy modularity communities 算法进行社区检测，每个社区被表征为包含关键词分布、页面范围和节点统计的轻量 profile，用于问答阶段的全局上下文补充。
+在图结构中，节点可以表示正文片段、表格、图表、页面结论或关键词等不同类型的信息。边则表示这些信息之间的联系，例如同页共现、主题相关、上下文延续和跨页合并。相比单纯的向量检索，这种图结构能够帮助系统从一个证据点扩展到相关证据点，尤其适合回答需要多跳推理、跨页整合或结合图表与正文的问题。
 
-\section{向量索引与 GraphRAG 检索}\label{sec:sys-rag}
+文档图并不是为了替代向量检索，而是作为语义召回之后的结构化补充。向量检索负责快速找到与问题最接近的候选内容，图结构负责沿着文档关系扩展上下文。系统还采用 greedy modularity communities 算法对文档图进行社区划分，使问答阶段能够获得主题层面的全局补充证据。二者结合后，系统既能保持检索效率，又能减少只依赖片段相似度带来的上下文缺失问题。
 
-\subsection{向量索引}
+\section{GraphRAG 问答流程}\label{sec:sys-rag}
 
-系统通过 LangChain FAISS 集成和 DashScope \texttt{text-embedding-v3} 构建本地向量索引（支持切换本地 HuggingFace 模型）。每个 Document 的 \texttt{page\_content} 在嵌入前拼接类型标签和页码信息以增强类型感知。FAISS 索引支持增量更新：通过 SHA-256 文件签名检查文档是否已存在于 \texttt{build\_meta.json} 注册表，仅对新文档执行解析和嵌入。
+在线问答流程可以概括为证据召回、图谱扩展、证据融合和答案生成四个阶段。首先，系统根据用户问题在向量索引中检索语义相关内容，得到初始证据。随后，系统在文档图中围绕这些证据进行关系扩展，补充同页内容、关键词关联内容和跨页连续内容。对于涉及全局主题的问题，系统还会利用图中的社区结构补充更高层次的上下文。
 
-\subsection{多阶段检索与生成}
+证据融合阶段会对候选内容进行筛选和组织。系统会优先保留与问题相关度高、来源明确、能够相互补充的文本证据和页面图像。对于包含表格或图表的问题，页面图像能够为视觉语言模型提供原始视觉依据；对于跨页问题，图结构能够帮助系统把分散在不同页面的内容连接起来。最终输入模型的不是整篇文档，而是一组经过筛选的证据集合。
 
-问答链 \texttt{MultiModalGraphRAG} 的检索过程分三阶段：（1）FAISS top-k（默认 k=3）语义召回种子节点，支持 \texttt{source\_hint} 限定文档源；（2）在文档图中从种子节点执行一跳邻域扩展（same\_page、keyword\_hit 等），再通过关键词 hub 做二跳桥接，总节点上限 18；（3）将查询词与社区 profile 匹配，按命中数、重叠度和规模选择全局补充证据。
+答案生成阶段由 Qwen3-VL-8B-Instruct 完成。模型会综合文本证据、结构关系和相关页面图像，生成自然语言回答，并返回与回答相关的页面和证据来源。由于回答建立在检索到的证据集合之上，用户不仅能够看到最终答案，也能够进一步查看答案依据的页面和图谱节点，从而提升系统的可追溯性。
 
-检索完成后构造五层多模态 prompt：任务指令 → 图谱关系链 → 全局社区证据 → 文本证据块 → 相关页面原图（base64 data URI）。最终由 qwen3-vl-8b-instruct 生成答案，返回 \texttt{GraphRAGResult}（含答案、页码、节点 ID、关系路径、图像路径）。系统通过 \texttt{use\_vectorstore}、\texttt{use\_graph}、\texttt{use\_images} 三个布尔标志支持五种消融模式（full/vector\_only/graph\_only/no\_image/none）。
+\section{前后端交互设计}\label{sec:sys-web}
 
-\section{后端与前端}\label{sec:sys-web}
+系统后端基于 Flask 实现，负责文档入库、问答调用、图谱读取和证据资源管理。文档入库任务通常耗时较长，因此后端需要处理任务状态、并发控制和结果缓存等问题。问答接口则需要在较短时间内完成检索、图谱扩展、证据组织和模型调用。为了保证系统能够稳定运行，后端还对大规模图谱数据和页面资源进行了缓存与压缩处理。
 
-后端基于 Flask 提供 RESTful API：\texttt{/ingest}（文件上传入库，支持 token 鉴权和互斥锁防并发）、\texttt{/chat}（问答，返回答案与引用）、\texttt{/graph}（图谱 JSON，gzip 压缩、含节点级元数据）、\texttt{/node/<id>}（节点懒加载）和 \texttt{/outputs/<path>}（静态文件访问）。工程优化包括：图谱 mtime 缓存自动失效、大响应 gzip 压缩和文件名安全清洗。
+系统网页界面如图~\ref{fig:web-ui} 所示。前端围绕问答和证据查看两个核心需求设计，将对话区、知识图谱区和节点详情区整合在同一工作空间中。用户可以在左侧对话区域输入问题并查看模型回答，回答内容以 Markdown 形式渲染，便于展示分点说明、引用信息和结构化结论。页面中部展示由 vis-network 生成的交互式知识图谱，用户可以通过缩放、拖拽和点击节点观察文档中的文本、表格、图表、关键词及其关系。右侧节点详情区用于展示当前选中节点的来源文档、页码、内容摘要和页面预览，使用户能够从模型答案进一步追溯到原始证据。
 
-前端为单页应用（\texttt{web/index.html} + \texttt{web/app.js}），核心功能包括：Chat Workspace（Markdown 答案渲染、多轮对话）、Knowledge Graph（vis-network 交互式图谱，禁用物理引擎处理 6000+ 节点场景）和 Node Inspector（节点详情、页面预览和 bbox Canvas 裁剪展示）。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth,keepaspectratio]{网页.png}
+\caption{系统网页交互界面}
+\label{fig:web-ui}
+\end{figure}
+
+从功能上看，该网页不仅承担普通问答入口的作用，还提供了知识结构浏览和证据核查能力。对话区负责承载用户问题和系统回答，知识图谱区负责呈现文档知识库的整体结构，节点详情区则负责连接抽象图谱节点与具体页面证据。当用户在图谱中选择某个节点时，系统会展示该节点的类型、来源页码、文本内容以及相关页面预览；对于图表和表格节点，页面预览还能帮助用户检查模型回答是否与原文视觉证据一致。这样的设计使系统不仅是一个问答工具，也能够作为文档知识结构的浏览和分析工具。
+
+总体而言，本系统的实现重点不是简单地把 PDF 上传给大模型，而是先将文档转化为可检索、可关联的多模态知识空间，再通过 GraphRAG 流程选择必要证据并完成回答。该设计在回答质量、证据可追溯性和 token 成本之间形成了较好的平衡，也为后续消融实验和 token 对比实验提供了清晰的系统基础。

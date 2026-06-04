@@ -1,0 +1,46 @@
+{
+  "updated_at": "2026-05-21T15:32:52.325666",
+  "mode": "both",
+  "provider": "dashscope",
+  "model": "qwen3-vl-8b-instruct",
+  "annotations_root": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\input\\pdfqa\\annotations",
+  "pdfs_root": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\input\\pdfqa\\pdfs",
+  "kb_root": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\kb",
+  "records_file": "D:\\HuaweiMoveData\\Users\\18381\\Desktop\\多模态大作业\\eval\\output\\pdfqa\\token_eval.jsonl",
+  "category": "real",
+  "qa_split": "all",
+  "doc_name": "",
+  "answer_profile": "all",
+  "full_upload_model": "qwen-long-latest",
+  "full_upload_scope": "target_doc",
+  "sample_count": 20,
+  "done_count": 13,
+  "failed_count": 7,
+  "paired_count": 13,
+  "docrag_usage": {
+    "input_tokens": 29071,
+    "output_tokens": 26,
+    "total_tokens": 29097,
+    "image_tokens": 0
+  },
+  "full_upload_usage": {
+    "input_tokens": 547890,
+    "output_tokens": 13,
+    "total_tokens": 547903,
+    "image_tokens": 0
+  },
+  "savings": {
+    "input_token_saved_ratio": 0.94694,
+    "output_token_saved_ratio": -1.0,
+    "total_token_saved_ratio": 0.946894,
+    "input_token_saved_percent": 94.69,
+    "output_token_saved_percent": -100.0,
+    "total_token_saved_percent": 94.69,
+    "upload_token_saved_percent": 94.69,
+    "download_token_saved_percent": -100.0
+  },
+  "avg_uploaded_units": {
+    "docrag_images": 0.0,
+    "full_upload_pdfs": 1.0
+  }
+}
