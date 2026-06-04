@@ -163,7 +163,7 @@ fig, ax = plt.subplots(figsize=(6, 5))
 
 sizes = [6, 94]
 labels = ["DocRAG 输入\n(约 5 页，6%)", "节省 token\n(94%)"]
-pie_colors = [C_VECTOR, "#E8E8E8"]
+pie_colors = ["#4A7FB5", "#E2E8F0"]
 explode = (0.03, 0)
 
 wedges, texts, autotexts = ax.pie(
