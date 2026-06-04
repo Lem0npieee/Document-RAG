@@ -11,33 +11,31 @@
 \contentsline {section}{\numberline {2.3}多模态文档理解与问答}{4}{section.2.3}%
 \contentsline {section}{\numberline {2.4}视觉语言模型}{5}{section.2.4}%
 \addvspace {12bp}
-\contentsline {chapter}{\numberline {3}系统设计与实现}{6}{chapter.3}%
-\contentsline {section}{\numberline {3.1}总体架构}{6}{section.3.1}%
-\contentsline {section}{\numberline {3.2}文档解析与结构化抽取}{7}{section.3.2}%
-\contentsline {section}{\numberline {3.3}知识图谱构建}{7}{section.3.3}%
-\contentsline {section}{\numberline {3.4}向量索引与 GraphRAG 检索}{7}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}向量索引}{7}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}多阶段检索与生成}{8}{subsection.3.4.2}%
-\contentsline {section}{\numberline {3.5}后端与前端}{8}{section.3.5}%
+\contentsline {chapter}{\numberline {3}系统设计与实现}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}总体架构}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}文档解析与结构化抽取}{8}{section.3.2}%
+\contentsline {section}{\numberline {3.3}知识图谱构建}{8}{section.3.3}%
+\contentsline {section}{\numberline {3.4}GraphRAG 问答流程}{9}{section.3.4}%
+\contentsline {section}{\numberline {3.5}前后端交互设计}{9}{section.3.5}%
 \addvspace {12bp}
-\contentsline {chapter}{\numberline {4}实验设计与结果分析}{9}{chapter.4}%
-\contentsline {section}{\numberline {4.1}实验设置}{9}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}数据集}{9}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}评测指标}{9}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}消融方案}{9}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}实验结果}{9}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}整体性能}{9}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}消融分析}{11}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}按问题类型分析}{11}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Token 成本分析}{12}{section.4.3}%
-\contentsline {section}{\numberline {4.4}错误分析}{12}{section.4.4}%
-\contentsline {section}{\numberline {4.5}实验小结}{13}{section.4.5}%
+\contentsline {chapter}{\numberline {4}实验设计与结果分析}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}实验设置}{11}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}数据集}{11}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}评测指标}{11}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}消融方案}{11}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}实验结果}{12}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}整体性能}{12}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}消融分析}{13}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}按问题类型分析}{13}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}Token 成本分析}{14}{section.4.3}%
+\contentsline {section}{\numberline {4.4}错误分析}{14}{section.4.4}%
+\contentsline {section}{\numberline {4.5}实验小结}{15}{section.4.5}%
 \addvspace {12bp}
-\contentsline {chapter}{\numberline {5}总结与展望}{14}{chapter.5}%
-\contentsline {section}{\numberline {5.1}主要工作总结}{14}{section.5.1}%
-\contentsline {section}{\numberline {5.2}局限性与未来展望}{14}{section.5.2}%
+\contentsline {chapter}{\numberline {5}总结与展望}{16}{chapter.5}%
+\contentsline {section}{\numberline {5.1}主要工作总结}{16}{section.5.1}%
+\contentsline {section}{\numberline {5.2}局限性与未来展望}{16}{section.5.2}%
 \addvspace {12bp}
-\contentsline {chapter}{参考文献}{16}{chapter*.12}%
+\contentsline {chapter}{参考文献}{18}{chapter*.13}%
 \addvspace {12bp}
-\contentsline {chapter}{致谢}{17}{chapter*.13}%
+\contentsline {chapter}{致谢}{19}{chapter*.14}%
 \contentsfinish 
