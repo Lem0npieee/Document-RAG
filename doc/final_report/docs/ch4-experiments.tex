@@ -134,6 +134,106 @@ DocRAG 每次问答仅向 VLM 发送检索筛选后的相关页面（通常 3--5
 \item \textbf{多跳证据链断裂}：multi\_hop 问题需在不同节点间建立推理链，当中间节点的语义关系边存在噪声或缺失时，证据链中断。
 \end{enumerate}
 
+\section{人工评分交叉验证}\label{sec:exp-human}
+
+自动指标（尤其是 ANLS 和 Exact Match）对长答案的语义等价不敏感：当模型给出内容正确但表述不同的回答时，编辑距离类指标往往给出低分。为交叉验证自动指标的可靠性，本节从测试集中选取李俊璋同学负责的 4 篇文档（Meta 2023 Sustainability Report、Veolia ESG Report 2023、Walmart ESG Highlights 2023、Westpac 2023 Climate Report），对其共计 40 道问题进行人工三档评分，并与 Heuristic Judge 进行对比分析。
+
+\subsection{评分标准}
+
+人工评分采用三档制，以标准答案的任意变体为基准，不要求逐字匹配：
+
+\begin{enumerate}[label=（\arabic*）]
+\item \textbf{正确（1.0）}：核心事实与标准答案一致，关键数据/结论正确，无重大遗漏。
+\item \textbf{部分正确（0.5）}：触及核心但存在关键数据偏差、遗漏重要子问题、部分信息不准确或回答过于泛化。
+\item \textbf{错误（0.0）}：关键事实错误、答非所问、或模型表示``证据不足''但标准答案有明确信息。
+\end{enumerate}
+
+多子问题等权重独立判断；模型给出额外合理信息不扣分。加权准确率定义为 $\text{加权准确率} = (N_{\text{正确}} \times 1.0 + N_{\text{部分正确}} \times 0.5) / 40$。
+
+\subsection{整体结果}
+
+40 道问题的人工评分整体分布如表~\ref{tab:human-eval-overall} 所示。
+
+\begin{table}[htbp]
+\centering
+\caption{人工评分整体分布（40 题）}
+\label{tab:human-eval-overall}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{评分等级} & \textbf{数量} & \textbf{占比} \\
+\midrule
+正确（1.0）& 19 & 47.5\% \\
+部分正确（0.5）& 15 & 37.5\% \\
+错误（0.0）& 6 & 15.0\% \\
+\midrule
+加权准确率 & & \textbf{0.6625} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+加权准确率为 66.3\%，显著高于 Heuristic Judge 对同 40 题的平均分（0.496）。这说明模型回答的实质语义质量优于编辑距离类指标所反映的水平，大量``部分正确''回答被自动指标系统性低估。
+
+\subsection{按文档分析}
+
+四篇文档的人工加权准确率如表~\ref{tab:human-eval-doc} 所示。
+
+\begin{table}[htbp]
+\centering
+\caption{人工评分与 Heuristic Judge 按文档对比}
+\label{tab:human-eval-doc}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{文档} & \textbf{人工加权准确率} & \textbf{Heuristic Judge} & \textbf{差距} \\
+\midrule
+Veolia ESG Report 2023 & 0.750 & 0.500 & +0.250 \\
+Meta 2023 Sustainability Report & 0.700 & 0.530 & +0.170 \\
+Walmart ESG Highlights 2023 & 0.600 & 0.425 & +0.175 \\
+Westpac 2023 Climate Report & 0.600 & 0.530 & +0.070 \\
+\midrule
+平均 & 0.663 & 0.496 & +0.167 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Veolia 表现最好（0.750），Walmart 和 Westpac 相对较弱（0.600）。值得注意的是，Westpac 的 Heuristic Judge 评分（0.530）与 Veolia（0.500）相当甚至略高，但人工评分差距达 0.150，再次说明自动指标可能高估部分文档的表现。
+
+\subsection{按题型分析}
+
+各题型的表现差异明显（表~\ref{tab:human-eval-type}）。
+
+\begin{table}[htbp]
+\centering
+\caption{人工评分按题型分布}
+\label{tab:human-eval-type}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\textbf{题型} & \textbf{数量} & \textbf{加权准确率} & \textbf{Heuristic Judge} & \textbf{差距} \\
+\midrule
+text\_location & 12 & 0.792 & 0.500 & +0.292 \\
+table\_qa & 9 & 0.722 & 0.506 & +0.217 \\
+chart\_understanding & 4 & 0.625 & 0.500 & +0.125 \\
+cross\_page & 7 & 0.643 & 0.471 & +0.172 \\
+citation\_tracking & 4 & 0.375 & 0.500 & $-$0.125 \\
+multi\_hop & 4 & 0.125 & 0.500 & $-$0.375 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+text\_location 和 table\_qa 表现最好（加权准确率 > 0.7），这两类问题对单页文本和表格信息的定位需求明确，FAISS 检索能有效覆盖。multi\_hop 表现最弱（4 题中 3 题得 0 分，加权准确率仅 0.125），主要原因是中间节点的语义关系边存在噪声或缺失，导致多跳推理链条中断。citation\_tracking 次弱（0.375），模型在给定页码时频频出错。
+
+一个令人警惕的现象是：multi\_hop 和 citation\_tracking 的人工加权准确率远低于 Heuristic Judge（差距分别为 $-$0.375 和 $-$0.125），这意味着自动指标在这两类题型上存在严重的假阳性问题——模型输出的文本因包含实体名称和数值关键词而获得较高自动分，但实际回答的关键事实是错误的。
+
+\subsection{自动指标可靠性分析}
+
+将人工评分与 Heuristic Judge 逐题配对进行 Spearman 秩相关性分析，系数仅为 \textbf{0.387}（$p < 0.05$），属于弱正相关。进一步识别出以下典型不一致案例：
+
+\begin{enumerate}[label=（\arabic*）]
+\item \textbf{假阳性（5 例）}：Heuristic Judge $\ge 0.5$ 但人工评分为 0.0。这 5 例全部集中在 multi\_hop 和 citation\_tracking 题型，共同特征是模型输出包含与标准答案相同的实体名称和数值，但关键关系或归因完全错误，自动指标仅凭表面词级匹配无法识别。
+\item \textbf{假阴性（1 例）}：Heuristic Judge = 0.25 但人工评分为 1.0（Walmart 员工构成数据题）。模型回答数据完全正确，但因表述顺序与标准答案不同导致 Token F1 下降，进而拉低 Heuristic Judge。
+\end{enumerate}
+
+综合以上分析，本节的人工评分交叉验证得出三点主要结论：第一，完整系统在人工三档评分下的加权准确率达到 66.3\%，高于自动指标所反映的水平，系统具有实际可用性；第二，自动指标（尤其是 Heuristic Judge 和 ANLS）对 multi\_hop 和 citation\_tracking 类长答案存在系统性高估或低估，不应单独作为评测依据；第三，在资源允许的情况下，建议将人工抽检作为自动评测的必要补充。
+
 \section{实验小结}\label{sec:exp-summary}
 
 本章通过五组消融实验验证了``向量检索 + 图谱扩展 + 多模态融合''路线的有效性：完整系统在全部指标上最优，FAISS 语义召回是最关键的单一组件，图谱和图像提供额外增益，页面级证据定位达 92.5\% 召回率。Token 分析表明 DocRAG 相比全量上传可节省约 94\% 的输入 token。
