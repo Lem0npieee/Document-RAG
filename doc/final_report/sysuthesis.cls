@@ -1596,7 +1596,7 @@
     % 本科生要求除封面、扉页外，每面上部加页眉，
     % 用 5 号字（10.5 bp）标注“中山大学本科毕业论文”，居中；
     \def\sysu@hf@font{\fontsize{10.5bp}{17.5bp}\selectfont}
-    \fancyhead[C]{\sysu@hf@font 中山大学本科毕业论文}%
+    \fancyhead[C]{\sysu@hf@font 《多模态大模型原理与应用》结题报告}%
     \fancyfoot[C]{\sysu@hf@font\thepage}%
     \let\@mkboth\@gobbletwo
     \let\chaptermark\@gobble
@@ -1842,7 +1842,7 @@
     \newcommand\sysu@thesis@name{中山大学硕士学位论文}
     \newcommand\sysu@thesis@name@en{A dissertation for master's degree}
   \else
-    \newcommand\sysu@thesis@name{本科生毕业论文（设计）}
+    \newcommand\sysu@thesis@name{《多模态大模型原理与应用》结题报告}
     \newcommand\sysu@thesis@name@en{A dissertation for bachelor's degree}
   \fi
 \fi
