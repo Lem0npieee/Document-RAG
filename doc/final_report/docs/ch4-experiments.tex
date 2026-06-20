@@ -114,7 +114,28 @@ citation\_tracking & 12 & 0.0000 & 0.5976 & 0.4583 \\
 
 \section{Token 成本分析}\label{sec:exp-token}
 
-DocRAG 每次问答仅向 VLM 发送检索筛选后的相关页面（通常 3--5 页）和文本证据，而非整个文档。以一篇 60 页 ESG 报告为例：DocRAG 每次输入约 3000--5000 等效 token，而全量上传需 50000--80000 等效 token。图~\ref{fig:token} 直观展示了估算的输入 token 节省比例——DocRAG 相比全量上传可节省约 \textbf{94\%} 的输入 token。这一优势在多轮对话和批量评测场景下尤为显著。
+DocRAG 每次问答仅向 VLM 发送检索筛选后的相关页面和文本证据，而非整个文档。为了量化这一设计对调用成本的影响，本文将 DocRAG 问答流程与直接上传目标 PDF 的全量问答方式进行对比。两种方式使用相同的问题集合，统计模型调用中的输入 token、输出 token 和总 token。实验共选取 20 道真实 PDF 问题，其中 13 道问题在两种方式下均成功返回结果，因此表~\ref{tab:token-cost} 以这 13 个有效配对样本作为统计口径。
+
+\begin{table}[htbp]
+\centering
+\caption{DocRAG 与全量上传方式的 Token 成本对比}
+\label{tab:token-cost}
+\begin{tabular}{lccc}
+\toprule
+统计项 & DocRAG & 全量上传 PDF & 相对全量上传变化 \\
+\midrule
+有效配对样本数 & 13 & 13 & -- \\
+输入 Token 总数 & 29,071 & 547,890 & 减少 94.69\% \\
+总 Token 数 & 29,097 & 547,903 & 减少 94.69\% \\
+平均输入 Token & 2,236 & 42,145 & 减少 94.69\% \\
+平均总 Token & 2,238 & 42,146 & 减少 94.69\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+从表~\ref{tab:token-cost} 可以看出，全量上传方式在每次问答中都需要重新处理完整 PDF，因此平均输入 token 达到 42,145；DocRAG 则通过检索和图谱扩展先定位少量相关证据，平均输入 token 降至 2,236，仅为全量上传方式的约 5.31\%。换言之，DocRAG 在输入侧节省了 94.69\% 的 token。输出 token 由于本实验要求模型给出简短答案，两种方式的数值都很小，且 DocRAG 略高于全量上传方式，因此不构成主要成本差异。总体来看，token 成本优势主要来自输入侧压缩，说明先检索再生成的流程能够在保持证据可追溯的同时显著降低长 PDF 问答的调用开销。
+
+图~\ref{fig:token} 进一步直观展示了输入 token 节省比例。这一优势在多轮对话和批量评测场景下尤为显著，因为全量上传方式会在每轮问答中重复传入整篇文档，而 DocRAG 只需传入与当前问题相关的局部证据。
 
 \begin{figure}[htbp]
 \centering
@@ -136,7 +157,7 @@ DocRAG 每次问答仅向 VLM 发送检索筛选后的相关页面（通常 3--5
 
 \section{人工评分交叉验证}\label{sec:exp-human}
 
-自动指标（尤其是 ANLS 和 Exact Match）对长答案的语义等价不敏感：当模型给出内容正确但表述不同的回答时，编辑距离类指标往往给出低分。为交叉验证自动指标的可靠性，本节从测试集中选取李俊璋同学负责的 4 篇文档（Meta 2023 Sustainability Report、Veolia ESG Report 2023、Walmart ESG Highlights 2023、Westpac 2023 Climate Report），对其共计 40 道问题进行人工三档评分，并与 Heuristic Judge 进行对比分析。
+自动指标（尤其是 ANLS 和 Exact Match）对长答案的语义等价不敏感：当模型给出内容正确但表述不同的回答时，编辑距离类指标往往给出低分。为交叉验证自动指标的可靠性，本节从测试集中选取了 4 篇文档（Meta 2023 Sustainability Report、Veolia ESG Report 2023、Walmart ESG Highlights 2023、Westpac 2023 Climate Report），对其共计 40 道问题进行人工三档评分，并与 Heuristic Judge 进行对比分析。
 
 \subsection{评分标准}
 
@@ -148,7 +169,7 @@ DocRAG 每次问答仅向 VLM 发送检索筛选后的相关页面（通常 3--5
 \item \textbf{错误（0.0）}：关键事实错误、答非所问、或模型表示``证据不足''但标准答案有明确信息。
 \end{enumerate}
 
-多子问题等权重独立判断；模型给出额外合理信息不扣分。加权准确率定义为 $\text{加权准确率} = (N_{\text{正确}} \times 1.0 + N_{\text{部分正确}} \times 0.5) / 40$。
+多子问题等权重独立判断；模型给出额外合理信息不扣分。加权准确率定义为： $$\text{加权准确率} = (N_{\text{正确}} \times 1.0 + N_{\text{部分正确}} \times 0.5) / 40$$
 
 \subsection{整体结果}
 

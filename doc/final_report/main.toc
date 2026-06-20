@@ -28,14 +28,20 @@
 \contentsline {subsection}{\numberline {4.2.2}消融分析}{13}{subsection.4.2.2}%
 \contentsline {subsection}{\numberline {4.2.3}按问题类型分析}{13}{subsection.4.2.3}%
 \contentsline {section}{\numberline {4.3}Token 成本分析}{14}{section.4.3}%
-\contentsline {section}{\numberline {4.4}错误分析}{14}{section.4.4}%
-\contentsline {section}{\numberline {4.5}实验小结}{15}{section.4.5}%
+\contentsline {section}{\numberline {4.4}错误分析}{15}{section.4.4}%
+\contentsline {section}{\numberline {4.5}人工评分交叉验证}{16}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}评分标准}{16}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}整体结果}{16}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}按文档分析}{17}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}按题型分析}{17}{subsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.5.5}自动指标可靠性分析}{18}{subsection.4.5.5}%
+\contentsline {section}{\numberline {4.6}实验小结}{18}{section.4.6}%
 \addvspace {12bp}
-\contentsline {chapter}{\numberline {5}总结与展望}{16}{chapter.5}%
-\contentsline {section}{\numberline {5.1}主要工作总结}{16}{section.5.1}%
-\contentsline {section}{\numberline {5.2}局限性与未来展望}{16}{section.5.2}%
+\contentsline {chapter}{\numberline {5}总结与展望}{19}{chapter.5}%
+\contentsline {section}{\numberline {5.1}主要工作总结}{19}{section.5.1}%
+\contentsline {section}{\numberline {5.2}局限性与未来展望}{20}{section.5.2}%
 \addvspace {12bp}
-\contentsline {chapter}{参考文献}{18}{chapter*.13}%
+\contentsline {chapter}{参考文献}{21}{chapter*.17}%
 \addvspace {12bp}
-\contentsline {chapter}{致谢}{19}{chapter*.14}%
+\contentsline {chapter}{致谢}{22}{chapter*.18}%
 \contentsfinish 
