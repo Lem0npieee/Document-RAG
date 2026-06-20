@@ -441,11 +441,28 @@ function initGraph(graph) {
       dragView: true,
       zoomView: true,
     },
-    // Physics stable for small graphs; for large graphs (>150 nodes),
-    // it's disabled to prevent browser freeze. Nodes use pre-computed
-    // spiral positions that spread them nicely without simulation.
+    // Force-directed layout: repulsion pushes nodes apart, edges pull
+    // connected nodes together. Stable for ~200 nodes / 200 edges.
     physics: {
-      enabled: false,
+      enabled: true,
+      solver: "barnesHut",
+      barnesHut: {
+        gravitationalConstant: -4000,
+        centralGravity: 0.25,
+        springLength: 180,
+        springConstant: 0.04,
+        damping: 0.15,
+        avoidOverlap: 0.2,
+      },
+      stabilization: {
+        enabled: true,
+        iterations: 200,
+        updateInterval: 25,
+        fit: true,
+      },
+      maxVelocity: 25,
+      minVelocity: 0.5,
+      timestep: 0.5,
     },
     nodes: {
       shape: "dot",
@@ -462,7 +479,10 @@ function initGraph(graph) {
   }
 
   network = new vis.Network(graphCanvas, { nodes: dsNodes, edges: dsEdges }, options);
-  // Fit smoothly after all nodes have popped in (handled in addNextBatch).
+  // Freeze physics after stabilization settles.
+  network.once("stabilizationIterationsDone", () => {
+    network.setOptions({ physics: { enabled: false } });
+  });
 
   // Pop in nodes in batches for a smooth reveal animation.
   let addedCount = 0;
@@ -650,6 +670,26 @@ function parseGraphData(raw) {
 
   const nodeMap = raw.node_map || {};
   const documents = raw.documents || [{ source: raw.source || "doc", pages: raw.pages || [] }];
+
+  // ---- Determine whether to show keywords based on graph size ----
+  // Keyword nodes add color but also computational cost. For large
+  // document sets we hide them to keep the browser responsive.
+  const MAX_NODES_FOR_KEYWORDS = 200;
+
+  let totalPotentialNodes = 0;
+  documents.forEach((doc) => {
+    (doc.pages || []).forEach((page) => {
+      totalPotentialNodes += 1; // page node
+      totalPotentialNodes += (page.node_ids || []).length; // content nodes
+      totalPotentialNodes += (page.keywords || []).length; // keyword nodes
+      (page.relations || []).forEach(() => {
+        totalPotentialNodes += 2; // from-node + to-node for each relation
+      });
+    });
+  });
+  const showKeywords = totalPotentialNodes <= MAX_NODES_FOR_KEYWORDS;
+
+  // ---- Build nodes & edges ----
   const nodes = [];
   const edges = [];
   const addedContentIds = new Set();
@@ -677,40 +717,56 @@ function parseGraphData(raw) {
         _expanded: false,
       });
 
-      // Render content nodes (text/table/figure/conclusion/cross_page_text) directly
-      // connected to their page, so all node types are visible immediately.
+      // Content nodes (text/table/figure/conclusion/cross_page_text)
       childNodeIds.forEach((cId) => {
         if (addedContentIds.has(cId)) return;
         const detail = nodeMap[cId] || {};
         const cType = detail.type || "text";
-        // Skip keyword-type entries — they are handled separately
         if (cType === "keyword") return;
         addedContentIds.add(cId);
         const snip = (detail.snippet || "").replace(/\s+/g, " ").trim();
         const fig = detail.fig_id || "";
         const lbl = fig || (snip ? snip.slice(0, 32) + (snip.length > 32 ? "..." : "") : cId.replace(/_/g, " "));
         nodes.push({
-          id: cId,
-          label: lbl,
-          type: cType,
+          id: cId, label: lbl, type: cType,
           tokens: estimateTokenCount(snip || lbl),
           source: detail.source || source,
           page: detail.page || page.page,
           content: detail.snippet || "",
           image_path: detail.image_path || "",
           image_url: detail.image_url || "",
-          fig_id: fig,
-          bbox: detail.bbox,
+          fig_id: fig, bbox: detail.bbox,
         });
         edges.push({ from: pageId, to: cId, relation: "contains" });
       });
 
-      // Keyword nodes are skipped to keep the graph lightweight for large
-      // document sets (368+ nodes freezes the browser). Keywords are still
-      // visible in the chat evidence when referenced during Q&A.
-      //
-      // (page.keywords || []).forEach(...)  — skipped
-      // (page.relations || []).forEach(...) — skipped
+      // Keywords — shown only for small graphs
+      if (showKeywords) {
+        (page.keywords || []).forEach((keyword) => {
+          const term = typeof keyword === "string" ? keyword : String(keyword?.term || keyword?.name || "").trim();
+          if (!term) return;
+          const keywordType = typeof keyword === "string" ? "concept" : String(keyword?.type || "concept");
+          const keywordId = `keyword_${normalizeSemanticId(term)}`;
+          nodes.push({
+            id: keywordId, label: term, type: "keyword",
+            tokens: estimateTokenCount(term), keyword_type: keywordType,
+            source, page: page.page, content: term,
+            image_path: page.image_path || "", image_url: page.image_url || "",
+          });
+          edges.push({ from: pageId, to: keywordId, relation: "keyword" });
+        });
+
+        (page.relations || []).forEach((rel) => {
+          const fromRaw = String(rel?.from || "").trim();
+          const toRaw = String(rel?.to || "").trim();
+          if (!fromRaw || !toRaw) return;
+          const fromId = `keyword_${normalizeSemanticId(fromRaw)}`;
+          const toId = `keyword_${normalizeSemanticId(toRaw)}`;
+          nodes.push({ id: fromId, label: fromRaw, type: "keyword", tokens: estimateTokenCount(fromRaw), keyword_type: "concept", source, page: page.page, content: fromRaw, image_path: page.image_path || "", image_url: page.image_url || "" });
+          nodes.push({ id: toId, label: toRaw, type: "keyword", tokens: estimateTokenCount(toRaw), keyword_type: "concept", source, page: page.page, content: toRaw, image_path: page.image_path || "", image_url: page.image_url || "" });
+          edges.push({ from: fromId, to: toId, relation: rel.relation });
+        });
+      }
     });
   });
 
