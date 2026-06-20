@@ -6,7 +6,7 @@ import json
 import re
 import time
 from pathlib import Path
-from typing import Any, Protocol
+from typing import Any, Iterator, Protocol
 from urllib import error, request
 
 import dashscope
@@ -33,6 +33,9 @@ class VLClient(Protocol):
         ...
 
     def answer_question(self, prompt: str, image_paths: list[str | Path]) -> str:
+        ...
+
+    def answer_question_stream(self, prompt: str, image_paths: list[str | Path]) -> Iterator[str]:
         ...
 
 
@@ -158,6 +161,52 @@ class DashScopeVLClient:
 
     def answer_question(self, prompt: str, image_paths: list[str | Path]) -> str:
         return self._call(prompt=prompt, image_paths=image_paths)
+
+    def answer_question_stream(self, prompt: str, image_paths: list[str | Path]) -> Iterator[str]:
+        """Stream answer tokens via DashScope incremental multimodal API."""
+        dashscope.api_key = self.api_key
+        user_content: list[dict[str, str]] = []
+        for image_path in image_paths:
+            user_content.append({"image": self._to_data_uri(image_path)})
+        user_content.append({"text": prompt})
+
+        messages = [
+            {"role": "system", "content": [{"text": "You are a helpful multimodal assistant."}]},
+            {"role": "user", "content": user_content},
+        ]
+
+        try:
+            responses = MultiModalConversation.call(
+                model=self.model,
+                messages=messages,
+                result_format="message",
+                stream=True,
+                incremental_output=True,
+            )
+            for resp in responses:
+                try:
+                    payload = resp.to_dict() if hasattr(resp, "to_dict") else dict(resp)
+                except Exception:
+                    continue
+                output = payload.get("output")
+                if not isinstance(output, dict):
+                    continue
+                choices = output.get("choices", [])
+                for choice in choices:
+                    msg = choice.get("message", {}) if isinstance(choice, dict) else {}
+                    content = msg.get("content", [])
+                    if isinstance(content, str):
+                        if content.strip():
+                            yield content
+                    elif isinstance(content, list):
+                        for item in content:
+                            text = item.get("text", "") if isinstance(item, dict) else str(item)
+                            if text.strip():
+                                yield text
+        except Exception as exc:
+            print(f"  Streaming API error, falling back to non-streaming: {exc}")
+            full = self.answer_question(prompt=prompt, image_paths=image_paths)
+            yield full
 
 
 class CLIProxyVLClient:
@@ -307,6 +356,10 @@ class CLIProxyVLClient:
     def answer_question(self, prompt: str, image_paths: list[str | Path]) -> str:
         return self._call(prompt=prompt, image_paths=image_paths)
 
+    def answer_question_stream(self, prompt: str, image_paths: list[str | Path]) -> Iterator[str]:
+        """Fallback: yield full answer as single chunk."""
+        yield self.answer_question(prompt=prompt, image_paths=image_paths)
+
 
 class OllamaVLClient:
     """Local VLM client via Ollama's OpenAI-compatible API (http://localhost:11434/v1)."""
@@ -397,6 +450,10 @@ class OllamaVLClient:
 
     def answer_question(self, prompt: str, image_paths: list[str | Path]) -> str:
         return self._call(prompt=prompt, image_paths=image_paths)
+
+    def answer_question_stream(self, prompt: str, image_paths: list[str | Path]) -> Iterator[str]:
+        """Fallback: yield full answer as single chunk."""
+        yield self.answer_question(prompt=prompt, image_paths=image_paths)
 
 
 def create_vl_client(settings: Settings) -> VLClient:
