@@ -26,6 +26,16 @@ class Settings:
     parsed_dirname: str = "parsed"
     faiss_dirname: str = "faiss_index"
     graph_dirname: str = "doc_graph"
+    bm25_dirname: str = "bm25_index"
+    # Hybrid retrieval + reranker
+    enable_hybrid_retrieval: bool = True
+    enable_reranker: bool = True
+    reranker_model: str = "BAAI/bge-reranker-base"
+    # Query rewriting
+    enable_query_rewriting: bool = True
+    query_rewriter_model: str = "qwen3.7-plus"
+    # Streaming
+    enable_streaming: bool = True
 
     @property
     def pages_dir(self) -> Path:
@@ -42,6 +52,10 @@ class Settings:
     @property
     def graph_dir(self) -> Path:
         return self.output_root / self.graph_dirname
+
+    @property
+    def bm25_dir(self) -> Path:
+        return self.output_root / self.bm25_dirname
 
     @property
     def doc_dir(self) -> Path:
@@ -114,6 +128,24 @@ def get_settings() -> Settings:
         ),
         doc_root=Path(os.getenv("DOC_ROOT", "doc")),
         output_root=Path(os.getenv("OUTPUT_ROOT", "outputs")),
+        enable_hybrid_retrieval=_clean_env_value(
+            os.getenv("ENABLE_HYBRID_RETRIEVAL", "true")
+        ).lower() in {"true", "1", "yes"},
+        enable_reranker=_clean_env_value(
+            os.getenv("ENABLE_RERANKER", "true")
+        ).lower() in {"true", "1", "yes"},
+        reranker_model=_clean_env_value(
+            os.getenv("RERANKER_MODEL", "BAAI/bge-reranker-base")
+        ),
+        enable_query_rewriting=_clean_env_value(
+            os.getenv("ENABLE_QUERY_REWRITING", "true")
+        ).lower() in {"true", "1", "yes"},
+        query_rewriter_model=_clean_env_value(
+            os.getenv("QUERY_REWRITER_MODEL", "qwen3.7-plus")
+        ),
+        enable_streaming=_clean_env_value(
+            os.getenv("ENABLE_STREAMING", "true")
+        ).lower() in {"true", "1", "yes"},
     )
 
     if settings.model_provider == "cliproxyapi":
@@ -138,5 +170,6 @@ def get_settings() -> Settings:
     settings.parsed_dir.mkdir(parents=True, exist_ok=True)
     settings.faiss_dir.mkdir(parents=True, exist_ok=True)
     settings.graph_dir.mkdir(parents=True, exist_ok=True)
+    settings.bm25_dir.mkdir(parents=True, exist_ok=True)
 
     return settings

@@ -10,7 +10,13 @@ from langchain_core.documents import Document
 
 from src.config import Settings
 from src.graph.builder import load_graph
-from src.indexing.faiss_store import load_faiss_index
+from src.indexing.faiss_store import load_bm25_index, load_faiss_index
+from src.indexing.hybrid_retriever import (
+    BGEReranker,
+    HybridRetriever,
+    create_hybrid_retriever,
+)
+from src.indexing.query_rewriter import QueryRewriter
 from src.vl_client import create_vl_client
 
 
@@ -55,6 +61,26 @@ class MultiModalGraphRAG:
         self.pages_dir = Path(pages_dir)
         self.use_images = use_images
         self.community_profiles = self._build_community_profiles() if use_graph else []
+
+        # Hybrid retrieval (FAISS + BM25 → RRF → Reranker)
+        self.hybrid_retriever: HybridRetriever | None = None
+        if settings.enable_hybrid_retrieval and self.vectorstore is not None:
+            self.hybrid_retriever = create_hybrid_retriever(
+                faiss_store=self.vectorstore,
+                bm25_dir=settings.bm25_dir,
+                reranker_model=settings.reranker_model,
+                enable_bm25=True,
+                enable_reranker=settings.enable_reranker,
+            )
+
+        # Query rewriting (LLM rewrites long/colloquial questions)
+        self.query_rewriter: QueryRewriter | None = None
+        if settings.enable_query_rewriting:
+            self.query_rewriter = QueryRewriter(
+                api_key=settings.dashscope_api_key,
+                model=settings.query_rewriter_model,
+                output_root=settings.output_root,
+            )
 
     def _build_community_profiles(self) -> list[dict[str, Any]]:
         if self.graph.number_of_nodes() == 0:
@@ -468,6 +494,22 @@ class MultiModalGraphRAG:
             return []
 
         source_key = self._canonical_source_name(source_hint)
+
+        # Use hybrid retriever when available (FAISS + BM25 → RRF → Reranker)
+        if self.hybrid_retriever is not None:
+            candidates = self.hybrid_retriever.retrieve(
+                question=question,
+                k_faiss=20,
+                k_bm25=20,
+                final_k=max(k * 4, 20),
+            )
+            if not source_key:
+                return candidates[:k]
+            filtered = [d for d in candidates
+                        if self._canonical_source_name(str(d.metadata.get("source", ""))) == source_key]
+            return filtered[:k] if filtered else candidates[:k]
+
+        # Fallback: FAISS-only retrieval
         candidate_k = max(k * 6, 30) if source_key else k
         candidates: list[Document] = []
 
@@ -489,8 +531,6 @@ class MultiModalGraphRAG:
         if len(filtered) >= k:
             return filtered[:k]
 
-        # If source filtering is too strict and returns nothing, keep behavior robust
-        # by falling back to top semantic candidates.
         return filtered if filtered else candidates[:k]
 
     def ask(
@@ -507,6 +547,11 @@ class MultiModalGraphRAG:
         if source_hint:
             print(f"  Source hint: {source_hint}")
 
+        # Query rewriting (optional – rewrites long/colloquial queries before retrieval)
+        search_query = question
+        if self.query_rewriter is not None:
+            search_query = self.query_rewriter.rewrite(question)
+
         if ablation == "none":
             retrieved_docs = []
             seed_node_ids = []
@@ -514,10 +559,10 @@ class MultiModalGraphRAG:
         elif ablation == "graph_only":
             # Skip vector retrieval, use graph keyword lookup only
             retrieved_docs = []
-            seed_node_ids = self._graph_keyword_seeds(question, max_seeds=max_nodes, source_hint=source_hint)
+            seed_node_ids = self._graph_keyword_seeds(search_query, max_seeds=max_nodes, source_hint=source_hint)
             expanded_node_ids = self._expand_with_graph(seed_node_ids, max_nodes=max_nodes, source_hint=source_hint)
         else:
-            retrieved_docs = self._retrieve_docs(question=question, k=k, source_hint=source_hint)
+            retrieved_docs = self._retrieve_docs(question=search_query, k=k, source_hint=source_hint)
             print(f"  Retrieved docs: {len(retrieved_docs)}")
 
             seed_node_ids = [str(doc.metadata.get("node_id")) for doc in retrieved_docs if doc.metadata.get("node_id")]

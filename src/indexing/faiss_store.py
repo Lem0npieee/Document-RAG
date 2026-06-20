@@ -41,6 +41,35 @@ def _create_embedding(
     )
 
 
+def build_bm25_index(
+    documents: list[Document],
+    output_dir: str | Path,
+) -> Path:
+    """Build and persist a BM25 keyword index alongside the FAISS index."""
+    from .hybrid_retriever import BM25Index
+
+    output_path = Path(output_dir)
+    output_path.mkdir(parents=True, exist_ok=True)
+    bm25 = BM25Index()
+    bm25.build(documents)
+    pkl_path = output_path / "bm25_index.pkl"
+    bm25.save(pkl_path)
+    print(f"    BM25 索引已保存至: {pkl_path} (文档数: {len(documents)})")
+    return pkl_path
+
+
+def load_bm25_index(index_dir: str | Path) -> Any:
+    """Load a persisted BM25 index. Returns None if index file is missing."""
+    from .hybrid_retriever import BM25Index
+
+    pkl_path = Path(index_dir) / "bm25_index.pkl"
+    if not pkl_path.exists():
+        return None
+    bm25 = BM25Index()
+    bm25.load(pkl_path)
+    return bm25
+
+
 def _path_has_non_ascii(path: Path) -> bool:
     try:
         str(path).encode("ascii")

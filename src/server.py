@@ -11,7 +11,7 @@ from typing import Any
 import gzip
 import io
 
-from flask import Flask, after_this_request, jsonify, request, send_from_directory
+from flask import Flask, Response, after_this_request, jsonify, request, send_from_directory
 from werkzeug.utils import secure_filename
 
 APP_ROOT = Path(__file__).resolve().parents[1]
@@ -37,8 +37,13 @@ app = Flask(__name__, static_folder=None)
 
 
 @app.after_request
-def _compress_json(response):
-    """Gzip JSON responses > 1KB to reduce graph data transfer."""
+def _after_request(response):
+    # Disable caching for development/demo
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "0"
+
+    # Gzip JSON responses > 1KB to reduce graph data transfer.
     if (response.content_type == "application/json"
             and response.content_length is not None
             and response.content_length > 1024):
@@ -308,6 +313,67 @@ def chat() -> Any:
             "relations": result.relations,
             "image_paths": result.image_paths,
         }
+    )
+
+
+@app.post("/chat/stream")
+def chat_stream() -> Any:
+    """SSE streaming chat endpoint with typewriter effect."""
+    from flask import Response, stream_with_context
+
+    payload = request.get_json(silent=True) or {}
+    question = str(payload.get("question", "")).strip()
+    if not question:
+        return jsonify({"error": "question is required"}), 400
+
+    try:
+        chain = _load_chain()
+    except FileNotFoundError as exc:
+        return jsonify({"error": str(exc)}), 400
+
+    def generate():
+        # 2KB SSE comment padding — forces Werkzeug dev server to flush
+        # the initial buffer so the "thinking" event reaches the browser.
+        yield ": " + " " * 2048 + "\n\n"
+
+        # Immediately send "thinking" so the frontend shows feedback
+        yield f"data: {json.dumps({'type': 'thinking'})}\n\n"
+
+        # Full retrieval + VLM call (blocking 5-15s)
+        result = chain.ask(question)
+
+        # Send metadata
+        meta = json.dumps(
+            {
+                "type": "meta",
+                "pages": result.pages,
+                "node_ids": result.node_ids,
+                "relations": result.relations,
+                "image_paths": [str(p) for p in result.image_paths],
+            },
+            ensure_ascii=False,
+        )
+        yield f"data: {meta}\n\n"
+
+        # Stream answer with small delays for typewriter effect
+        answer = result.answer
+        chunk_size = 5
+        import time
+        for i in range(0, len(answer), chunk_size):
+            chunk = answer[i : i + chunk_size]
+            yield f"data: {json.dumps({'type': 'token', 'text': chunk}, ensure_ascii=False)}\n\n"
+            time.sleep(0.015)
+
+        yield f"data: {json.dumps({'type': 'done'})}\n\n"
+
+    return Response(
+        stream_with_context(generate()),
+        mimetype="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "X-Accel-Buffering": "no",
+            "Connection": "keep-alive",
+        },
     )
 
 

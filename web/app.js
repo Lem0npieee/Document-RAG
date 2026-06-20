@@ -310,20 +310,61 @@ async function sendChat(question) {
   return json.answer;
 }
 
-function withInitialSpreadPositions(nodes) {
-  // Use a deterministic spiral layout so the graph is already spread on first paint.
-  // This avoids startup jitter from physics solvers on dense graphs.
-  const goldenAngle = Math.PI * (3 - Math.sqrt(5)); // ~2.39996
-  const baseRadius = 80;
-  const radiusStep = 42;
+async function sendChatStream(question, onToken, onMeta, onDone, onError) {
+  try {
+    const res = await fetch(`${API_BASE}/chat/stream`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question }),
+    });
+    if (!res.ok) {
+      const json = await res.json().catch(() => ({}));
+      onError(json.error || "Request failed");
+      return;
+    }
 
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split("\n");
+      buffer = lines.pop() || "";
+      for (const line of lines) {
+        if (!line.startsWith("data: ")) continue;
+        try {
+          const data = JSON.parse(line.slice(6));
+          if (data.type === "thinking") {
+            onToken("");
+          } else if (data.type === "meta") {
+            onMeta(data);
+          } else if (data.type === "token") {
+            onToken(data.text);
+          } else if (data.type === "done") {
+            onDone();
+          }
+        } catch (_) { /* skip malformed */ }
+      }
+    }
+  } catch (err) {
+    onError(err.message || "Stream failed");
+  }
+}
+
+function withInitialSpreadPositions(nodes) {
+  // Scatter nodes in a rough circle so physics has a good starting configuration.
+  const count = nodes.length;
   return nodes.map((node, index) => {
-    const angle = index * goldenAngle;
-    const radius = baseRadius + Math.sqrt(index + 1) * radiusStep;
+    const angle = (index / count) * Math.PI * 2;
+    const jitter = 30 + Math.random() * 60;
+    const radius = 120 + Math.sqrt(index + 1) * 28 + jitter;
     return {
       ...node,
-      x: Math.cos(angle) * radius,
-      y: Math.sin(angle) * radius,
+      x: Math.cos(angle) * radius + (Math.random() - 0.5) * 80,
+      y: Math.sin(angle) * radius + (Math.random() - 0.5) * 80,
     };
   });
 }
@@ -371,56 +412,84 @@ function initGraph(graph) {
     id: `edge_${index}`,
     from: edge.from,
     to: edge.to,
-    label: edge.relation || "鍏宠仈",
-    font: { color: "#cbd5f5", size: 10, align: "top" },
-    arrows: { to: { enabled: true, scaleFactor: 0.7 } },
-    color: { color: "rgba(100,116,139,0.55)" },
-    smooth: true,
+    label: edge.relation || "关联",
+    font: { color: "rgba(148,163,184,0.7)", size: 9, align: "top", strokeWidth: 0 },
+    arrows: { to: { enabled: true, scaleFactor: 0.5 } },
+    color: { color: "#4b5563", hover: "#1f2937" },
+    width: 3,
+    smooth: { type: "continuous", roundness: 0.4 },
     selectable: false,
     hover: false,
     data: edge,
   }));
 
-  nodeCount.textContent = nodes.length.toString();
-  edgeCount.textContent = edges.length.toString();
+  const totalNodes = nodes.length;
+  const totalEdges = edges.length;
+  nodeCount.textContent = "0";
+  edgeCount.textContent = "0";
 
-  const data = { nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) };
+  // Start with empty datasets – nodes will pop in one by one (Obsidian-style).
+  const dsNodes = new vis.DataSet([]);
+  const dsEdges = new vis.DataSet([]);
+
   const options = {
     interaction: {
       hover: true,
       multiselect: true,
       selectConnectedEdges: false,
+      dragNodes: true,
+      dragView: true,
+      zoomView: true,
     },
-    // Physics disabled — 6000+ nodes with pre-computed spiral positions.
-    // Enabling physics causes multi-second freezes on every interaction.
+    // Physics stable for small graphs; for large graphs (>150 nodes),
+    // it's disabled to prevent browser freeze. Nodes use pre-computed
+    // spiral positions that spread them nicely without simulation.
     physics: {
       enabled: false,
-    },
-    layout: {
-      improvedLayout: false,
-      randomSeed: 11,
     },
     nodes: {
       shape: "dot",
       shadow: false,
       borderWidth: 0,
       labelHighlightBold: false,
-      font: { face: "Space Grotesk", size: 13, color: "#0f172a", vadjust: 12 },
+      font: { face: "Space Grotesk", size: 12, color: "#475569", vadjust: 12 },
     },
-    edges: { smooth: true },
+    edges: { smooth: { type: "continuous", roundness: 0.4 } },
   };
 
   if (network) {
     network.destroy();
   }
 
-  network = new vis.Network(graphCanvas, data, options);
-  network.once("afterDrawing", () => {
-    network.fit({ animation: false });
-  });
+  network = new vis.Network(graphCanvas, { nodes: dsNodes, edges: dsEdges }, options);
+  // Fit smoothly after all nodes have popped in (handled in addNextBatch).
+
+  // Pop in nodes in batches for a smooth reveal animation.
+  let addedCount = 0;
+  const batchSize = 10;       // nodes per frame
+  const batchDelay = 30;      // ms between batches
+
+  function addNextBatch() {
+    const batch = nodes.slice(addedCount, addedCount + batchSize);
+    if (batch.length === 0) {
+      // All nodes added – now add edges, then fit after a brief settle.
+      dsEdges.add(edges);
+      edgeCount.textContent = totalEdges.toString();
+      setTimeout(() => {
+        network.fit({ animation: { duration: 1200, easingFunction: "easeInOutQuad" } });
+      }, 600);
+      return;
+    }
+    dsNodes.add(batch);
+    addedCount += batch.length;
+    nodeCount.textContent = addedCount.toString();
+    setTimeout(addNextBatch, batchDelay);
+  }
+
+  setTimeout(addNextBatch, 20);
 
   // Store refs for expand/collapse
-  window._visData = data;
+  window._visData = { nodes: dsNodes, edges: dsEdges };
   window._visNodes = nodes;
 
   network.on("click", (params) => {
@@ -583,6 +652,7 @@ function parseGraphData(raw) {
   const documents = raw.documents || [{ source: raw.source || "doc", pages: raw.pages || [] }];
   const nodes = [];
   const edges = [];
+  const addedContentIds = new Set();
 
   documents.forEach((doc) => {
     const source = doc.source || "doc";
@@ -607,62 +677,40 @@ function parseGraphData(raw) {
         _expanded: false,
       });
 
-      (page.keywords || []).forEach((keyword) => {
-        const term =
-          typeof keyword === "string"
-            ? keyword
-            : String(keyword?.term || keyword?.name || "").trim();
-        if (!term) return;
-        const keywordType =
-          typeof keyword === "string" ? "concept" : String(keyword?.type || "concept");
-        const keywordId = `keyword_${normalizeSemanticId(term)}`;
+      // Render content nodes (text/table/figure/conclusion/cross_page_text) directly
+      // connected to their page, so all node types are visible immediately.
+      childNodeIds.forEach((cId) => {
+        if (addedContentIds.has(cId)) return;
+        const detail = nodeMap[cId] || {};
+        const cType = detail.type || "text";
+        // Skip keyword-type entries — they are handled separately
+        if (cType === "keyword") return;
+        addedContentIds.add(cId);
+        const snip = (detail.snippet || "").replace(/\s+/g, " ").trim();
+        const fig = detail.fig_id || "";
+        const lbl = fig || (snip ? snip.slice(0, 32) + (snip.length > 32 ? "..." : "") : cId.replace(/_/g, " "));
         nodes.push({
-          id: keywordId,
-          label: term,
-          type: "keyword",
-          tokens: estimateTokenCount(term),
-          keyword_type: keywordType,
-          source,
-          page: page.page,
-          content: term,
-          image_path: page.image_path || "",
-          image_url: page.image_url || "",
+          id: cId,
+          label: lbl,
+          type: cType,
+          tokens: estimateTokenCount(snip || lbl),
+          source: detail.source || source,
+          page: detail.page || page.page,
+          content: detail.snippet || "",
+          image_path: detail.image_path || "",
+          image_url: detail.image_url || "",
+          fig_id: fig,
+          bbox: detail.bbox,
         });
-        edges.push({ from: pageId, to: keywordId, relation: "keyword" });
+        edges.push({ from: pageId, to: cId, relation: "contains" });
       });
 
-      (page.relations || []).forEach((rel) => {
-        const fromRaw = String(rel?.from || "").trim();
-        const toRaw = String(rel?.to || "").trim();
-        if (!fromRaw || !toRaw) return;
-        const fromId = `keyword_${normalizeSemanticId(fromRaw)}`;
-        const toId = `keyword_${normalizeSemanticId(toRaw)}`;
-        nodes.push({
-          id: fromId,
-          label: fromRaw,
-          type: "keyword",
-          tokens: estimateTokenCount(fromRaw),
-          keyword_type: "concept",
-          source,
-          page: page.page,
-          content: fromRaw,
-          image_path: page.image_path || "",
-          image_url: page.image_url || "",
-        });
-        nodes.push({
-          id: toId,
-          label: toRaw,
-          type: "keyword",
-          tokens: estimateTokenCount(toRaw),
-          keyword_type: "concept",
-          source,
-          page: page.page,
-          content: toRaw,
-          image_path: page.image_path || "",
-          image_url: page.image_url || "",
-        });
-        edges.push({ from: fromId, to: toId, relation: rel.relation });
-      });
+      // Keyword nodes are skipped to keep the graph lightweight for large
+      // document sets (368+ nodes freezes the browser). Keywords are still
+      // visible in the chat evidence when referenced during Q&A.
+      //
+      // (page.keywords || []).forEach(...)  — skipped
+      // (page.relations || []).forEach(...) — skipped
     });
   });
 
@@ -675,9 +723,56 @@ sendBtn.addEventListener("click", () => {
   if (!text) return;
   addMessage("user", text);
   chatInput.value = "";
-  sendChat(text)
-    .then((answer) => addMessage("assistant", answer))
-    .catch(() => addMessage("assistant", "Chat request failed."));
+
+  // Create assistant bubble for streaming typewriter effect
+  const bubble = document.createElement("div");
+  bubble.className = "chat-bubble assistant";
+  bubble.innerHTML = '<span class="thinking">Thinking...</span>';
+  chatHistory.appendChild(bubble);
+
+  let fullText = "";
+  let lastMeta = null;
+  let thinkingCleared = false;
+
+  sendChatStream(text,
+    // onToken — plain text during streaming, no markdown re-parsing
+    (token) => {
+      if (!thinkingCleared) {
+        fullText = "";
+        thinkingCleared = true;
+      }
+      fullText += token;
+      // Plain textContent is instant; markdown rendering only at the end
+      bubble.textContent = fullText;
+      chatHistory.scrollTop = chatHistory.scrollHeight;
+    },
+    // onMeta
+    (meta) => {
+      lastMeta = meta;
+    },
+    // onDone — convert plain text to markdown once at the end
+    () => {
+      bubble.innerHTML = renderMarkdown(fullText);
+      if (lastMeta && lastMeta.pages && lastMeta.pages.length > 0) {
+        const metaDiv = document.createElement("div");
+        metaDiv.className = "chat-citations";
+        metaDiv.innerHTML =
+          `<span class="citation-label">引用页码: ${lastMeta.pages.join(", ")}</span>`;
+        bubble.appendChild(metaDiv);
+      }
+      chatHistory.scrollTop = chatHistory.scrollHeight;
+    },
+    // onError — fallback to non-streaming
+    async () => {
+      try {
+        const answer = await sendChat(text);
+        bubble.innerHTML = renderMarkdown(answer);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+      } catch {
+        bubble.textContent = "Chat request failed.";
+      }
+    }
+  );
 });
 
 chatInput.addEventListener("keydown", (event) => {

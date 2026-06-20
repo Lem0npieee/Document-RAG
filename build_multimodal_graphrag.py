@@ -11,7 +11,7 @@ from langchain_core.documents import Document
 
 from src.config import get_settings
 from src.graph.builder import build_document_graph, save_graph
-from src.indexing.faiss_store import build_faiss_index
+from src.indexing.faiss_store import build_bm25_index, build_faiss_index
 from src.parsing.pipeline import (
     parse_images_to_documents,
     prepare_input_as_images,
@@ -573,7 +573,7 @@ def build_knowledge_base(input_file: str, force_rebuild: bool = False) -> dict[s
     _save_registry(paths["meta"], registry)
     print(f"  元数据已保存至: {paths['meta']}")
 
-    print(f"[6/7] 构建FAISS向量索引...")
+    print(f"[6/8] 构建FAISS向量索引...")
     faiss_path = build_faiss_index(
         documents=documents,
         api_key=settings.dashscope_api_key,
@@ -583,7 +583,14 @@ def build_knowledge_base(input_file: str, force_rebuild: bool = False) -> dict[s
     )
     print(f"  FAISS索引保存至: {faiss_path}")
 
-    print(f"[7/7] 构建文档知识图谱...")
+    print(f"[7/8] 构建BM25关键词索引...")
+    bm25_path = build_bm25_index(
+        documents=documents,
+        output_dir=settings.bm25_dir,
+    )
+    print(f"  BM25索引保存至: {bm25_path}")
+
+    print(f"[8/8] 构建文档知识图谱...")
     graph = build_document_graph(
         documents=documents,
         graph_data={
@@ -600,6 +607,7 @@ def build_knowledge_base(input_file: str, force_rebuild: bool = False) -> dict[s
         "docs_json": str(docs_path),
         "graph_data_json": str(graph_data_path),
         "faiss_index": str(faiss_path),
+        "bm25_index": str(bm25_path),
         "graph_pkl": str(graph_path),
         "nodes": stats["nodes"],
         "edges": stats["edges"],
@@ -642,6 +650,7 @@ def main() -> None:
     print(f"  - 文档JSON: {result['docs_json']}")
     print(f"  - 图数据JSON: {result['graph_data_json']}")
     print(f"  - FAISS索引: {result['faiss_index']}")
+    print(f"  - BM25索引: {result.get('bm25_index', 'N/A')}")
     print(f"  - 知识图谱: {result['graph_pkl']}")
     print(f"图谱统计:")
     print(f"  - 节点数: {result['nodes']}")
